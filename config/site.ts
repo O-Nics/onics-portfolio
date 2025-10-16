@@ -2,39 +2,49 @@ export type SiteConfig = typeof siteConfig;
 
 export const siteConfig = {
   name: "Nicolas Planche - Portfolio",
-  description: "Portfolio website of Nicolas Planche, a passionate developer.",
+  description: "Portfolio de Nicolas Planche, développeur full-stack passionné par le développement web et mobile.",
   navItems: [
     {
-      label: "Home",
+      label: "Accueil",
       href: "/",
       modal: false,
     },
     {
-      label: "Projects",
-      href: "/projects",
+      label: "Projets",
+      href: "/projets",
+      modal: false,
+    },
+    {
+      label: "À propos",
+      href: "/a-propos",
       modal: false,
     },
     {
       label: "Contact",
       href: "/contact",
-      modal: true,
+      modal: false,
     },
   ],
   navMenuItems: [
     {
-      label: "Home",
+      label: "Accueil",
       href: "/",
       modal: false,
     },
     {
-      label: "Projects",
-      href: "/projects",
+      label: "Projets",
+      href: "/projets",
+      modal: false,
+    },
+    {
+      label: "À propos",
+      href: "/a-propos",
       modal: false,
     },
     {
       label: "Contact",
       href: "/contact",
-      modal: true,
+      modal: false,
     },
   ],
   links: {
