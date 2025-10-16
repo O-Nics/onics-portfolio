@@ -16,7 +16,7 @@ export default function DefaultLayout({
       <main className="container mx-auto max-w-7xl px-6 flex-grow pt-16">
         {children}
       </main>
-      <footer className="w-full flex text-xs items-center justify-center py-3">
+      <footer className="w-full flex text-xs items-center justify-center py-3 text-gray-300">
         <p>
           {" "}
           © {new Date().getFullYear()} Nicolas Planche - All rights
