@@ -81,7 +81,7 @@ export const Navbar = () => {
           <Link isExternal href={siteConfig.links.github} title="GitHub">
             <GithubIcon className="text-default-500" />
           </Link>
-          <Link isExternal href={siteConfig.links.github} title="Linkedin">
+          <Link isExternal href={siteConfig.links.linkedin} title="LinkedIn">
             <LinkedinIcon className="text-default-500" />
           </Link>
           <ThemeSwitch />
@@ -93,7 +93,7 @@ export const Navbar = () => {
         <Link isExternal href={siteConfig.links.github}>
           <GithubIcon className="text-default-500" />
         </Link>
-        <Link isExternal href={siteConfig.links.github} title="Linkedin">
+        <Link isExternal href={siteConfig.links.linkedin} title="LinkedIn">
           <LinkedinIcon className="text-default-500" />
         </Link>
         <ThemeSwitch />
@@ -105,7 +105,7 @@ export const Navbar = () => {
         <div className="mx-4 mt-2 flex flex-col gap-2">
           {siteConfig.navMenuItems.map((item, index) => (
             <NavbarMenuItem key={`${item}-${index}`}>
-              <Link color="foreground" href="#" size="lg">
+              <Link as={NextLink} color="foreground" href={item.href} size="lg">
                 {item.label}
               </Link>
             </NavbarMenuItem>

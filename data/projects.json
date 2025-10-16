@@ -1,0 +1,158 @@
+{
+  "projects": [
+    {
+      "slug": "application-mobile-ecommerce",
+      "shortTitle": "App E-commerce",
+      "longTitle": "Application mobile E-commerce avec Flutter",
+      "shortDescription": "Application mobile cross-platform pour une boutique en ligne avec paiement intégré et gestion du panier.",
+      "body": "## Contexte\n\nCe projet consistait à développer une application mobile complète pour une startup souhaitant digitaliser son commerce. L'objectif était de créer une expérience utilisateur fluide avec des performances optimales.\n\n## Défis relevés\n\n- Intégration de Stripe pour les paiements\n- Gestion d'état complexe avec Riverpod\n- Optimisation des performances pour les listes de produits\n- Synchronisation offline/online\n\n## Résultats\n\n- 10 000+ téléchargements en 3 mois\n- Note moyenne de 4.7/5 sur les stores\n- Temps de chargement < 2s",
+      "media": [
+        {
+          "type": "image",
+          "path": "/images/projects/ecommerce/screenshot-1.jpg",
+          "alt": "Page d'accueil de l'application",
+          "caption": "Interface d'accueil avec les produits en vedette"
+        },
+        {
+          "type": "image",
+          "path": "/images/projects/ecommerce/screenshot-2.jpg",
+          "alt": "Page panier",
+          "caption": "Gestion du panier d'achat"
+        },
+        {
+          "type": "video",
+          "path": "/videos/projects/ecommerce/demo.mp4",
+          "alt": "Démo de l'application",
+          "caption": "Parcours utilisateur complet"
+        }
+      ],
+      "links": [
+        {
+          "url": "https://play.google.com/store",
+          "text": "Voir sur Play Store",
+          "title": "Télécharger sur Google Play",
+          "alt": "Lien vers Google Play Store",
+          "target": "_blank"
+        },
+        {
+          "url": "https://apps.apple.com",
+          "text": "Voir sur App Store",
+          "title": "Télécharger sur l'App Store",
+          "alt": "Lien vers Apple App Store",
+          "target": "_blank"
+        }
+      ],
+      "stack": ["Flutter", "Dart", "Laravel", "MySQL", "Stripe", "Firebase", "Riverpod"],
+      "categories": ["Mobile", "Full-stack", "E-commerce"],
+      "featured": true,
+      "date": "2024-03",
+      "status": "completed"
+    },
+    {
+      "slug": "plateforme-gestion-projet",
+      "shortTitle": "Gestion de projets",
+      "longTitle": "Plateforme collaborative de gestion de projets",
+      "shortDescription": "Application web SaaS pour la gestion de projets en équipe avec tableaux Kanban et système de notifications en temps réel.",
+      "body": "## Contexte\n\nDéveloppement d'une plateforme SaaS de gestion de projets pour PME, permettant la collaboration en temps réel entre équipes distribuées.\n\n## Technologies & Architecture\n\n- Frontend React/Next.js avec TypeScript\n- Backend Laravel avec architecture API REST\n- WebSockets pour les notifications temps réel\n- Base de données PostgreSQL\n\n## Fonctionnalités clés\n\n- Tableaux Kanban drag & drop\n- Système de notifications en temps réel\n- Gestion des permissions par rôle\n- Exports et rapports automatisés\n- Intégration calendrier\n\n## Impact\n\n- 50+ entreprises clientes\n- Réduction de 40% du temps de coordination d'équipe\n- 99.9% d'uptime",
+      "media": [
+        {
+          "type": "image",
+          "path": "/images/projects/project-management/dashboard.jpg",
+          "alt": "Dashboard principal",
+          "caption": "Vue d'ensemble des projets actifs"
+        },
+        {
+          "type": "image",
+          "path": "/images/projects/project-management/kanban.jpg",
+          "alt": "Tableau Kanban",
+          "caption": "Gestion des tâches en Kanban"
+        }
+      ],
+      "links": [
+        {
+          "url": "https://demo.example.com",
+          "text": "Voir la démo",
+          "title": "Accéder à la démo interactive",
+          "alt": "Lien vers la démo en ligne",
+          "target": "_blank"
+        },
+        {
+          "url": "https://github.com/username/project",
+          "text": "Code source",
+          "title": "Voir le code sur GitHub",
+          "alt": "Repository GitHub du projet",
+          "target": "_blank"
+        }
+      ],
+      "stack": ["Next.js", "React", "TypeScript", "Laravel", "PostgreSQL", "Redis", "Tailwind CSS", "WebSockets"],
+      "categories": ["Web", "Full-stack", "SaaS"],
+      "featured": true,
+      "date": "2024-01",
+      "status": "completed"
+    },
+    {
+      "slug": "api-rest-microservices",
+      "shortTitle": "API Microservices",
+      "longTitle": "Architecture microservices pour API REST",
+      "shortDescription": "Conception et développement d'une architecture microservices évolutive pour une API REST haute performance.",
+      "body": "## Contexte\n\nRefonte complète de l'architecture backend d'une application existante vers une architecture microservices pour améliorer la scalabilité et la maintenabilité.\n\n## Architecture\n\n- 8 microservices indépendants\n- Communication via API Gateway\n- Event-driven architecture avec RabbitMQ\n- Containerisation Docker + orchestration Kubernetes\n\n## Challenges techniques\n\n- Migration progressive sans interruption de service\n- Gestion de la cohérence des données entre services\n- Monitoring et observabilité distribuée\n- Gestion des erreurs et retry policies\n\n## Résultats mesurables\n\n- Performance améliorée de 300%\n- Temps de déploiement réduit de 80%\n- Coûts d'infrastructure réduits de 35%",
+      "media": [
+        {
+          "type": "image",
+          "path": "/images/projects/microservices/architecture.jpg",
+          "alt": "Schéma d'architecture",
+          "caption": "Diagramme de l'architecture microservices"
+        }
+      ],
+      "links": [
+        {
+          "url": "https://github.com/username/microservices-api",
+          "text": "Voir le code",
+          "title": "Code source sur GitHub",
+          "alt": "Repository GitHub",
+          "target": "_blank"
+        }
+      ],
+      "stack": ["Laravel", "Node.js", "Docker", "Kubernetes", "RabbitMQ", "Redis", "PostgreSQL", "MongoDB"],
+      "categories": ["Backend", "DevOps", "API"],
+      "featured": false,
+      "date": "2023-11",
+      "status": "completed"
+    },
+    {
+      "slug": "app-fitness-tracking",
+      "shortTitle": "Fitness Tracker",
+      "longTitle": "Application de suivi fitness et nutrition",
+      "shortDescription": "App mobile de tracking fitness avec analyse nutritionnelle et plans d'entraînement personnalisés.",
+      "body": "## Vue d'ensemble\n\nApplication mobile Flutter permettant de suivre ses activités sportives, son alimentation et d'accéder à des programmes d'entraînement personnalisés.\n\n## Fonctionnalités principales\n\n- Suivi des activités (course, vélo, musculation)\n- Intégration avec Apple Health et Google Fit\n- Analyse nutritionnelle avec scan de code-barres\n- Plans d'entraînement adaptatifs\n- Graphiques de progression\n\n## Stack technique\n\n- Flutter pour le mobile\n- Backend Laravel avec API REST\n- ML pour les recommandations personnalisées\n- Intégrations tierces (Nutritionix, Strava)\n\n## En cours de développement\n\n- Version web compagnon\n- Coaching virtuel avec IA\n- Mode communauté et challenges",
+      "media": [
+        {
+          "type": "image",
+          "path": "/images/projects/fitness/home.jpg",
+          "alt": "Écran d'accueil",
+          "caption": "Dashboard fitness quotidien"
+        },
+        {
+          "type": "image",
+          "path": "/images/projects/fitness/workout.jpg",
+          "alt": "Séance d'entraînement",
+          "caption": "Suivi d'une séance en direct"
+        }
+      ],
+      "links": [
+        {
+          "url": "https://testflight.apple.com/example",
+          "text": "Beta TestFlight",
+          "title": "Tester la version beta",
+          "alt": "Lien TestFlight",
+          "target": "_blank"
+        }
+      ],
+      "stack": ["Flutter", "Dart", "Laravel", "Python", "TensorFlow", "MySQL"],
+      "categories": ["Mobile", "Full-stack", "Health"],
+      "featured": true,
+      "date": "2024-06",
+      "status": "in-progress"
+    }
+  ]
+}
