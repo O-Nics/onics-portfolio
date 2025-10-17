@@ -14,7 +14,7 @@ export default function DefaultLayout({
       <Head />
       <Navbar />
       <main className="container-wrapper flex-grow lg:pl-72 mt-3 ">
-        <div className="border-gray-200 dark:border-white/10 border-dashed border-r lg:py-6 px-4 sm:px-6 lg:px-8">
+        <div className="border-gray-200 dark:border-white/10 border-dashed border-r lg:py-6 px-4 sm:px-6 lg:px-12">
           {children}
         </div>
       </main>
