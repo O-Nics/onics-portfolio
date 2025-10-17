@@ -200,7 +200,7 @@ export const Navbar = () => {
           <NavbarContent className="  basis-1/5 sm:basis-full " justify="start">
             <NavbarBrand className="gap-3 max-w-fit">
               <NextLink
-                className="flex justify-start items-center gap-1"
+                className="flex justify-start items-center "
                 href="/"
               >
                 <Image
@@ -209,7 +209,7 @@ export const Navbar = () => {
                   src="https://avatars.githubusercontent.com/u/61987116?v=4"
                   width={45}
                 />
-                <p className="pl-4 font-bold text-inherit">Nicolas Planche</p>
+                <p className="pl-2 font-bold text-inherit">Nicolas Planche</p>
               </NextLink>
             </NavbarBrand>
             <div className="hidden lg:flex gap-4 justify-start ml-2">

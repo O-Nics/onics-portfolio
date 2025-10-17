@@ -9,21 +9,7 @@ export const siteConfig = {
       href: "/",
       modal: false,
     },
-    {
-      label: "Projets",
-      href: "/projets",
-      modal: false,
-    },
-    {
-      label: "À propos",
-      href: "/a-propos",
-      modal: false,
-    },
-    {
-      label: "Contact",
-      href: "/contact",
-      modal: false,
-    },
+
   ],
   navMenuItems: [
     {
