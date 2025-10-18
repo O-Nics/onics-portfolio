@@ -7,7 +7,6 @@ import {
   NavbarItem,
 } from "@heroui/navbar";
 import { Kbd } from "@heroui/kbd";
-import { Link } from "@heroui/link";
 import { Input } from "@heroui/input";
 import { link as linkStyles } from "@heroui/theme";
 import NextLink from "next/link";
@@ -20,11 +19,16 @@ import { Button } from "@heroui/button";
 import { GithubIcon, SearchIcon, LinkedinIcon } from "@/components/icons";
 import { ThemeSwitch } from "@/components/theme-switch";
 import { siteConfig } from "@/config/site";
+import FadeUp from "@/components/animation/fade-up";
+import Link from "next/link";
+import { useFirstVisitAnimation } from "@/hooks/useFirstVisitAnimation";
 
 function classNames(...classes: string[]) {
   return classes.filter(Boolean).join(" ");
 }
 export const Navbar = () => {
+  const { shouldAnimate } =true;
+  // const { shouldAnimate } = useFirstVisitAnimation("nav-animated");
   const searchInput = (
     <Input
       aria-label="Search"
@@ -59,83 +63,82 @@ export const Navbar = () => {
         <div className="hidden mt-[64px]  lg:fixed lg:inset-y-0 lg:z-30 lg:flex lg:w-72 lg:flex-col">
           {/* Sidebar component, swap this element with another sidebar if you like */}
           <div className="flex grow flex-col gap-y-5 h-[calc(100vh-80px)] mt-3 pt-4 border-r border-l border-dashed border-gray-200 bg-white px-6 pb-4 dark:border-white/10 dark:bg-black/10">
-            <nav className="flex flex-1 flex-col ">
+            <nav className="flex flex-1 flex-col overflow-y-scroll">
               <ul className="flex flex-1 flex-col gap-y-7">
                 <li>
                   <ul className="-mx-2 space-y-1 " role="list">
-                    {siteConfig.sidebarNavigation.map((nav) => (
-                      <li key={nav.name}>
-                        <Link
-                          aria-label={nav.name}
-                          className="w-full"
-                          href={nav.href}
-                          title={nav.name}
-                        >
-                          <Button
-                            className={classNames(
-                              nav.current
-                                ? "bg-gray-50 text-indigo-600 dark:bg-white/5 dark:text-white"
-                                : "text-gray-700 hover:bg-gray-50 hover:text-indigo-600 dark:text-gray-400 dark:hover:bg-white/5 dark:hover:text-white",
-                              "group flex gap-x-3 rounded-md p-2 text-sm/6 font-semibold w-full justify-start",
-                            )}
-                            variant="light"
+                    {siteConfig.sidebarNavigation.map((nav, index) => (
+                      <FadeUp key={nav.name} delay={index * 0.1} shouldAnimate={shouldAnimate}>
+                        <li key={nav.name}>
+                          <Link
+                            aria-label={nav.name}
+                            className="w-full"
+                            href={nav.href}
+                            title={nav.name}
                           >
-                            <nav.icon
-                              aria-hidden="true"
+                            <Button
                               className={classNames(
                                 nav.current
-                                  ? "text-indigo-600 dark:text-white"
-                                  : "text-gray-400 group-hover:text-indigo-600 dark:group-hover:text-white",
-                                "size-6 shrink-0",
+                                  ? "bg-gray-50 text-indigo-600 dark:bg-white/5 dark:text-white"
+                                  : "text-gray-700 hover:bg-gray-50 hover:text-indigo-600 dark:text-gray-400 dark:hover:bg-white/5 dark:hover:text-white",
+                                "group flex gap-x-3 rounded-md p-2 text-sm/6 font-semibold w-full justify-start",
                               )}
-                            />
-                            {nav.name}
-                          </Button>
-                        </Link>
-                      </li>
+                              variant="light"
+                            >
+                              <nav.icon
+                                aria-hidden="true"
+                                className={classNames(
+                                  nav.current
+                                    ? "text-indigo-600 dark:text-white"
+                                    : "text-gray-400 group-hover:text-indigo-600 dark:group-hover:text-white",
+                                  "size-6 shrink-0",
+                                )}
+                              />
+                              {nav.name}
+                            </Button>
+                          </Link>
+                        </li>
+                      </FadeUp>
                     ))}
                   </ul>
                 </li>
                 <li>
-                  <div className="text-xs/6 font-semibold text-gray-400">
-                    Lien rapides
-                  </div>
+                  <FadeUp delay={siteConfig.sidebarNavigation.length * 0.1} shouldAnimate={shouldAnimate}>
+                    <div className="text-xs/6 font-semibold text-gray-400">
+                      Lien rapides
+                    </div>
+                  </FadeUp>
                   <ul className="-mx-2 mt-2 space-y-1" role="list">
-                    {siteConfig.quickLinks.map((quickLink) => (
-
-                      <li key={quickLink.name}>
-                        <Link
-                          aria-label={quickLink.name}
-                          href={quickLink.href}
-                          target="_blank"
-                          title={quickLink.name}
-                        >
-                          <Button
-                            className="group flex gap-x-3 rounded-md p-2 text-sm/6 font-semibold w-full justify-start text-gray-700 hover:bg-gray-50 hover:text-indigo-600 dark:text-gray-400 dark:hover:bg-white/5 dark:hover:text-white"
+                    {siteConfig.quickLinks.map((quickLink, index) => (
+                      <FadeUp
+                        key={quickLink.name}
+                        delay={
+                          (siteConfig.sidebarNavigation.length + index) * 0.1
+                        }
+                        shouldAnimate={shouldAnimate}
+                      >
+                        <li key={quickLink.name}>
+                          <Link
+                            aria-label={quickLink.name} 
                             href={quickLink.href}
-                            variant="light"
+                            target="_blank"
+                            title={quickLink.name}
                           >
-                            <span className="flex size-6 shrink-0 items-center justify-center rounded-lg  bg-white text-[0.625rem] font-medium dark:bg-white/5 text-gray-400  group-hover:text-indigo-600 dark:group-hover:text-white">
-                              <quickLink.icon className="…props…" />
-                            </span>
-                            <span className="truncate">{quickLink.name}</span>
-                          </Button>
-                        </Link>
-                      </li>
+                            <Button
+                              className="group flex gap-x-3 rounded-md p-2 text-sm/6 font-semibold w-full justify-start text-gray-700 hover:bg-gray-50 hover:text-indigo-600 dark:text-gray-400 dark:hover:bg-white/5 dark:hover:text-white"
+                              href={quickLink.href}
+                              variant="light"
+                            >
+                              <span className="flex size-6 shrink-0 items-center justify-center rounded-lg  bg-white text-[0.625rem] font-medium dark:bg-white/5 text-gray-400  group-hover:text-indigo-600 dark:group-hover:text-white">
+                                <quickLink.icon className="…props…" />
+                              </span>
+                              <span className="truncate">{quickLink.name}</span>
+                            </Button>
+                          </Link>
+                        </li>
+                      </FadeUp>
                     ))}
                   </ul>
-                </li>
-                <li className="mt-auto">
-                  <a
-                    className="group -mx-2 flex gap-x-3 rounded-md p-2 text-sm/6 font-semibold text-gray-700 hover:bg-gray-50 hover:text-indigo-600 dark:text-gray-300 dark:hover:bg-white/5 dark:hover:text-white"
-                    href="#"
-                  >
-                    <Cog6ToothIcon
-                      aria-hidden="true"
-                      className="size-6 shrink-0 text-gray-400 group-hover:text-indigo-600 dark:group-hover:text-white"
-                    />
-                    Settings
-                  </a>
                 </li>
               </ul>
             </nav>
