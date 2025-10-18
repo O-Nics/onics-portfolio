@@ -9,9 +9,7 @@ import {
 } from "@heroui/navbar";
 import { Kbd } from "@heroui/kbd";
 import { Input } from "@heroui/input";
-import { link as linkStyles } from "@heroui/theme";
 import Link from "next/link";
-import clsx from "clsx";
 import React from "react";
 import { Button } from "@heroui/button";
 import { usePathname } from "next/navigation";
@@ -31,6 +29,7 @@ function classNames(...classes: string[]) {
 export const Navbar = () => {
   const pathname = usePathname();
 
+  // const { shouldAnimate } = true;
   const { shouldAnimate } = useFirstVisitAnimation("nav-animated");
   const searchInput = (
     <Input
@@ -164,6 +163,7 @@ export const Navbar = () => {
               <FadeHorizontal shouldAnimate={shouldAnimate}>
                 <Link className="flex justify-start items-center" href="/">
                   <Image
+                    priority
                     alt="Nicolas Planche"
                     className="rounded-lg"
                     height={45}
@@ -177,23 +177,6 @@ export const Navbar = () => {
                 </Link>
               </FadeHorizontal>
             </NavbarBrand>
-            <div className="hidden lg:flex gap-4 justify-start ml-2">
-              {siteConfig.navItems.map((item) => (
-                <NavbarItem key={item.href}>
-                  <FadeHorizontal delay={0.1} shouldAnimate={shouldAnimate}>
-                    <Link
-                      className={clsx(
-                        linkStyles({ color: "foreground" }),
-                        "data-[active=true]:text-primary data-[active=true]:font-medium",
-                      )}
-                      href={item.href}
-                    >
-                      {item.label}
-                    </Link>
-                  </FadeHorizontal>
-                </NavbarItem>
-              ))}
-            </div>
           </NavbarContent>
 
           <NavbarContent
@@ -201,21 +184,33 @@ export const Navbar = () => {
             justify="end"
           >
             <NavbarItem className="hidden sm:flex gap-2">
-              <FadeHorizontal className="h-[24px]" delay={0.2} shouldAnimate={shouldAnimate}>
+              <FadeHorizontal
+                className="h-[24px]"
+                delay={0.2}
+                shouldAnimate={shouldAnimate}
+              >
                 <Link href={siteConfig.links.github} title="GitHub">
                   <GithubIcon className="text-default-500" />
                 </Link>
               </FadeHorizontal>
-              <FadeHorizontal className="h-[24px]" delay={0.3} shouldAnimate={shouldAnimate}>
+              <FadeHorizontal
+                className="h-[24px]"
+                delay={0.3}
+                shouldAnimate={shouldAnimate}
+              >
                 <Link href={siteConfig.links.linkedin} title="LinkedIn">
                   <LinkedinIcon className="text-default-500" />
                 </Link>
               </FadeHorizontal>
-              <FadeHorizontal className="h-[24px]" delay={0.4} shouldAnimate={shouldAnimate}>
+              <FadeHorizontal
+                className="h-[24px]"
+                delay={0.4}
+                shouldAnimate={shouldAnimate}
+              >
                 <ThemeSwitch />
               </FadeHorizontal>
             </NavbarItem>
-            <FadeHorizontal  delay={0.5} shouldAnimate={shouldAnimate}>
+            <FadeHorizontal delay={0.5} shouldAnimate={shouldAnimate}>
               <NavbarItem className="hidden lg:flex">{searchInput}</NavbarItem>
             </FadeHorizontal>
           </NavbarContent>
