@@ -40,7 +40,7 @@ export const ThemeSwitch: FC<ThemeSwitchProps> = ({
   }, [isMounted]);
 
   // Prevent Hydration Mismatch
-  if (!isMounted) return <div className="w-6 h-6" />;
+  if (!isMounted) return <div className="w-6 h-6" ></div>;
 
   return (
     <Component
@@ -75,6 +75,7 @@ export const ThemeSwitch: FC<ThemeSwitchProps> = ({
           ),
         })}
       >
+
         {isSelected ? (
           <MoonFilledIcon size={22} />
         ) : (

@@ -1,3 +1,4 @@
+"use client";
 import {
   Navbar as HeroUINavbar,
   NavbarContent,
@@ -9,14 +10,12 @@ import {
 import { Kbd } from "@heroui/kbd";
 import { Input } from "@heroui/input";
 import { link as linkStyles } from "@heroui/theme";
-import NextLink from "next/link";
+import Link from "next/link";
 import clsx from "clsx";
-import { Image } from "@heroui/image";
-import { Cog6ToothIcon } from "@heroicons/react/24/outline";
 import React from "react";
 import { Button } from "@heroui/button";
 import { usePathname } from "next/navigation";
-import { Link } from "@heroui/link";
+import Image from "next/image";
 
 import { GithubIcon, SearchIcon, LinkedinIcon } from "@/components/icons";
 import { ThemeSwitch } from "@/components/theme-switch";
@@ -80,18 +79,17 @@ export const Navbar = () => {
                         <li key={nav.name}>
                           <Link
                             aria-label={nav.name}
-                            className="w-full"
+                            className="w-full cursor-pointer"
                             href={nav.href}
                             title={nav.name}
                           >
-                            <Button
+                            <div
                               className={classNames(
                                 pathname === nav.href
                                   ? "bg-gray-50 text-indigo-600 dark:bg-white/5 dark:text-white"
                                   : "text-gray-700 hover:bg-gray-50 hover:text-indigo-600 dark:text-gray-400 dark:hover:bg-white/5 dark:hover:text-white",
                                 "group flex gap-x-3 rounded-md p-2 text-sm/6 font-semibold w-full justify-start",
                               )}
-                              variant="light"
                             >
                               <nav.icon
                                 aria-hidden="true"
@@ -103,7 +101,7 @@ export const Navbar = () => {
                                 )}
                               />
                               {nav.name}
-                            </Button>
+                            </div>
                           </Link>
                         </li>
                       </FadeUp>
@@ -164,31 +162,34 @@ export const Navbar = () => {
           <NavbarContent className="  basis-1/5 sm:basis-full " justify="start">
             <NavbarBrand className="gap-3 max-w-fit">
               <FadeHorizontal shouldAnimate={shouldAnimate}>
-                <NextLink className="flex justify-start items-center " href="/">
+                <Link className="flex justify-start items-center" href="/">
                   <Image
                     alt="Nicolas Planche"
+                    className="rounded-lg"
                     height={45}
-                    src="https://avatars.githubusercontent.com/u/61987116?v=4"
+                    quality={90}
+                    src="/61987116.jpeg"
                     width={45}
                   />
-                  <p className="pl-2 font-bold text-inherit">Nicolas Planche</p>
-                </NextLink>
+                  <p className="pl-2 font-bold text-inherit ">
+                    Nicolas Planche
+                  </p>
+                </Link>
               </FadeHorizontal>
             </NavbarBrand>
             <div className="hidden lg:flex gap-4 justify-start ml-2">
               {siteConfig.navItems.map((item) => (
                 <NavbarItem key={item.href}>
                   <FadeHorizontal delay={0.1} shouldAnimate={shouldAnimate}>
-                    <NextLink
+                    <Link
                       className={clsx(
                         linkStyles({ color: "foreground" }),
                         "data-[active=true]:text-primary data-[active=true]:font-medium",
                       )}
-                      color="foreground"
                       href={item.href}
                     >
                       {item.label}
-                    </NextLink>
+                    </Link>
                   </FadeHorizontal>
                 </NavbarItem>
               ))}
@@ -200,41 +201,33 @@ export const Navbar = () => {
             justify="end"
           >
             <NavbarItem className="hidden sm:flex gap-2">
-              <FadeHorizontal delay={0.2} shouldAnimate={shouldAnimate}>
-                <Link isExternal href={siteConfig.links.github} title="GitHub">
+              <FadeHorizontal className="h-[24px]" delay={0.2} shouldAnimate={shouldAnimate}>
+                <Link href={siteConfig.links.github} title="GitHub">
                   <GithubIcon className="text-default-500" />
                 </Link>
               </FadeHorizontal>
-              <FadeHorizontal delay={0.3} shouldAnimate={shouldAnimate}>
-                <Link
-                  isExternal
-                  href={siteConfig.links.linkedin}
-                  title="LinkedIn"
-                >
+              <FadeHorizontal className="h-[24px]" delay={0.3} shouldAnimate={shouldAnimate}>
+                <Link href={siteConfig.links.linkedin} title="LinkedIn">
                   <LinkedinIcon className="text-default-500" />
                 </Link>
               </FadeHorizontal>
-              <FadeHorizontal delay={0.4} shouldAnimate={shouldAnimate}>
+              <FadeHorizontal className="h-[24px]" delay={0.4} shouldAnimate={shouldAnimate}>
                 <ThemeSwitch />
               </FadeHorizontal>
             </NavbarItem>
-            <FadeHorizontal delay={0.5} shouldAnimate={shouldAnimate}>
+            <FadeHorizontal  delay={0.5} shouldAnimate={shouldAnimate}>
               <NavbarItem className="hidden lg:flex">{searchInput}</NavbarItem>
             </FadeHorizontal>
           </NavbarContent>
 
           <NavbarContent className="lg:hidden basis-1 pl-4" justify="end">
             <FadeHorizontal delay={0.2} shouldAnimate={shouldAnimate}>
-              <Link isExternal href={siteConfig.links.github}>
+              <Link href={siteConfig.links.github}>
                 <GithubIcon className="text-default-500" />
               </Link>
             </FadeHorizontal>
             <FadeHorizontal delay={0.3} shouldAnimate={shouldAnimate}>
-              <Link
-                isExternal
-                href={siteConfig.links.linkedin}
-                title="LinkedIn"
-              >
+              <Link href={siteConfig.links.linkedin} title="LinkedIn">
                 <LinkedinIcon className="text-default-500" />
               </Link>
             </FadeHorizontal>
@@ -263,7 +256,7 @@ export const Navbar = () => {
                           >
                             <Button
                               className={classNames(
-                                nav.current
+                                pathname === nav.href
                                   ? "bg-gray-50 text-indigo-600 dark:bg-white/5 dark:text-white"
                                   : "text-gray-700 hover:bg-gray-50 hover:text-indigo-600 dark:text-gray-400 dark:hover:bg-white/5 dark:hover:text-white",
                                 "group flex gap-x-3 rounded-md p-2 text-sm/6 font-semibold w-full justify-start",
@@ -273,7 +266,7 @@ export const Navbar = () => {
                               <nav.icon
                                 aria-hidden="true"
                                 className={classNames(
-                                  nav.current
+                                  pathname === nav.href
                                     ? "text-indigo-600 dark:text-white"
                                     : "text-gray-400 group-hover:text-indigo-600 dark:group-hover:text-white",
                                   "size-6 shrink-0",
@@ -286,59 +279,47 @@ export const Navbar = () => {
                       ))}
                     </ul>
                   </li>
-                  <li>
-                    <div className="text-xs/6 font-semibold text-gray-400">
-                      Lien rapides
-                    </div>
-                    <ul className="-mx-2 mt-2 space-y-1" role="list">
-                      {siteConfig.quickLinks.map((quickLink) => (
-                        <li key={quickLink.name}>
-                          <Link
-                            aria-label={quickLink.name}
-                            className="w-full"
-                            href={quickLink.href}
-                            target="_blank"
-                            title={quickLink.name}
-                          >
-                            <Button
-                              className={classNames(
-                                quickLink.current
-                                  ? "bg-gray-50 text-indigo-600 dark:bg-white/5 dark:text-white"
-                                  : "text-gray-700 hover:bg-gray-50 hover:text-indigo-600 dark:text-gray-400 dark:hover:bg-white/5 dark:hover:text-white",
-                                "group flex gap-x-3 rounded-md p-2 text-sm/6 font-semibold w-full justify-start",
-                              )}
-                              href={quickLink.href}
-                              variant="light"
-                            >
-                              <span
-                                className={classNames(
-                                  quickLink.current
-                                    ? "border-indigo-600 text-indigo-600 dark:border-white/20 dark:text-white"
-                                    : "border-gray-200 text-gray-400 group-hover:border-indigo-600 group-hover:text-indigo-600 dark:border-white/10 dark:group-hover:border-white/20 dark:group-hover:text-white",
-                                  "flex size-6 shrink-0 items-center justify-center rounded-lg border bg-white text-[0.625rem] font-medium dark:bg-white/5",
-                                )}
-                              >
-                                {quickLink.initial}
-                              </span>
-                              <span className="truncate">{quickLink.name}</span>
-                            </Button>
-                          </Link>
-                        </li>
-                      ))}
-                    </ul>
-                  </li>
-                  <li className="mt-auto">
-                    <a
-                      className="group -mx-2 flex gap-x-3 rounded-md p-2 text-sm/6 font-semibold text-gray-700 hover:bg-gray-50 hover:text-indigo-600 dark:text-gray-300 dark:hover:bg-white/5 dark:hover:text-white"
-                      href="#"
-                    >
-                      <Cog6ToothIcon
-                        aria-hidden="true"
-                        className="size-6 shrink-0 text-gray-400 group-hover:text-indigo-600 dark:group-hover:text-white"
-                      />
-                      Settings
-                    </a>
-                  </li>
+                  {/*<li>*/}
+                  {/*  <div className="text-xs/6 font-semibold text-gray-400">*/}
+                  {/*    Lien rapides*/}
+                  {/*  </div>*/}
+                  {/*  <ul className="-mx-2 mt-2 space-y-1" role="list">*/}
+                  {/*    {siteConfig.quickLinks.map((quickLink) => (*/}
+                  {/*      <li key={quickLink.name}>*/}
+                  {/*        <Link*/}
+                  {/*          aria-label={quickLink.name}*/}
+                  {/*          className="w-full"*/}
+                  {/*          href={quickLink.href}*/}
+                  {/*          target="_blank"*/}
+                  {/*          title={quickLink.name}*/}
+                  {/*        >*/}
+                  {/*          <Button*/}
+                  {/*            className={classNames(*/}
+                  {/*              quickLink.current*/}
+                  {/*                ? "bg-gray-50 text-indigo-600 dark:bg-white/5 dark:text-white"*/}
+                  {/*                : "text-gray-700 hover:bg-gray-50 hover:text-indigo-600 dark:text-gray-400 dark:hover:bg-white/5 dark:hover:text-white",*/}
+                  {/*              "group flex gap-x-3 rounded-md p-2 text-sm/6 font-semibold w-full justify-start",*/}
+                  {/*            )}*/}
+                  {/*            href={quickLink.href}*/}
+                  {/*            variant="light"*/}
+                  {/*          >*/}
+                  {/*            <span*/}
+                  {/*              className={classNames(*/}
+                  {/*                quickLink.current*/}
+                  {/*                  ? "border-indigo-600 text-indigo-600 dark:border-white/20 dark:text-white"*/}
+                  {/*                  : "border-gray-200 text-gray-400 group-hover:border-indigo-600 group-hover:text-indigo-600 dark:border-white/10 dark:group-hover:border-white/20 dark:group-hover:text-white",*/}
+                  {/*                "flex size-6 shrink-0 items-center justify-center rounded-lg border bg-white text-[0.625rem] font-medium dark:bg-white/5",*/}
+                  {/*              )}*/}
+                  {/*            >*/}
+                  {/*              {quickLink.initial}*/}
+                  {/*            </span>*/}
+                  {/*            <span className="truncate">{quickLink.name}</span>*/}
+                  {/*          </Button>*/}
+                  {/*        </Link>*/}
+                  {/*      </li>*/}
+                  {/*    ))}*/}
+                  {/*  </ul>*/}
+                  {/*</li>*/}
                 </ul>
               </nav>
             </div>
