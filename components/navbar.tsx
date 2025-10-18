@@ -14,51 +14,12 @@ import NextLink from "next/link";
 import clsx from "clsx";
 import { Image } from "@heroui/image";
 import { Cog6ToothIcon } from "@heroicons/react/24/outline";
-import {
-  CalendarIcon,
-  ChartPieIcon,
-  DocumentDuplicateIcon,
-  FolderIcon,
-  HomeIcon,
-  UsersIcon,
-} from "@heroicons/react/24/outline";
 import React from "react";
 import { Button } from "@heroui/button";
 
 import { GithubIcon, SearchIcon, LinkedinIcon } from "@/components/icons";
 import { ThemeSwitch } from "@/components/theme-switch";
 import { siteConfig } from "@/config/site";
-
-const navigation = [
-  { name: "Introduction", href: "#", icon: HomeIcon, current: true },
-  { name: "À propos de moi", href: "#", icon: UsersIcon, current: false },
-  { name: "Projets", href: "#", icon: FolderIcon, current: false },
-  { name: "Compétences", href: "#", icon: FolderIcon, current: false },
-  { name: "Experiences", href: "#", icon: CalendarIcon, current: false },
-  {
-    name: "Formations",
-    href: "#",
-    icon: DocumentDuplicateIcon,
-    current: false,
-  },
-  { name: "Contact", href: "#", icon: ChartPieIcon, current: false },
-];
-const teams = [
-  { id: 1, name: "Github", href: "#", initial: "H", current: false },
-  { id: 2, name: "Linkedin", href: "#", initial: "T", current: false },
-  { id: 3, name: "Buy me a coffee", href: "#", initial: "W", current: false },
-  {
-    id: 3,
-    name: "Télécharger mon CV",
-    href: "#",
-    initial: "W",
-    current: false,
-  },
-];
-const userNavigation = [
-  { name: "Your profile", href: "#" },
-  { name: "Sign out", href: "#" },
-];
 
 function classNames(...classes: string[]) {
   return classes.filter(Boolean).join(" ");
@@ -102,13 +63,13 @@ export const Navbar = () => {
               <ul className="flex flex-1 flex-col gap-y-7">
                 <li>
                   <ul className="-mx-2 space-y-1 " role="list">
-                    {navigation.map((nav) => (
+                    {siteConfig.sidebarNavigation.map((nav) => (
                       <li key={nav.name}>
                         <Link
                           aria-label={nav.name}
+                          className="w-full"
                           href={nav.href}
                           title={nav.name}
-                          className="w-full"
                         >
                           <Button
                             className={classNames(
@@ -140,35 +101,24 @@ export const Navbar = () => {
                     Lien rapides
                   </div>
                   <ul className="-mx-2 mt-2 space-y-1" role="list">
-                    {teams.map((team) => (
-                      <li key={team.name}>
+                    {siteConfig.quickLinks.map((quickLink) => (
+
+                      <li key={quickLink.name}>
                         <Link
-                          aria-label={team.name}
-                          href={team.href}
+                          aria-label={quickLink.name}
+                          href={quickLink.href}
                           target="_blank"
-                          title={team.name}
+                          title={quickLink.name}
                         >
                           <Button
-                            className={classNames(
-                              team.current
-                                ? "bg-gray-50 text-indigo-600 dark:bg-white/5 dark:text-white"
-                                : "text-gray-700 hover:bg-gray-50 hover:text-indigo-600 dark:text-gray-400 dark:hover:bg-white/5 dark:hover:text-white",
-                              "group flex gap-x-3 rounded-md p-2 text-sm/6 font-semibold w-full justify-start",
-                            )}
-                            href={team.href}
+                            className="group flex gap-x-3 rounded-md p-2 text-sm/6 font-semibold w-full justify-start text-gray-700 hover:bg-gray-50 hover:text-indigo-600 dark:text-gray-400 dark:hover:bg-white/5 dark:hover:text-white"
+                            href={quickLink.href}
                             variant="light"
                           >
-                            <span
-                              className={classNames(
-                                team.current
-                                  ? "border-indigo-600 text-indigo-600 dark:border-white/20 dark:text-white"
-                                  : "border-gray-200 text-gray-400 group-hover:border-indigo-600 group-hover:text-indigo-600 dark:border-white/10 dark:group-hover:border-white/20 dark:group-hover:text-white",
-                                "flex size-6 shrink-0 items-center justify-center rounded-lg border bg-white text-[0.625rem] font-medium dark:bg-white/5",
-                              )}
-                            >
-                              {team.initial}
+                            <span className="flex size-6 shrink-0 items-center justify-center rounded-lg  bg-white text-[0.625rem] font-medium dark:bg-white/5 text-gray-400  group-hover:text-indigo-600 dark:group-hover:text-white">
+                              <quickLink.icon className="…props…" />
                             </span>
-                            <span className="truncate">{team.name}</span>
+                            <span className="truncate">{quickLink.name}</span>
                           </Button>
                         </Link>
                       </li>
@@ -199,10 +149,7 @@ export const Navbar = () => {
         >
           <NavbarContent className="  basis-1/5 sm:basis-full " justify="start">
             <NavbarBrand className="gap-3 max-w-fit">
-              <NextLink
-                className="flex justify-start items-center "
-                href="/"
-              >
+              <NextLink className="flex justify-start items-center " href="/">
                 <Image
                   alt="Nicolas Planche"
                   height={45}
@@ -268,7 +215,7 @@ export const Navbar = () => {
                 <ul className="flex flex-1 w- flex-col gap-y-7">
                   <li>
                     <ul className="-mx-2 space-y-1 " role="list">
-                      {navigation.map((nav) => (
+                      {siteConfig.sidebarNavigation.map((nav) => (
                         <li key={nav.name}>
                           <Link
                             aria-label={nav.name}
@@ -306,37 +253,36 @@ export const Navbar = () => {
                       Lien rapides
                     </div>
                     <ul className="-mx-2 mt-2 space-y-1" role="list">
-                      {teams.map((team) => (
-                        <li key={team.name}>
+                      {siteConfig.quickLinks.map((quickLink) => (
+                        <li key={quickLink.name}>
                           <Link
-                            aria-label={team.name}
+                            aria-label={quickLink.name}
                             className="w-full"
-                            href={team.href}
+                            href={quickLink.href}
                             target="_blank"
-                            title={team.name}
-
+                            title={quickLink.name}
                           >
                             <Button
                               className={classNames(
-                                team.current
+                                quickLink.current
                                   ? "bg-gray-50 text-indigo-600 dark:bg-white/5 dark:text-white"
                                   : "text-gray-700 hover:bg-gray-50 hover:text-indigo-600 dark:text-gray-400 dark:hover:bg-white/5 dark:hover:text-white",
                                 "group flex gap-x-3 rounded-md p-2 text-sm/6 font-semibold w-full justify-start",
                               )}
-                              href={team.href}
+                              href={quickLink.href}
                               variant="light"
                             >
                               <span
                                 className={classNames(
-                                  team.current
+                                  quickLink.current
                                     ? "border-indigo-600 text-indigo-600 dark:border-white/20 dark:text-white"
                                     : "border-gray-200 text-gray-400 group-hover:border-indigo-600 group-hover:text-indigo-600 dark:border-white/10 dark:group-hover:border-white/20 dark:group-hover:text-white",
                                   "flex size-6 shrink-0 items-center justify-center rounded-lg border bg-white text-[0.625rem] font-medium dark:bg-white/5",
                                 )}
                               >
-                                {team.initial}
+                                {quickLink.initial}
                               </span>
-                              <span className="truncate">{team.name}</span>
+                              <span className="truncate">{quickLink.name}</span>
                             </Button>
                           </Link>
                         </li>
