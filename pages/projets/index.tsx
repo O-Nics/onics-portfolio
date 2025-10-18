@@ -16,6 +16,7 @@ import {
 import { Project } from "@/types/project";
 import { title } from "@/components/primitives";
 import { SearchIcon } from "@/components/icons";
+import {NavigationInPage} from "@/components/navigationInPage";
 
 interface ProjetsPageProps {
   projects: Project[];
@@ -79,7 +80,14 @@ export default function ProjetsPage({
     selectedCategories.length > 0 ||
     selectedTechnologies.length > 0 ||
     selectedStatus.length > 0;
-
+  const leftLink: LinkNavigation = {
+    name: "À propos de moi",
+    href: "/a-propos",
+  };
+  const rightLink: LinkNavigation = {
+    name: "Compétences",
+    href: "/competences",
+  };
   return (
     <DefaultLayout>
       <section className="flex flex-col gap-8 py-8 md:py-10">
@@ -91,121 +99,8 @@ export default function ProjetsPage({
           </p>
         </div>
 
-        {/* Barre de recherche */}
-        <div className="w-full">
-          <Input
-            isClearable
-            placeholder="Rechercher un projet..."
-            size="lg"
-            startContent={<SearchIcon />}
-            value={searchQuery}
-            onClear={() => setSearchQuery("")}
-            onValueChange={setSearchQuery}
-          />
-        </div>
-
-        {/* Filtres */}
-        <div className="flex flex-col gap-4">
-          <div className="flex justify-between items-center">
-            <h2 className="text-xl font-semibold">Filtres</h2>
-            {hasActiveFilters && (
-              <Button size="sm" variant="light" onPress={clearFilters}>
-                Réinitialiser
-              </Button>
-            )}
-          </div>
-
-          {/* Catégories */}
-          <div className="flex flex-col gap-2">
-            <p className="text-sm font-medium">Catégories</p>
-            <div className="flex flex-wrap gap-2">
-              {categories.map((category) => (
-                <Chip
-                  key={category}
-                  className="cursor-pointer"
-                  color={
-                    selectedCategories.includes(category) ? "primary" : "default"
-                  }
-                  variant={
-                    selectedCategories.includes(category) ? "solid" : "flat"
-                  }
-                  onClick={() => toggleCategory(category)}
-                >
-                  {category}
-                </Chip>
-              ))}
-            </div>
-          </div>
-
-          {/* Technologies */}
-          <div className="flex flex-col gap-2">
-            <p className="text-sm font-medium">Technologies</p>
-            <div className="flex flex-wrap gap-2">
-              {technologies.map((tech) => (
-                <Chip
-                  key={tech}
-                  className="cursor-pointer"
-                  color={
-                    selectedTechnologies.includes(tech) ? "secondary" : "default"
-                  }
-                  variant={
-                    selectedTechnologies.includes(tech) ? "solid" : "flat"
-                  }
-                  onClick={() => toggleTechnology(tech)}
-                >
-                  {tech}
-                </Chip>
-              ))}
-            </div>
-          </div>
-
-          {/* Statut */}
-          <div className="flex flex-col gap-2">
-            <p className="text-sm font-medium">Statut</p>
-            <div className="flex flex-wrap gap-2">
-              {["completed", "in-progress", "archived"].map((status) => (
-                <Chip
-                  key={status}
-                  className="cursor-pointer"
-                  color={selectedStatus.includes(status) ? "success" : "default"}
-                  variant={selectedStatus.includes(status) ? "solid" : "flat"}
-                  onClick={() => toggleStatus(status)}
-                >
-                  {status === "completed"
-                    ? "Terminé"
-                    : status === "in-progress"
-                      ? "En cours"
-                      : "Archivé"}
-                </Chip>
-              ))}
-            </div>
-          </div>
-        </div>
-
-        {/* Résultats */}
-        <div className="flex flex-col gap-4">
-          <div className="flex justify-between items-center">
-            <h2 className="text-lg font-medium">
-              {filteredProjects.length} projet
-              {filteredProjects.length > 1 ? "s" : ""}
-            </h2>
-          </div>
-
-          {filteredProjects.length === 0 ? (
-            <div className="text-center py-12">
-              <p className="text-default-600">
-                Aucun projet ne correspond à vos critères.
-              </p>
-            </div>
-          ) : (
-            <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
-              {filteredProjects.map((project) => (
-                <ProjectCard key={project.slug} project={project} />
-              ))}
-            </div>
-          )}
-        </div>
       </section>
+      <NavigationInPage left={leftLink} right={rightLink} />
     </DefaultLayout>
   );
 }

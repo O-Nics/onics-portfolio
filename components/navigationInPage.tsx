@@ -27,6 +27,7 @@ export const NavigationInPage = ({ left, right }: NavigationLinks) => {
           <Link
             className="text-sm text-default-600 font-bold transition hover:text-primary cursor-pointer"
             href={right.href}
+            title={right.name}
           >
             {right.name}
             <ArrowHorizontalIcon className="inline-block ml-2" />

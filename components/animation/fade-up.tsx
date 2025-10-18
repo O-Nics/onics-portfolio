@@ -1,6 +1,6 @@
 "use client";
 
-import {LazyMotion, domAnimation, m, useInView} from "framer-motion";
+import { LazyMotion, domAnimation, m } from "framer-motion";
 import { PropsWithChildren, useEffect, useState } from "react";
 
 interface FadeUpProps extends PropsWithChildren {
@@ -15,7 +15,7 @@ interface FadeUpProps extends PropsWithChildren {
 export default function FadeUp({
   children,
   delay = 0,
-  duration = .8,
+  duration = .4,
   y = 24,
   once = true,
   className,
@@ -28,19 +28,19 @@ export default function FadeUp({
   }, []);
 
 
-  // Si pas encore monté côté client, ne rien afficher
+  // Si pas encore monté côté client, afficher invisible pour éviter le flash
+  // SAUF si shouldAnimate = false (pages suivantes), alors garder visible
   if (!mounted) {
-    return <div className={className}>{children}</div>;
+    return <div className={className} style={{ opacity: shouldAnimate ? 0 : 1 }}>{children}</div>;
   }
 
   return (
     <LazyMotion features={domAnimation}>
       <m.div
-
         className={className}
         initial={shouldAnimate ? { opacity: 0, y } : { opacity: 1, y: 0 }}
         transition={{ duration, delay, ease: "backOut" }}
-        viewport={{ once, margin: "0px 0px -10% 0px" }}
+        viewport={{ once, margin: "0px 0px -20% 0px" }}
         whileInView={{ opacity: 1, y: 0 }}
       >
         {children}
