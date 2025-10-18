@@ -1,18 +1,16 @@
-import {
-  CalendarIcon,
-  ChartPieIcon,
-  DocumentDuplicateIcon,
-  FolderIcon,
-  HomeIcon,
-  UsersIcon,
-} from "@heroicons/react/24/outline";
+import { CalendarIcon } from "@heroicons/react/24/outline";
 
 import {
   AboutIcon,
-  CoffeeIcon, ContactIcon,
+  CoffeeIcon,
+  ContactIcon,
   DocIcon,
-  GithubIcon, IntroIcon,
-  LinkedinIcon, ProjectsIcon, SchoolIcon, XpIcon,
+  GithubIcon,
+  IntroIcon,
+  LinkedinIcon,
+  ProjectsIcon,
+  SchoolIcon,
+  XpIcon,
 } from "@/components/icons";
 
 export type SiteConfig = typeof siteConfig;
@@ -36,18 +34,17 @@ export const siteConfig = {
     },
   ],
   sidebarNavigation: [
-    { name: "Introduction", href: "/", icon: IntroIcon, current: true },
-    { name: "À propos de moi", href: "/a-propos", icon: AboutIcon, current: false },
-    { name: "Projets", href: "/projets", icon: ProjectsIcon, current: false },
-    { name: "Compétences", href: "/skills", icon: XpIcon, current: false },
-    { name: "Experiences", href: "/xp", icon: CalendarIcon, current: false },
+    { name: "Introduction", href: "/", icon: IntroIcon },
+    { name: "À propos de moi", href: "/a-propos", icon: AboutIcon },
+    { name: "Projets", href: "/projets", icon: ProjectsIcon },
+    { name: "Compétences", href: "/competences", icon: XpIcon },
+    { name: "Experiences", href: "/xp", icon: CalendarIcon },
     {
       name: "Formations",
       href: "/education",
       icon: SchoolIcon,
-      current: false,
     },
-    { name: "Contact", href: "/contact", icon: ContactIcon, current: false },
+    { name: "Contact", href: "/contact", icon: ContactIcon },
   ],
   quickLinks: [
     {

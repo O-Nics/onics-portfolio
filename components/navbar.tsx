@@ -15,20 +15,24 @@ import { Image } from "@heroui/image";
 import { Cog6ToothIcon } from "@heroicons/react/24/outline";
 import React from "react";
 import { Button } from "@heroui/button";
+import { usePathname } from "next/navigation";
+import { Link } from "@heroui/link";
 
 import { GithubIcon, SearchIcon, LinkedinIcon } from "@/components/icons";
 import { ThemeSwitch } from "@/components/theme-switch";
 import { siteConfig } from "@/config/site";
 import FadeUp from "@/components/animation/fade-up";
-import Link from "next/link";
 import { useFirstVisitAnimation } from "@/hooks/useFirstVisitAnimation";
+import FadeHorizontal from "@/components/animation/fade-horizontal";
 
 function classNames(...classes: string[]) {
   return classes.filter(Boolean).join(" ");
 }
+
 export const Navbar = () => {
-  const { shouldAnimate } =true;
-  // const { shouldAnimate } = useFirstVisitAnimation("nav-animated");
+  const pathname = usePathname();
+
+  const { shouldAnimate } = useFirstVisitAnimation("nav-animated");
   const searchInput = (
     <Input
       aria-label="Search"
@@ -62,13 +66,17 @@ export const Navbar = () => {
       <div className="container-wrapper ">
         <div className="hidden mt-[64px]  lg:fixed lg:inset-y-0 lg:z-30 lg:flex lg:w-72 lg:flex-col">
           {/* Sidebar component, swap this element with another sidebar if you like */}
-          <div className="flex grow flex-col gap-y-5 h-[calc(100vh-80px)] mt-3 pt-4 border-r border-l border-dashed border-gray-200 bg-white px-6 pb-4 dark:border-white/10 dark:bg-black/10">
-            <nav className="flex flex-1 flex-col overflow-y-scroll">
-              <ul className="flex flex-1 flex-col gap-y-7">
+          <div className="flex grow flex-col gap-y-5 h-[calc(100vh-80px)] mt-3 pt-4 border-r border-l border-dashed border-gray-200 bg-white px-4 pb-4 dark:border-white/10 dark:bg-black/10">
+            <nav className="flex flex-1 flex-col  overflow-y-scroll px-2">
+              <ul className="flex flex-1 flex-col gap-y-7 ">
                 <li>
                   <ul className="-mx-2 space-y-1 " role="list">
                     {siteConfig.sidebarNavigation.map((nav, index) => (
-                      <FadeUp key={nav.name} delay={index * 0.1} shouldAnimate={shouldAnimate}>
+                      <FadeUp
+                        key={nav.name}
+                        delay={index * 0.1}
+                        shouldAnimate={shouldAnimate}
+                      >
                         <li key={nav.name}>
                           <Link
                             aria-label={nav.name}
@@ -78,7 +86,7 @@ export const Navbar = () => {
                           >
                             <Button
                               className={classNames(
-                                nav.current
+                                pathname === nav.href
                                   ? "bg-gray-50 text-indigo-600 dark:bg-white/5 dark:text-white"
                                   : "text-gray-700 hover:bg-gray-50 hover:text-indigo-600 dark:text-gray-400 dark:hover:bg-white/5 dark:hover:text-white",
                                 "group flex gap-x-3 rounded-md p-2 text-sm/6 font-semibold w-full justify-start",
@@ -88,7 +96,7 @@ export const Navbar = () => {
                               <nav.icon
                                 aria-hidden="true"
                                 className={classNames(
-                                  nav.current
+                                  pathname === nav.href
                                     ? "text-indigo-600 dark:text-white"
                                     : "text-gray-400 group-hover:text-indigo-600 dark:group-hover:text-white",
                                   "size-6 shrink-0",
@@ -103,7 +111,10 @@ export const Navbar = () => {
                   </ul>
                 </li>
                 <li>
-                  <FadeUp delay={siteConfig.sidebarNavigation.length * 0.1} shouldAnimate={shouldAnimate}>
+                  <FadeUp
+                    delay={siteConfig.sidebarNavigation.length * 0.1}
+                    shouldAnimate={shouldAnimate}
+                  >
                     <div className="text-xs/6 font-semibold text-gray-400">
                       Lien rapides
                     </div>
@@ -119,7 +130,7 @@ export const Navbar = () => {
                       >
                         <li key={quickLink.name}>
                           <Link
-                            aria-label={quickLink.name} 
+                            aria-label={quickLink.name}
                             href={quickLink.href}
                             target="_blank"
                             title={quickLink.name}
@@ -152,29 +163,33 @@ export const Navbar = () => {
         >
           <NavbarContent className="  basis-1/5 sm:basis-full " justify="start">
             <NavbarBrand className="gap-3 max-w-fit">
-              <NextLink className="flex justify-start items-center " href="/">
-                <Image
-                  alt="Nicolas Planche"
-                  height={45}
-                  src="https://avatars.githubusercontent.com/u/61987116?v=4"
-                  width={45}
-                />
-                <p className="pl-2 font-bold text-inherit">Nicolas Planche</p>
-              </NextLink>
+              <FadeHorizontal shouldAnimate={shouldAnimate}>
+                <NextLink className="flex justify-start items-center " href="/">
+                  <Image
+                    alt="Nicolas Planche"
+                    height={45}
+                    src="https://avatars.githubusercontent.com/u/61987116?v=4"
+                    width={45}
+                  />
+                  <p className="pl-2 font-bold text-inherit">Nicolas Planche</p>
+                </NextLink>
+              </FadeHorizontal>
             </NavbarBrand>
             <div className="hidden lg:flex gap-4 justify-start ml-2">
               {siteConfig.navItems.map((item) => (
                 <NavbarItem key={item.href}>
-                  <NextLink
-                    className={clsx(
-                      linkStyles({ color: "foreground" }),
-                      "data-[active=true]:text-primary data-[active=true]:font-medium",
-                    )}
-                    color="foreground"
-                    href={item.href}
-                  >
-                    {item.label}
-                  </NextLink>
+                  <FadeHorizontal delay={0.1} shouldAnimate={shouldAnimate}>
+                    <NextLink
+                      className={clsx(
+                        linkStyles({ color: "foreground" }),
+                        "data-[active=true]:text-primary data-[active=true]:font-medium",
+                      )}
+                      color="foreground"
+                      href={item.href}
+                    >
+                      {item.label}
+                    </NextLink>
+                  </FadeHorizontal>
                 </NavbarItem>
               ))}
             </div>
@@ -185,9 +200,36 @@ export const Navbar = () => {
             justify="end"
           >
             <NavbarItem className="hidden sm:flex gap-2">
-              <Link isExternal href={siteConfig.links.github} title="GitHub">
+              <FadeHorizontal delay={0.2} shouldAnimate={shouldAnimate}>
+                <Link isExternal href={siteConfig.links.github} title="GitHub">
+                  <GithubIcon className="text-default-500" />
+                </Link>
+              </FadeHorizontal>
+              <FadeHorizontal delay={0.3} shouldAnimate={shouldAnimate}>
+                <Link
+                  isExternal
+                  href={siteConfig.links.linkedin}
+                  title="LinkedIn"
+                >
+                  <LinkedinIcon className="text-default-500" />
+                </Link>
+              </FadeHorizontal>
+              <FadeHorizontal delay={0.4} shouldAnimate={shouldAnimate}>
+                <ThemeSwitch />
+              </FadeHorizontal>
+            </NavbarItem>
+            <FadeHorizontal delay={0.5} shouldAnimate={shouldAnimate}>
+              <NavbarItem className="hidden lg:flex">{searchInput}</NavbarItem>
+            </FadeHorizontal>
+          </NavbarContent>
+
+          <NavbarContent className="lg:hidden basis-1 pl-4" justify="end">
+            <FadeHorizontal delay={0.2} shouldAnimate={shouldAnimate}>
+              <Link isExternal href={siteConfig.links.github}>
                 <GithubIcon className="text-default-500" />
               </Link>
+            </FadeHorizontal>
+            <FadeHorizontal delay={0.3} shouldAnimate={shouldAnimate}>
               <Link
                 isExternal
                 href={siteConfig.links.linkedin}
@@ -195,20 +237,13 @@ export const Navbar = () => {
               >
                 <LinkedinIcon className="text-default-500" />
               </Link>
+            </FadeHorizontal>
+            <FadeHorizontal delay={0.4} shouldAnimate={shouldAnimate}>
               <ThemeSwitch />
-            </NavbarItem>
-            <NavbarItem className="hidden lg:flex">{searchInput}</NavbarItem>
-          </NavbarContent>
-
-          <NavbarContent className="lg:hidden basis-1 pl-4" justify="end">
-            <Link isExternal href={siteConfig.links.github}>
-              <GithubIcon className="text-default-500" />
-            </Link>
-            <Link isExternal href={siteConfig.links.linkedin} title="LinkedIn">
-              <LinkedinIcon className="text-default-500" />
-            </Link>
-            <ThemeSwitch />
-            <NavbarMenuToggle className="h-[50px]" />
+            </FadeHorizontal>
+            <FadeHorizontal delay={0.5} shouldAnimate={shouldAnimate}>
+              <NavbarMenuToggle />
+            </FadeHorizontal>
           </NavbarContent>
 
           <NavbarMenu>

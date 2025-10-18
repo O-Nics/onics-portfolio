@@ -14,7 +14,7 @@ export const NavigationInPage = ({ left, right }: NavigationLinks) => {
       <div>
         {left && (
           <Link
-            className="text-sm text-default-600 hover:text-primary transition font-bold"
+            className="text-sm text-default-600 hover:text-primary transition font-bold cursor-pointer"
             href={left.href}
           >
             <ArrowHorizontalIcon className="rotate-180  inline-block mr-2" />
@@ -25,7 +25,7 @@ export const NavigationInPage = ({ left, right }: NavigationLinks) => {
       <div>
         {right && (
           <Link
-            className="text-sm text-default-600 font-bold transition hover:text-primary"
+            className="text-sm text-default-600 font-bold transition hover:text-primary cursor-pointer"
             href={right.href}
           >
             {right.name}
