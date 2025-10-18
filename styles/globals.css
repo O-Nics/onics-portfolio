@@ -6,4 +6,18 @@
     width: 100%;
     margin-inline: auto;
 }
+
+h1{
+    @apply text-5xl font-extrabold pt-4;
+}
+
+.subtitle{
+    @apply text-2xl font-bold pt-4 tracking-tight;
+}
+
+.corp{
+    @apply pt-4 text-lg ;
+}
+
+
 @config "../tailwind.config.js"

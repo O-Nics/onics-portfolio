@@ -23,21 +23,21 @@ export default function Example() {
       <DefaultLayout>
         <main className="">
           <FadeUp>
-            <h1 className="text-7xl font-extrabold">Nicolas Planche</h1>
+            <h1>Nicolas Planche</h1>
           </FadeUp>
           <FadeUp delay={0.1}>
-            <p className="text-3xl font-bold pt-2">
+            <p className="subtitle">
               Développeur Full-Stack & Mobile
             </p>
           </FadeUp>
           <FadeUp delay={0.2}>
-            <p className="pt-4 text-xl">
+            <p className="corp">
               Amoureux de la tech, je conçois des applications mobiles et web
               ainsi que des back-ends solides.
             </p>
           </FadeUp>
           <FadeUp delay={0.3}>
-            <p className="pt-4 text-xl">
+            <p className="corp">
               J’utilise des technologies modernes tel que Flutter, Laravel,
               Vue/Nuxt, Next/React, Tailwind CSS et des pratiques DevOps pour
               livrer des solutions logicielles complètes, orientées utilisateur
