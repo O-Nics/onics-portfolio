@@ -26,6 +26,7 @@ export default function ContactPage() {
     { key: "project", label: "Nouveau projet" },
     { key: "collaboration", label: "Collaboration" },
     { key: "question", label: "Question technique" },
+    { key: "recruits", label: "Recrutement" },
     { key: "other", label: "Autre" },
   ];
   const leftLink: LinkNavigation = {
@@ -42,11 +43,20 @@ export default function ContactPage() {
     setIsSubmitting(true);
     setSubmitStatus({ type: null, message: "" });
 
-    // Simulation d'envoi (à remplacer par votre logique d'envoi réelle)
     try {
-      // Ici, vous pouvez ajouter votre logique d'envoi
-      // Par exemple, appel à une API, service email, etc.
-      await new Promise((resolve) => setTimeout(resolve, 1500));
+      const response = await fetch("/api/contact", {
+        method: "POST",
+        headers: {
+          "Content-Type": "application/json",
+        },
+        body: JSON.stringify(formData),
+      });
+
+      const data = await response.json();
+
+      if (!response.ok) {
+        throw new Error(data.message || "Erreur lors de l'envoi");
+      }
 
       setSubmitStatus({
         type: "success",
@@ -58,7 +68,9 @@ export default function ContactPage() {
       setSubmitStatus({
         type: "error",
         message:
-          "Une erreur s'est produite lors de l'envoi. Veuillez réessayer.",
+          error instanceof Error
+            ? error.message
+            : "Une erreur s'est produite lors de l'envoi. Veuillez réessayer.",
       });
     } finally {
       setIsSubmitting(false);
@@ -78,7 +90,8 @@ export default function ContactPage() {
         </FadeUp>
         <FadeUp delay={0.1}>
           <p className="subtitle">
-            Une idée ? Un projet ? Un recrutement ? N'hésitez pas à me contacter
+            Une idée ? Un projet ? Un recrutement ? N&apos;hésitez pas à me
+            contacter
           </p>
         </FadeUp>
         {/* Formulaire */}
