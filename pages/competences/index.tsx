@@ -1,8 +1,10 @@
+import { Card, CardBody } from "@heroui/card";
+import Image from "next/image";
+
 import DefaultLayout from "@/layouts/default";
 import { LinkNavigation } from "@/types";
 import FadeUp from "@/components/animation/fade-up";
 import { NavigationInPage } from "@/components/navigationInPage";
-import {Card, CardBody} from "@heroui/card";
 
 export default function CompetencesPage({}) {
   const leftLink: LinkNavigation = {
@@ -94,11 +96,6 @@ export default function CompetencesPage({}) {
           imageUrl: "/images/PHP.png",
         },
         {
-          name: "Javascript (Node.js)",
-          isFavorite: false,
-          imageUrl: "/images/Javascript.png",
-        },
-        {
           name: "MySQL",
           isFavorite: false,
           imageUrl: "/images/MySQL.png",
@@ -165,7 +162,7 @@ export default function CompetencesPage({}) {
           imageUrl: "/images/Firebase.png",
         },
         {
-          name: "Google Cloud Console",
+          name: "Google Cloud",
           isFavorite: true,
           imageUrl: "/images/Gcc.png",
         },
@@ -180,55 +177,62 @@ export default function CompetencesPage({}) {
 
   return (
     <DefaultLayout>
-      <FadeUp>
-        <h1>Compétences</h1>
-      </FadeUp>
-      <FadeUp delay={0.1}>
-        <p className="subtitle">Appris en codant et en debuggant</p>
-      </FadeUp>
-      <FadeUp delay={0.2}>
-        <p className="text-lg pt-10 ">
-          En tant que développeur full-stack, je conçois des applications web et
-          mobiles pensées pour être performantes, maintenables et scalables.
-          Toujours en quête de nouvelles idées, j’enrichis ma stack au fil des
-          projets et des découvertes.{" "}
-        </p>
-      </FadeUp>
+      <main >
 
-      {skills.map((skillCategory, index) => (
-        <FadeUp key={skillCategory.title} delay={0.3 + index * 0.1}>
-          <div className="flex align-middle items-center">
-            <h2 className="mt-10 mb-4 text-xl font-bold uppercase break-keep ">
-              {skillCategory.title}
-            </h2>
-            <div className="mt-10 mb-4 ml-3 border-t w-full border-dashed border-gray-100
-dark:border-white/5 dark:bg-black/10"></div>
-          </div>
-          <div className="grid grid-cols-2 sm:grid-cols-3 md:grid-cols-4 lg:grid-cols-6 gap-6">
-            {skillCategory.items.map((skill) => (
-              <Card key={skill.name}>
-                <CardBody>
-                  <div
-                    key={skill.name}
-                    className="flex flex-row items-center space-y-2"
-                  >
-                    <img
-                      alt={skill.name}
-                      className="w-16 h-16 object-contain"
-                      src={skill.imageUrl}
-                    />
-                    <p className="text-center">{skill.name}</p>
-                  </div>
-                </CardBody>
-              </Card>
-            ))}
-          </div>
+        <FadeUp>
+          <h1>Compétences</h1>
         </FadeUp>
-      ))}
+        <FadeUp delay={0.1}>
+          <p className="subtitle">Appris en codant et en debuggant</p>
+        </FadeUp>
+        <FadeUp delay={0.2}>
+          <p className="text-lg pt-10 ">
+            En tant que développeur full-stack, je conçois des applications web et
+            mobiles pensées pour être performantes, maintenables et scalables.
+            Toujours en quête de nouvelles idées, j’enrichis ma stack au fil des
+            projets et des découvertes.{" "}
+          </p>
+        </FadeUp>
 
-      <FadeUp delay={0.6}>
-        <NavigationInPage left={leftLink} right={rightLink}/>
-      </FadeUp>
+        {skills.map((skillCategory, index) => (
+          <FadeUp key={skillCategory.title} delay={0.3 + index * 0.1}>
+            <div className="flex align-middle items-center">
+              <h2 className="mt-5 mb-4 text-lg font-bold whitespace-nowrap">
+                {skillCategory.title}
+              </h2>
+              <div
+                className="mt-5 mb-4 ml-3 border-t w-full border-dashed border-gray-100
+dark:border-white/5 dark:bg-black/10"
+              />
+            </div>
+            <div className="flex flex-wrap gap-2">
+              {skillCategory.items.map((skill, index) => (
+                <FadeUp key={skill.name} delay={0.4 + index * 0.05}>
+                  <div key={skill.name} className="w-fit shadow-red-50">
+                    <div
+                      className="flex-row flex items-center align-middle rounded-lg dark:bg-primary/5 bg-gray-50 px-3 hover:bg-gray-100 dark:hover:bg-primary/20 transition py-2 ">
+                      <div className="flex flex-row items-center gap-2">
+                        <Image
+                          alt={skill.name}
+                          className={`w-6 h-6 ${skill.name == "Next.js" || skill.name === "GitHub" ? "dark:invert" : ""}`}
+                          height={64}
+                          src={skill.imageUrl}
+                          width={64}
+                        />
+                        <p className="text-sm">{skill.name}</p>
+                      </div>
+                    </div>
+                  </div>
+                </FadeUp>
+              ))}
+            </div>
+          </FadeUp>
+        ))}
+
+        <FadeUp delay={0.6}>
+          <NavigationInPage left={leftLink} right={rightLink}/>
+        </FadeUp>
+      </main>
     </DefaultLayout>
   );
 }

@@ -15,7 +15,7 @@ export default function AProposPage() {
 
   return (
     <DefaultLayout>
-      <main>
+      <main className="">
         <FadeUp>
           <h1>À propos de moi</h1>
         </FadeUp>
