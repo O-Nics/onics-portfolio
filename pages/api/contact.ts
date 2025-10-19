@@ -1,8 +1,8 @@
 import type { NextApiRequest, NextApiResponse } from "next";
+
 import { Resend } from "resend";
 
-// const resend = new Resend(process.env.RESEND_API_KEY);
-const resend = new Resend("re_LJUEZcQd_5yWf1HcUoZH59dSVSrSpJDoC");
+const resend = new Resend(process.env.RESEND_API_KEY);
 
 type ContactFormData = {
   name: string;
@@ -49,7 +49,7 @@ export default async function handler(
     };
 
     // Envoi de l'email via Resend
-    const { data, error } = await resend.emails.send({
+    const { error } = await resend.emails.send({
       from: "Contact Portfolio <onboarding@resend.dev>", // À remplacer par votre domaine vérifié
       to: "np.planche@gmail.com",
       replyTo: email,

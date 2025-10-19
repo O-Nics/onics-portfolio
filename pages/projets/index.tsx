@@ -1,12 +1,7 @@
 import { useState, useMemo } from "react";
 import { GetStaticProps } from "next";
-import { Input } from "@heroui/input";
-import { Select, SelectItem } from "@heroui/select";
-import { Chip } from "@heroui/chip";
-import { Button } from "@heroui/button";
 
 import DefaultLayout from "@/layouts/default";
-import { ProjectCard } from "@/components/project-card";
 import {
   getAllProjects,
   getAllCategories,
@@ -15,9 +10,8 @@ import {
 } from "@/lib/projects";
 import { Project } from "@/types/project";
 import { title } from "@/components/primitives";
-import { SearchIcon } from "@/components/icons";
-import {NavigationInPage} from "@/components/navigationInPage";
-import {LinkNavigation} from "@/types";
+import { NavigationInPage } from "@/components/navigationInPage";
+import { LinkNavigation } from "@/types";
 
 interface ProjetsPageProps {
   projects: Project[];
@@ -33,7 +27,7 @@ export default function ProjetsPage({
   const [searchQuery, setSearchQuery] = useState("");
   const [selectedCategories, setSelectedCategories] = useState<string[]>([]);
   const [selectedTechnologies, setSelectedTechnologies] = useState<string[]>(
-    []
+    [],
   );
   const [selectedStatus, setSelectedStatus] = useState<string[]>([]);
 
@@ -41,7 +35,8 @@ export default function ProjetsPage({
   const filteredProjects = useMemo(() => {
     return filterProjects({
       search: searchQuery,
-      categories: selectedCategories.length > 0 ? selectedCategories : undefined,
+      categories:
+        selectedCategories.length > 0 ? selectedCategories : undefined,
       technologies:
         selectedTechnologies.length > 0 ? selectedTechnologies : undefined,
       status: selectedStatus.length > 0 ? selectedStatus : undefined,
@@ -53,19 +48,21 @@ export default function ProjetsPage({
     setSelectedCategories((prev) =>
       prev.includes(category)
         ? prev.filter((c) => c !== category)
-        : [...prev, category]
+        : [...prev, category],
     );
   };
 
   const toggleTechnology = (tech: string) => {
     setSelectedTechnologies((prev) =>
-      prev.includes(tech) ? prev.filter((t) => t !== tech) : [...prev, tech]
+      prev.includes(tech) ? prev.filter((t) => t !== tech) : [...prev, tech],
     );
   };
 
   const toggleStatus = (status: string) => {
     setSelectedStatus((prev) =>
-      prev.includes(status) ? prev.filter((s) => s !== status) : [...prev, status]
+      prev.includes(status)
+        ? prev.filter((s) => s !== status)
+        : [...prev, status],
     );
   };
 
@@ -89,6 +86,7 @@ export default function ProjetsPage({
     name: "Compétences",
     href: "/competences",
   };
+
   return (
     <DefaultLayout>
       <section className="flex flex-col gap-8 py-8 md:py-10">
@@ -99,7 +97,6 @@ export default function ProjetsPage({
             mobile.
           </p>
         </div>
-
       </section>
       <NavigationInPage left={leftLink} right={rightLink} />
     </DefaultLayout>

@@ -1,8 +1,8 @@
 import { Card, CardHeader, CardBody, CardFooter } from "@heroui/card";
 import { Chip } from "@heroui/chip";
-import { Button } from "@heroui/button";
 import { Image } from "@heroui/image";
 import NextLink from "next/link";
+
 import { Project } from "@/types/project";
 
 interface ProjectCardProps {
@@ -14,7 +14,12 @@ export const ProjectCard = ({ project }: ProjectCardProps) => {
   const thumbnail = project.media.find((m) => m.type === "image");
 
   return (
-    <Card className="w-full" isPressable as={NextLink} href={`/projet/${project.slug}`}>
+    <Card
+      isPressable
+      as={NextLink}
+      className="w-full"
+      href={`/projet/${project.slug}`}
+    >
       {thumbnail && (
         <CardHeader className="p-0 overflow-hidden">
           <Image
@@ -37,7 +42,7 @@ export const ProjectCard = ({ project }: ProjectCardProps) => {
         <p className="text-default-600 text-sm">{project.shortDescription}</p>
         <div className="flex flex-wrap gap-1 mt-2">
           {project.stack.slice(0, 4).map((tech) => (
-            <Chip key={tech} size="sm" variant="flat" color="primary">
+            <Chip key={tech} color="primary" size="sm" variant="flat">
               {tech}
             </Chip>
           ))}

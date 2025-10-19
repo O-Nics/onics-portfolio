@@ -15,7 +15,12 @@ import { Button } from "@heroui/button";
 import { usePathname } from "next/navigation";
 import Image from "next/image";
 
-import {GithubIcon, SearchIcon, LinkedinIcon, ArrowHorizontalLineIcon} from "@/components/icons";
+import {
+  GithubIcon,
+  SearchIcon,
+  LinkedinIcon,
+  ArrowHorizontalLineIcon,
+} from "@/components/icons";
 import { ThemeSwitch } from "@/components/theme-switch";
 import { siteConfig } from "@/config/site";
 import FadeUp from "@/components/animation/fade-up";
@@ -40,7 +45,10 @@ export const Navbar = () => {
         input: "text-sm",
       }}
       endContent={
-        <Kbd className="hidden lg:inline-block dark:bg-primary/6 bg-primary/10 !shadow-none" keys={["command"]}>
+        <Kbd
+          className="hidden lg:inline-block dark:bg-primary/6 bg-primary/10 !shadow-none"
+          keys={["command"]}
+        >
           K
         </Kbd>
       }
@@ -66,12 +74,11 @@ export const Navbar = () => {
         <div className="hidden mt-[65px] py-0 lg:fixed lg:inset-y-0  lg:z-30 lg:flex lg:w-72 lg:flex-col">
           {/* Sidebar component, swap this element with another sidebar if you like */}
           <div className="bg-white dark:bg-primary/1 dark:border-primary/10 border-r border-l border-dashed border-gray-200">
-            <div
-              className="flex grow flex-col gap-y-5 h-[calc(100vh-80px)] mt-3 pt-4      px-4 pb-4 ">
+            <div className="flex grow flex-col gap-y-5 h-[calc(100vh-80px)] mt-3 pt-4      px-4 pb-4 ">
               <nav className="flex flex-1 flex-col  overflow-y-scroll px-2">
                 <ul className="flex flex-1 flex-col gap-y-7 ">
                   <li>
-                    <ul className=" space-y-1 " role="list">
+                    <ul className=" space-y-1 ">
                       {siteConfig.sidebarNavigation.map((nav, index) => (
                         <FadeUp
                           key={nav.name}
@@ -119,7 +126,7 @@ export const Navbar = () => {
                         Lien rapides
                       </div>
                     </FadeUp>
-                    <ul className="-mx-2 mt-2 space-y-1" role="list">
+                    <ul className="-mx-2 mt-2 space-y-1">
                       {siteConfig.quickLinks.map((quickLink, index) => (
                         <FadeUp
                           key={quickLink.name}
@@ -140,21 +147,27 @@ export const Navbar = () => {
                                 href={quickLink.href}
                                 variant="light"
                               >
-                              <div className={"flex justify-between w-full "}>
-                                <span className={"flex gap-x-3 dark:group-hover:text-primary"}>
+                                <div className={"flex justify-between w-full "}>
                                   <span
-                                    className="flex size-6 shrink-0 items-center justify-center rounded-lg   text-[0.625rem] font-medium  text-gray-400 dark:group-hover:text-primary ">
-                                <quickLink.icon className="…props…"/>
-                              </span>
-                                <span className="truncate">{quickLink.name}</span>
-                                </span>
-                                {quickLink.isExternal && (
-                                  <span>
-                                  <ArrowHorizontalLineIcon
-                                    className={`size-5 rotate-320 transition text-transparent dark:group-hover:text-primary group-hover:text-gray-400 `}/>
-                                </span>
-                                )}
-                              </div>
+                                    className={
+                                      "flex gap-x-3 dark:group-hover:text-primary"
+                                    }
+                                  >
+                                    <span className="flex size-6 shrink-0 items-center justify-center rounded-lg   text-[0.625rem] font-medium  text-gray-400 dark:group-hover:text-primary ">
+                                      <quickLink.icon className="…props…" />
+                                    </span>
+                                    <span className="truncate">
+                                      {quickLink.name}
+                                    </span>
+                                  </span>
+                                  {quickLink.isExternal && (
+                                    <span>
+                                      <ArrowHorizontalLineIcon
+                                        className={`size-5 rotate-320 transition text-transparent dark:group-hover:text-primary group-hover:text-gray-400 `}
+                                      />
+                                    </span>
+                                  )}
+                                </div>
                               </Button>
                             </Link>
                           </li>
@@ -165,7 +178,6 @@ export const Navbar = () => {
                 </ul>
               </nav>
             </div>
-
           </div>
         </div>
 
@@ -206,7 +218,7 @@ export const Navbar = () => {
                 shouldAnimate={shouldAnimate}
               >
                 <Link href={siteConfig.links.github} title="GitHub">
-                  <GithubIcon className="text-default-500"/>
+                  <GithubIcon className="text-default-500" />
                 </Link>
               </FadeHorizontal>
               <FadeHorizontal
@@ -215,7 +227,7 @@ export const Navbar = () => {
                 shouldAnimate={shouldAnimate}
               >
                 <Link href={siteConfig.links.linkedin} title="LinkedIn">
-                  <LinkedinIcon className="text-default-500"/>
+                  <LinkedinIcon className="text-default-500" />
                 </Link>
               </FadeHorizontal>
               <FadeHorizontal
@@ -223,7 +235,7 @@ export const Navbar = () => {
                 delay={0.4}
                 shouldAnimate={shouldAnimate}
               >
-                <ThemeSwitch/>
+                <ThemeSwitch />
               </FadeHorizontal>
             </NavbarItem>
             <FadeHorizontal delay={0.5} shouldAnimate={shouldAnimate}>
@@ -234,19 +246,19 @@ export const Navbar = () => {
           <NavbarContent className="lg:hidden basis-1 pl-4" justify="end">
             <FadeHorizontal delay={0.2} shouldAnimate={shouldAnimate}>
               <Link href={siteConfig.links.github}>
-                <GithubIcon className="text-default-500"/>
+                <GithubIcon className="text-default-500" />
               </Link>
             </FadeHorizontal>
             <FadeHorizontal delay={0.3} shouldAnimate={shouldAnimate}>
               <Link href={siteConfig.links.linkedin} title="LinkedIn">
-                <LinkedinIcon className="text-default-500"/>
+                <LinkedinIcon className="text-default-500" />
               </Link>
             </FadeHorizontal>
             <FadeHorizontal delay={0.4} shouldAnimate={shouldAnimate}>
-              <ThemeSwitch/>
+              <ThemeSwitch />
             </FadeHorizontal>
             <FadeHorizontal delay={0.5} shouldAnimate={shouldAnimate}>
-              <NavbarMenuToggle/>
+              <NavbarMenuToggle />
             </FadeHorizontal>
           </NavbarContent>
 
@@ -256,7 +268,7 @@ export const Navbar = () => {
               <nav className="flex flex-1 flex-col ">
                 <ul className="flex flex-1 w- flex-col gap-y-7">
                   <li>
-                    <ul className="-mx-2 space-y-1 " role="list">
+                    <ul className="-mx-2 space-y-1 ">
                       {siteConfig.sidebarNavigation.map((nav, index) => (
                         <FadeUp
                           key={nav.name}
@@ -299,7 +311,7 @@ export const Navbar = () => {
                     <div className="text-xs/6 font-bold text-gray-400">
                       Lien rapides
                     </div>
-                    <ul className="-mx-2 mt-2 space-y-1" role="list">
+                    <ul className="-mx-2 mt-2 space-y-1">
                       {siteConfig.quickLinks.map((quickLink, index) => (
                         <FadeUp
                           key={quickLink.name}
@@ -321,18 +333,24 @@ export const Navbar = () => {
                                 variant="light"
                               >
                                 <div className={"flex justify-between w-full "}>
-                                <span className={"flex gap-x-3 dark:group-hover:text-primary"}>
                                   <span
-                                    className="flex size-6 shrink-0 items-center justify-center rounded-lg   text-[0.625rem] font-medium  text-gray-400 dark:group-hover:text-primary ">
-                                <quickLink.icon className="…props…"/>
-                              </span>
-                                <span className="truncate">{quickLink.name}</span>
-                                </span>
+                                    className={
+                                      "flex gap-x-3 dark:group-hover:text-primary"
+                                    }
+                                  >
+                                    <span className="flex size-6 shrink-0 items-center justify-center rounded-lg   text-[0.625rem] font-medium  text-gray-400 dark:group-hover:text-primary ">
+                                      <quickLink.icon className="…props…" />
+                                    </span>
+                                    <span className="truncate">
+                                      {quickLink.name}
+                                    </span>
+                                  </span>
                                   {quickLink.isExternal && (
                                     <span>
-                                  <ArrowHorizontalLineIcon
-                                    className={`size-5 rotate-320 transition text-transparent dark:group-hover:text-primary group-hover:text-gray-400 `}/>
-                                </span>
+                                      <ArrowHorizontalLineIcon
+                                        className={`size-5 rotate-320 transition text-transparent dark:group-hover:text-primary group-hover:text-gray-400 `}
+                                      />
+                                    </span>
                                   )}
                                 </div>
                               </Button>

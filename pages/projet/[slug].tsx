@@ -114,11 +114,7 @@ export default function ProjectPage({ project }: ProjectPageProps) {
           <div className="flex flex-col gap-4">
             {videos.map((video, index) => (
               <div key={index} className="flex flex-col gap-2">
-                <video
-                  className="w-full rounded-lg"
-                  controls
-                  src={video.path}
-                >
+                <video controls className="w-full rounded-lg" src={video.path}>
                   <track kind="captions" />
                   Votre navigateur ne supporte pas la lecture de vidéos.
                 </video>
@@ -160,6 +156,7 @@ export default function ProjectPage({ project }: ProjectPageProps) {
             if (paragraph.trim() === "") {
               return <br key={index} />;
             }
+
             return (
               <p key={index} className="text-default-700 mb-4">
                 {paragraph}

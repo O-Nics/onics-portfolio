@@ -15,7 +15,7 @@ interface FadeUpProps extends PropsWithChildren {
 export default function FadeUp({
   children,
   delay = 0,
-  duration = .4,
+  duration = 0.4,
   y = 24,
   once = true,
   className,
@@ -27,11 +27,14 @@ export default function FadeUp({
     setMounted(true);
   }, []);
 
-
   // Si pas encore monté côté client, afficher invisible pour éviter le flash
   // SAUF si shouldAnimate = false (pages suivantes), alors garder visible
   if (!mounted) {
-    return <div className={className} style={{ opacity: shouldAnimate ? 0 : 1 }}>{children}</div>;
+    return (
+      <div className={className} style={{ opacity: shouldAnimate ? 0 : 1 }}>
+        {children}
+      </div>
+    );
   }
 
   return (

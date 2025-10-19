@@ -27,9 +27,11 @@ export function getFeaturedProjects(): Project[] {
  */
 export function getAllCategories(): string[] {
   const categories = new Set<string>();
+
   getAllProjects().forEach((project) => {
     project.categories.forEach((category) => categories.add(category));
   });
+
   return Array.from(categories).sort();
 }
 
@@ -38,9 +40,11 @@ export function getAllCategories(): string[] {
  */
 export function getAllTechnologies(): string[] {
   const technologies = new Set<string>();
+
   getAllProjects().forEach((project) => {
     project.stack.forEach((tech) => technologies.add(tech));
   });
+
   return Array.from(technologies).sort();
 }
 
@@ -49,7 +53,7 @@ export function getAllTechnologies(): string[] {
  */
 export function getProjectsByCategory(category: string): Project[] {
   return getAllProjects().filter((project) =>
-    project.categories.includes(category)
+    project.categories.includes(category),
   );
 }
 
@@ -58,7 +62,7 @@ export function getProjectsByCategory(category: string): Project[] {
  */
 export function getProjectsByTechnology(technology: string): Project[] {
   return getAllProjects().filter((project) =>
-    project.stack.includes(technology)
+    project.stack.includes(technology),
   );
 }
 
@@ -66,7 +70,7 @@ export function getProjectsByTechnology(technology: string): Project[] {
  * Filtre les projets par statut
  */
 export function getProjectsByStatus(
-  status: "completed" | "in-progress" | "archived"
+  status: "completed" | "in-progress" | "archived",
 ): Project[] {
   return getAllProjects().filter((project) => project.status === status);
 }
@@ -76,11 +80,12 @@ export function getProjectsByStatus(
  */
 export function searchProjects(query: string): Project[] {
   const lowerQuery = query.toLowerCase();
+
   return getAllProjects().filter(
     (project) =>
       project.shortTitle.toLowerCase().includes(lowerQuery) ||
       project.longTitle.toLowerCase().includes(lowerQuery) ||
-      project.shortDescription.toLowerCase().includes(lowerQuery)
+      project.shortDescription.toLowerCase().includes(lowerQuery),
   );
 }
 
@@ -99,29 +104,30 @@ export function filterProjects(filters: ProjectFilters): Project[] {
 
   if (filters.categories && filters.categories.length > 0) {
     projects = projects.filter((project) =>
-      project.categories.some((cat) => filters.categories?.includes(cat))
+      project.categories.some((cat) => filters.categories?.includes(cat)),
     );
   }
 
   if (filters.technologies && filters.technologies.length > 0) {
     projects = projects.filter((project) =>
-      project.stack.some((tech) => filters.technologies?.includes(tech))
+      project.stack.some((tech) => filters.technologies?.includes(tech)),
     );
   }
 
   if (filters.status && filters.status.length > 0) {
     projects = projects.filter((project) =>
-      filters.status?.includes(project.status || "")
+      filters.status?.includes(project.status || ""),
     );
   }
 
   if (filters.search && filters.search.trim() !== "") {
     const lowerQuery = filters.search.toLowerCase();
+
     projects = projects.filter(
       (project) =>
         project.shortTitle.toLowerCase().includes(lowerQuery) ||
         project.longTitle.toLowerCase().includes(lowerQuery) ||
-        project.shortDescription.toLowerCase().includes(lowerQuery)
+        project.shortDescription.toLowerCase().includes(lowerQuery),
     );
   }
 

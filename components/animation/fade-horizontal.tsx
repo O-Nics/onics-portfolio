@@ -31,7 +31,12 @@ export default function FadeHorizontal({
   useEffect(() => setMounted(true), []);
 
   // Si pas monté, invisible uniquement si animation attendue, sinon visible
-  if (!mounted) return <span className={className} style={{ opacity: shouldAnimate ? 0 : 1 }}>{children}</span>;
+  if (!mounted)
+    return (
+      <span className={className} style={{ opacity: shouldAnimate ? 0 : 1 }}>
+        {children}
+      </span>
+    );
 
   // si left = true → commence à gauche, sinon à droite
   const initialX = left ? -distance : distance;

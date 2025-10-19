@@ -21,14 +21,12 @@ export default function Example() {
         ```
       */}
       <DefaultLayout>
-        <main >
+        <main>
           <FadeUp>
             <h1>Nicolas Planche</h1>
           </FadeUp>
           <FadeUp delay={0.1}>
-            <p className="subtitle">
-              Développeur Full-Stack & Mobile
-            </p>
+            <p className="subtitle">Développeur Full-Stack & Mobile</p>
           </FadeUp>
           <FadeUp delay={0.2}>
             <p className="corp">
