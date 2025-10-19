@@ -15,7 +15,7 @@ import { Button } from "@heroui/button";
 import { usePathname } from "next/navigation";
 import Image from "next/image";
 
-import {GithubIcon, SearchIcon, LinkedinIcon, ArrowHorizontalIcon, ArrowHorizontalLineIcon} from "@/components/icons";
+import {GithubIcon, SearchIcon, LinkedinIcon, ArrowHorizontalLineIcon} from "@/components/icons";
 import { ThemeSwitch } from "@/components/theme-switch";
 import { siteConfig } from "@/config/site";
 import FadeUp from "@/components/animation/fade-up";
@@ -36,11 +36,11 @@ export const Navbar = () => {
       aria-label="Search"
       classNames={{
         inputWrapper:
-          "!bg-primary/3 border-0 hover:!bg-primary/5 focus-within:!bg-primary/4",
+          "dark:!bg-primary/3 border-0 dark:hover:!bg-primary/5 bg-gray-50 hover:!bg-gray-100 dark:focus-within:!bg-primary/4",
         input: "text-sm",
       }}
       endContent={
-        <Kbd className="hidden lg:inline-block bg-primary/6 !shadow-sm" keys={["command"]}>
+        <Kbd className="hidden lg:inline-block dark:bg-primary/6 bg-primary/10 !shadow-none" keys={["command"]}>
           K
         </Kbd>
       }
@@ -257,36 +257,41 @@ export const Navbar = () => {
                 <ul className="flex flex-1 w- flex-col gap-y-7">
                   <li>
                     <ul className="-mx-2 space-y-1 " role="list">
-                      {siteConfig.sidebarNavigation.map((nav) => (
-                        <li key={nav.name}>
-                          <Link
-                            aria-label={nav.name}
-                            className="w-full"
-                            href={nav.href}
-                            title={nav.name}
-                          >
-                            <Button
-                              className={classNames(
-                                pathname === nav.href
-                                  ? "bg-gray-50 text-indigo-600 dark:bg-primary/5 dark:text-primary"
-                                  : "text-gray-700 hover:bg-gray-50 hover:text-indigo-600 dark:text-gray-400 dark:hover:bg-primary/2 dark:hover:text-primary",
-                                "group flex gap-x-3 rounded-md p-2 text-sm/6 font-semibold w-full justify-start",
-                              )}
-                              variant="light"
+                      {siteConfig.sidebarNavigation.map((nav, index) => (
+                        <FadeUp
+                          key={nav.name}
+                          delay={index * 0.1}
+                          shouldAnimate={shouldAnimate}
+                        >
+                          <li key={nav.name}>
+                            <Link
+                              aria-label={nav.name}
+                              className="w-full cursor-pointer"
+                              href={nav.href}
+                              title={nav.name}
                             >
-                              <nav.icon
-                                aria-hidden="true"
+                              <div
                                 className={classNames(
                                   pathname === nav.href
-                                    ? "text-indigo-600 dark:text-primary"
-                                    : "text-gray-400 group-hover:text-indigo-600 dark:group-hover:text-primary",
-                                  "size-6 shrink-0",
+                                    ? "dark:bg-primary/4  border-primary text-primary hover:bg-gray-50 dark:hover:bg-primary/2"
+                                    : "text-gray-700 dark:text-gray-400 transition dark:hover:bg-primary/2 hover:bg-gray-50 dark:hover:text-primary b",
+                                  "group flex gap-x-3 rounded-md p-2 text-sm/6 font-bold w-full justify-start ",
                                 )}
-                              />
-                              {nav.name}
-                            </Button>
-                          </Link>
-                        </li>
+                              >
+                                <nav.icon
+                                  aria-hidden="true"
+                                  className={classNames(
+                                    pathname === nav.href
+                                      ? "text-primary "
+                                      : "text-gray-400 transition dark:group-hover:text-primary",
+                                    "size-6 shrink-0  ",
+                                  )}
+                                />
+                                {nav.name}
+                              </div>
+                            </Link>
+                          </li>
+                        </FadeUp>
                       ))}
                     </ul>
                   </li>
@@ -311,14 +316,14 @@ export const Navbar = () => {
                               title={quickLink.name}
                             >
                               <Button
-                                className="group flex  rounded-md p-2 text-sm/6 font-semibold w-full justify-start text-gray-700 hover:bg-gray-50 hover:text-indigo-600 dark:text-gray-400 dark:hover:bg-primary/2 dark:hover:text-primary"
+                                className="group flex  rounded-md p-2 text-sm/6 font-semibold w-full justify-start text-gray-700 dark:text-gray-400 dark:hover:bg-primary/2 hover:!bg-gray-50"
                                 href={quickLink.href}
                                 variant="light"
                               >
-                                <div className={"flex justify-between w-full"}>
-                                <span className={"flex gap-x-3"}>
+                                <div className={"flex justify-between w-full "}>
+                                <span className={"flex gap-x-3 dark:group-hover:text-primary"}>
                                   <span
-                                    className="flex size-6 shrink-0 items-center justify-center rounded-lg   text-[0.625rem] font-medium  text-gray-400  group-hover:text-indigo-600 dark:group-hover:text-primary">
+                                    className="flex size-6 shrink-0 items-center justify-center rounded-lg   text-[0.625rem] font-medium  text-gray-400 dark:group-hover:text-primary ">
                                 <quickLink.icon className="…props…"/>
                               </span>
                                 <span className="truncate">{quickLink.name}</span>
@@ -326,7 +331,7 @@ export const Navbar = () => {
                                   {quickLink.isExternal && (
                                     <span>
                                   <ArrowHorizontalLineIcon
-                                    className={`size-5 rotate-320 transition text-transparent group-hover:text-indigo-600 dark:group-hover:text-primary `}/>
+                                    className={`size-5 rotate-320 transition text-transparent dark:group-hover:text-primary group-hover:text-gray-400 `}/>
                                 </span>
                                   )}
                                 </div>

@@ -210,7 +210,7 @@ dark:border-white/5 dark:bg-black/10"
                 <FadeUp key={skill.name} delay={0.4 + index * 0.05}>
                   <div key={skill.name} className="w-fit shadow-red-50">
                     <div
-                      className="flex-row flex items-center align-middle rounded-lg dark:bg-primary/5 bg-gray-50 px-3 hover:bg-gray-100 dark:hover:bg-primary/20 transition py-2 ">
+                      className="flex-row flex items-center align-middle rounded-lg dark:bg-primary/5 bg-gray-50 px-3 hover:bg-gray-100 dark:hover:bg-primary/20 hover:bg-primary/10 transition py-2 ">
                       <div className="flex flex-row items-center gap-2">
                         <Image
                           alt={skill.name}

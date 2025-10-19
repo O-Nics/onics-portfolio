@@ -1,14 +1,13 @@
-import { useState } from "react";
+import React, { useState } from "react";
 import { Input, Textarea } from "@heroui/input";
 import { Button } from "@heroui/button";
 import { Select, SelectItem } from "@heroui/select";
-import { Card, CardBody } from "@heroui/card";
-import { Link } from "@heroui/link";
+import { CloseIcon } from "@heroui/shared-icons";
 
 import DefaultLayout from "@/layouts/default";
-import { title, subtitle } from "@/components/primitives";
-import { siteConfig } from "@/config/site";
-import { GithubIcon, LinkedinIcon } from "@/components/icons";
+import { LinkNavigation } from "@/types";
+import { NavigationInPage } from "@/components/navigationInPage";
+import FadeUp from "@/components/animation/fade-up";
 
 export default function ContactPage() {
   const [formData, setFormData] = useState({
@@ -29,6 +28,14 @@ export default function ContactPage() {
     { key: "question", label: "Question technique" },
     { key: "other", label: "Autre" },
   ];
+  const leftLink: LinkNavigation = {
+    name: "Formations",
+    href: "/education",
+  };
+  const rightLink: LinkNavigation = {
+    name: "Accueil",
+    href: "/",
+  };
 
   const handleSubmit = async (e: React.FormEvent) => {
     e.preventDefault();
@@ -58,155 +65,144 @@ export default function ContactPage() {
     }
   };
 
-  const handleChange = (
-    field: keyof typeof formData,
-    value: string
-  ) => {
+  const handleChange = (field: keyof typeof formData, value: string) => {
     setFormData((prev) => ({ ...prev, [field]: value }));
   };
 
   return (
     <DefaultLayout>
-      <section className="flex flex-col gap-8 py-8 md:py-10">
+      <main>
         {/* En-tête */}
-        <div className="flex flex-col gap-4 text-center">
-          <h1 className={title()}>Me contacter</h1>
-          <p className={subtitle()}>
-            Une idée ? Un projet ? N'hésitez pas à me contacter
+        <FadeUp>
+          <h1>Contact</h1>
+        </FadeUp>
+        <FadeUp delay={0.1}>
+          <p className="subtitle">
+            Une idée ? Un projet ? Un recrutement ? N'hésitez pas à me contacter
           </p>
-        </div>
+        </FadeUp>
+        {/* Formulaire */}
+        <div className="pt-10">
+          <form className="flex flex-col gap-4" onSubmit={handleSubmit}>
+            <FadeUp delay={0.2}>
+              <Input
+                isRequired
+                classNames={{
+                  inputWrapper:
+                    "dark:!bg-primary/2 border-0 dark:hover:!bg-primary/6 bg-gray-50 hover:!bg-gray-100 dark:focus-within:!bg-primary/5",
+                  input: "text-sm",
+                }}
+                label="Nom"
+                placeholder="Votre nom"
+                type="text"
+                value={formData.name}
+                onValueChange={(value) => handleChange("name", value)}
+              />
+            </FadeUp>
 
-        <div className="grid grid-cols-1 lg:grid-cols-3 gap-8">
-          {/* Formulaire */}
-          <div className="lg:col-span-2">
-            <Card>
-              <CardBody className="gap-6">
-                <h2 className="text-2xl font-bold">Envoyez-moi un message</h2>
+            <FadeUp delay={0.3}>
+              <Input
+                isRequired
+                classNames={{
+                  inputWrapper:
+                    "dark:!bg-primary/2 border-0 dark:hover:!bg-primary/6 bg-gray-50 hover:!bg-gray-100 dark:focus-within:!bg-primary/5",
+                  input: "text-sm",
+                }}
+                label="Email"
+                placeholder="votre.email@exemple.com"
+                type="email"
+                value={formData.email}
+                onValueChange={(value) => handleChange("email", value)}
+              />
+            </FadeUp>
 
-                <form className="flex flex-col gap-4" onSubmit={handleSubmit}>
-                  <Input
-                    isRequired
-                    label="Nom"
-                    placeholder="Votre nom"
-                    type="text"
-                    value={formData.name}
-                    onValueChange={(value) => handleChange("name", value)}
-                  />
+            <FadeUp delay={0.4}>
+              <Select
+                isRequired
+                classNames={{
+                  trigger:
+                    "dark:!bg-primary/2 border-0 dark:hover:!bg-primary/6 bg-gray-50 hover:!bg-gray-100 dark:focus-within:!bg-primary/5",
+                  popoverContent: "dark:bg-[#132233]",
+                }}
+                label="Sujet"
+                placeholder="Sélectionnez un sujet"
+                selectedKeys={formData.subject ? [formData.subject] : []}
+                onSelectionChange={(keys) => {
+                  const selected = Array.from(keys)[0] as string;
 
-                  <Input
-                    isRequired
-                    label="Email"
-                    placeholder="votre.email@exemple.com"
-                    type="email"
-                    value={formData.email}
-                    onValueChange={(value) => handleChange("email", value)}
-                  />
+                  handleChange("subject", selected);
+                }}
+              >
+                {subjects.map((subject) => (
+                  <SelectItem
+                    key={subject.key}
+                    classNames={{
+                      selectedIcon: "text-primary",
 
-                  <Select
-                    isRequired
-                    label="Sujet"
-                    placeholder="Sélectionnez un sujet"
-                    selectedKeys={formData.subject ? [formData.subject] : []}
-                    onSelectionChange={(keys) => {
-                      const selected = Array.from(keys)[0] as string;
-                      handleChange("subject", selected);
+                      base: "hover:!bg-primary/6 dark:focus:!bg-primary/6  focus:!bg-gray-50 focus:!text-primary dark:hover:!bg-primary/15 dark:focus:!bg-primary/20",
                     }}
                   >
-                    {subjects.map((subject) => (
-                      <SelectItem key={subject.key}>{subject.label}</SelectItem>
-                    ))}
-                  </Select>
+                    {subject.label}
+                  </SelectItem>
+                ))}
+              </Select>
+            </FadeUp>
 
-                  <Textarea
-                    isRequired
-                    label="Message"
-                    minRows={6}
-                    placeholder="Décrivez votre projet ou votre question..."
-                    value={formData.message}
-                    onValueChange={(value) => handleChange("message", value)}
-                  />
+            <FadeUp delay={0.5}>
+              <Textarea
+                isRequired
+                classNames={{
+                  inputWrapper:
+                    "dark:!bg-primary/2 border-0 dark:hover:!bg-primary/6 bg-gray-50 hover:!bg-gray-100 dark:focus-within:!bg-primary/5",
+                  input: "text-sm",
+                }}
+                label="Message"
+                minRows={6}
+                placeholder="Décrivez votre projet ou votre question..."
+                value={formData.message}
+                onValueChange={(value) => handleChange("message", value)}
+              />
+            </FadeUp>
 
-                  {submitStatus.type && (
-                    <div
-                      className={`p-4 rounded-lg ${
-                        submitStatus.type === "success"
-                          ? "bg-success-50 text-success-600"
-                          : "bg-danger-50 text-danger-600"
-                      }`}
-                    >
-                      {submitStatus.message}
-                    </div>
-                  )}
-
-                  <Button
-                    className="w-full"
-                    color="primary"
-                    isLoading={isSubmitting}
-                    size="lg"
-                    type="submit"
-                  >
-                    {isSubmitting ? "Envoi en cours..." : "Envoyer le message"}
-                  </Button>
-                </form>
-              </CardBody>
-            </Card>
-          </div>
-
-          {/* Informations de contact */}
-          <div className="flex flex-col gap-6">
-            <Card>
-              <CardBody className="gap-4">
-                <h3 className="text-xl font-bold">Coordonnées</h3>
-
-                <div className="flex flex-col gap-3">
-                  <div className="flex items-center gap-3">
-                    <GithubIcon size={24} />
-                    <Link
-                      isExternal
-                      className="text-default-700"
-                      href={siteConfig.links.github}
-                    >
-                      GitHub
-                    </Link>
-                  </div>
-
-                  <div className="flex items-center gap-3">
-                    <LinkedinIcon size={24} />
-                    <Link
-                      isExternal
-                      className="text-default-700"
-                      href={siteConfig.links.linkedin}
-                    >
-                      LinkedIn
-                    </Link>
-                  </div>
+            <FadeUp delay={0.6}>
+              {submitStatus.type && (
+                <div
+                  className={`p-4 rounded-lg justify-between flex ${
+                    submitStatus.type === "success"
+                      ? "bg-success-50 text-success-600"
+                      : "bg-danger-50 text-danger-600"
+                  }`}
+                >
+                  <p>{submitStatus.message}</p>
+                  <span>
+                    <CloseIcon
+                      className="w-5 h-5 cursor-pointer"
+                      onClick={() =>
+                        setSubmitStatus({ type: null, message: "" })
+                      }
+                    />
+                  </span>
                 </div>
-              </CardBody>
-            </Card>
+              )}
+            </FadeUp>
 
-            <Card>
-              <CardBody className="gap-4">
-                <h3 className="text-xl font-bold">Disponibilité</h3>
-                <p className="text-default-600">
-                  Je suis actuellement disponible pour de nouveaux projets et
-                  collaborations. N'hésitez pas à me contacter pour discuter de
-                  vos besoins.
-                </p>
-              </CardBody>
-            </Card>
-
-            <Card>
-              <CardBody className="gap-4">
-                <h3 className="text-xl font-bold">Temps de réponse</h3>
-                <p className="text-default-600">
-                  Je m'efforce de répondre à tous les messages dans un délai de
-                  24 à 48 heures.
-                </p>
-              </CardBody>
-            </Card>
-          </div>
+            <FadeUp delay={0.7}>
+              <Button
+                className="text-md darktext-gray-800"
+                color="primary"
+                isLoading={isSubmitting}
+                size="md"
+                type="submit"
+                variant="ghost"
+              >
+                {isSubmitting ? "Envoi en cours..." : "Envoyer le message"}
+              </Button>
+            </FadeUp>
+          </form>
         </div>
-      </section>
+
+        <NavigationInPage left={leftLink} right={rightLink} />
+      </main>
     </DefaultLayout>
   );
 }
