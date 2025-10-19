@@ -17,6 +17,7 @@ import { Project } from "@/types/project";
 import { title } from "@/components/primitives";
 import { SearchIcon } from "@/components/icons";
 import {NavigationInPage} from "@/components/navigationInPage";
+import {LinkNavigation} from "@/types";
 
 interface ProjetsPageProps {
   projects: Project[];

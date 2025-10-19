@@ -17,7 +17,59 @@ const config = {
     },
   },
   darkMode: "class",
-  plugins: [heroui()],
+  plugins: [heroui(
+      {
+        layout:{
+          dividerWeight: "1px",
+          disabledOpacity: 0.7,
+        },
+        themes:{
+          light: {
+            colors: {
+              background:{
+                DEFAULT:"#ffffff"
+              },
+              primary: {
+                DEFAULT:"#0febff"
+              },
+              // secondary: {
+              //   DEFAULT:""
+              // },
+              // success: {
+              //   DEFAULT:""
+              // },
+              // danger: {
+              //   DEFAULT:""
+              // },
+              // foreground: {
+              //   DEFAULT:""
+              // },
+              // warning:{
+              //   DEFAULT:""
+              // },
+              // default: {
+              //   DEFAULT:""
+              // },
+              // focus:{
+              //   DEFAULT:""
+              // },
+            },
+          },
+          dark: {
+            colors: {
+              background:{
+                DEFAULT: "#0f172a",
+              },
+              primary: {
+                DEFAULT:"#5be6d4"
+              },
+
+            },
+          },
+        },
+
+      }
+  )],
 }
 
 export default config;

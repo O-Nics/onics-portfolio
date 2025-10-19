@@ -10,7 +10,7 @@ interface NavigationLinks {
 
 export const NavigationInPage = ({ left, right }: NavigationLinks) => {
   return (
-    <div className="flex justify-between pt-6">
+    <div className="flex justify-between pt-10 pb-10">
       <div>
         {left && (
           <Link

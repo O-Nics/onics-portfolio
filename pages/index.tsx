@@ -21,7 +21,7 @@ export default function Example() {
         ```
       */}
       <DefaultLayout>
-        <main className="">
+        <main >
           <FadeUp>
             <h1>Nicolas Planche</h1>
           </FadeUp>

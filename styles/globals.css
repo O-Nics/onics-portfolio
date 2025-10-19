@@ -19,5 +19,13 @@ h1{
     @apply pt-4 text-lg ;
 }
 
+.bg-no-saturate{
+    --tw-backdrop-saturate: saturate(100%) !important;
+}
+
+.search:hover{
+    @apply bg-primary/10;
+}
+
 
 @config "../tailwind.config.js"
