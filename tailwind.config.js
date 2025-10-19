@@ -58,9 +58,12 @@ const config = {
           dark: {
             colors: {
               background:{
-                DEFAULT: "#0f172a",
+                DEFAULT: "#151515",
+                // DEFAULT: "#15181f",
+                // DEFAULT: "#0f172a",
               },
               primary: {
+                // DEFAULT:"#bc47ff"
                 DEFAULT:"#5be6d4"
               },
 

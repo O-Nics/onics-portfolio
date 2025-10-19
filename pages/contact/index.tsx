@@ -102,7 +102,7 @@ export default function ContactPage() {
                 isRequired
                 classNames={{
                   inputWrapper:
-                    "dark:!bg-primary/2 border-0 dark:hover:!bg-primary/6 bg-gray-50 hover:!bg-gray-100 dark:focus-within:!bg-primary/5",
+                    "dark:!bg-gray-50/3 border-0 dark:hover:!bg-gray-50/6 bg-gray-50 hover:!bg-gray-100 dark:focus-within:!bg-gray-50/5",
                   input: "text-sm",
                 }}
                 label="Nom"
@@ -118,7 +118,7 @@ export default function ContactPage() {
                 isRequired
                 classNames={{
                   inputWrapper:
-                    "dark:!bg-primary/2 border-0 dark:hover:!bg-primary/6 bg-gray-50 hover:!bg-gray-100 dark:focus-within:!bg-primary/5",
+                    "dark:!bg-gray-50/3 border-0 dark:hover:!bg-gray-50/6 bg-gray-50 hover:!bg-gray-100 dark:focus-within:!bg-gray-50/5",
                   input: "text-sm",
                 }}
                 label="Email"
@@ -134,8 +134,8 @@ export default function ContactPage() {
                 isRequired
                 classNames={{
                   trigger:
-                    "dark:!bg-primary/2 border-0 dark:hover:!bg-primary/6 bg-gray-50 hover:!bg-gray-100 dark:focus-within:!bg-primary/5",
-                  popoverContent: "dark:bg-[#132233]",
+                    "dark:!bg-gray-50/3 border-0 dark:hover:!bg-gray-50/6 bg-gray-50 hover:!bg-gray-100 dark:focus-within:!bg-gray-50/5",
+                  popoverContent: "dark:bg-background bg-white",
                 }}
                 label="Sujet"
                 placeholder="Sélectionnez un sujet"
@@ -166,7 +166,8 @@ export default function ContactPage() {
                 isRequired
                 classNames={{
                   inputWrapper:
-                    "dark:!bg-primary/2 border-0 dark:hover:!bg-primary/6 bg-gray-50 hover:!bg-gray-100 dark:focus-within:!bg-primary/5",
+                    "dark:!bg-gray-50/3 border-0 dark:hover:!bg-gray-50/6 bg-gray-50 hover:!bg-gray-100 dark:focus-within:!bg-gray-50/5",
+
                   input: "text-sm",
                 }}
                 label="Message"
@@ -201,12 +202,12 @@ export default function ContactPage() {
 
             <FadeUp delay={0.7}>
               <Button
-                className="text-md darktext-gray-800"
+                className="text-md text-primary bg-primary/8"
                 color="primary"
                 isLoading={isSubmitting}
                 size="md"
                 type="submit"
-                variant="ghost"
+                variant="flat"
               >
                 {isSubmitting ? "Envoi en cours..." : "Envoyer le message"}
               </Button>

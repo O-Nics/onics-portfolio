@@ -143,7 +143,7 @@ export const Navbar = () => {
                               title={quickLink.name}
                             >
                               <Button
-                                className="group flex  rounded-md p-2 text-sm/6 font-semibold w-full justify-start text-gray-700 dark:text-gray-400 dark:hover:bg-primary/2 hover:!bg-gray-50"
+                                className="group flex  rounded-md p-2 text-sm/6 font-semibold w-full justify-start text-gray-700 dark:text-gray-400 dark:hover:!bg-primary/2 hover:!bg-gray-50"
                                 href={quickLink.href}
                                 variant="light"
                               >
@@ -258,7 +258,7 @@ export const Navbar = () => {
               <ThemeSwitch />
             </FadeHorizontal>
             <FadeHorizontal delay={0.5} shouldAnimate={shouldAnimate}>
-              <NavbarMenuToggle />
+              <NavbarMenuToggle className="h-[64px]" />
             </FadeHorizontal>
           </NavbarContent>
 
@@ -328,7 +328,7 @@ export const Navbar = () => {
                               title={quickLink.name}
                             >
                               <Button
-                                className="group flex  rounded-md p-2 text-sm/6 font-semibold w-full justify-start text-gray-700 dark:text-gray-400 dark:hover:bg-primary/2 hover:!bg-gray-50"
+                                className="group flex  rounded-md p-2 text-sm/6 font-semibold w-full justify-start text-gray-700 dark:text-gray-400 dark:hover:!bg-primary/2 hover:!bg-gray-50"
                                 href={quickLink.href}
                                 variant="light"
                               >
