@@ -6,6 +6,7 @@ import { useRouter } from "next/router";
 
 import { fontSans, fontMono } from "@/config/fonts";
 import "@/styles/globals.css";
+import { MusicProvider } from "@/contexts/MusicContext";
 
 export default function App({ Component, pageProps }: AppProps) {
   const router = useRouter();
@@ -18,7 +19,9 @@ export default function App({ Component, pageProps }: AppProps) {
         enableSystem={true}
         storageKey="theme"
       >
-        <Component {...pageProps} />
+        <MusicProvider>
+          <Component {...pageProps} />
+        </MusicProvider>
       </NextThemesProvider>
     </HeroUIProvider>
   );

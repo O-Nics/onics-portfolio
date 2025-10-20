@@ -78,7 +78,7 @@ export const ThemeSwitch: FC<ThemeSwitchProps> = ({
         {isSelected ? (
           <div className="icon-nav">
             {/* Mobile (moins que lg) */}
-            <MoonIcon className="block mb-[1px] lg:hidden" size={19} />
+            <MoonIcon className="block mb-[1px] lg:hidden" size={21} />
 
             {/* Desktop (lg et plus) */}
             <MoonIcon className="hidden mb-[1px] lg:block icon " size={42} />
@@ -86,7 +86,7 @@ export const ThemeSwitch: FC<ThemeSwitchProps> = ({
         ) : (
           <div className="icon-nav">
             {/* Mobile (moins que lg) */}
-            <SunIcon className="block mb-[1px] lg:hidden" size={19} />
+            <SunIcon className="block mb-[1px] lg:hidden" size={21} />
 
             {/* Desktop (lg et plus) */}
             <SunIcon className="hidden mb-[1px] lg:block icon" size={42} />

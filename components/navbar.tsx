@@ -195,7 +195,12 @@ export const Navbar = () => {
         >
           <NavbarContent className="  basis-1/5 sm:basis-full " justify="start">
             <NavbarBrand className="gap-6 max-w-fit">
-              <NavbarMenuToggle className="h-[64px] lg:hidden flex" />
+              <div className="flex items-center">
+                <NavbarMenuToggle className="h-[64px] lg:hidden flex" />
+                <FadeHorizontal delay={0.2} shouldAnimate={shouldAnimate} className=" lg:hidden flex h-[40px] ml-3 w-[24px] ">
+                  <LaunchMusic size={40} />
+                </FadeHorizontal>
+              </div>
               <FadeHorizontal
                 className="lg:flex hidden"
                 shouldAnimate={shouldAnimate}
@@ -232,20 +237,12 @@ export const Navbar = () => {
             >
               <ActualTime />
             </FadeHorizontal>
-            <NavbarItem className="hidden sm:flex gap0 items-center">
+            <NavbarItem className="hidden sm:flex  items-center">
               <FadeHorizontal
                 className=""
                 delay={0.3}
                 shouldAnimate={shouldAnimate}
               >
-                {/*<div*/}
-                {/*  className="icon-nav cursor-pointer "*/}
-                {/*>*/}
-                {/*  <MusicIcon*/}
-                {/*    className="icon text-default-500 hover:text-red-500"*/}
-                {/*    size={42}*/}
-                {/*  />*/}
-                {/*</div>*/}
                 <LaunchMusic />
               </FadeHorizontal>
               <FadeHorizontal
@@ -291,20 +288,16 @@ export const Navbar = () => {
             </NavbarItem>
           </NavbarContent>
 
-          <NavbarContent className="lg:hidden basis-1 pl-4 gap-5" justify="end">
-            <FadeHorizontal delay={0.2} shouldAnimate={shouldAnimate}>
+          <NavbarContent className="lg:hidden basis-1 pl-4 gap-2" justify="end">
+
+            <FadeHorizontal delay={0.2} shouldAnimate={shouldAnimate} className="">
               <Link href={siteConfig.links.github}>
-                <MusicIcon className="text-default-500" size={17} />
+                <GithubIcon className="text-default-500" size={21} />
               </Link>
             </FadeHorizontal>
-            <FadeHorizontal delay={0.2} shouldAnimate={shouldAnimate}>
-              <Link href={siteConfig.links.github}>
-                <GithubIcon className="text-default-500" size={19} />
-              </Link>
-            </FadeHorizontal>
-            <FadeHorizontal delay={0.3} shouldAnimate={shouldAnimate}>
+            <FadeHorizontal delay={0.3} shouldAnimate={shouldAnimate} className="">
               <Link href={siteConfig.links.linkedin} title="LinkedIn">
-                <LinkedinIcon className="text-default-500" size={19} />
+                <LinkedinIcon className="text-default-500" size={21} />
               </Link>
             </FadeHorizontal>
             <FadeHorizontal delay={0.4} shouldAnimate={shouldAnimate}>
