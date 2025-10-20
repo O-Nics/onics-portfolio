@@ -28,6 +28,7 @@ import FadeUp from "@/components/animation/fade-up";
 import { useFirstVisitAnimation } from "@/hooks/useFirstVisitAnimation";
 import FadeHorizontal from "@/components/animation/fade-horizontal";
 import ActualTime from "@/components/actual-time";
+import LaunchMusic from "@/components/launchMusic";
 
 function classNames(...classes: string[]) {
   return classes.filter(Boolean).join(" ");
@@ -221,12 +222,12 @@ export const Navbar = () => {
             className="hidden lg:flex basis-1/5 sm:basis-full"
             justify="end"
           >
-            <FadeHorizontal delay={0.6} shouldAnimate={shouldAnimate}>
+            <FadeHorizontal delay={0.1} shouldAnimate={shouldAnimate}>
               <NavbarItem className="hidden lg:flex">{searchInput}</NavbarItem>
             </FadeHorizontal>
             <FadeHorizontal
               className=""
-              delay={0.4}
+              delay={0.2}
               shouldAnimate={shouldAnimate}
             >
               <ActualTime />
@@ -234,23 +235,22 @@ export const Navbar = () => {
             <NavbarItem className="hidden sm:flex gap0 items-center">
               <FadeHorizontal
                 className=""
-                delay={0.2}
+                delay={0.3}
                 shouldAnimate={shouldAnimate}
               >
-                <Link
-                  className="icon-nav"
-                  href={siteConfig.links.github}
-                  title="GitHub"
-                >
-                  <MusicIcon
-                    className="icon text-default-500 hover:text-red-500"
-                    size={42}
-                  />
-                </Link>
+                {/*<div*/}
+                {/*  className="icon-nav cursor-pointer "*/}
+                {/*>*/}
+                {/*  <MusicIcon*/}
+                {/*    className="icon text-default-500 hover:text-red-500"*/}
+                {/*    size={42}*/}
+                {/*  />*/}
+                {/*</div>*/}
+                <LaunchMusic />
               </FadeHorizontal>
               <FadeHorizontal
                 className=""
-                delay={0.2}
+                delay={0.4}
                 shouldAnimate={shouldAnimate}
               >
                 <Link
@@ -266,7 +266,7 @@ export const Navbar = () => {
               </FadeHorizontal>
               <FadeHorizontal
                 className=""
-                delay={0.3}
+                delay={0.5}
                 shouldAnimate={shouldAnimate}
               >
                 <Link
@@ -283,7 +283,7 @@ export const Navbar = () => {
 
               <FadeHorizontal
                 className=""
-                delay={0.5}
+                delay={0.6}
                 shouldAnimate={shouldAnimate}
               >
                 <ThemeSwitch />

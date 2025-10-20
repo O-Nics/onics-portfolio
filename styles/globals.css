@@ -38,11 +38,12 @@ h1{
 .icon-nav:hover .icon{
     padding: 0.65rem;
     transition:  0.3s;
-    @apply bg-gray-50/5 ;
+    @apply bg-gray-100;
+
     transition-timing-function: ease-out;
 }
 .dark .icon-nav:hover .icon {
-    @apply bg-gray-100; /* un peu plus clair sur fond foncé */
+    @apply bg-gray-50/5 ;
 }
 
 
