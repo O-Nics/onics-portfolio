@@ -15,8 +15,8 @@ interface FadeUpProps extends PropsWithChildren {
 export default function FadeUp({
   children,
   delay = 0,
-  duration = 0.4,
-  y = 15,
+  duration = 0.35,
+  y = 10,
   once = true,
   className,
   shouldAnimate = true,
@@ -43,7 +43,7 @@ export default function FadeUp({
         className={className}
         initial={shouldAnimate ? { opacity: 0, y } : { opacity: 1, y: 0 }}
         transition={{ duration, delay, ease: "backOut" }}
-        viewport={{ once, margin: "0px 0px 20% 0px" }}
+        viewport={{ once, margin: "0px 0px 50% 0px" }}
         whileInView={{ opacity: 1, y: 0 }}
       >
         {children}

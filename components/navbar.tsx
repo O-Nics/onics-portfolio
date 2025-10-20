@@ -20,12 +20,14 @@ import {
   SearchIcon,
   LinkedinIcon,
   ArrowHorizontalLineIcon,
+  MusicIcon,
 } from "@/components/icons";
 import { ThemeSwitch } from "@/components/theme-switch";
 import { siteConfig } from "@/config/site";
 import FadeUp from "@/components/animation/fade-up";
 import { useFirstVisitAnimation } from "@/hooks/useFirstVisitAnimation";
 import FadeHorizontal from "@/components/animation/fade-horizontal";
+import ActualTime from "@/components/actual-time";
 
 function classNames(...classes: string[]) {
   return classes.filter(Boolean).join(" ");
@@ -40,8 +42,10 @@ export const Navbar = () => {
     <Input
       aria-label="Search"
       classNames={{
+        base: "flex justify-end",
+        mainWrapper: "!flex justify-end flex-row",
         inputWrapper:
-          "dark:!bg-primary/3 border-0 dark:hover:!bg-primary/5 bg-gray-50 hover:!bg-gray-100 dark:focus-within:!bg-primary/4",
+          "dark:!bg-primary/3 border-0 dark:hover:!bg-primary/5 bg-gray-50 hover:!bg-gray-100 dark:focus-within:!bg-primary/4  w-4/5",
         input: "text-sm",
       }}
       endContent={
@@ -64,13 +68,14 @@ export const Navbar = () => {
   return (
     <HeroUINavbar
       classNames={{
-        base: " bg-white dark:bg-primary/1 border-dashed  border-gray-200 dark:border-primary/10 backdrop-saturate-100",
+        base: " bg-white dark:bg-primary/1 border-dashed lg:border-gray-200  dark:lg:border-primary/10 border-primary backdrop-saturate-100",
       }}
       isBordered={true}
       maxWidth="full"
       position="sticky"
     >
       <div className="container-wrapper py-0 ">
+        {/*SideBar*/}
         <div className="hidden mt-[65px] py-0 lg:fixed lg:inset-y-0  lg:z-30 lg:flex lg:w-72 lg:flex-col">
           {/* Sidebar component, swap this element with another sidebar if you like */}
           <div className="bg-white dark:bg-primary/1 dark:border-primary/10 border-r border-l border-dashed border-gray-200">
@@ -181,14 +186,19 @@ export const Navbar = () => {
           </div>
         </div>
 
+        {/*Navbar*/}
         <div
           className={
             " items-center flex lg:border-l lg:border-r h-[64px] lg:px-6 dark:border-primary/10 border-dashed border-gray-200"
           }
         >
           <NavbarContent className="  basis-1/5 sm:basis-full " justify="start">
-            <NavbarBrand className="gap-3 max-w-fit">
-              <FadeHorizontal shouldAnimate={shouldAnimate}>
+            <NavbarBrand className="gap-6 max-w-fit">
+              <NavbarMenuToggle className="h-[64px] lg:hidden flex" />
+              <FadeHorizontal
+                className="lg:flex hidden"
+                shouldAnimate={shouldAnimate}
+              >
                 <Link className="flex justify-start items-center" href="/">
                   <Image
                     priority
@@ -211,59 +221,99 @@ export const Navbar = () => {
             className="hidden lg:flex basis-1/5 sm:basis-full"
             justify="end"
           >
-            <NavbarItem className="hidden sm:flex gap-2">
+            <FadeHorizontal delay={0.6} shouldAnimate={shouldAnimate}>
+              <NavbarItem className="hidden lg:flex">{searchInput}</NavbarItem>
+            </FadeHorizontal>
+            <FadeHorizontal
+              className=""
+              delay={0.4}
+              shouldAnimate={shouldAnimate}
+            >
+              <ActualTime />
+            </FadeHorizontal>
+            <NavbarItem className="hidden sm:flex gap0 items-center">
               <FadeHorizontal
-                className="h-[24px]"
+                className=""
                 delay={0.2}
                 shouldAnimate={shouldAnimate}
               >
-                <Link href={siteConfig.links.github} title="GitHub">
-                  <GithubIcon className="text-default-500" />
+                <Link
+                  className="icon-nav"
+                  href={siteConfig.links.github}
+                  title="GitHub"
+                >
+                  <MusicIcon
+                    className="icon text-default-500 hover:text-red-500"
+                    size={42}
+                  />
                 </Link>
               </FadeHorizontal>
               <FadeHorizontal
-                className="h-[24px]"
+                className=""
+                delay={0.2}
+                shouldAnimate={shouldAnimate}
+              >
+                <Link
+                  className="icon-nav"
+                  href={siteConfig.links.github}
+                  title="GitHub"
+                >
+                  <GithubIcon
+                    className="icon text-default-500 hover:text-black dark:hover:text-white"
+                    size={44}
+                  />
+                </Link>
+              </FadeHorizontal>
+              <FadeHorizontal
+                className=""
                 delay={0.3}
                 shouldAnimate={shouldAnimate}
               >
-                <Link href={siteConfig.links.linkedin} title="LinkedIn">
-                  <LinkedinIcon className="text-default-500" />
+                <Link
+                  className="icon-nav"
+                  href={siteConfig.links.linkedin}
+                  title="LinkedIn"
+                >
+                  <LinkedinIcon
+                    className="icon text-default-500 hover:text-blue-500 dark:hover:text-blue-400"
+                    size={44}
+                  />
                 </Link>
               </FadeHorizontal>
+
               <FadeHorizontal
-                className="h-[24px]"
-                delay={0.4}
+                className=""
+                delay={0.5}
                 shouldAnimate={shouldAnimate}
               >
                 <ThemeSwitch />
               </FadeHorizontal>
             </NavbarItem>
-            <FadeHorizontal delay={0.5} shouldAnimate={shouldAnimate}>
-              <NavbarItem className="hidden lg:flex">{searchInput}</NavbarItem>
-            </FadeHorizontal>
           </NavbarContent>
 
-          <NavbarContent className="lg:hidden basis-1 pl-4" justify="end">
+          <NavbarContent className="lg:hidden basis-1 pl-4 gap-5" justify="end">
             <FadeHorizontal delay={0.2} shouldAnimate={shouldAnimate}>
               <Link href={siteConfig.links.github}>
-                <GithubIcon className="text-default-500" />
+                <MusicIcon className="text-default-500" size={17} />
+              </Link>
+            </FadeHorizontal>
+            <FadeHorizontal delay={0.2} shouldAnimate={shouldAnimate}>
+              <Link href={siteConfig.links.github}>
+                <GithubIcon className="text-default-500" size={19} />
               </Link>
             </FadeHorizontal>
             <FadeHorizontal delay={0.3} shouldAnimate={shouldAnimate}>
               <Link href={siteConfig.links.linkedin} title="LinkedIn">
-                <LinkedinIcon className="text-default-500" />
+                <LinkedinIcon className="text-default-500" size={19} />
               </Link>
             </FadeHorizontal>
             <FadeHorizontal delay={0.4} shouldAnimate={shouldAnimate}>
               <ThemeSwitch />
             </FadeHorizontal>
-            <FadeHorizontal delay={0.5} shouldAnimate={shouldAnimate}>
-              <NavbarMenuToggle className="h-[64px]" />
-            </FadeHorizontal>
+            <FadeHorizontal delay={0.5} shouldAnimate={shouldAnimate} />
           </NavbarContent>
 
           <NavbarMenu>
-            {searchInput}
             <div className="mx-2 mt-2 flex flex-col gap-2">
               <nav className="flex flex-1 flex-col ">
                 <ul className="flex flex-1 w- flex-col gap-y-7">

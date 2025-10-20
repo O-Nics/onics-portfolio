@@ -28,4 +28,22 @@ h1{
 }
 
 
+.icon-nav .icon{
+    padding: 0.7rem;
+    border-radius: 40%;
+    background-color: rgba(0,0,0,0);
+    transition:  0.3s;
+}
+
+.icon-nav:hover .icon{
+    padding: 0.65rem;
+    transition:  0.3s;
+    @apply bg-gray-50/5 ;
+    transition-timing-function: ease-out;
+}
+.dark .icon-nav:hover .icon {
+    @apply bg-gray-100; /* un peu plus clair sur fond foncé */
+}
+
+
 @config "../tailwind.config.js"

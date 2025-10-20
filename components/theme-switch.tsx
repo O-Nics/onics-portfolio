@@ -4,7 +4,7 @@ import { SwitchProps, useSwitch } from "@heroui/switch";
 import { useTheme } from "next-themes";
 import clsx from "clsx";
 
-import { SunFilledIcon, MoonFilledIcon } from "@/components/icons";
+import { MoonIcon, SunIcon } from "@/components/icons";
 
 export interface ThemeSwitchProps {
   className?: string;
@@ -40,14 +40,14 @@ export const ThemeSwitch: FC<ThemeSwitchProps> = ({
   }, [isMounted]);
 
   // Prevent Hydration Mismatch
-  if (!isMounted) return <div className="w-6 h-6" />;
+  if (!isMounted) return <div className="lg:w-[42px] lg:h-6 w-5 h-5" />;
 
   return (
     <Component
       aria-label={isSelected ? "Switch to dark mode" : "Switch to light mode"}
       {...getBaseProps({
         className: clsx(
-          "px-px transition-opacity hover:opacity-80 cursor-pointer",
+          "item-center flex transition-opacity hover:opacity-80 cursor-pointer",
           className,
           classNames?.base,
         ),
@@ -76,9 +76,21 @@ export const ThemeSwitch: FC<ThemeSwitchProps> = ({
         })}
       >
         {isSelected ? (
-          <MoonFilledIcon size={22} />
+          <div className="icon-nav">
+            {/* Mobile (moins que lg) */}
+            <MoonIcon className="block mb-[1px] lg:hidden" size={19} />
+
+            {/* Desktop (lg et plus) */}
+            <MoonIcon className="hidden mb-[1px] lg:block icon " size={42} />
+          </div>
         ) : (
-          <SunFilledIcon size={22} />
+          <div className="icon-nav">
+            {/* Mobile (moins que lg) */}
+            <SunIcon className="block mb-[1px] lg:hidden" size={19} />
+
+            {/* Desktop (lg et plus) */}
+            <SunIcon className="hidden mb-[1px] lg:block icon" size={42} />
+          </div>
         )}
       </div>
     </Component>
