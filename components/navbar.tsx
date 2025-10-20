@@ -43,10 +43,10 @@ export const Navbar = () => {
     <Input
       aria-label="Search"
       classNames={{
-        base: "flex justify-end",
-        mainWrapper: "!flex justify-end flex-row",
+        base: "-end",
+        mainWrapper: "",
         inputWrapper:
-          "dark:!bg-primary/3 border-0 dark:hover:!bg-primary/5 bg-gray-50 hover:!bg-gray-100 dark:focus-within:!bg-primary/4  w-4/5",
+          "dark:!bg-primary/3 border-0 dark:hover:!bg-primary/5 bg-gray-50 hover:!bg-gray-100 dark:focus-within:!bg-primary/4  ",
         input: "text-sm",
       }}
       endContent={
@@ -195,12 +195,7 @@ export const Navbar = () => {
         >
           <NavbarContent className="  basis-1/5 sm:basis-full " justify="start">
             <NavbarBrand className="gap-6 max-w-fit">
-              <div className="flex items-center">
-                <NavbarMenuToggle className="h-[64px] lg:hidden flex" />
-                <FadeHorizontal delay={0.2} shouldAnimate={shouldAnimate} className=" lg:hidden flex h-[40px] ml-3 w-[24px] ">
-                  <LaunchMusic size={40} />
-                </FadeHorizontal>
-              </div>
+
               <FadeHorizontal
                 className="lg:flex hidden"
                 shouldAnimate={shouldAnimate}
@@ -221,6 +216,13 @@ export const Navbar = () => {
                 </Link>
               </FadeHorizontal>
             </NavbarBrand>
+            <div className="flex items-center">
+              <NavbarMenuToggle className="h-[64px] lg:hidden flex"/>
+              <FadeHorizontal delay={0.2} shouldAnimate={shouldAnimate}
+                              className=" lg:hidden flex h-[40px] ml-3 w-[24px] ">
+                <LaunchMusic size={40}/>
+              </FadeHorizontal>
+            </div>
           </NavbarContent>
 
           <NavbarContent
