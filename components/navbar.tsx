@@ -51,7 +51,7 @@ export const Navbar = () => {
       }}
       endContent={
         <Kbd
-          className="hidden lg:inline-block dark:bg-primary/6 bg-primary/10 !shadow-none"
+          className="hidden md:inline-block dark:bg-primary/6 bg-primary/10 !shadow-none"
           keys={["command"]}
         >
           K
@@ -69,7 +69,8 @@ export const Navbar = () => {
   return (
     <HeroUINavbar
       classNames={{
-        base: " bg-white dark:bg-primary/1 border-dashed lg:border-gray-200  dark:lg:border-primary/10 border-primary backdrop-saturate-100",
+        base: " bg-white dark:bg-primary/1 border-dashed md:border-gray-200  dark:md:border-primary/10 border-primary backdrop-saturate-100",
+        wrapper: "md:!px-0"
       }}
       isBordered={true}
       maxWidth="full"
@@ -77,7 +78,7 @@ export const Navbar = () => {
     >
       <div className="container-wrapper py-0 ">
         {/*SideBar*/}
-        <div className="hidden mt-[65px] py-0 lg:fixed lg:inset-y-0  lg:z-30 lg:flex lg:w-72 lg:flex-col">
+        <div className="hidden mt-[65px] py-0 md:fixed md:inset-y-0  md:z-30 md:flex md:w-72 md:flex-col">
           {/* Sidebar component, swap this element with another sidebar if you like */}
           <div className="bg-white dark:bg-primary/1 dark:border-primary/10 border-r border-l border-dashed border-gray-200">
             <div className="flex grow flex-col gap-y-5 h-[calc(100vh-80px)] mt-3 pt-4      px-4 pb-4 ">
@@ -190,54 +191,55 @@ export const Navbar = () => {
         {/*Navbar*/}
         <div
           className={
-            " items-center flex lg:border-l lg:border-r h-[64px] lg:px-6 dark:border-primary/10 border-dashed border-gray-200"
+            " items-center flex md:border-l md:border-r h-[64px] md:px-6 dark:border-primary/10 border-dashed border-gray-200"
           }
         >
           <NavbarContent className="  basis-1/5 sm:basis-full " justify="start">
             <NavbarBrand className="gap-6 max-w-fit">
-
-              <FadeHorizontal
-                className="lg:flex hidden"
-                shouldAnimate={shouldAnimate}
-              >
-                <Link className="flex justify-start items-center" href="/">
-                  <Image
-                    priority
-                    alt="Nicolas Planche"
-                    className="rounded-lg"
-                    height={45}
-                    quality={90}
-                    src="/61987116.jpeg"
-                    width={45}
-                  />
-                  <p className="pl-2 font-bold text-inherit ">
-                    Nicolas Planche
-                  </p>
-                </Link>
-              </FadeHorizontal>
+              <div>
+                <div className="flex items-center">
+                  <NavbarMenuToggle className="h-[64px] md:hidden flex"/>
+                  <FadeHorizontal delay={0.2} shouldAnimate={shouldAnimate}
+                                  className=" md:hidden flex h-[40px] ml-3 w-[24px] ">
+                    <LaunchMusic size={40}/>
+                  </FadeHorizontal>
+                </div>
+                <FadeHorizontal
+                  className="md:flex hidden"
+                  shouldAnimate={shouldAnimate}
+                >
+                  <Link className="flex justify-start items-center" href="/">
+                    <Image
+                      priority
+                      alt="Nicolas Planche"
+                      className="rounded-lg"
+                      height={45}
+                      quality={90}
+                      src="/61987116.jpeg"
+                      width={45}
+                    />
+                    <p className="pl-2 font-bold text-inherit ">
+                      Nicolas Planche
+                    </p>
+                  </Link>
+                </FadeHorizontal>
+              </div>
             </NavbarBrand>
-            <div className="flex items-center">
-              <NavbarMenuToggle className="h-[64px] lg:hidden flex"/>
-              <FadeHorizontal delay={0.2} shouldAnimate={shouldAnimate}
-                              className=" lg:hidden flex h-[40px] ml-3 w-[24px] ">
-                <LaunchMusic size={40}/>
-              </FadeHorizontal>
-            </div>
           </NavbarContent>
 
           <NavbarContent
-            className="hidden lg:flex basis-1/5 sm:basis-full"
+            className="hidden md:flex basis-1/5 sm:basis-full"
             justify="end"
           >
             <FadeHorizontal delay={0.1} shouldAnimate={shouldAnimate}>
-              <NavbarItem className="hidden lg:flex">{searchInput}</NavbarItem>
+              <NavbarItem className="hidden md:flex">{searchInput}</NavbarItem>
             </FadeHorizontal>
             <FadeHorizontal
               className=""
               delay={0.2}
               shouldAnimate={shouldAnimate}
             >
-              <ActualTime />
+              <ActualTime/>
             </FadeHorizontal>
             <NavbarItem className="hidden sm:flex  items-center">
               <FadeHorizontal
@@ -245,7 +247,7 @@ export const Navbar = () => {
                 delay={0.3}
                 shouldAnimate={shouldAnimate}
               >
-                <LaunchMusic />
+                <LaunchMusic/>
               </FadeHorizontal>
               <FadeHorizontal
                 className=""
@@ -290,7 +292,7 @@ export const Navbar = () => {
             </NavbarItem>
           </NavbarContent>
 
-          <NavbarContent className="lg:hidden basis-1 pl-4 gap-2" justify="end">
+          <NavbarContent className="md:hidden basis-1 pl-4 gap-2" justify="end">
 
             <FadeHorizontal delay={0.2} shouldAnimate={shouldAnimate} className="">
               <Link href={siteConfig.links.github}>
