@@ -184,7 +184,7 @@ export default function CompetencesPage({}) {
           <p className="subtitle">Appris en codant et en debuggant</p>
         </FadeUp>
         <FadeUp delay={0.2}>
-          <p className="text-lg pt-10 ">
+          <p className="corp !pt-6 ">
             En tant que développeur full-stack, je conçois des applications web
             et mobiles pensées pour être performantes, maintenables et
             scalables. Toujours en quête de nouvelles idées, j’enrichis ma stack

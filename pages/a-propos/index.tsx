@@ -23,7 +23,7 @@ export default function AProposPage() {
           <p className="subtitle">Créer, apprendre, itérer</p>
         </FadeUp>
         <FadeUp delay={0.2}>
-          <p className="text-lg pt-10 ">
+          <p className="corp !pt-6">
             Je suis le développeur full-stack passionné par la création
             d’expériences numériques élégantes, performantes et utiles.
           </p>

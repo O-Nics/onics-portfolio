@@ -8,15 +8,15 @@
 }
 
 h1{
-    @apply text-5xl font-extrabold pt-4;
+    @apply lg:text-4xl text-3xl font-extrabold pt-4;
 }
 
 .subtitle{
-    @apply text-2xl font-bold pt-4 tracking-tight;
+    @apply font-extrabold  pt-1 tracking-tight lg:text-3xl text-xl dark:text-gray-50/60 text-gray-900/60 ;
 }
 
 .corp{
-    @apply pt-4 text-lg ;
+    @apply pt-4 lg:text-lg text-base;
 }
 
 .bg-no-saturate{

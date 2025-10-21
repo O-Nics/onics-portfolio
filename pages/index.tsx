@@ -29,7 +29,7 @@ export default function Example() {
             <p className="subtitle">Développeur Full-Stack & Mobile</p>
           </FadeUp>
           <FadeUp delay={0.2}>
-            <p className="corp">
+            <p className="corp !pt-6">
               Amoureux de la tech, je conçois des applications mobiles et web
               ainsi que des back-ends solides.
             </p>
