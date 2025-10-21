@@ -13,11 +13,11 @@ export default function LaunchMusic({size = 42} : LaunchMusicProps) {
   return (
     <>
       <button
-        className={`icon-nav cursor-pointer items-center flex ${isPlaying ? "dark:bg-gray-100/5 bg-gray-100 rounded-full" : ""}`}
+        className={`icon-nav cursor-pointer items-center flex`}
         onClick={toggleMusic}
       >
         <MusicIcon
-          className={`icon hover:text-red-500 transition-all ${isPlaying ? "!text-red-500" : "text-default-500"}`}
+          className={`icon mt-1 hover:text-red-500 transition-all ${isPlaying ? "!text-red-500" : "text-default-500"}`}
           size={size}
           style={{
             transform: `scale(${dynamicScale})  `,

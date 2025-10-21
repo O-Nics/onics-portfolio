@@ -12,7 +12,7 @@ export default function DefaultLayout({
       <Head />
       <Navbar />
       <main className="container-wrapper flex-grow md:pl-72 border-gray-200 dark:border-primary/10 border-dashed border-r">
-        <div className=" pt-3  px-4 sm:px-6 md:px-12">{children}</div>
+        <div className=" md:pt-6 pt-3  px-5 sm:px-6 md:px-12">{children}</div>
       </main>
       {/*<footer className="w-full flex text-xs items-center justify-center py-3 text-gray-300">*/}
       {/*  <p>*/}

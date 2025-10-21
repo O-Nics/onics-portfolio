@@ -25,6 +25,8 @@ h1{
 
 .search:hover{
     @apply bg-primary/10;
+    /*padding: 0.7rem;*/
+
 }
 
 

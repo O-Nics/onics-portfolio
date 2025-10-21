@@ -10,7 +10,7 @@ import {
 import { Kbd } from "@heroui/kbd";
 import { Input } from "@heroui/input";
 import Link from "next/link";
-import React from "react";
+import React, {useState} from "react";
 import { Button } from "@heroui/button";
 import { usePathname } from "next/navigation";
 import Image from "next/image";
@@ -18,9 +18,7 @@ import Image from "next/image";
 import {
   GithubIcon,
   SearchIcon,
-  LinkedinIcon,
   ArrowHorizontalLineIcon,
-  MusicIcon,
 } from "@/components/icons";
 import { ThemeSwitch } from "@/components/theme-switch";
 import { siteConfig } from "@/config/site";
@@ -36,6 +34,8 @@ function classNames(...classes: string[]) {
 
 export const Navbar = () => {
   const pathname = usePathname();
+  const [isOpen, setIsOpen] = useState(false);
+  const toggleMenu = () => setIsOpen(!isOpen);
 
   // const { shouldAnimate } = true;
   const { shouldAnimate } = useFirstVisitAnimation("nav-animated");
@@ -43,15 +43,17 @@ export const Navbar = () => {
     <Input
       aria-label="Search"
       classNames={{
-        base: "-end",
-        mainWrapper: "",
+        base: "px-0",
+
+        mainWrapper: "!px-0",
+
         inputWrapper:
-          "dark:!bg-primary/3 border-0 dark:hover:!bg-primary/5 bg-gray-50 hover:!bg-gray-100 dark:focus-within:!bg-primary/4  ",
+          "!py-0 !h-8 min-h-0 pl-2 pr-1 dark:!bg-primary/3 border-0 dark:hover:!bg-primary/5 bg-gray-50 hover:!bg-gray-100 dark:focus-within:!bg-primary/4  ",
         input: "text-sm",
       }}
       endContent={
         <Kbd
-          className="hidden md:inline-block dark:bg-primary/6 bg-primary/10 !shadow-none"
+          className="hidden lg:inline-block dark:bg-primary/6 bg-white !shadow-none px-1 !py-0.5"
           keys={["command"]}
         >
           K
@@ -70,7 +72,7 @@ export const Navbar = () => {
     <HeroUINavbar
       classNames={{
         base: " bg-white dark:bg-primary/1 border-dashed md:border-gray-200  dark:md:border-primary/10 border-primary backdrop-saturate-100",
-        wrapper: "md:!px-0"
+        wrapper: "md:!px-0",
       }}
       isBordered={true}
       maxWidth="full"
@@ -80,7 +82,8 @@ export const Navbar = () => {
         {/*SideBar*/}
         <div className="hidden mt-[65px] py-0 md:fixed md:inset-y-0  md:z-30 md:flex md:w-72 md:flex-col">
           {/* Sidebar component, swap this element with another sidebar if you like */}
-          <div className="bg-white dark:bg-primary/1 dark:border-primary/10 border-r border-l border-dashed border-gray-200">
+          <div
+            className="bg-white dark:bg-primary/1 dark:border-primary/10 border-r border-l border-dashed border-gray-200">
             <div className="flex grow flex-col gap-y-5 h-[calc(100vh-80px)] mt-3 pt-4      px-4 pb-4 ">
               <nav className="flex flex-1 flex-col  overflow-y-scroll px-2">
                 <ul className="flex flex-1 flex-col gap-y-7 ">
@@ -160,8 +163,9 @@ export const Navbar = () => {
                                       "flex gap-x-3 dark:group-hover:text-primary"
                                     }
                                   >
-                                    <span className="flex size-6 shrink-0 items-center justify-center rounded-lg   text-[0.625rem] font-medium  text-gray-400 dark:group-hover:text-primary ">
-                                      <quickLink.icon className="…props…" />
+                                    <span
+                                      className="flex size-6 shrink-0 items-center justify-center rounded-lg   text-[0.625rem] font-medium  text-gray-400 dark:group-hover:text-primary ">
+                                      <quickLink.icon className="…props…"/>
                                     </span>
                                     <span className="truncate">
                                       {quickLink.name}
@@ -199,10 +203,6 @@ export const Navbar = () => {
               <div>
                 <div className="flex items-center">
                   <NavbarMenuToggle className="h-[64px] md:hidden flex"/>
-                  <FadeHorizontal delay={0.2} shouldAnimate={shouldAnimate}
-                                  className=" md:hidden flex h-[40px] ml-3 w-[24px] ">
-                    <LaunchMusic size={40}/>
-                  </FadeHorizontal>
                 </div>
                 <FadeHorizontal
                   className="md:flex hidden"
@@ -265,49 +265,39 @@ export const Navbar = () => {
                   />
                 </Link>
               </FadeHorizontal>
+
               <FadeHorizontal
                 className=""
                 delay={0.5}
                 shouldAnimate={shouldAnimate}
               >
-                <Link
-                  className="icon-nav"
-                  href={siteConfig.links.linkedin}
-                  title="LinkedIn"
-                >
-                  <LinkedinIcon
-                    className="icon text-default-500 hover:text-blue-500 dark:hover:text-blue-400"
-                    size={44}
-                  />
-                </Link>
-              </FadeHorizontal>
-
-              <FadeHorizontal
-                className=""
-                delay={0.6}
-                shouldAnimate={shouldAnimate}
-              >
-                <ThemeSwitch />
+                <ThemeSwitch/>
               </FadeHorizontal>
             </NavbarItem>
           </NavbarContent>
 
-          <NavbarContent className="md:hidden basis-1 pl-4 gap-2" justify="end">
-
-            <FadeHorizontal delay={0.2} shouldAnimate={shouldAnimate} className="">
+          <NavbarContent className="md:hidden basis-1 pl-4 gap-0" justify="end">
+            <FadeHorizontal
+              className=" md:hidden flex h-[40px] mr-8  w-[24px] "
+              delay={0.1}
+              shouldAnimate={shouldAnimate}
+            >
+              <LaunchMusic size={40}/>
+            </FadeHorizontal>
+            <FadeHorizontal
+              className="mr-7"
+              delay={0.2}
+              shouldAnimate={shouldAnimate}
+            >
               <Link href={siteConfig.links.github}>
-                <GithubIcon className="text-default-500" size={21} />
+                <GithubIcon className="text-default-500" size={21}/>
               </Link>
             </FadeHorizontal>
-            <FadeHorizontal delay={0.3} shouldAnimate={shouldAnimate} className="">
-              <Link href={siteConfig.links.linkedin} title="LinkedIn">
-                <LinkedinIcon className="text-default-500" size={21} />
-              </Link>
+
+            <FadeHorizontal delay={0.3} shouldAnimate={shouldAnimate}>
+              <ThemeSwitch/>
             </FadeHorizontal>
-            <FadeHorizontal delay={0.4} shouldAnimate={shouldAnimate}>
-              <ThemeSwitch />
-            </FadeHorizontal>
-            <FadeHorizontal delay={0.5} shouldAnimate={shouldAnimate} />
+            <FadeHorizontal delay={0.4} shouldAnimate={shouldAnimate}/>
           </NavbarContent>
 
           <NavbarMenu>
@@ -385,8 +375,9 @@ export const Navbar = () => {
                                       "flex gap-x-3 dark:group-hover:text-primary"
                                     }
                                   >
-                                    <span className="flex size-6 shrink-0 items-center justify-center rounded-lg   text-[0.625rem] font-medium  text-gray-400 dark:group-hover:text-primary ">
-                                      <quickLink.icon className="…props…" />
+                                    <span
+                                      className="flex size-6 shrink-0 items-center justify-center rounded-lg   text-[0.625rem] font-medium  text-gray-400 dark:group-hover:text-primary ">
+                                      <quickLink.icon className="…props…"/>
                                     </span>
                                     <span className="truncate">
                                       {quickLink.name}
