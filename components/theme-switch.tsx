@@ -40,7 +40,7 @@ export const ThemeSwitch: FC<ThemeSwitchProps> = ({
   }, [isMounted]);
 
   // Prevent Hydration Mismatch
-  if (!isMounted) return <div className="md:w-[42px] md:h-6 w-[21px] h-5" />;
+  if (!isMounted) return <div className="md:w-[40px] md:h-6 w-[18px] h-5" />;
 
   return (
     <Component
@@ -78,15 +78,15 @@ export const ThemeSwitch: FC<ThemeSwitchProps> = ({
         {isSelected ? (
           <div className="icon-nav">
             {/* Mobile (moins que lg) */}
-            <MoonIcon className="block mb-[1px] md:hidden" size={21} />
+            <MoonIcon className="block mb-[1px] md:hidden" size={18} />
 
             {/* Desktop (lg et plus) */}
-            <MoonIcon className="hidden mb-[1px] md:block icon " size={42} />
+            <MoonIcon className="hidden mb-[1px] md:block icon " size={40} />
           </div>
         ) : (
           <div className="icon-nav">
             {/* Mobile (moins que lg) */}
-            <SunIcon className="block mb-[1px] md:hidden " size={21} />
+            <SunIcon className="block mb-[1px] md:hidden  " size={21} />
 
             {/* Desktop (lg et plus) */}
             <SunIcon className="hidden mb-[1px] md:block icon" size={42} />

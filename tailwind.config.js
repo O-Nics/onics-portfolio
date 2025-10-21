@@ -32,27 +32,7 @@ const config = {
               primary: {
                 DEFAULT:"#0febff"
               },
-              // secondary: {
-              //   DEFAULT:""
-              // },
-              // success: {
-              //   DEFAULT:""
-              // },
-              // danger: {
-              //   DEFAULT:""
-              // },
-              // foreground: {
-              //   DEFAULT:""
-              // },
-              // warning:{
-              //   DEFAULT:""
-              // },
-              // default: {
-              //   DEFAULT:""
-              // },
-              // focus:{
-              //   DEFAULT:""
-              // },
+
             },
           },
           dark: {
@@ -66,6 +46,9 @@ const config = {
                 // DEFAULT:"#bc47ff"
                 DEFAULT:"#5be6d4"
               },
+              // muted: {
+              //   DEFAULT: "#1e1e1e"
+              // }
 
             },
           },

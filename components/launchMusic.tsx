@@ -17,7 +17,7 @@ export default function LaunchMusic({size = 42} : LaunchMusicProps) {
         onClick={toggleMusic}
       >
         <MusicIcon
-          className={`icon mt-1 hover:text-red-500 transition-all ${isPlaying ? "!text-red-500" : "text-default-500"}`}
+          className={`icon mt-[4px] hover:text-red-500 transition-all ${isPlaying ? "!text-red-500" : "text-default-500"}`}
           size={size}
           style={{
             transform: `scale(${dynamicScale})  `,
