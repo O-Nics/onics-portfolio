@@ -1,17 +1,4 @@
-import { CalendarIcon } from "@heroicons/react/24/outline";
 
-import {
-  AboutIcon,
-  CoffeeIcon,
-  ContactIcon,
-  DocIcon,
-  GithubIcon,
-  IntroIcon,
-  LinkedinIcon,
-  ProjectsIcon,
-  SchoolIcon,
-  XpIcon,
-} from "@/components/icons";
 
 export type Project = typeof project;
 
@@ -143,5 +130,60 @@ export const project = [
       "Optimisation du workflow de génération et déploiement automatisé sur plusieurs plateformes",
     ],
   },
+  {
+    name: "Find & Watch",
+    slug: "find-and-watch",
+    shortDescription:
+      "Application mobile et site vitrine pour explorer, suivre et recommander films, séries et animés à partir de TMDB.",
+    longDescription:
+      "Find & Watch est une application mobile développée avec Flutter et un site vitrine réalisé sous Nuxt.js. L’application permet aux utilisateurs de découvrir, suivre et organiser leurs films, séries et animés préférés à partir des données TMDB. Chaque fiche affiche les informations détaillées (durée, nombre de saisons, distribution, plateformes de streaming disponibles) et propose un système de recommandations personnalisées. L’utilisateur peut marquer les contenus vus, suivre la progression d’une série épisode par épisode et recevoir des notifications lorsqu’un nouvel épisode sort ou qu’un film devient disponible sur une nouvelle plateforme de streaming. L’ensemble repose sur un backend Laravel connecté à TMDB et OneSignal pour la gestion des notifications et des tâches planifiées (cron jobs).",
+    platform: ["web", "mobile"],
+    technologies: ["Flutter", "Laravel", "Nuxt.js", "TMDB API", "OneSignal"],
+    date: "2024-03-01",
+    status: "active",
+    type: "Projet personnel",
+    images: [
+      // Exemples : écrans de recherche, fiche film, suivi des épisodes, accueil, etc.
+    ],
+    links: [
+      {
+        url: "https://find-and-watch.com",
+        text: "Site vitrine",
+        title: "Find & Watch - Site officiel",
+        alt: "Logo Find & Watch",
+        target: "_blank",
+      },
+      {
+        url: "https://apps.apple.com/app/findandwatch",
+        text: "Application iOS",
+        title: "Find & Watch - Application mobile iOS",
+        alt: "Find & Watch iOS App",
+        target: "_blank",
+      },
+    ],
+    features: [
+      "Recherche de films, séries et animés avec défilement infini",
+      "Affichage complet des fiches : durée, saisons, épisodes, casting, plateformes de streaming disponibles",
+      "Système de recommandations dynamiques basé sur les préférences et l’historique de visionnage",
+      "Authentification et gestion de profil utilisateur",
+      "Suivi de progression pour les séries (épisodes vus, prochain épisode, avancement global)",
+      "Possibilité d’ajouter des films/séries à sa liste ou en 'vue'",
+      "Page d’accueil personnalisée selon les favoris et recommandations",
+      "Notifications push via OneSignal lors de la sortie d’un nouvel épisode ou changement de disponibilité streaming",
+    ],
+    challenges: [
+      "Intégration et synchronisation des données TMDB avec le backend Laravel",
+      "Mise en place des notifications push OneSignal entre serveur et application mobile",
+      "Création de cron jobs pour actualiser les données et surveiller les changements de disponibilité",
+      "Conception d’une architecture Flutter modulaire, orientée POO et performante",
+      "Gestion efficace de la pagination et du scroll infini avec des requêtes asynchrones",
+    ],
+    lessonLearned: [
+      "Développement complet d’une application mobile connectée à une API tierce (TMDB)",
+      "Optimisation des performances côté mobile (lazy loading, mise en cache, architecture réactive)",
+      "Mise en place de processus automatisés côté serveur (cron jobs, synchronisation API)",
+      "Approfondissement de la programmation orientée objet et des architectures propres dans Flutter",
+    ],
+  }
 
 ];
