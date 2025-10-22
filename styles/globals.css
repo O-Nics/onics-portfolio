@@ -2,7 +2,7 @@
 @plugin "../hero.ts";
 
 .container-wrapper {
-    max-width: 1460px;
+    max-width: 1560px;
     width: 100%;
     margin-inline: auto;
 }
@@ -27,6 +27,22 @@ h1{
     @apply bg-primary/10;
     /*padding: 0.7rem;*/
 
+}
+
+.link{
+    @apply flex justify-end text-sm text-primary dark:md:text-gray-50/70 md:text-gray-700 tracking-tight transition duration-300 pr-4 pb-4;
+}
+.card:hover .link{
+    @apply text-primary transition duration-300;
+}
+
+.card{
+    @apply  rounded-xl overflow-hidden;
+}
+
+.card:hover img{
+    transform: scale(1.04);
+    transition: transform 0.3s ease-in-out;
 }
 
 

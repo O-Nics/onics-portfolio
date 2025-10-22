@@ -1,158 +1,314 @@
 {
   "projects": [
     {
-      "slug": "application-mobile-ecommerce",
-      "shortTitle": "App E-commerce",
-      "longTitle": "Application mobile E-commerce avec Flutter",
-      "shortDescription": "Application mobile cross-platform pour une boutique en ligne avec paiement intégré et gestion du panier.",
-      "body": "## Contexte\n\nCe projet consistait à développer une application mobile complète pour une startup souhaitant digitaliser son commerce. L'objectif était de créer une expérience utilisateur fluide avec des performances optimales.\n\n## Défis relevés\n\n- Intégration de Stripe pour les paiements\n- Gestion d'état complexe avec Riverpod\n- Optimisation des performances pour les listes de produits\n- Synchronisation offline/online\n\n## Résultats\n\n- 10 000+ téléchargements en 3 mois\n- Note moyenne de 4.7/5 sur les stores\n- Temps de chargement < 2s",
+      "slug": "da-auto-sport",
+      "name": "Da Auto Sport",
+      "title": "Da Auto Sport - Garage BMW site & app mobile",
+      "shortDescription": "Garage BMW — site & app vitrine connectés à SpiderVO, catalogue dynamique, fiches détaillées et recommandations en temps réel.",
+      "longDescription": "Conception et développement complet du site vitrine et de l'application mobile de Da Auto Sport, un garage automobile spécialisé dans les véhicules BMW. Le projet permet de présenter le catalogue de véhicules en temps réel avec un affichage dynamique des caractéristiques, photos et historiques. L'écosystème repose sur une API Laravel connectée au logiciel interne SpiderVO (flux XML), un front-end Nuxt.js optimisé SEO et une application Flutter responsive iOS/Android intégrant un système de recommandations et de notifications personnalisées.",
+      "body": "Conception et développement complet du site vitrine et de l'application mobile de Da Auto Sport, un garage automobile spécialisé dans les véhicules BMW. Le projet permet de présenter le catalogue de véhicules en temps réel avec un affichage dynamique des caractéristiques, photos et historiques. L'écosystème repose sur une API Laravel connectée au logiciel interne SpiderVO (flux XML), un front-end Nuxt.js optimisé SEO et une application Flutter responsive iOS/Android intégrant un système de recommandations et de notifications personnalisées.\n\n## Fonctionnalités\n\n- Catalogue complet des véhicules avec fiches détaillées (moteur, kilométrage, options, historique)\n- Sauvegarde des recherches et ajout aux favoris\n- Recommandations personnalisées basées sur l'historique et les favoris\n- Notifications push lors d'ajouts, suppressions ou modifications de véhicules\n- Authentification sécurisée (JWT) sur mobile\n- Mode clair/sombre natif (synchronisé avec les préférences du système)\n- Interface responsive adaptée smartphones et tablettes\n- Filtrage par 11 filtres : marque, modèle, kilométrage, année...\n- Visualisation de l'historique de contact et des véhicules consultés\n\n## Défis relevés\n\n- Implémentation d'un algorithme de recommandations pertinent basé sur les favoris et recherches récentes\n- Intégration fiable du flux XML SpiderVO et transformation en données exploitables\n- Gestion conditionnelle de l'affichage selon les informations disponibles pour chaque véhicule\n- Mise en place du thème dark/light dynamique sur Flutter\n\n## Leçons apprises\n\n- Développement complet d'un écosystème (API + front web + app mobile) de A à Z jusqu'à la mise en production\n- Gestion de projet en autonomie : priorisation, planification et testing continu\n- Conception d'une architecture API-first sécurisée avec protection des routes\n- Mise en place d'un design system cohérent et d'une gestion fluide du thème sur Flutter",
+      "platform": ["web", "mobile"],
+      "technologies": [
+        "Laravel",
+        "Nuxt.js",
+        "Tailwind CSS",
+        "Flutter",
+        "MySQL",
+        "Google Cloud",
+        "OneSignal",
+        "SpiderVO (XML Integration)"
+      ],
+      "startDate": "2025-05",
+      "endDate": "2025-09",
+      "status": "completed",
+      "type": "Professionnel",
+
       "media": [
         {
           "type": "image",
-          "path": "/images/projects/ecommerce/screenshot-1.jpg",
-          "alt": "Page d'accueil de l'application",
-          "caption": "Interface d'accueil avec les produits en vedette"
+          "path": "/images/projects/daas.png",
+          "alt": "Da Auto Sport | Image 1"
         },
         {
           "type": "image",
-          "path": "/images/projects/ecommerce/screenshot-2.jpg",
-          "alt": "Page panier",
-          "caption": "Gestion du panier d'achat"
+          "path": "/images/projects/daas2.png",
+          "alt": "Da Auto Sport | Image 2"
         },
         {
-          "type": "video",
-          "path": "/videos/projects/ecommerce/demo.mp4",
-          "alt": "Démo de l'application",
-          "caption": "Parcours utilisateur complet"
+          "type": "image",
+          "path": "/images/projects/daas3.png",
+          "alt": "Da Auto Sport | Image 3"
         }
       ],
+
+
       "links": [
         {
-          "url": "https://play.google.com/store",
-          "text": "Voir sur Play Store",
-          "title": "Télécharger sur Google Play",
-          "alt": "Lien vers Google Play Store",
-          "target": "_blank"
+          "url": "https://daautosport.com",
+          "text": "Visiter le site",
+          "title": "Da Auto Sport - Site e-commerce",
+          "alt": "Da Auto Sport",
+          "target": "_blank",
+          "type": "website"
         },
         {
-          "url": "https://apps.apple.com",
-          "text": "Voir sur App Store",
-          "title": "Télécharger sur l'App Store",
-          "alt": "Lien vers Apple App Store",
-          "target": "_blank"
+          "url": "https://apps.apple.com/fr/app/da-auto-sport/id6746983342",
+          "text": "Application mobile IOs",
+          "title": "Da Auto Sport - Application mobile IOs",
+          "alt": "Da Auto Sport",
+          "target": "_blank",
+          "type": "ios"
+        },
+        {
+          "url": "https://play.google.com/store/apps/details?id=com.daautosport.app&pcampaignid=web_share",
+          "text": "Application mobile Android",
+          "title": "Da Auto Sport - Application mobile Android",
+          "alt": "Da Auto Sport",
+          "target": "_blank",
+          "type": "android"
         }
       ],
-      "stack": ["Flutter", "Dart", "Laravel", "MySQL", "Stripe", "Firebase", "Riverpod"],
-      "categories": ["Mobile", "Full-stack", "E-commerce"],
+      "stack": [
+        "Laravel",
+        "Nuxt.js",
+        "Tailwind CSS",
+        "Flutter",
+        "MySQL",
+        "Google Cloud",
+        "OneSignal",
+        "SpiderVO (XML Integration)"
+      ],
+      "categories": ["Professionnel", "web", "mobile"],
+      "features": [
+        "Catalogue complet des véhicules avec fiches détaillées (moteur, kilométrage, options, historique)",
+        "Sauvegarde des recherches et ajout aux favoris",
+        "Recommandations personnalisées basées sur l'historique et les favoris",
+        "Notifications push lors d'ajouts, suppressions ou modifications de véhicules",
+        "Authentification sécurisée (JWT) sur mobile",
+        "Mode clair/sombre natif (synchronisé avec les préférences du système)",
+        "Interface responsive adaptée smartphones et tablettes",
+        "Filtrage par 11 filtres : marque, modèle, kilométrage, année...",
+        "Visualisation de l'historique de contact et des véhicules consultés"
+      ],
+      "challenges": [
+        "Implémentation d'un algorithme de recommandations pertinent basé sur les favoris et recherches récentes",
+        "Intégration fiable du flux XML SpiderVO et transformation en données exploitables",
+        "Gestion conditionnelle de l'affichage selon les informations disponibles pour chaque véhicule",
+        "Mise en place du thème dark/light dynamique sur Flutter"
+      ],
+      "lessonLearned": [
+        "Développement complet d'un écosystème (API + front web + app mobile) de A à Z jusqu'à la mise en production",
+        "Gestion de projet en autonomie : priorisation, planification et testing continu",
+        "Conception d'une architecture API-first sécurisée avec protection des routes",
+        "Mise en place d'un design system cohérent et d'une gestion fluide du thème sur Flutter"
+      ],
       "featured": true,
-      "date": "2024-03",
-      "status": "completed"
+      "date": "2025-05"
     },
     {
-      "slug": "plateforme-gestion-projet",
-      "shortTitle": "Gestion de projets",
-      "longTitle": "Plateforme collaborative de gestion de projets",
-      "shortDescription": "Application web SaaS pour la gestion de projets en équipe avec tableaux Kanban et système de notifications en temps réel.",
-      "body": "## Contexte\n\nDéveloppement d'une plateforme SaaS de gestion de projets pour PME, permettant la collaboration en temps réel entre équipes distribuées.\n\n## Technologies & Architecture\n\n- Frontend React/Next.js avec TypeScript\n- Backend Laravel avec architecture API REST\n- WebSockets pour les notifications temps réel\n- Base de données PostgreSQL\n\n## Fonctionnalités clés\n\n- Tableaux Kanban drag & drop\n- Système de notifications en temps réel\n- Gestion des permissions par rôle\n- Exports et rapports automatisés\n- Intégration calendrier\n\n## Impact\n\n- 50+ entreprises clientes\n- Réduction de 40% du temps de coordination d'équipe\n- 99.9% d'uptime",
+      "slug": "amazing-icons",
+      "name": "Amazing Icons",
+      "title": "Amazing Icons - Librairie d'icônes open-source",
+      "shortDescription": "Librairie open‑source de 5000+ icônes multi‑styles, légère (≈1 MB), optimisée pour Flutter/Web avec export SVG/PNG et recherche rapide.",
+      "longDescription": "Amazing Icons est une bibliothèque open-source d'icônes conçue pour offrir performance, flexibilité et cohérence visuelle sur toutes les plateformes. Le projet comprend plus de 5000 icônes réparties en 6 styles différents, intégrées sous forme de polices pour les environnements mobiles et exportables en SVG/PNG depuis le site web. Développée avec Next.js et Flutter, la solution met l'accent sur la légèreté (≈1 MB pour l'ensemble) et sur l'expérience développeur, avec une documentation complète et un moteur de recherche interactif accessible sur toutes les plateformes.",
+      "body": "Amazing Icons est une bibliothèque open-source d'icônes conçue pour offrir performance, flexibilité et cohérence visuelle sur toutes les plateformes. Le projet comprend plus de 5000 icônes réparties en 6 styles différents, intégrées sous forme de polices pour les environnements mobiles et exportables en SVG/PNG depuis le site web. Développée avec Next.js et Flutter, la solution met l'accent sur la légèreté (≈1 MB pour l'ensemble) et sur l'expérience développeur, avec une documentation complète et un moteur de recherche interactif accessible sur toutes les plateformes.\n\n## Fonctionnalités\n\n- 6 styles d'icônes inclus dans le package (Outline, Bulk, TwoTone, etc.) + 1 style exclusif sur le site web\n- Poids ultra-léger : environ 1 MB pour plus de 5000 icônes\n- Icônes converties en polices optimisées pour les performances sur mobile et desktop\n- Téléchargement possible en SVG ou PNG avec couleur personnalisée depuis le site web\n- Moteur de recherche d'icônes rapide et intuitif avec aperçu en direct\n- Compatible multi-plateforme : Web, iOS, Android, Windows, macOS, Linux\n\n## Défis relevés\n\n- Gestion des icônes TwoTone sans dépendance à flutter_svg en les scindant en deux polices superposables\n- Maintien d'un poids minimal tout en conservant la qualité vectorielle\n- Assurer la compatibilité du rendu entre Flutter, Web et Desktop\n- Organisation et génération automatique des polices à partir de milliers de fichiers SVG\n\n## Leçons apprises\n\n- Utilisation efficace du tree-shaking grâce à la séparation modulaire des imports Flutter\n- Transformation avancée des SVG en polices pour maximiser les performances et la compatibilité\n- Structuration d'un écosystème complet (site, package, documentation) autour d'un même jeu d'icônes\n- Optimisation du workflow de génération et déploiement automatisé sur plusieurs plateformes",
+      "platform": ["web", "mobile", "desktop", "linux"],
+      "technologies": ["Next.js", "Flutter"],
+      "startDate": "2025-09",
+      "status": "active",
+      "type": "Open Source",
       "media": [
         {
           "type": "image",
-          "path": "/images/projects/project-management/dashboard.jpg",
-          "alt": "Dashboard principal",
-          "caption": "Vue d'ensemble des projets actifs"
+          "path": "/images/projects/ai.png",
+          "alt": "Amazing Icons | Image 1"
         },
         {
           "type": "image",
-          "path": "/images/projects/project-management/kanban.jpg",
-          "alt": "Tableau Kanban",
-          "caption": "Gestion des tâches en Kanban"
+          "path": "/images/projects/ai2.png",
+          "alt": "Amazing Icons | Image 2"
+        },
+        {
+          "type": "image",
+          "path": "/images/projects/ai3.png",
+          "alt": "Amazing Icons | Image 3"
         }
       ],
       "links": [
         {
-          "url": "https://demo.example.com",
-          "text": "Voir la démo",
-          "title": "Accéder à la démo interactive",
-          "alt": "Lien vers la démo en ligne",
-          "target": "_blank"
+          "url": "https://amazingicons.dev",
+          "text": "Site officiel",
+          "title": "Amazing Icons - Bibliothèque d'icônes open-source",
+          "alt": "Logo Amazing Icons",
+          "target": "_blank",
+          "type": "website"
         },
         {
-          "url": "https://github.com/username/project",
-          "text": "Code source",
-          "title": "Voir le code sur GitHub",
-          "alt": "Repository GitHub du projet",
-          "target": "_blank"
+          "url": "https://pub.dev/packages/amazing_icons",
+          "text": "Package Flutter",
+          "title": "Amazing Icons - Package Flutter",
+          "alt": "Amazing Icons sur Pub.dev",
+          "target": "_blank",
+            "type": "flutter"
+        },
+        {
+          "url": "https://github.com/O-Nicks/amazing_icons",
+          "text": "Documentation & Code source",
+          "title": "Amazing Icons - Documentation GitHub",
+          "alt": "GitHub Amazing Icons",
+          "target": "_blank",
+          "type": "github"
         }
       ],
-      "stack": ["Next.js", "React", "TypeScript", "Laravel", "PostgreSQL", "Redis", "Tailwind CSS", "WebSockets"],
-      "categories": ["Web", "Full-stack", "SaaS"],
+      "stack": ["Next.js", "Flutter"],
+      "categories": ["Open Source", "web", "mobile", "desktop", "linux"],
+      "features": [
+        "6 styles d'icônes inclus dans le package (Outline, Bulk, TwoTone, etc.) + 1 style exclusif sur le site web",
+        "Poids ultra-léger : environ 1 MB pour plus de 5000 icônes",
+        "Icônes converties en polices optimisées pour les performances sur mobile et desktop",
+        "Téléchargement possible en SVG ou PNG avec couleur personnalisée depuis le site web",
+        "Moteur de recherche d'icônes rapide et intuitif avec aperçu en direct",
+        "Compatible multi-plateforme : Web, iOS, Android, Windows, macOS, Linux"
+      ],
+      "challenges": [
+        "Gestion des icônes TwoTone sans dépendance à flutter_svg en les scindant en deux polices superposables",
+        "Maintien d'un poids minimal tout en conservant la qualité vectorielle",
+        "Assurer la compatibilité du rendu entre Flutter, Web et Desktop",
+        "Organisation et génération automatique des polices à partir de milliers de fichiers SVG"
+      ],
+      "lessonLearned": [
+        "Utilisation efficace du tree-shaking grâce à la séparation modulaire des imports Flutter",
+        "Transformation avancée des SVG en polices pour maximiser les performances et la compatibilité",
+        "Structuration d'un écosystème complet (site, package, documentation) autour d'un même jeu d'icônes",
+        "Optimisation du workflow de génération et déploiement automatisé sur plusieurs plateformes"
+      ],
       "featured": true,
-      "date": "2024-01",
-      "status": "completed"
+      "date": "2025-09"
     },
     {
-      "slug": "api-rest-microservices",
-      "shortTitle": "API Microservices",
-      "longTitle": "Architecture microservices pour API REST",
-      "shortDescription": "Conception et développement d'une architecture microservices évolutive pour une API REST haute performance.",
-      "body": "## Contexte\n\nRefonte complète de l'architecture backend d'une application existante vers une architecture microservices pour améliorer la scalabilité et la maintenabilité.\n\n## Architecture\n\n- 8 microservices indépendants\n- Communication via API Gateway\n- Event-driven architecture avec RabbitMQ\n- Containerisation Docker + orchestration Kubernetes\n\n## Challenges techniques\n\n- Migration progressive sans interruption de service\n- Gestion de la cohérence des données entre services\n- Monitoring et observabilité distribuée\n- Gestion des erreurs et retry policies\n\n## Résultats mesurables\n\n- Performance améliorée de 300%\n- Temps de déploiement réduit de 80%\n- Coûts d'infrastructure réduits de 35%",
+      "slug": "find-and-watch",
+      "name": "Find & Watch",
+      "title": "Find & Watch - Suivi de films et séries",
+      "shortDescription": "App mobile & site vitrine pour suivre films/séries/animés via TMDB, avec suivi d'épisodes, favoris et notifications OneSignal.",
+      "longDescription": "Find & Watch est une application mobile développée avec Flutter et un site vitrine réalisé sous Nuxt.js. L'application permet aux utilisateurs de découvrir, suivre et organiser leurs films, séries et animés préférés à partir des données TMDB. Chaque fiche affiche les informations détaillées (durée, nombre de saisons, distribution, plateformes de streaming disponibles) et propose un système de recommandations personnalisées. L'utilisateur peut marquer les contenus vus, suivre la progression d'une série épisode par épisode et recevoir des notifications lorsqu'un nouvel épisode sort ou qu'un film devient disponible sur une nouvelle plateforme de streaming. L'ensemble repose sur un backend Laravel connecté à TMDB et OneSignal pour la gestion des notifications et des tâches planifiées (cron jobs).",
+      "body": "Find & Watch est une application mobile développée avec Flutter et un site vitrine réalisé sous Nuxt.js. L'application permet aux utilisateurs de découvrir, suivre et organiser leurs films, séries et animés préférés à partir des données TMDB. Chaque fiche affiche les informations détaillées (durée, nombre de saisons, distribution, plateformes de streaming disponibles) et propose un système de recommandations personnalisées. L'utilisateur peut marquer les contenus vus, suivre la progression d'une série épisode par épisode et recevoir des notifications lorsqu'un nouvel épisode sort ou qu'un film devient disponible sur une nouvelle plateforme de streaming. L'ensemble repose sur un backend Laravel connecté à TMDB et OneSignal pour la gestion des notifications et des tâches planifiées (cron jobs).\n\n## Fonctionnalités\n\n- Recherche de films, séries et animés avec défilement infini\n- Affichage complet des fiches : durée, saisons, épisodes, casting, plateformes de streaming disponibles\n- Système de recommandations dynamiques basé sur les préférences et l'historique de visionnage\n- Authentification et gestion de profil utilisateur\n- Suivi de progression pour les séries (épisodes vus, prochain épisode, avancement global)\n- Possibilité d'ajouter des films/séries à sa liste ou en 'vue'\n- Page d'accueil personnalisée selon les favoris et recommandations\n- Notifications push via OneSignal lors de la sortie d'un nouvel épisode ou changement de disponibilité streaming\n\n## Défis relevés\n\n- Intégration et synchronisation des données TMDB avec le backend Laravel\n- Mise en place des notifications push OneSignal entre serveur et application mobile\n- Création de cron jobs pour actualiser les données et surveiller les changements de disponibilité\n- Conception d'une architecture Flutter modulaire, orientée POO et performante\n- Gestion efficace de la pagination et du scroll infini avec des requêtes asynchrones\n\n## Leçons apprises\n\n- Développement complet d'une application mobile connectée à une API tierce (TMDB)\n- Optimisation des performances côté mobile (lazy loading, mise en cache, architecture réactive)\n- Mise en place de processus automatisés côté serveur (cron jobs, synchronisation API)\n- Approfondissement de la programmation orientée objet et des architectures propres dans Flutter",
+      "platform": ["web", "mobile"],
+      "technologies": ["Flutter", "Laravel", "Nuxt.js", "TMDB API", "OneSignal"],
+      "startDate": "2024-03-01",
+      "status": "active",
+      "type": "Personnel",
       "media": [
         {
           "type": "image",
-          "path": "/images/projects/microservices/architecture.jpg",
-          "alt": "Schéma d'architecture",
-          "caption": "Diagramme de l'architecture microservices"
-        }
-      ],
-      "links": [
-        {
-          "url": "https://github.com/username/microservices-api",
-          "text": "Voir le code",
-          "title": "Code source sur GitHub",
-          "alt": "Repository GitHub",
-          "target": "_blank"
-        }
-      ],
-      "stack": ["Laravel", "Node.js", "Docker", "Kubernetes", "RabbitMQ", "Redis", "PostgreSQL", "MongoDB"],
-      "categories": ["Backend", "DevOps", "API"],
-      "featured": false,
-      "date": "2023-11",
-      "status": "completed"
-    },
-    {
-      "slug": "app-fitness-tracking",
-      "shortTitle": "Fitness Tracker",
-      "longTitle": "Application de suivi fitness et nutrition",
-      "shortDescription": "App mobile de tracking fitness avec analyse nutritionnelle et plans d'entraînement personnalisés.",
-      "body": "## Vue d'ensemble\n\nApplication mobile Flutter permettant de suivre ses activités sportives, son alimentation et d'accéder à des programmes d'entraînement personnalisés.\n\n## Fonctionnalités principales\n\n- Suivi des activités (course, vélo, musculation)\n- Intégration avec Apple Health et Google Fit\n- Analyse nutritionnelle avec scan de code-barres\n- Plans d'entraînement adaptatifs\n- Graphiques de progression\n\n## Stack technique\n\n- Flutter pour le mobile\n- Backend Laravel avec API REST\n- ML pour les recommandations personnalisées\n- Intégrations tierces (Nutritionix, Strava)\n\n## En cours de développement\n\n- Version web compagnon\n- Coaching virtuel avec IA\n- Mode communauté et challenges",
-      "media": [
-        {
-          "type": "image",
-          "path": "/images/projects/fitness/home.jpg",
-          "alt": "Écran d'accueil",
-          "caption": "Dashboard fitness quotidien"
+          "path": "/images/projects/f&w.png",
+          "alt": "Find & Watch"
         },
         {
           "type": "image",
-          "path": "/images/projects/fitness/workout.jpg",
-          "alt": "Séance d'entraînement",
-          "caption": "Suivi d'une séance en direct"
+          "path": "/images/projects/f&w2.png",
+          "alt": "Find & Watch"
+        },
+        {
+          "type": "image",
+          "path": "/images/projects/f&w3.png",
+          "alt": "Find & Watch"
         }
+
       ],
       "links": [
         {
-          "url": "https://testflight.apple.com/example",
-          "text": "Beta TestFlight",
-          "title": "Tester la version beta",
-          "alt": "Lien TestFlight",
-          "target": "_blank"
+          "url": "https://find-and-watch.com",
+          "text": "Site vitrine",
+          "title": "Find & Watch - Site officiel",
+          "alt": "Logo Find & Watch",
+          "target": "_blank",
+            "type": "website"
+        },
+        {
+          "url": "https://apps.apple.com/app/findandwatch",
+          "text": "Application iOS",
+          "title": "Find & Watch - Application mobile iOS",
+          "alt": "Find & Watch iOS App",
+          "target": "_blank",
+            "type": "ios"
         }
       ],
-      "stack": ["Flutter", "Dart", "Laravel", "Python", "TensorFlow", "MySQL"],
-      "categories": ["Mobile", "Full-stack", "Health"],
+      "stack": ["Flutter", "Laravel", "Nuxt.js", "TMDB API", "OneSignal"],
+      "categories": ["Projet personnel", "web", "mobile"],
+      "features": [
+        "Recherche de films, séries et animés avec défilement infini",
+        "Affichage complet des fiches : durée, saisons, épisodes, casting, plateformes de streaming disponibles",
+        "Système de recommandations dynamiques basé sur les préférences et l'historique de visionnage",
+        "Authentification et gestion de profil utilisateur",
+        "Suivi de progression pour les séries (épisodes vus, prochain épisode, avancement global)",
+        "Possibilité d'ajouter des films/séries à sa liste ou en 'vue'",
+        "Page d'accueil personnalisée selon les favoris et recommandations",
+        "Notifications push via OneSignal lors de la sortie d'un nouvel épisode ou changement de disponibilité streaming"
+      ],
+      "challenges": [
+        "Intégration et synchronisation des données TMDB avec le backend Laravel",
+        "Mise en place des notifications push OneSignal entre serveur et application mobile",
+        "Création de cron jobs pour actualiser les données et surveiller les changements de disponibilité",
+        "Conception d'une architecture Flutter modulaire, orientée POO et performante",
+        "Gestion efficace de la pagination et du scroll infini avec des requêtes asynchrones"
+      ],
+      "lessonLearned": [
+        "Développement complet d'une application mobile connectée à une API tierce (TMDB)",
+        "Optimisation des performances côté mobile (lazy loading, mise en cache, architecture réactive)",
+        "Mise en place de processus automatisés côté serveur (cron jobs, synchronisation API)",
+        "Approfondissement de la programmation orientée objet et des architectures propres dans Flutter"
+      ],
       "featured": true,
-      "date": "2024-06",
-      "status": "in-progress"
+      "date": "2024-03-01"
+    },
+    {
+      "slug": "hinti",
+      "name": "Hinti",
+      "title": "Hinti - App nutrition & sport",
+      "shortDescription": "App mobile nutrition & sport : programme calorique, recherche instantanée, scan code‑barres, IA et base Open Food Facts.",
+      "longDescription": "Hinti est une application mobile de nutrition et de suivi sportif développée dans le cadre d'un projet scolaire. L'application génère automatiquement un programme calorique personnalisé en fonction du profil de l'utilisateur et de ses objectifs. Les aliments peuvent être ajoutés via une recherche instantanée propulsée par Meilisearch, par reconnaissance d'ingrédient via IA, par connexion à la base Open Food Facts ou par simple scan de code-barres. L'interface, moderne et fluide, intègre un thème clair/sombre, un calendrier de suivi et une base de données de plus de 4 millions d'ingrédients.",
+      "body": "Hinti est une application mobile de nutrition et de suivi sportif développée dans le cadre d'un projet scolaire. L'application génère automatiquement un programme calorique personnalisé en fonction du profil de l'utilisateur et de ses objectifs. Les aliments peuvent être ajoutés via une recherche instantanée propulsée par Meilisearch, par reconnaissance d'ingrédient via IA, par connexion à la base Open Food Facts ou par simple scan de code-barres. L'interface, moderne et fluide, intègre un thème clair/sombre, un calendrier de suivi et une base de données de plus de 4 millions d'ingrédients.\n\n## Fonctionnalités\n\n- Scan de code-barres pour ajout rapide d'aliments\n- Recherche instantanée grâce à Meilisearch sur plus de 4 millions d'ingrédients\n- Création automatique de programmes caloriques personnalisés\n- Génération d'ingrédients et de recettes via intelligence artificielle (OpenAI)\n- Calendrier intégré pour le suivi quotidien de la nutrition et du sport\n- Thème clair et sombre adaptatif\n\n## Défis relevés\n\n- Importation et gestion d'une base de données de plusieurs millions d'ingrédients\n- Conception d'une architecture de base de données performante et évolutive\n- Optimisation des performances de l'application mobile avec des volumes massifs de données\n\n## Leçons apprises\n\n- Intégration avancée de l'API OpenAI pour la génération de contenu dynamique\n- Mise en œuvre de Meilisearch pour la recherche instantanée à grande échelle\n- Implémentation du scan de code-barres et traitement des données Open Food Facts\n- Gestion de la performance et de la structure des données dans un contexte mobile",
+      "platform": ["mobile"],
+      "technologies": ["Flutter", "OpenAI API", "Meilisearch", "Open Food Facts API"],
+      "startDate": "2024-02",
+      "status": "not completed",
+      "type": "Scolaire",
+      "media": [
+        {
+          "type": "image",
+          "path": "/images/projects/h1.png",
+          "alt": "Hinti | Image 1"
+        },
+        {
+          "type": "image",
+          "path": "/images/projects/h2.png",
+          "alt": "Hinti | Image 2"
+        }
+      ],
+      "links": [],
+      "stack": ["Flutter", "OpenAI API", "Meilisearch", "Open Food Facts API"],
+      "categories": ["Projet scolaire", "mobile"],
+      "features": [
+        "Scan de code-barres pour ajout rapide d'aliments",
+        "Recherche instantanée grâce à Meilisearch sur plus de 4 millions d'ingrédients",
+        "Création automatique de programmes caloriques personnalisés",
+        "Génération d'ingrédients et de recettes via intelligence artificielle (OpenAI)",
+        "Calendrier intégré pour le suivi quotidien de la nutrition et du sport",
+        "Thème clair et sombre adaptatif"
+      ],
+      "challenges": [
+        "Importation et gestion d'une base de données de plusieurs millions d'ingrédients",
+        "Conception d'une architecture de base de données performante et évolutive",
+        "Optimisation des performances de l'application mobile avec des volumes massifs de données"
+      ],
+      "lessonLearned": [
+        "Intégration avancée de l'API OpenAI pour la génération de contenu dynamique",
+        "Mise en œuvre de Meilisearch pour la recherche instantanée à grande échelle",
+        "Implémentation du scan de code-barres et traitement des données Open Food Facts",
+        "Gestion de la performance et de la structure des données dans un contexte mobile"
+      ],
+      "featured": true,
+      "date": "2024-02-01"
     }
   ]
 }

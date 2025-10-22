@@ -26,7 +26,7 @@ export const NavigationInPage = ({ left, right }: NavigationLinks) => {
       <div>
         {right && (
           <Link
-            className="text-sm text-default-600 font-bold transition hover:text-primary cursor-pointer"
+            className="text-sm text-default-600 font-bold transition text-primary cursor-pointer"
             href={right.href}
             title={right.name}
           >

@@ -52,13 +52,13 @@ export default function ProjectPage({ project }: ProjectPageProps) {
             Projets
           </Link>
           <span className="text-default-400">/</span>
-          <span className="text-default-600">{project.shortTitle}</span>
+          <span className="text-default-600">{project.name}</span>
         </div>
 
         {/* En-tête du projet */}
         <div className="flex flex-col gap-4">
           <div className="flex items-start justify-between">
-            <h1 className={titleClass({ size: "lg" })}>{project.longTitle}</h1>
+            <h1 className={titleClass({ size: "lg" })}>{project.title}</h1>
             {project.status === "in-progress" && (
               <Chip color="warning" variant="flat">
                 En cours

@@ -4,6 +4,7 @@ export interface ProjectLink {
   title: string;
   alt: string;
   target: "_blank" | "_self" | "_parent" | "_top";
+  type: string;
 }
 
 export interface ProjectMedia {
@@ -14,18 +15,27 @@ export interface ProjectMedia {
 }
 
 export interface Project {
-  slug: string; // identifiant unique pour l'URL
-  shortTitle: string;
-  longTitle: string;
+  slug: string;
+  name: string;
+  title: string;
   shortDescription: string;
-  body: string; // corps de texte long (peut contenir du markdown)
-  media: ProjectMedia[]; // images et vidéos
-  links: ProjectLink[]; // liens externes (démo, repo, etc.)
-  stack: string[]; // technologies utilisées
-  categories: string[]; // catégories (web, mobile, full-stack, etc.)
-  featured?: boolean; // pour mettre en avant sur la page d'accueil
-  date?: string; // date de réalisation (format ISO: YYYY-MM-DD)
-  status?: "completed" | "in-progress" | "archived";
+  longDescription: string;
+  body: string;
+  platform: string[];
+  technologies: string[];
+  startDate: string;
+  endDate?: string;
+  status: "completed" | "in-progress" | "active" | "archived" | "not completed";
+  type: string;
+  media: ProjectMedia[];
+  links: ProjectLink[];
+  stack: string[];
+  categories: string[];
+  features: string[];
+  challenges: string[];
+  lessonLearned: string[];
+  featured?: boolean;
+  date?: string;
 }
 
 export interface ProjectsData {
