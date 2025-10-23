@@ -10,10 +10,27 @@ import NextLink from "next/link";
 import DefaultLayout from "@/layouts/default";
 import { getAllProjects, getProjectBySlug } from "@/lib/projects";
 import { Project } from "@/types/project";
-import { title as titleClass, subtitle } from "@/components/primitives";
+import { title as titleClass } from "@/components/primitives";
 
 interface ProjectPageProps {
   project: Project;
+}
+
+function getColorLink(type: string) {
+  switch (type) {
+    case "website":
+      return "bg-secondary text-white";
+    case "ios":
+      return "bg-gray-50/10 text-white";
+    case "android":
+      return "bg-green-600 text-white";
+    case "github":
+      return "bg-black text-white";
+    case "flutter":
+      return "bg-blue-500 text-white";
+    default:
+      return "gray";
+  }
 }
 
 export default function ProjectPage({ project }: ProjectPageProps) {
@@ -41,18 +58,28 @@ export default function ProjectPage({ project }: ProjectPageProps) {
 
   return (
     <DefaultLayout>
-      <section className="flex flex-col gap-8 py-8 md:py-10">
+      <section className="flex flex-col gap-6 pt-3 pb-4 md:pb-6">
         {/* Breadcrumb */}
-        <div className="flex items-center gap-2 text-sm">
-          <Link as={NextLink} color="foreground" href="/">
+        <div className="flex items-center  gap-2 font-bold text-sm">
+          <Link
+            as={NextLink}
+            className="text-default-500"
+            color="foreground"
+            href="/"
+          >
             Accueil
           </Link>
-          <span className="text-default-400">/</span>
-          <Link as={NextLink} color="foreground" href="/projets">
+          <span className="text-default-400 ">/</span>
+          <Link
+            as={NextLink}
+            className="text-default-500"
+            color="foreground"
+            href="/projets"
+          >
             Projets
           </Link>
-          <span className="text-default-400">/</span>
-          <span className="text-default-600">{project.name}</span>
+          <span className="text-default-400 ">/</span>
+          <span className="text-primary font-extrabold">{project.name}</span>
         </div>
 
         {/* En-tête du projet */}
@@ -65,10 +92,10 @@ export default function ProjectPage({ project }: ProjectPageProps) {
               </Chip>
             )}
           </div>
-          <p className={subtitle()}>{project.shortDescription}</p>
+          <p className="text-default-600">{project.shortDescription}</p>
 
           {/* Catégories et date */}
-          <div className="flex flex-wrap gap-2 items-center">
+          <div className="flex flex-wrap gap-2 mt-3 items-center">
             {project.categories.map((category) => (
               <Chip key={category} color="primary" variant="bordered">
                 {category}
@@ -90,7 +117,7 @@ export default function ProjectPage({ project }: ProjectPageProps) {
 
         {/* Galerie d'images */}
         {images.length > 0 && (
-          <div className="grid grid-cols-1 md:grid-cols-2 gap-4">
+          <div className="grid grid-cols-1 md:grid-cols-2 gap-4 mt-4">
             {images.map((image, index) => (
               <div key={index} className="flex flex-col gap-2">
                 <Image
@@ -134,21 +161,22 @@ export default function ProjectPage({ project }: ProjectPageProps) {
             // Support simple du markdown
             if (paragraph.startsWith("## ")) {
               return (
-                <h2 key={index} className="text-2xl font-bold mt-8 mb-4">
+                <h2 key={index} className="text-2xl font-bold mt-4 mb-0">
+                  <span className="text-primary">|</span>{" "}
                   {paragraph.replace("## ", "")}
                 </h2>
               );
             }
             if (paragraph.startsWith("# ")) {
               return (
-                <h1 key={index} className="text-3xl font-bold mt-8 mb-4">
+                <h1 key={index} className="text-3xl font-bold mt-4 mb-0">
                   {paragraph.replace("# ", "")}
                 </h1>
               );
             }
             if (paragraph.startsWith("- ")) {
               return (
-                <li key={index} className="ml-4">
+                <li key={index} className="ml-8 mt-0">
                   {paragraph.replace("- ", "")}
                 </li>
               );
@@ -158,7 +186,7 @@ export default function ProjectPage({ project }: ProjectPageProps) {
             }
 
             return (
-              <p key={index} className="text-default-700 mb-4">
+              <p key={index} className="text-default-700 mb-0">
                 {paragraph}
               </p>
             );
@@ -170,9 +198,23 @@ export default function ProjectPage({ project }: ProjectPageProps) {
           <h2 className="text-2xl font-bold">Technologies utilisées</h2>
           <div className="flex flex-wrap gap-2">
             {project.stack.map((tech) => (
-              <Chip key={tech} color="secondary" size="lg" variant="flat">
-                {tech}
-              </Chip>
+              <div key={tech.name} className="w-fit shadow-red-50">
+                <div className="flex-row flex items-center align-middle rounded-lg dark:bg-white/3 bg-gray-100 px-3 hover:bg-gray-100 dark:hover:bg-primary/10 hover:bg-primary/10 transition py-2 ">
+                  <div className="flex h-7 flex-row items-center gap-2">
+                    {tech.image && (
+                      <Image
+                        alt={tech.name}
+                        className={` ${tech.name == "Next.js" || tech.name === "GitHub" || tech.name === "OpenAI API" ? "dark:invert" : ""}`}
+                        height={20}
+                        radius="none"
+                        src={`/images/${tech.image}`}
+                        width={20}
+                      />
+                    )}
+                    <p className="text-sm">{tech.name}</p>
+                  </div>
+                </div>
+              </div>
             ))}
           </div>
         </div>
@@ -186,12 +228,13 @@ export default function ProjectPage({ project }: ProjectPageProps) {
                 <Button
                   key={index}
                   as={Link}
-                  color="primary"
+                  className={`${getColorLink(link.type)} h-9`}
                   href={link.url}
                   isExternal={link.target === "_blank"}
+                  radius={"full"}
                   target={link.target}
                   title={link.title}
-                  variant="bordered"
+                  variant="flat"
                 >
                   {link.text}
                 </Button>
@@ -206,7 +249,7 @@ export default function ProjectPage({ project }: ProjectPageProps) {
             as={NextLink}
             color="default"
             href="/projets"
-            variant="bordered"
+            variant="flat"
           >
             Retour aux projets
           </Button>

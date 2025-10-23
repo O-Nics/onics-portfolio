@@ -16,6 +16,8 @@ interface ProjetsPageProps {
   technologies: string[];
 }
 
+
+
 export default function ProjetsPage({}: ProjetsPageProps) {
   const leftLink: LinkNavigation = {
     name: "À propos de moi",
@@ -38,7 +40,7 @@ export default function ProjetsPage({}: ProjetsPageProps) {
             marquants.
           </p>
         </FadeUp>
-        <div className="pt-8 grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4 gap-4">
+        <div className="pt-8 grid grid-cols-1  lg:grid-cols-2 xl:grid-cols-3 gap-4">
           {projects
             .filter((project) => project.featured == true)
             .map((project, index) => (

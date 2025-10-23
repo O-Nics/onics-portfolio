@@ -7,6 +7,11 @@ export interface ProjectLink {
   type: string;
 }
 
+export interface ProjectStack {
+  name: string;
+  image: string;
+}
+
 export interface ProjectMedia {
   type: "image" | "video";
   path: string;
@@ -29,7 +34,7 @@ export interface Project {
   type: string;
   media: ProjectMedia[];
   links: ProjectLink[];
-  stack: string[];
+  stack: ProjectStack[];
   categories: string[];
   features: string[];
   challenges: string[];
