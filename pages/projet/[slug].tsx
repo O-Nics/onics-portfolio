@@ -6,11 +6,19 @@ import { Link } from "@heroui/link";
 import { Image } from "@heroui/image";
 import { Divider } from "@heroui/divider";
 import NextLink from "next/link";
+import { ReactNode } from "react";
 
 import DefaultLayout from "@/layouts/default";
 import { getAllProjects, getProjectBySlug } from "@/lib/projects";
 import { Project } from "@/types/project";
 import { title as titleClass } from "@/components/primitives";
+import {
+  AndroidIcon,
+  AppleIcon,
+  ExternalLinkIcon,
+  FlutterIcon,
+  GithubIcon,
+} from "@/components/icons";
 
 interface ProjectPageProps {
   project: Project;
@@ -19,20 +27,34 @@ interface ProjectPageProps {
 function getColorLink(type: string) {
   switch (type) {
     case "website":
-      return "bg-secondary text-white";
+      return "dark:hover:bg-secondary border border-secondary hover:bg-secondary hover:text-white bg-transparent ";
     case "ios":
-      return "bg-gray-50/10 text-white";
+      return "dark:hover:bg-gray-100 border dark:border-gray-50/10 border-black  hover:bg-black dark:hover:text-black hover:text-white bg-transparent ";
     case "android":
-      return "bg-green-600 text-white";
+      return "dark:hover:bg-green-600 border border-green-600 hover:bg-green-600 hover:text-white bg-transparent ";
     case "github":
-      return "bg-black text-white";
+      return "dark:hover:bg-black border border-black hover:bg-black hover:text-white bg-transparent ";
     case "flutter":
-      return "bg-blue-500 text-white";
+      return "dark:hover:bg-blue-500 border border-blue-500 hover:bg-blue-500 hover:text-white bg-transparent ";
     default:
       return "gray";
   }
 }
 
+function getIconLink(type: string): ReactNode {
+  switch (type) {
+    case "ios":
+      return <AppleIcon className="h-[24px] mb-[2px]"/>;
+    case "android":
+      return <AndroidIcon className="h-[24px]"/>;
+    case "github":
+      return <GithubIcon />;
+    case "flutter":
+      return <FlutterIcon className="h-[24px]" />;
+    default:
+      return <ExternalLinkIcon className="h-[24px]" />;
+  }
+}
 export default function ProjectPage({ project }: ProjectPageProps) {
   const router = useRouter();
 
@@ -195,12 +217,12 @@ export default function ProjectPage({ project }: ProjectPageProps) {
 
         {/* Stack technique */}
         <div className="flex flex-col gap-4">
-          <h2 className="text-2xl font-bold">Technologies utilisées</h2>
+          <h2 className="text-2xl font-bold"> <span className="text-primary">|</span>{" "}Technologies utilisées</h2>
           <div className="flex flex-wrap gap-2">
             {project.stack.map((tech) => (
               <div key={tech.name} className="w-fit shadow-red-50">
-                <div className="flex-row flex items-center align-middle rounded-lg dark:bg-white/3 bg-gray-100 px-3 hover:bg-gray-100 dark:hover:bg-primary/10 hover:bg-primary/10 transition py-2 ">
-                  <div className="flex h-7 flex-row items-center gap-2">
+                <div className="flex-row flex items-center align-middle rounded-lg dark:bg-white/3 bg-gray-100 pr-3 pl-2 hover:bg-gray-100 dark:hover:bg-primary/10 hover:bg-primary/10 transition py-2 ">
+                  <div className="flex h-5 flex-row items-center gap-2">
                     {tech.image && (
                       <Image
                         alt={tech.name}
@@ -222,19 +244,20 @@ export default function ProjectPage({ project }: ProjectPageProps) {
         {/* Liens */}
         {project.links.length > 0 && (
           <div className="flex flex-col gap-4">
-            <h2 className="text-2xl font-bold">Liens</h2>
+            <h2 className="text-2xl font-bold"> <span className="text-primary">|</span>{" "}Liens</h2>
             <div className="flex flex-wrap gap-3">
               {project.links.map((link, index) => (
                 <Button
                   key={index}
                   as={Link}
-                  className={`${getColorLink(link.type)} h-9`}
-                  href={link.url}
+                  // className="px-2 h-8 mt-10 bg-white  text-gray-600 dark:text-gray-300  dark:bg-gray-800"
                   isExternal={link.target === "_blank"}
                   radius={"full"}
                   target={link.target}
                   title={link.title}
-                  variant="flat"
+                  startContent={getIconLink(link.type)}
+                  className={`${getColorLink(link.type)} px-3 h-8 `}
+                  href={link.url}
                 >
                   {link.text}
                 </Button>
@@ -245,12 +268,7 @@ export default function ProjectPage({ project }: ProjectPageProps) {
 
         {/* Navigation */}
         <div className="flex justify-center pt-8">
-          <Button
-            as={NextLink}
-            color="default"
-            href="/projets"
-            variant="flat"
-          >
+          <Button as={NextLink} color="default" href="/projets" variant="flat">
             Retour aux projets
           </Button>
         </div>
