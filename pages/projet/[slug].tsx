@@ -19,6 +19,8 @@ import {
   FlutterIcon,
   GithubIcon,
 } from "@/components/icons";
+import {capitalize} from "@heroui/shared-utils";
+import FadeUp from "@/components/animation/fade-up";
 
 interface ProjectPageProps {
   project: Project;
@@ -27,15 +29,15 @@ interface ProjectPageProps {
 function getColorLink(type: string) {
   switch (type) {
     case "website":
-      return "dark:hover:bg-secondary border border-secondary hover:bg-secondary hover:text-white bg-transparent ";
+      return "dark:hover:bg-secondary border border-secondary hover:bg-secondary hover:text-white md:bg-transparent bg-secondary";
     case "ios":
-      return "dark:hover:bg-gray-100 border dark:border-gray-50/10 border-black  hover:bg-black dark:hover:text-black hover:text-white bg-transparent ";
+      return "dark:hover:bg-gray-100 border dark:border-gray-50/10 border-black  hover:bg-black dark:hover:text-black hover:text-white md:bg-transparent bg-gray-100";
     case "android":
-      return "dark:hover:bg-green-600 border border-green-600 hover:bg-green-600 hover:text-white bg-transparent ";
+      return "dark:hover:bg-green-600 border border-green-600 hover:bg-green-600 hover:text-white md:bg-transparent bg-green-600";
     case "github":
-      return "dark:hover:bg-black border border-black hover:bg-black hover:text-white bg-transparent ";
+      return "dark:hover:bg-black border border-black hover:bg-black hover:text-white md:bg-transparent bg-black";
     case "flutter":
-      return "dark:hover:bg-blue-500 border border-blue-500 hover:bg-blue-500 hover:text-white bg-transparent ";
+      return "dark:hover:bg-blue-500 border border-blue-500 hover:bg-blue-500 hover:text-white md:bg-transparent bg-blue-500 ";
     default:
       return "gray";
   }
@@ -82,78 +84,88 @@ export default function ProjectPage({ project }: ProjectPageProps) {
     <DefaultLayout>
       <section className="flex flex-col gap-6 pt-3 pb-4 md:pb-6">
         {/* Breadcrumb */}
-        <div className="flex items-center  gap-2 font-bold text-sm">
-          <Link
-            as={NextLink}
-            className="text-default-500"
-            color="foreground"
-            href="/"
-          >
-            Accueil
-          </Link>
-          <span className="text-default-400 ">/</span>
-          <Link
-            as={NextLink}
-            className="text-default-500"
-            color="foreground"
-            href="/projets"
-          >
-            Projets
-          </Link>
-          <span className="text-default-400 ">/</span>
-          <span className="text-primary font-extrabold">{project.name}</span>
-        </div>
+        <FadeUp>
+          <div className="flex items-center  gap-2 font-bold text-sm">
+            <Link
+              as={NextLink}
+              className="text-default-500"
+              color="foreground"
+              href="/"
+            >
+              Accueil
+            </Link>
+            <span className="text-default-400 ">/</span>
+            <Link
+              as={NextLink}
+              className="text-default-500"
+              color="foreground"
+              href="/projets"
+            >
+              Projets
+            </Link>
+            <span className="text-default-400 ">/</span>
+            <span className="text-primary font-extrabold">{project.name}</span>
+          </div>
+        </FadeUp>
 
         {/* En-tête du projet */}
         <div className="flex flex-col gap-4">
           <div className="flex items-start justify-between">
-            <h1 className={titleClass({ size: "lg" })}>{project.title}</h1>
+            <FadeUp delay={0.05}>
+              <h1 className={titleClass({ size: "lg" })}>{project.title}</h1>
+            </FadeUp>
             {project.status === "in-progress" && (
               <Chip color="warning" variant="flat">
                 En cours
               </Chip>
             )}
           </div>
-          <p className="text-default-600">{project.shortDescription}</p>
+          <FadeUp delay={0.1}>
+            <p className="text-default-600">{project.shortDescription}</p>
+          </FadeUp>
 
           {/* Catégories et date */}
-          <div className="flex flex-wrap gap-2 mt-3 items-center">
-            {project.categories.map((category) => (
-              <Chip key={category} color="primary" variant="bordered">
-                {category}
-              </Chip>
-            ))}
-            {project.date && (
-              <>
-                <Divider className="h-4" orientation="vertical" />
-                <span className="text-sm text-default-500">
-                  {new Date(project.date).toLocaleDateString("fr-FR", {
+          <FadeUp delay={0.15}>
+            <div className="flex flex-wrap gap-2 mt-3 items-center">
+              {project.categories.map((category) => (
+                <Chip key={category} color="primary" variant="bordered">
+                  {category}
+                </Chip>
+              ))}
+              {project.date && (
+                <div className="flex items-center gap-2">
+                  <Divider className="h-4" orientation="vertical" />
+                  <span className="text-sm text-default-500">
+                  {capitalize(new Date(project.date).toLocaleDateString("fr-FR", {
                     month: "long",
                     year: "numeric",
-                  })}
+                  }))}
                 </span>
-              </>
-            )}
-          </div>
+                </div>
+              )}
+            </div>
+          </FadeUp>
         </div>
 
         {/* Galerie d'images */}
         {images.length > 0 && (
           <div className="grid grid-cols-1 md:grid-cols-2 gap-4 mt-4">
             {images.map((image, index) => (
-              <div key={index} className="flex flex-col gap-2">
-                <Image
-                  alt={image.alt || `Image ${index + 1}`}
-                  className="object-cover rounded-lg"
-                  src={image.path}
-                  width="100%"
-                />
-                {image.caption && (
-                  <p className="text-sm text-default-500 text-center">
-                    {image.caption}
-                  </p>
-                )}
-              </div>
+              <FadeUp key={index} delay={0.1 + index * 0.05}>
+                <div key={index} className="flex flex-col gap-2">
+                  <Image
+                    alt={image.alt || `Image ${index + 1}`}
+                    className="object-cover rounded-lg"
+                    src={image.path}
+                    width="100%"
+                  />
+                  {image.caption && (
+                    <p className="text-sm text-default-500 text-center">
+                      {image.caption}
+                    </p>
+                  )}
+                </div>
+              </FadeUp>
             ))}
           </div>
         )}
@@ -162,17 +174,19 @@ export default function ProjectPage({ project }: ProjectPageProps) {
         {videos.length > 0 && (
           <div className="flex flex-col gap-4">
             {videos.map((video, index) => (
-              <div key={index} className="flex flex-col gap-2">
-                <video controls className="w-full rounded-lg" src={video.path}>
-                  <track kind="captions" />
-                  Votre navigateur ne supporte pas la lecture de vidéos.
-                </video>
-                {video.caption && (
-                  <p className="text-sm text-default-500 text-center">
-                    {video.caption}
-                  </p>
-                )}
-              </div>
+              <FadeUp key={index} delay={0.1 + index * 0.05}>
+                <div key={index} className="flex flex-col gap-2">
+                  <video controls className="w-full rounded-lg" src={video.path}>
+                    <track kind="captions" />
+                    Votre navigateur ne supporte pas la lecture de vidéos.
+                  </video>
+                  {video.caption && (
+                    <p className="text-sm text-default-500 text-center">
+                      {video.caption}
+                    </p>
+                  )}
+                </div>
+              </FadeUp>
             ))}
           </div>
         )}
@@ -183,24 +197,28 @@ export default function ProjectPage({ project }: ProjectPageProps) {
             // Support simple du markdown
             if (paragraph.startsWith("## ")) {
               return (
-                <h2 key={index} className="text-2xl font-bold mt-4 mb-0">
-                  <span className="text-primary">|</span>{" "}
-                  {paragraph.replace("## ", "")}
-                </h2>
+                <FadeUp key={index} delay={0.01 * index}>
+                  <h2 key={index} className="text-2xl font-bold mt-4 mb-0">
+                    <span className="text-primary">|</span>{" "}
+                    {paragraph.replace("## ", "")}
+                  </h2>
+                </FadeUp>
               );
             }
-            if (paragraph.startsWith("# ")) {
-              return (
-                <h1 key={index} className="text-3xl font-bold mt-4 mb-0">
-                  {paragraph.replace("# ", "")}
-                </h1>
-              );
-            }
+            // if (paragraph.startsWith("# ")) {
+            //   return (
+            //     <h1 key={index} className="text-3xl font-bold mt-4 mb-0">
+            //       {paragraph.replace("# ", "")}
+            //     </h1>
+            //   );
+            // }
             if (paragraph.startsWith("- ")) {
               return (
-                <li key={index} className="ml-8 mt-0">
-                  {paragraph.replace("- ", "")}
-                </li>
+               <FadeUp key={index} delay={0.01 * index }>
+                 <li key={index} className="ml-8 mt-0">
+                   {paragraph.replace("- ", "")}
+                 </li>
+               </FadeUp>
               );
             }
             if (paragraph.trim() === "") {
@@ -217,25 +235,29 @@ export default function ProjectPage({ project }: ProjectPageProps) {
 
         {/* Stack technique */}
         <div className="flex flex-col gap-4">
-          <h2 className="text-2xl font-bold"> <span className="text-primary">|</span>{" "}Technologies utilisées</h2>
-          <div className="flex flex-wrap gap-2">
-            {project.stack.map((tech) => (
+          <FadeUp delay={project.body.split("\n").length * 0.01}>
+            <h2 className="text-2xl font-bold"> <span className="text-primary">|</span>{" "}Technologies utilisées</h2>
+          </FadeUp>
+            <div className="flex flex-wrap gap-2 pt-4">
+            {project.stack.map((tech, index) => (
               <div key={tech.name} className="w-fit shadow-red-50">
+                  <FadeUp delay={project.body.split("\n").length * 0.01 + 0.05 + index * 0.02}>
                 <div className="flex-row flex items-center align-middle rounded-lg dark:bg-white/3 bg-gray-100 pr-3 pl-2 hover:bg-gray-100 dark:hover:bg-primary/10 hover:bg-primary/10 transition py-2 ">
-                  <div className="flex h-5 flex-row items-center gap-2">
-                    {tech.image && (
-                      <Image
-                        alt={tech.name}
-                        className={` ${tech.name == "Next.js" || tech.name === "GitHub" || tech.name === "OpenAI API" ? "dark:invert" : ""}`}
-                        height={20}
-                        radius="none"
-                        src={`/images/${tech.image}`}
-                        width={20}
-                      />
-                    )}
-                    <p className="text-sm">{tech.name}</p>
-                  </div>
+                    <div className="flex h-5 flex-row items-center gap-2">
+                      {tech.image && (
+                        <Image
+                          alt={tech.name}
+                          className={` ${tech.name == "Next.js" || tech.name === "GitHub" || tech.name === "OpenAI API" ? "dark:invert" : ""}`}
+                          height={20}
+                          radius="none"
+                          src={`/images/${tech.image}`}
+                          width={20}
+                        />
+                      )}
+                      <p className="text-sm">{tech.name}</p>
+                    </div>
                 </div>
+                  </FadeUp>
               </div>
             ))}
           </div>
@@ -244,7 +266,7 @@ export default function ProjectPage({ project }: ProjectPageProps) {
         {/* Liens */}
         {project.links.length > 0 && (
           <div className="flex flex-col gap-4">
-            <h2 className="text-2xl font-bold"> <span className="text-primary">|</span>{" "}Liens</h2>
+            <h2 className="text-2xl pt-5 font-bold"> <span className="text-primary">|</span>{" "}Liens</h2>
             <div className="flex flex-wrap gap-3">
               {project.links.map((link, index) => (
                 <Button

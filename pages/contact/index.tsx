@@ -88,7 +88,7 @@ export default function ContactPage() {
         <FadeUp>
           <h1>Contact</h1>
         </FadeUp>
-        <FadeUp delay={0.1}>
+        <FadeUp delay={0.05}>
           <p className="subtitle">
             Une idée ? Un projet ? Un recrutement ? N&apos;hésitez pas à me
             contacter
@@ -97,7 +97,7 @@ export default function ContactPage() {
         {/* Formulaire */}
         <div className="pt-10">
           <form className="flex flex-col gap-4" onSubmit={handleSubmit}>
-            <FadeUp delay={0.2}>
+            <FadeUp delay={0.1}>
               <Input
                 isRequired
                 classNames={{
@@ -113,7 +113,7 @@ export default function ContactPage() {
               />
             </FadeUp>
 
-            <FadeUp delay={0.3}>
+            <FadeUp delay={0.15}>
               <Input
                 isRequired
                 classNames={{
@@ -129,7 +129,7 @@ export default function ContactPage() {
               />
             </FadeUp>
 
-            <FadeUp delay={0.4}>
+            <FadeUp delay={0.2}>
               <Select
                 isRequired
                 classNames={{
@@ -161,7 +161,7 @@ export default function ContactPage() {
               </Select>
             </FadeUp>
 
-            <FadeUp delay={0.5}>
+            <FadeUp delay={0.25}>
               <Textarea
                 isRequired
                 classNames={{
@@ -178,7 +178,7 @@ export default function ContactPage() {
               />
             </FadeUp>
 
-            <FadeUp delay={0.6}>
+            <FadeUp delay={0.3}>
               {submitStatus.type && (
                 <div
                   className={`p-4 rounded-lg justify-between flex ${
@@ -200,7 +200,7 @@ export default function ContactPage() {
               )}
             </FadeUp>
 
-            <FadeUp delay={0.7}>
+            <FadeUp delay={0.35}>
               <Button
                 className="text-md text-primary bg-primary/8"
                 color="primary"

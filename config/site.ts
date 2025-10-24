@@ -61,15 +61,9 @@ export const siteConfig = {
       icon: LinkedinIcon,
       isExternal: true,
     },
+
     {
       id: 3,
-      name: "Buy me a coffee",
-      href: "https://buymeacoffee.com/o.nicks",
-      icon: CoffeeIcon,
-      isExternal: true,
-    },
-    {
-      id: 4,
       name: "Télécharger mon CV",
       href: "#",
       icon: DocIcon,

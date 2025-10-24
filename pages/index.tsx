@@ -25,16 +25,16 @@ export default function Example() {
           <FadeUp>
             <h1>Nicolas Planche</h1>
           </FadeUp>
-          <FadeUp delay={0.1}>
+          <FadeUp delay={0.05}>
             <p className="subtitle">Développeur Full-Stack & Mobile</p>
           </FadeUp>
-          <FadeUp delay={0.2}>
+          <FadeUp delay={0.1}>
             <p className="corp !pt-6">
               Amoureux de la tech, je conçois des applications mobiles et web
               ainsi que des back-ends solides.
             </p>
           </FadeUp>
-          <FadeUp delay={0.3}>
+          <FadeUp delay={0.15}>
             <p className="corp">
               J’utilise des technologies modernes tel que Flutter, Laravel,
               Vue/Nuxt, Next/React, Tailwind CSS et des pratiques DevOps pour
@@ -43,7 +43,7 @@ export default function Example() {
             </p>
           </FadeUp>
 
-          <FadeUp delay={0.4}>
+          <FadeUp delay={0.2}>
             <NavigationInPage right={rightLink} />
           </FadeUp>
         </main>

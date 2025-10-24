@@ -18,13 +18,13 @@ interface FadeHorizontalProps extends PropsWithChildren {
 export default function FadeHorizontal({
   children,
   delay = 0,
-  duration = 0.8,
+  duration = 0.6,
   y = 0,
   once = true,
   className,
   shouldAnimate = true,
   left = true,
-  distance = 40, // par défaut 40px de translation horizontale
+  distance = 10, // par défaut 40px de translation horizontale
 }: FadeHorizontalProps) {
   const [mounted, setMounted] = useState(false);
 

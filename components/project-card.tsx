@@ -42,8 +42,8 @@ export const ProjectCard = ({ project }: ProjectCardProps) => {
         <p className="text-default-600 text-sm">{project.shortDescription}</p>
         <div className="flex flex-wrap gap-1 mt-2">
           {project.stack.slice(0, 4).map((tech) => (
-            <Chip key={tech} color="primary" size="sm" variant="flat">
-              {tech}
+            <Chip key={tech.name} color="primary" size="sm" variant="flat">
+              {tech.name}
             </Chip>
           ))}
           {project.stack.length > 4 && (

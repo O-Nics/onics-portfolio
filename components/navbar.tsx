@@ -97,7 +97,7 @@ export const Navbar = () => {
                       {siteConfig.sidebarNavigation.map((nav, index) => (
                         <FadeUp
                           key={nav.name}
-                          delay={index * 0.1}
+                          delay={index * 0.05}
                           shouldAnimate={shouldAnimate}
                         >
                           <li key={nav.name}>
@@ -134,7 +134,7 @@ export const Navbar = () => {
                   </li>
                   <li>
                     <FadeUp
-                      delay={siteConfig.sidebarNavigation.length * 0.1}
+                      delay={siteConfig.sidebarNavigation.length * 0.05}
                       shouldAnimate={shouldAnimate}
                     >
                       <div className="text-xs/6 font-bold text-gray-400">
@@ -146,7 +146,7 @@ export const Navbar = () => {
                         <FadeUp
                           key={quickLink.name}
                           delay={
-                            (siteConfig.sidebarNavigation.length + index) * 0.1
+                            (index * 0.05) + (siteConfig.sidebarNavigation.length * 0.05)
                           }
                           shouldAnimate={shouldAnimate}
                         >
@@ -234,7 +234,7 @@ export const Navbar = () => {
                             </FadeHorizontal>
                             <FadeHorizontal
                               className="pl-2 "
-                              delay={0.1}
+                              delay={0.05}
                               shouldAnimate={shouldAnimate}
                             >
                               <ActualTime />
@@ -244,7 +244,7 @@ export const Navbar = () => {
                           <NavbarItem className="flex  items-center">
                             <FadeHorizontal
                               className="mr-3"
-                              delay={0.2}
+                              delay={0.1}
                               shouldAnimate={shouldAnimate}
                             >
                               <LaunchMusic />
@@ -252,7 +252,7 @@ export const Navbar = () => {
 
                             <FadeHorizontal
                               className="mr-5"
-                              delay={0.3}
+                              delay={0.15}
                               shouldAnimate={shouldAnimate}
                             >
                               <ThemeSwitch />
@@ -260,7 +260,7 @@ export const Navbar = () => {
 
                             <FadeHorizontal
                               className=""
-                              delay={0.4}
+                              delay={0.2}
                               shouldAnimate={shouldAnimate}
                             >
                               <button className="items-center flex">
@@ -278,7 +278,7 @@ export const Navbar = () => {
                                 (nav, index) => (
                                   <FadeUp
                                     key={nav.name}
-                                    delay={index * 0.1}
+                                    delay={index * 0.05}
                                     shouldAnimate={shouldAnimate}
                                   >
                                     <li key={nav.name}>
@@ -315,9 +315,16 @@ export const Navbar = () => {
                             </ul>
                           </li>
                           <li>
-                            <div className="text-xs/6 font-bold text-gray-400">
-                              Lien rapides
-                            </div>
+                            <FadeUp
+                              delay={
+                                siteConfig.sidebarNavigation.length * 0.05
+                              }
+                              shouldAnimate={shouldAnimate}
+                            >
+                              <div className="text-xs/6 font-bold text-gray-400">
+                                Lien rapides
+                              </div>
+                            </FadeUp>
                             <ul className="-mx-2 mt-2 space-y-1">
                               {siteConfig.quickLinks.map((quickLink, index) => (
                                 <FadeUp
@@ -325,7 +332,7 @@ export const Navbar = () => {
                                   delay={
                                     (siteConfig.sidebarNavigation.length +
                                       index) *
-                                    0.1
+                                    0.05
                                   }
                                   shouldAnimate={shouldAnimate}
                                 >

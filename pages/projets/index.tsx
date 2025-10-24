@@ -16,8 +16,6 @@ interface ProjetsPageProps {
   technologies: string[];
 }
 
-
-
 export default function ProjetsPage({}: ProjetsPageProps) {
   const leftLink: LinkNavigation = {
     name: "À propos de moi",
@@ -44,7 +42,11 @@ export default function ProjetsPage({}: ProjetsPageProps) {
           {projects
             .filter((project) => project.featured == true)
             .map((project, index) => (
-              <FadeUp key={project.slug} className="card" delay={0.1 * index}>
+              <FadeUp
+                key={project.slug}
+                className="card"
+                delay={0.2 + index * 0.1}
+              >
                 <div className="overflow-hidden dark:bg-gray-50/5 bg-gray-100/70 h-full dark:hover:bg-gray-50/8 hover:bg-primary/10 transition duration-300 rounded-xl">
                   <Link
                     key={project.slug}
@@ -78,17 +80,17 @@ export default function ProjetsPage({}: ProjetsPageProps) {
                           )}
                         </div>
                         <div className=" px-3 pt-3">
-                          <FadeUp delay={0.1 * index + 0.1}>
+                          <FadeUp delay={0.15 * index + 0.05}>
                             <p className="text-sm font-extrabold uppercase dark:text-gray-50/40 text-gray-500  tracking-tight ">
                               {project.type}
                             </p>
                           </FadeUp>
-                          <FadeUp delay={0.1 * index + 0.2}>
+                          <FadeUp delay={0.15 * index + 0.1}>
                             <h2 className="text-lg font-extrabold dark:text-gray-50 text-black/80 mb-3 leading-6 pt-1">
                               {project.title}
                             </h2>
                           </FadeUp>
-                          <FadeUp delay={0.1 * index + 0.3}>
+                          <FadeUp delay={0.15 * index + 0.15}>
                             <p className="text-sm dark:text-gray-50/70 text-black/60 tracking-tight">
                               {project.shortDescription}..{" "}
                             </p>
