@@ -21,6 +21,9 @@ import {
 } from "@/components/icons";
 import {capitalize} from "@heroui/shared-utils";
 import FadeUp from "@/components/animation/fade-up";
+import {NavigationInPage} from "@/components/navigationInPage";
+import {LinkNavigation} from "@/types";
+import {Carousel, CarouselContent, CarouselItem, CarouselNext} from "@/components/ui/carousel";
 
 interface ProjectPageProps {
   project: Project;
@@ -31,7 +34,7 @@ function getColorLink(type: string) {
     case "website":
       return "dark:hover:bg-secondary border border-secondary hover:bg-secondary hover:text-white md:bg-transparent bg-secondary";
     case "ios":
-      return "dark:hover:bg-gray-100 border dark:border-gray-50/10 border-black  hover:bg-black dark:hover:text-black hover:text-white md:bg-transparent bg-gray-100";
+      return "dark:hover:bg-gray-100 border dark:border-gray-50/10 border-black  hover:bg-black dark:hover:text-black hover:text-white md:bg-transparent bg-gray-100 dark:bg-gray-700";
     case "android":
       return "dark:hover:bg-green-600 border border-green-600 hover:bg-green-600 hover:text-white md:bg-transparent bg-green-600";
     case "github":
@@ -57,6 +60,16 @@ function getIconLink(type: string): ReactNode {
       return <ExternalLinkIcon className="h-[24px]" />;
   }
 }
+
+const leftLink: LinkNavigation = {
+  name: "Revenir aux projets",
+  href: "/projets",
+};
+
+function CarouselPrevious() {
+  return null;
+}
+
 export default function ProjectPage({ project }: ProjectPageProps) {
   const router = useRouter();
 
@@ -146,7 +159,15 @@ export default function ProjectPage({ project }: ProjectPageProps) {
             </div>
           </FadeUp>
         </div>
-
+        <Carousel>
+          <CarouselContent>
+            <CarouselItem>...</CarouselItem>
+            <CarouselItem>...</CarouselItem>
+            <CarouselItem>...</CarouselItem>
+          </CarouselContent>
+          <CarouselPrevious />
+          <CarouselNext />
+        </Carousel>
         {/* Galerie d'images */}
         {images.length > 0 && (
           <div className="grid grid-cols-1 md:grid-cols-2 gap-4 mt-4">
@@ -234,7 +255,7 @@ export default function ProjectPage({ project }: ProjectPageProps) {
         </div>
 
         {/* Stack technique */}
-        <div className="flex flex-col gap-4">
+        <div className="flex flex-col pt-5 gap-4">
           <FadeUp delay={project.body.split("\n").length * 0.01}>
             <h2 className="text-2xl font-bold"> <span className="text-primary">|</span>{" "}Technologies utilisées</h2>
           </FadeUp>
@@ -265,35 +286,39 @@ export default function ProjectPage({ project }: ProjectPageProps) {
 
         {/* Liens */}
         {project.links.length > 0 && (
-          <div className="flex flex-col gap-4">
-            <h2 className="text-2xl pt-5 font-bold"> <span className="text-primary">|</span>{" "}Liens</h2>
-            <div className="flex flex-wrap gap-3">
+          <div className="flex flex-col pt-5 gap-4">
+            <FadeUp delay={project.body.split("\n").length * 0.01 + 0.2}>
+              <h2 className="text-2xl font-bold">
+                <span className="text-primary">|</span> Liens
+              </h2>
+            </FadeUp>
+            <div className="flex flex-wrap pt-2 gap-3">
               {project.links.map((link, index) => (
-                <Button
-                  key={index}
-                  as={Link}
-                  // className="px-2 h-8 mt-10 bg-white  text-gray-600 dark:text-gray-300  dark:bg-gray-800"
-                  isExternal={link.target === "_blank"}
-                  radius={"full"}
-                  target={link.target}
-                  title={link.title}
-                  startContent={getIconLink(link.type)}
-                  className={`${getColorLink(link.type)} px-3 h-8 `}
-                  href={link.url}
-                >
-                  {link.text}
-                </Button>
+                <FadeUp delay={project.body.split("\n").length * 0.01 + 0.25 + index * 0.05} key={index}>
+                  <Button
+                    key={index}
+                    as={Link}
+                    // className="px-2 h-8 mt-10 bg-white  text-gray-600 dark:text-gray-300  dark:bg-gray-800"
+                    isExternal={link.target === "_blank"}
+                    radius={"full"}
+                    target={link.target}
+                    title={link.title}
+                    startContent={getIconLink(link.type)}
+                    className={`${getColorLink(link.type)} px-3 h-8 `}
+                    href={link.url}
+                  >
+                    {link.text}
+                  </Button>
+                </FadeUp>
               ))}
             </div>
           </div>
         )}
 
         {/* Navigation */}
-        <div className="flex justify-center pt-8">
-          <Button as={NextLink} color="default" href="/projets" variant="flat">
-            Retour aux projets
-          </Button>
-        </div>
+        <FadeUp delay={project.body.split("\n").length * 0.01 + 0.5}>
+          <NavigationInPage left={leftLink} />
+        </FadeUp>
       </section>
     </DefaultLayout>
   );

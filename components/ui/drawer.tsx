@@ -2,8 +2,7 @@
 
 import * as React from "react";
 import { Drawer as DrawerPrimitive } from "vaul";
-import {cn} from "@heroui/theme";
-
+import { cn } from "@heroui/theme";
 
 function Drawer({
   ...props
