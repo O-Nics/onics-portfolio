@@ -30,7 +30,7 @@ const config = {
                 DEFAULT:"#ffffff"
               },
               primary: {
-                DEFAULT:"#0febff"
+                DEFAULT:"#00b3da"
               },
 
             },
