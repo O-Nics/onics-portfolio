@@ -180,7 +180,7 @@ export default function ProjectPage({ project }: ProjectPageProps) {
 
         {/* Galerie d'images */}
         {images.length > 0 && (
-          <>
+          <div>
             <FadeUp delay={0.2}>
               <Carousel
                 className="rounded-md overflow-hidden flex lg:hidden "
@@ -249,12 +249,12 @@ export default function ProjectPage({ project }: ProjectPageProps) {
               sources={images.map((i) => i.path)}
               toggler={lightboxController.toggler}
             />
-          </>
+          </div>
         )}
 
         {/* Vidéos */}
         {videos.length > 0 && (
-          <>
+          <div>
             <FadeUp delay={0.2}>
               <Carousel
                 className="rounded-md overflow-hidden flex lg:hidden "
@@ -275,8 +275,8 @@ export default function ProjectPage({ project }: ProjectPageProps) {
                     <CarouselItem key={index}>
                       <div key={index} className="flex flex-col gap-2">
                         <video
-                          autoPlay={index == 0}
                           controls
+                          autoPlay={index == 0}
                           className="object-cover rounded-lg"
                           src={video.path}
                         >
@@ -293,13 +293,18 @@ export default function ProjectPage({ project }: ProjectPageProps) {
             </FadeUp>
             <div className="grid-cols-1 md:grid-cols-2 gap-4 mt-4 hidden lg:grid">
               {videos.map((video, index) => (
-                <FadeUp key={index} delay={0.2+ index * 0.05}>
+                <FadeUp key={index} delay={0.2 + index * 0.05}>
                   <div
                     key={index}
                     className="flex flex-col gap-2 rounded-lg overflow-hidden"
                   >
-                    <video  autoPlay={index == 0} controls className="w-full " src={video.path}>
-                      <track kind="captions"  />
+                    <video
+                      controls
+                      autoPlay={index == 0}
+                      className="w-full "
+                      src={video.path}
+                    >
+                      <track kind="captions" />
                       Votre navigateur ne supporte pas la lecture de vidéos.
                     </video>
                   </div>
@@ -312,56 +317,71 @@ export default function ProjectPage({ project }: ProjectPageProps) {
               sources={videos.map((i) => i.path)}
               toggler={lightboxController.toggler}
             />
-          </>
+          </div>
         )}
 
         {/* Corps du texte (markdown simplifié) */}
         <div className="prose dark:prose-invert max-w-none">
-          {project.body.split("\n").map((paragraph, index) => {
-            // Support simple du markdown
-            if (paragraph.startsWith("## ")) {
-              return (
-                <FadeUp key={index} delay={0.25 + 0.01 * index}>
-                  <h2 key={index} className="text-2xl font-bold mt-4 mb-0">
-                    <span className="text-primary">|</span>{" "}
-                    {paragraph.replace("## ", "")}
-                  </h2>
-                </FadeUp>
-              );
-            }
-            // if (paragraph.startsWith("# ")) {
-            //   return (
-            //     <h1 key={index} className="text-3xl font-bold mt-4 mb-0">
-            //       {paragraph.replace("# ", "")}
-            //     </h1>
-            //   );
-            // }
-            if (paragraph.startsWith("- ")) {
-              return (
-                <FadeUp key={index} delay={0.3 + 0.015 * index}>
-                  <li key={index} className="ml-8 mt-0">
-                    {paragraph.replace("- ", "")}
-                  </li>
-                </FadeUp>
-              );
-            }
-            if (paragraph.trim() === "") {
-              return <br key={index} />;
-            }
-
-            return (
-              <FadeUp key={index} delay={0.25}>
-                <p key={index} className="text-default-700 mb-0">
-                  {paragraph}
-                </p>
-              </FadeUp>
-            );
-          })}
+          <FadeUp  delay={0.25}>
+            <p  className="text-default-700 mb-0">
+              {project.body}
+            </p>
+          </FadeUp>
         </div>
+
+        <FadeUp  delay={0.3}>
+          <h2  className="text-2xl font-bold mt-4 mb-0">
+            <span className="text-primary">|</span>{" "}
+            Fonctionnalités
+          </h2>
+        </FadeUp>
+        <div className="gap-0 flex flex-col">
+          {project.features.map((feature, index) => (
+            <FadeUp key={index} delay={0.3 + 0.015 * index}>
+              <li key={index} className="ml-8 mt-0 mb-0">
+                {feature.replace("- ", "")}
+              </li>
+            </FadeUp>
+          ))}
+        </div>
+
+        <FadeUp  delay={0.35}>
+          <h2  className="text-2xl font-bold mt-4 mb-0">
+            <span className="text-primary">|</span>{" "}
+            Défis relevés
+          </h2>
+        </FadeUp>
+        <div className="gap-0 flex flex-col">
+          {project.challenges.map((feature, index) => (
+            <FadeUp key={index} delay={0.35 + 0.015 * index}>
+              <li key={index} className="ml-8 mt-0 mb-0">
+                {feature.replace("- ", "")}
+              </li>
+            </FadeUp>
+          ))}
+        </div>
+
+        <FadeUp  delay={0.35}>
+          <h2  className="text-2xl font-bold mt-4 mb-0">
+            <span className="text-primary">|</span>{" "}
+            Leçons apprises
+          </h2>
+        </FadeUp>
+        <div className="gap-0 flex flex-col">
+          {project.lessonLearned.map((feature, index) => (
+            <FadeUp key={index} delay={0.35 + 0.015 * index}>
+              <li key={index} className="ml-8 mt-0 mb-0">
+                {feature.replace("- ", "")}
+              </li>
+            </FadeUp>
+          ))}
+        </div>
+
+
 
         {/* Stack technique */}
         <div className="flex flex-col pt-5 gap-4">
-          <FadeUp delay={project.body.split("\n").length * 0.01}>
+          <FadeUp delay={0.4}>
             <h2 className="text-2xl font-bold">
               {" "}
               <span className="text-primary">|</span> Technologies utilisées
@@ -372,7 +392,7 @@ export default function ProjectPage({ project }: ProjectPageProps) {
               <div key={tech.name} className="w-fit shadow-red-50">
                 <FadeUp
                   delay={
-                    project.body.split("\n").length * 0.01 + 0.05 + index * 0.02
+                    0.45 + index * 0.02
                   }
                 >
                   <div className="flex-row flex items-center align-middle rounded-lg dark:bg-white/3 bg-gray-100 pr-3 pl-2 hover:bg-gray-100 dark:hover:bg-primary/10 hover:bg-primary/10 transition py-2 ">
@@ -399,7 +419,7 @@ export default function ProjectPage({ project }: ProjectPageProps) {
         {/* Liens */}
         {project.links.length > 0 && (
           <div className="flex flex-col pt-5 gap-4">
-            <FadeUp delay={project.body.split("\n").length * 0.01 + 0.2}>
+            <FadeUp delay={0.5}>
               <h2 className="text-2xl font-bold">
                 <span className="text-primary">|</span> Liens
               </h2>
@@ -409,7 +429,7 @@ export default function ProjectPage({ project }: ProjectPageProps) {
                 <FadeUp
                   key={index}
                   delay={
-                    project.body.split("\n").length * 0.01 + 0.25 + index * 0.05
+                    0.5 + index * 0.05
                   }
                 >
                   <Button
@@ -433,7 +453,7 @@ export default function ProjectPage({ project }: ProjectPageProps) {
         )}
 
         {/* Navigation */}
-        <FadeUp delay={project.body.split("\n").length * 0.01 + 0.5}>
+        <FadeUp delay={0.55}>
           <NavigationInPage left={leftLink} />
         </FadeUp>
       </section>
