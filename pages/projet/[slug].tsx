@@ -198,23 +198,21 @@ export default function ProjectPage({ project }: ProjectPageProps) {
               >
                 <CarouselContent className="">
                   {images.map((image, index) => (
-                    <FadeUp key={index} delay={0.1 + index * 0.05}>
-                      <CarouselItem key={index}>
-                        <button
-                          className="cursor-pointer"
-                          onClick={() => openLightboxOnSlide(index)}
-                        >
-                          <div key={index} className="flex flex-col gap-2">
-                            <Image
-                              alt={image.alt || `Image ${index + 1}`}
-                              className="object-cover "
-                              src={image.path}
-                              width="100%"
-                            />
-                          </div>
-                        </button>
-                      </CarouselItem>
-                    </FadeUp>
+                    <CarouselItem key={index}>
+                      <button
+                        className="cursor-pointer"
+                        onClick={() => openLightboxOnSlide(index)}
+                      >
+                        <div key={index} className="flex flex-col gap-2">
+                          <Image
+                            alt={image.alt || `Image ${index + 1}`}
+                            className="object-cover "
+                            src={image.path}
+                            width="100%"
+                          />
+                        </div>
+                      </button>
+                    </CarouselItem>
                   ))}
                 </CarouselContent>
                 <CarouselPrevious />
@@ -274,21 +272,19 @@ export default function ProjectPage({ project }: ProjectPageProps) {
               >
                 <CarouselContent className="">
                   {videos.map((video, index) => (
-                    <FadeUp key={index} delay={0.1 + index * 0.05}>
-                      <CarouselItem key={index}>
-                        <div key={index} className="flex flex-col gap-2">
-                          <video
-                            controls
-                            className="object-cover rounded-lg"
-                            src={video.path}
-                          >
-                            <track kind="captions" />
-                            Votre navigateur ne supporte pas la lecture de
-                            vidéos.
-                          </video>
-                        </div>
-                      </CarouselItem>
-                    </FadeUp>
+                    <CarouselItem key={index}>
+                      <div key={index} className="flex flex-col gap-2">
+                        <video
+                          autoPlay={index == 0}
+                          controls
+                          className="object-cover rounded-lg"
+                          src={video.path}
+                        >
+                          <track kind="captions" />
+                          Votre navigateur ne supporte pas la lecture de vidéos.
+                        </video>
+                      </div>
+                    </CarouselItem>
                   ))}
                 </CarouselContent>
                 <CarouselPrevious />
@@ -297,13 +293,13 @@ export default function ProjectPage({ project }: ProjectPageProps) {
             </FadeUp>
             <div className="grid-cols-1 md:grid-cols-2 gap-4 mt-4 hidden lg:grid">
               {videos.map((video, index) => (
-                <FadeUp key={index} delay={0.1 + index * 0.05}>
+                <FadeUp key={index} delay={0.2+ index * 0.05}>
                   <div
                     key={index}
                     className="flex flex-col gap-2 rounded-lg overflow-hidden"
                   >
-                    <video controls className="w-full " src={video.path}>
-                      <track kind="captions" />
+                    <video  autoPlay={index == 0} controls className="w-full " src={video.path}>
+                      <track kind="captions"  />
                       Votre navigateur ne supporte pas la lecture de vidéos.
                     </video>
                   </div>
