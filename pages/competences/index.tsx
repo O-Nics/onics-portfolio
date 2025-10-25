@@ -181,15 +181,12 @@ export default function CompetencesPage({}) {
           <h1>Compétences</h1>
         </FadeUp>
         <FadeUp delay={0.05}>
-          <p className="subtitle">Appris en codant et en debuggant</p>
+          <p className="subtitle">Apprendre par la pratique, maîtriser par la rigueur.
+          </p>
         </FadeUp>
         <FadeUp delay={0.1}>
           <p className="corp !pt-6 ">
-            En tant que développeur full-stack, je conçois des applications web
-            et mobiles pensées pour être performantes, maintenables et
-            scalables. Toujours en quête de nouvelles idées, j’enrichis ma stack
-            au fil des projets et des découvertes.{" "}
-          </p>
+            J’ai appris en codant, en testant et en déboguant, jusqu’à faire du développement bien plus qu’un métier : une manière de penser. En tant que développeur full-stack, je conçois des applications web et mobiles performantes, maintenables et scalables, en cherchant toujours à repousser mes limites et à enrichir ma stack au fil des projets.          </p>
         </FadeUp>
 
         {skills.map((skillCategory, index) => (

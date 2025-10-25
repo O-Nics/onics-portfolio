@@ -38,6 +38,11 @@ export default function ProjetsPage({}: ProjetsPageProps) {
             marquants.
           </p>
         </FadeUp>
+        <FadeUp delay={0.15}>
+          <p className="corp !pt-6 ">
+            Chaque projet est une occasion de transformer une idée en solution concrète.
+          </p>
+        </FadeUp>
         <div className="pt-8 grid grid-cols-1  lg:grid-cols-2 xl:grid-cols-3 gap-4">
           {projects
             .filter((project) => project.featured == true)

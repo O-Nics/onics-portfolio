@@ -28,31 +28,30 @@ export default function AProposPage() {
         <FadeUp>
           <h1>Formations</h1>
         </FadeUp>
-        <FadeUp delay={0.1}>
-          <p className="subtitle">Lorum Ipsum</p>
+        <FadeUp delay={0.05}>
+          <p className="subtitle">Apprendre, expérimenter, évoluer.</p>
         </FadeUp>
-        <FadeUp delay={0.15}>
+        <FadeUp delay={0.1}>
           <p className="corp !pt-6">
-            Je suis le développeur full-stack passionné par la création
-            d’expériences numériques élégantes, performantes et utiles.
+            De ma formation scientifique au lycée jusqu’à la licence Mathématiques et Informatique à l’Université Lyon 1, j’ai construit une base solide en logique et en conception logicielle.
           </p>
         </FadeUp>
-        <FadeUp delay={0.2}>
-          <p className="corp">
-            Mon expertise couvre le mobile avec Flutter, le back-end avec
-            Laravel, et le web moderne avec Nuxt, Next.js et React. J’aime
-            transformer des idées complexes en produits clairs, scalables et
-            centrés sur l’utilisateur.
+        <FadeUp delay={0.15}>
+          <p className="corp ">
+            Mon Master Développeur Full-Stack à MyDigitalSchool Lyon a marqué une étape clé : j’y ai consolidé mes compétences en développement web et mobile, en travaillant sur des projets concrets alliant performance, design et expérience utilisateur.
           </p>
         </FadeUp>
         {educations.length > 0 &&(
-          <>
+          <div className="mt-10">
           {educations.map((education, index) => (
-            <HorizontalTimeline education={education} key={index} />
+            <HorizontalTimeline key={index} index={index} education={education} />
             ))}
-          </>
+          </div>
         )}
       </main>
+      <FadeUp delay={educations.length * 0.1 + 0.3}>
+        <NavigationInPage left={leftLink} right={rightLink} />
+      </FadeUp>
     </DefaultLayout>
   );
 }

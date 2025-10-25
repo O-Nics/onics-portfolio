@@ -4,8 +4,8 @@
       "id": 1,
       "name": "Master Developpeur Full Stack",
       "school": "MyDigitalSchool Lyon",
-      "startDate": "2023",
-      "endDate": "2025",
+      "startDate": "Septembre 2023",
+      "endDate": "Août 2025",
       "description": "Formation axée sur le développement web et mobile, couvrant les technologies front-end et back-end, ainsi que la gestion de projets informatiques.",
       "level": "Bac+5",
       "location": "Lyon, France"
@@ -14,8 +14,8 @@
       "id": 2,
       "name": "Licence Mathématiques et Informatique",
       "school": "Université Claude Bernard Lyon 1",
-      "startDate": "2018",
-      "endDate": "2023",
+      "startDate": "Octobre 2018",
+      "endDate": "Juin 2023",
       "description": "Formation pluridisciplinaire combinant les mathématiques fondamentales et appliquées avec l'informatique, incluant la programmation, les algorithmes et les systèmes d'information.",
       "level": "Bac+3",
       "location": "Lyon, France"
@@ -24,8 +24,8 @@
         "id": 3,
         "name": "Baccalauréat Scientifique",
         "school": "Lycée Auguste et Louis Lumière",
-        "startDate": "2015",
-        "endDate": "2018",
+        "startDate": "Septembre 2015",
+        "endDate": "Juillet 2018",
         "description": "Formation générale avec une spécialisation en sciences, couvrant les mathématiques, la physique, la chimie et la biologie.",
         "level": "Bac",
         "location": "Lyon, France"
