@@ -56,6 +56,10 @@ h1{
     opacity: 0 !important;
 }
 
+.group-data-\[focus-visible\=true\]\:ring-2:is(:where(.group)[data-focus-visible="true"] *) {
+    --tw-ring-shadow: inherit;
+}
+
 
 .icon-nav .icon{
     padding: 0.7rem;

@@ -44,9 +44,7 @@ export const Navbar = () => {
   const pathname = usePathname();
   const [isOpen, setIsOpen] = useState(false);
   const { openSearch } = useSearch();
-  const toggleMenu = () => setIsOpen(!isOpen);
-
-  // const { shouldAnimate } = true;
+// const { shouldAnimate } = true;
   const { shouldAnimate } = useFirstVisitAnimation("nav-animated");
   const searchInput = (
     <Input
@@ -417,12 +415,12 @@ export const Navbar = () => {
             className="hidden md:flex basis-1/5 sm:basis-full"
             justify="end"
           >
-            <FadeHorizontal delay={0.1} shouldAnimate={shouldAnimate}>
+            <FadeHorizontal delay={0.05} shouldAnimate={shouldAnimate}>
               <NavbarItem className="hidden md:flex">{searchInput}</NavbarItem>
             </FadeHorizontal>
             <FadeHorizontal
               className=""
-              delay={0.2}
+              delay={0.1}
               shouldAnimate={shouldAnimate}
             >
               <ActualTime />
@@ -430,14 +428,14 @@ export const Navbar = () => {
             <NavbarItem className="hidden sm:flex  items-center">
               <FadeHorizontal
                 className=""
-                delay={0.3}
+                delay={0.15}
                 shouldAnimate={shouldAnimate}
               >
                 <LaunchMusic />
               </FadeHorizontal>
               <FadeHorizontal
                 className=""
-                delay={0.4}
+                delay={0.2}
                 shouldAnimate={shouldAnimate}
               >
                 <Link
@@ -454,7 +452,7 @@ export const Navbar = () => {
 
               <FadeHorizontal
                 className=""
-                delay={0.5}
+                delay={0.25}
                 shouldAnimate={shouldAnimate}
               >
                 <ThemeSwitch />
@@ -463,16 +461,24 @@ export const Navbar = () => {
           </NavbarContent>
 
           <NavbarContent className="md:hidden basis-1 pl-4 gap-0" justify="end">
+
             <FadeHorizontal
               className=" md:hidden flex h-[40px] mr-8  w-[24px] "
-              delay={0.1}
+              delay={0.05}
               shouldAnimate={shouldAnimate}
             >
               <LaunchMusic size={40} />
             </FadeHorizontal>
             <FadeHorizontal
+              className=" md:hidden flex  mr-7"
+              delay={0.1}
+              shouldAnimate={shouldAnimate}
+            >
+              <SearchIcon size={40} onClick={openSearch} className={"text-gray-400"}/>
+            </FadeHorizontal>
+            <FadeHorizontal
               className="mr-7"
-              delay={0.2}
+              delay={0.15}
               shouldAnimate={shouldAnimate}
             >
               <Link href={siteConfig.links.github}>
@@ -480,10 +486,10 @@ export const Navbar = () => {
               </Link>
             </FadeHorizontal>
 
-            <FadeHorizontal delay={0.3} shouldAnimate={shouldAnimate}>
+            <FadeHorizontal delay={0.2} shouldAnimate={shouldAnimate}>
               <ThemeSwitch />
             </FadeHorizontal>
-            <FadeHorizontal delay={0.4} shouldAnimate={shouldAnimate} />
+            <FadeHorizontal delay={0.25} shouldAnimate={shouldAnimate} />
           </NavbarContent>
         </div>
       </div>
