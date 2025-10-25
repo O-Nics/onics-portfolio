@@ -77,7 +77,7 @@ export const Navbar = () => {
   return (
     <HeroUINavbar
       classNames={{
-        base: " bg-white/1 dark:bg-primary/1 border-dashed md:border-gray-200  dark:md:border-primary/10 border-primary backdrop-saturate-100",
+        base: " bg-white/70 dark:bg-primary/1 border-dashed md:border-gray-200  dark:md:border-primary/10 border-primary backdrop-saturate-100",
         wrapper: "md:!px-0",
       }}
       isBordered={true}

@@ -45,6 +45,17 @@ h1{
     transition: transform 0.3s ease-in-out;
 }
 
+.img-card:hover .img-behind{
+    opacity: 10;
+}
+
+.img-card:hover .img-above{
+    opacity: 100 !important;
+}
+.img-card .img-above{
+    opacity: 0 !important;
+}
+
 
 .icon-nav .icon{
     padding: 0.7rem;

@@ -47,7 +47,7 @@ export default function ProjetsPage({}: ProjetsPageProps) {
                 className="card"
                 delay={0.2 + index * 0.1}
               >
-                <div className="overflow-hidden dark:bg-gray-50/5 bg-gray-100/70 h-full dark:hover:bg-gray-50/8 hover:bg-primary/10 transition duration-300 rounded-xl">
+                <div className="overflow-hidden img-card dark:bg-gray-50/5 bg-gray-100/70 h-full dark:hover:bg-gray-50/8 hover:bg-primary/10 transition duration-300 rounded-xl">
                   <Link
                     key={project.slug}
                     href={`/projet/${project.slug}`}
@@ -58,7 +58,7 @@ export default function ProjetsPage({}: ProjetsPageProps) {
                         <div className="relative h-48 overflow-hidden relative group">
                           <Image
                             alt={project.name}
-                            className={` absolute object-cover w-full h-48 hover:opacity-10 !rounded-b-none rounded-lg  duration-500 `}
+                            className={`img-behind absolute object-cover w-full h-48  !rounded-b-none rounded-lg  duration-500 `}
                             src={
                               project.media.find((m) => m.type === "image")
                                 ?.path || ""
@@ -69,7 +69,7 @@ export default function ProjetsPage({}: ProjetsPageProps) {
                             .length > 1 && (
                             <Image
                               alt={project.name}
-                              className="absolute inset-0 !opacity-0 object-cover w-full h-48 !rounded-b-none rounded-lg  hover:!opacity-100 !transition duration-500 "
+                              className="img-above absolute  inset-0  object-cover w-full h-48 !rounded-b-none rounded-lg   !transition duration-500 "
                               src={
                                 project.media.filter(
                                   (m) => m.type === "image",
@@ -81,7 +81,7 @@ export default function ProjetsPage({}: ProjetsPageProps) {
                         </div>
                         <div className=" px-3 pt-3">
                           <FadeUp delay={0.15 * index + 0.05}>
-                            <p className="text-sm font-extrabold uppercase dark:text-gray-50/40 text-gray-500  tracking-tight ">
+                            <p className=" text-sm font-extrabold uppercase dark:text-gray-50/40 text-gray-500  tracking-tight ">
                               {project.type}
                             </p>
                           </FadeUp>

@@ -230,6 +230,16 @@
           "type": "image",
           "path": "/images/projects/f&w2.png",
           "alt": "Find & Watch"
+        },
+        {
+          "type": "video",
+          "path": "/images/projects/test.mp4",
+          "alt": "Find & Watch"
+        },
+        {
+          "type": "video",
+          "path": "/images/projects/test.mp4",
+          "alt": "Find & Watch"
         }
       ],
       "links": [
