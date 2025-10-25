@@ -12,7 +12,7 @@ import { SearchResult } from "@/types";
 import { ResearchResult } from "@/components/ui/research-result";
 import {Kbd} from "@heroui/kbd";
 
-export const SearchModal = () => {
+const SearchModal = () => {
   const { isOpen, openSearch, closeSearch } = useSearch();
   const [searchQuery, setSearchQuery] = useState("");
   const [selectedIndex, setSelectedIndex] = useState(0);
@@ -195,6 +195,7 @@ export const SearchModal = () => {
       isOpen={isOpen}
       placement="top"
       size="2xl"
+
       onClose={closeSearch}
     >
       <ModalContent>
@@ -203,16 +204,17 @@ export const SearchModal = () => {
           <Input
             endContent={
               <Kbd
-                className="hidden lg:inline-block dark:bg-primary/6 bg-white !shadow-none px-1 !py-0.5 font-bold"
+                className="hidden lg:inline-block dark:bg-primary/6 bg-white !shadow-none  px-1 !py-0.5 font-bold"
               >
                 ESC
               </Kbd>
             }
+            /* eslint-disable-next-line jsx-a11y/no-autofocus */
             autoFocus
             classNames={{
               base: "w-full",
               inputWrapper:
-                "!py-0 !h-18 border !border-b-primary border-transparent border-dashed rounded-none  lg:z-40 -z-1 min-h-0 dark:!bg-background  lg:mt-0 mt-8  bg-gray-50 hover:!bg-gray-100",
+                "!py-0 !h-18 border !border-b-primary border-transparent border-dashed rounded-none   lg:z-40  min-h-0  dark:!bg-background  lg:mt-0 mt-0  bg-gray-50 hover:!bg-gray-100",
               input: "text-base",
             }}
             placeholder="Rechercher des pages, projets, expériences, formations..."
@@ -259,3 +261,4 @@ export const SearchModal = () => {
     </Modal>
   );
 };
+export default SearchModal

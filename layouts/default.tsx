@@ -1,7 +1,7 @@
 import { Head } from "./head";
 
 import { Navbar } from "@/components/navbar";
-import { SearchModal } from "@/components/search-modal";
+import SearchModal from "@/components/search-modal";
 import { SearchProvider } from "@/contexts/SearchContext";
 
 export default function DefaultLayout({

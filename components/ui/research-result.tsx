@@ -92,7 +92,7 @@ export const ResearchResult = ({
             className={`w- text-left mx-3 px-3 rounded-2xl py-3 transition-colors cursor-pointer flex items-start gap-3 ${
               index === selectedIndex
                 ? "bg-gray-100 dark:bg-primary/5"
-                : "hover:bg-gray-50 dark:hover:bg-primary/3"
+                : "hover:bg-gray-100 bg-gray-50 dark:bg-gray-50/5 dark:hover:bg-primary/3"
             }`}
             onClick={() => handleNavigate(result)}
           >
@@ -105,7 +105,7 @@ export const ResearchResult = ({
                   {result.title}
                 </span>
                 <span
-                  className={`text-xs px-2 py-0.5 rounded-full font-semibold shrink-0 ${getCategoryColor(result.category)}`}
+                  className={`text-xs px-2 py-0.5 rounded-full font-bold shrink-0 ${getCategoryColor(result.category)}`}
                 >
                   {getCategoryLabel(result.category)}
                 </span>

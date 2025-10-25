@@ -19,20 +19,6 @@ export const siteConfig = {
   name: "Nicolas Planche - Portfolio",
   description:
     "Portfolio de Nicolas Planche, développeur full-stack passionné par le développement web et mobile.",
-  navItems: [
-    {
-      label: "Accueil",
-      href: "/",
-      modal: false,
-    },
-  ],
-  navMenuItems: [
-    {
-      label: "Accueil",
-      href: "/",
-      modal: false,
-    },
-  ],
   sidebarNavigation: [
     { name: "Introduction", href: "/", icon: IntroIcon },
     { name: "À propos de moi", href: "/a-propos", icon: AboutIcon },

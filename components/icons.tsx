@@ -2,7 +2,7 @@ import * as React from "react";
 
 import { IconSvgProps } from "@/types";
 
-export const Logo: React.FC<IconSvgProps> = ({
+export const LocationIcon: React.FC<IconSvgProps> = ({
   size = 36,
   height,
   ...props
@@ -10,15 +10,13 @@ export const Logo: React.FC<IconSvgProps> = ({
   <svg
     fill="none"
     height={size || height}
-    viewBox="0 0 32 32"
+    viewBox="0 0 24 24"
     width={size || height}
     {...props}
   >
     <path
-      clipRule="evenodd"
-      d="M17.6482 10.1305L15.8785 7.02583L7.02979 22.5499H10.5278L17.6482 10.1305ZM19.8798 14.0457L18.11 17.1983L19.394 19.4511H16.8453L15.1056 22.5499H24.7272L19.8798 14.0457Z"
+      d="M20.62 8.45C19.57 3.83 15.54 1.75 12 1.75C12 1.75 12 1.75 11.99 1.75C8.45997 1.75 4.41997 3.82 3.36997 8.44C2.19997 13.6 5.35997 17.97 8.21997 20.72C9.27997 21.74 10.64 22.25 12 22.25C13.36 22.25 14.72 21.74 15.77 20.72C18.63 17.97 21.79 13.61 20.62 8.45ZM12 13.46C10.26 13.46 8.84997 12.05 8.84997 10.31C8.84997 8.57 10.26 7.16 12 7.16C13.74 7.16 15.15 8.57 15.15 10.31C15.15 12.05 13.74 13.46 12 13.46Z"
       fill="currentColor"
-      fillRule="evenodd"
     />
   </svg>
 );
@@ -421,28 +419,31 @@ export const ExternalLinkIcon: React.FC<IconSvgProps> = ({
       <defs id="defs3" />{" "}
       <path
         d="M 20.669922,2.2695313 12.46875,10.46875 a 0.75,0.75 0 0 0 0,1.0625 0.75,0.75 0 0 0 1.0625,0 l 8.199219,-8.2011719 a 0.75,0.75 0 0 0 0,-1.0605468 0.75,0.75 0 0 0 -1.060547,0 z"
-        id="path1"
         fill="currentColor"
         fillRule="evenodd"
+        id="path1"
         opacity={1}
         strokeLinecap="round"
-        strokeLinejoin="round"      />{" "}
+        strokeLinejoin="round"
+      />{" "}
       <path
         d="m 17.199219,1.25 a 0.75,0.75 0 0 0 -0.75,0.75 0.75,0.75 0 0 0 0.75,0.75 H 21.25 v 4.0507812 a 0.75,0.75 0 0 0 0.75,0.75 0.75,0.75 0 0 0 0.75,-0.75 V 2 A 0.750075,0.750075 0 0 0 22,1.25 Z"
-        id="path2"
         fill="currentColor"
         fillRule="evenodd"
+        id="path2"
         opacity={1}
         strokeLinecap="round"
-        strokeLinejoin="round"      />{" "}
+        strokeLinejoin="round"
+      />{" "}
       <path
         d="M 9,1.25 C 6.4,1.25 4.4151686,1.7723314 3.09375,3.09375 1.7723314,4.4151686 1.25,6.4 1.25,9 v 6 c 0,2.6 0.5223314,4.584831 1.84375,5.90625 C 4.4151686,22.227669 6.4,22.75 9,22.75 h 6 c 2.6,0 4.584831,-0.522331 5.90625,-1.84375 C 22.227669,19.584831 22.75,17.6 22.75,15 V 13 A 0.75,0.75 0 0 0 22,12.25 0.75,0.75 0 0 0 21.25,13 v 2 c 0,2.4 -0.477669,3.915169 -1.40625,4.84375 C 18.915169,20.772331 17.4,21.25 15,21.25 H 9 C 6.6,21.25 5.0848314,20.772331 4.15625,19.84375 3.2276686,18.915169 2.75,17.4 2.75,15 V 9 C 2.75,6.6 3.2276686,5.0848314 4.15625,4.15625 5.0848314,3.2276686 6.6,2.75 9,2.75 h 2 A 0.75,0.75 0 0 0 11.75,2 0.75,0.75 0 0 0 11,1.25 Z"
-        id="path3"
         fill="currentColor"
         fillRule="evenodd"
+        id="path3"
         opacity={1}
         strokeLinecap="round"
-        strokeLinejoin="round"      />
+        strokeLinejoin="round"
+      />
     </svg>
   );
 };
