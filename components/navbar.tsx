@@ -34,6 +34,8 @@ import {
   DrawerHeader,
   DrawerTrigger,
 } from "@/components/ui/drawer";
+import { useSearch } from "@/contexts/SearchContext";
+
 function classNames(...classes: string[]) {
   return classes.filter(Boolean).join(" ");
 }
@@ -41,21 +43,23 @@ function classNames(...classes: string[]) {
 export const Navbar = () => {
   const pathname = usePathname();
   const [isOpen, setIsOpen] = useState(false);
+  const { openSearch } = useSearch();
   const toggleMenu = () => setIsOpen(!isOpen);
 
   // const { shouldAnimate } = true;
   const { shouldAnimate } = useFirstVisitAnimation("nav-animated");
   const searchInput = (
     <Input
-      aria-label="Search"
+      readOnly
+      aria-label="Rechercher"
       classNames={{
-        base: "px-0",
+        base: "px-0 cursor-pointer",
 
         mainWrapper: "!px-0",
 
         inputWrapper:
-          "!py-0 !h-8 min-h-0 pl-2 pr-1 dark:!bg-primary/3 border-0 dark:hover:!bg-primary/5 bg-gray-50 hover:!bg-gray-100 dark:focus-within:!bg-primary/4  ",
-        input: "text-sm",
+          "!py-0 !h-8 min-h-0 pl-2 pr-1 dark:!bg-primary/3 border-0 dark:hover:!bg-primary/5 bg-gray-50 hover:!bg-gray-100 dark:focus-within:!bg-primary/4 cursor-pointer",
+        input: "text-sm cursor-pointer",
       }}
       endContent={
         <Kbd
@@ -66,11 +70,12 @@ export const Navbar = () => {
         </Kbd>
       }
       labelPlacement="outside"
-      placeholder="Search..."
+      placeholder="Rechercher..."
       startContent={
         <SearchIcon className="text-base text-default-400 pointer-events-none flex-shrink-0" />
       }
       type="search"
+      onClick={openSearch}
     />
   );
 
