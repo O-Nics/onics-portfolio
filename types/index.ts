@@ -1,5 +1,6 @@
 import { SVGProps } from "react";
-import {Project} from "@/types/project";
+
+import { ProjectStack } from "@/types/project";
 
 export type IconSvgProps = SVGProps<SVGSVGElement> & {
   size?: number;
@@ -10,12 +11,16 @@ export type LinkNavigation = {
   href: string;
 };
 
-
 export interface SearchResult {
   id: string;
   title: string;
   description?: string;
+  longDescription?: string;
   href: string;
+  stack?: ProjectStack[];
+  categories?: string[];
+  school?: string;
+  level?: string;
   category: "menu" | "project" | "experience" | "formation";
   icon?: React.ComponentType<any>;
 }
@@ -33,4 +38,19 @@ export interface Education {
 
 export interface EducationData {
   educations: Education[];
+}
+
+export interface SkillItem {
+  name: string;
+  isFavorite: boolean;
+  imageUrl: string;
+}
+
+export interface Skill {
+  title: string;
+  items: SkillItem[];
+}
+
+export interface SkillsData {
+  skills: Skill[];
 }

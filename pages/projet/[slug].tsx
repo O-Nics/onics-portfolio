@@ -161,19 +161,6 @@ export default function ProjectPage({ project }: ProjectPageProps) {
                   {category}
                 </Chip>
               ))}
-              {project.date && (
-                <div className="flex items-center gap-2">
-                  <Divider className="h-4" orientation="vertical" />
-                  <span className="text-sm text-default-500">
-                    {capitalize(
-                      new Date(project.date).toLocaleDateString("fr-FR", {
-                        month: "long",
-                        year: "numeric",
-                      }),
-                    )}
-                  </span>
-                </div>
-              )}
             </div>
           </FadeUp>
         </div>

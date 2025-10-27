@@ -9,7 +9,7 @@ export interface ProjectLink {
 
 export interface ProjectStack {
   name: string;
-  image: string;
+  image: string | null;
 }
 
 export interface ProjectMedia {
@@ -28,8 +28,6 @@ export interface Project {
   body: string;
   platform: string[];
   technologies: string[];
-  startDate: string;
-  endDate?: string;
   status: "completed" | "in-progress" | "active" | "archived" | "not completed";
   type: string;
   media: ProjectMedia[];
@@ -40,7 +38,6 @@ export interface Project {
   challenges: string[];
   lessonLearned: string[];
   featured?: boolean;
-  date?: string;
 }
 
 export interface ProjectsData {

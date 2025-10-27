@@ -1,24 +1,26 @@
 "use client";
 import React, { useState, useEffect, useMemo, useCallback } from "react";
-import { Modal, ModalContent, ModalHeader, ModalBody } from "@heroui/modal";
+import {Modal, ModalContent, ModalHeader, ModalBody, useDraggable} from "@heroui/modal";
 import { Input } from "@heroui/input";
 import { useRouter } from "next/router";
+import { Kbd } from "@heroui/kbd";
 
 import { SearchIcon } from "@/components/icons";
 import { siteConfig } from "@/config/site";
 import projectsData from "@/data/projects.json";
+import educationData from "@/data/formations.json";
 import { useSearch } from "@/contexts/SearchContext";
 import { SearchResult } from "@/types";
 import { ResearchResult } from "@/components/ui/research-result";
-import {Kbd} from "@heroui/kbd";
 
 const SearchModal = () => {
-  const { isOpen, openSearch, closeSearch } = useSearch();
+  const { isOpen, openSearch, closeSearch, onOpenChange} = useSearch();
   const [searchQuery, setSearchQuery] = useState("");
   const [selectedIndex, setSelectedIndex] = useState(0);
   const [recentSearches, setRecentSearches] = useState<SearchResult[]>([]);
   const router = useRouter();
-
+  const targetRef = React.useRef(null);
+  const {moveProps} = useDraggable({targetRef, isDisabled: !isOpen});
   // Détection du raccourci Cmd+K (ou Ctrl+K)
   useEffect(() => {
     const handleKeyDown = (e: KeyboardEvent) => {
@@ -77,6 +79,9 @@ const SearchModal = () => {
       id: `project-${project.slug}`,
       title: project.name,
       description: project.shortDescription,
+      longDescription: project.longDescription,
+      stack: project.stack,
+      categories: project.categories,
       href: `/projet/${project.slug}`,
       category: "project" as const,
     }));
@@ -85,7 +90,17 @@ const SearchModal = () => {
     const experiences: SearchResult[] = [];
 
     // TODO: Ajouter les formations quand les données seront disponibles
-    const formations: SearchResult[] = [];
+    const formations: SearchResult[] = educationData.educations.map(
+      (education) => ({
+        id: `formation-${education.id}`,
+        title: education.name,
+        description: education.description,
+        href: `/education#${education.id}`,
+        school: education.school,
+        level: education.level,
+        category: "formation" as const,
+      }),
+    );
 
     return [
       ...menuItems,
@@ -107,8 +122,31 @@ const SearchModal = () => {
     return searchData.filter((item) => {
       const titleMatch = item.title.toLowerCase().includes(query);
       const descriptionMatch = item.description?.toLowerCase().includes(query);
+      const longDescriptionMatch = item.longDescription
+        ?.toLowerCase()
+        .includes(query);
+      const stackMatch = item.stack?.some((tech) =>
+        tech.name.toLowerCase().includes(query),
+      );
+      const categoriesMatch = item.categories?.some((cat) =>
+        cat.toLowerCase().includes(query),
+      );
+      const schoolMatch = item.school
+        ? item.school.toLowerCase().includes(query)
+        : false;
+      const levelMatch = item.level
+        ? item.level.toLowerCase().includes(query)
+        : false;
 
-      return titleMatch || descriptionMatch;
+      return (
+        titleMatch ||
+        descriptionMatch ||
+        longDescriptionMatch ||
+        stackMatch ||
+        categoriesMatch ||
+        schoolMatch ||
+        levelMatch
+      );
     });
   }, [searchQuery, searchData]);
 
@@ -145,7 +183,25 @@ const SearchModal = () => {
 
       localStorage.setItem("recentSearches", JSON.stringify(recentSearches));
 
-      router.push(item.href);
+      // Gérer la navigation avec ancre
+      const [path, hash] = item.href.split("#");
+
+      if (hash) {
+        // Si l'URL contient une ancre
+        router.push(item.href).then(() => {
+          // Attendre un court instant pour que le DOM se mette à jour
+          setTimeout(() => {
+            const element = document.getElementById(hash);
+
+            if (element) {
+              element.scrollIntoView({ behavior: "smooth", block: "start" });
+            }
+          }, 100);
+        });
+      } else {
+        // Navigation normale sans ancre
+        router.push(item.href);
+      }
     },
     [closeSearch, router],
   );
@@ -183,29 +239,29 @@ const SearchModal = () => {
     setSelectedIndex(0);
   }, [filteredResults.length]);
 
-
-
   return (
-    <Modal
-      backdrop="blur"
+    <Modal ref={targetRef}
+           onOpenChange={onOpenChange}
+           backdrop="blur"
+      // classNames={{
+      //   base: "bg-white dark:bg-background",
+      //   backdrop: "bg-black/30",
+      // }}
       classNames={{
-        base: "bg-white dark:bg-background",
-        backdrop: "bg-black/30",
+        base: "  overflow-y-hidden ",
+        backdrop: "bg-linear-to-t dark:from-zinc-900 from-white  to-zinc-900/10 ",
       }}
       isOpen={isOpen}
       placement="top"
       size="2xl"
-
       onClose={closeSearch}
     >
       <ModalContent>
-
-        <ModalHeader className="pb-2 pt-0 px-0">
+          <div {...moveProps} className="h-3 md:flex hidden bg-primary z-220"/>
+        <ModalHeader  className="pb-2 pt-0 px-0">
           <Input
             endContent={
-              <Kbd
-                className="hidden lg:inline-block dark:bg-primary/6 bg-white !shadow-none  px-1 !py-0.5 font-bold"
-              >
+              <Kbd className="hidden lg:inline-block dark:bg-primary/6 bg-white !shadow-none  px-1 !py-0.5 font-bold">
                 ESC
               </Kbd>
             }
@@ -226,7 +282,7 @@ const SearchModal = () => {
             onChange={(e) => setSearchQuery(e.target.value)}
           />
         </ModalHeader>
-        <ModalBody className="px-0 py-3 max-h-[500px] overflow-y-auto">
+        <ModalBody className="px-0 py-3 max-h-[500px] overflow-y-scroll">
           {filteredResults.length > 0 && (
             <ResearchResult
               closeSearch={closeSearch}
@@ -235,18 +291,20 @@ const SearchModal = () => {
               selectedIndex={selectedIndex}
             />
           )}
-          {recentSearches.length > 0 && filteredResults.length == 0 && (
-            <>
-              <div className="pl-3 font-bold">Récent</div>
-              <ResearchResult
-                closeSearch={closeSearch}
-                items={recentSearches}
-                router={router}
-                selectedIndex={selectedIndex}
-              />
-            </>
-          )}
-          {filteredResults.length === 0 && recentSearches.length === 0 && (
+          {recentSearches.length > 0 &&
+            searchQuery.length == 0 &&
+            filteredResults.length == 0 && (
+              <>
+                <div className="pl-3 font-bold">Récent</div>
+                <ResearchResult
+                  closeSearch={closeSearch}
+                  items={recentSearches}
+                  router={router}
+                  selectedIndex={selectedIndex}
+                />
+              </>
+            )}
+          {filteredResults.length === 0 && recentSearches.length < 1 && (
             <div className="px-4 py-8 text-center text-gray-500 dark:text-gray-400">
               {searchQuery && (
                 <p>Aucun résultat trouvé pour &#34;{searchQuery}&#34;</p>
@@ -261,4 +319,5 @@ const SearchModal = () => {
     </Modal>
   );
 };
-export default SearchModal
+
+export default SearchModal;

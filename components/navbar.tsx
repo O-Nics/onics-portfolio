@@ -2,7 +2,6 @@
 import {
   Navbar as HeroUINavbar,
   NavbarContent,
-  NavbarMenuToggle,
   NavbarBrand,
   NavbarItem,
 } from "@heroui/navbar";
@@ -18,7 +17,8 @@ import { CloseIcon } from "@heroui/shared-icons";
 import {
   GithubIcon,
   SearchIcon,
-  ArrowHorizontalLineIcon, ToggleIcon,
+  ArrowHorizontalLineIcon,
+  ToggleIcon,
 } from "@/components/icons";
 import { ThemeSwitch } from "@/components/theme-switch";
 import { siteConfig } from "@/config/site";
@@ -44,7 +44,7 @@ export const Navbar = () => {
   const pathname = usePathname();
   const [isOpen, setIsOpen] = useState(false);
   const { openSearch } = useSearch();
-// const { shouldAnimate } = true;
+  // const { shouldAnimate } = true;
   const { shouldAnimate } = useFirstVisitAnimation("nav-animated");
   const searchInput = (
     <Input
@@ -141,7 +141,7 @@ export const Navbar = () => {
                       shouldAnimate={shouldAnimate}
                     >
                       <div className="text-xs/6 font-bold text-gray-400">
-                        Lien rapides
+                        Liens rapides
                       </div>
                     </FadeUp>
                     <ul className="-mx-2 mt-2 space-y-1">
@@ -149,7 +149,8 @@ export const Navbar = () => {
                         <FadeUp
                           key={quickLink.name}
                           delay={
-                            (index * 0.05) + (siteConfig.sidebarNavigation.length * 0.05)
+                            index * 0.05 +
+                            siteConfig.sidebarNavigation.length * 0.05
                           }
                           shouldAnimate={shouldAnimate}
                         >
@@ -212,8 +213,7 @@ export const Navbar = () => {
                   <div className="h-[64px] md:hidden flex">
                     <Drawer>
                       <DrawerTrigger>
-                        <ToggleIcon/>
-
+                        <ToggleIcon />
                       </DrawerTrigger>
                       <DrawerContent className="">
                         <DrawerHeader className="flex flex-row justify-between border border-transparent  border-dashed border-b-primary">
@@ -274,7 +274,7 @@ export const Navbar = () => {
                             </FadeHorizontal>
                           </NavbarItem>
                         </DrawerHeader>
-<ul className="flex flex-1 w- flex-col gap-y-7 pt-4 px-6 pb-6 overflow-y-scroll">
+                        <ul className="flex flex-1 w- flex-col gap-y-7 pt-4 px-6 pb-6 overflow-y-scroll">
                           <li>
                             <ul className="-mx-2 space-y-1 ">
                               {siteConfig.sidebarNavigation.map(
@@ -319,9 +319,7 @@ export const Navbar = () => {
                           </li>
                           <li>
                             <FadeUp
-                              delay={
-                                siteConfig.sidebarNavigation.length * 0.05
-                              }
+                              delay={siteConfig.sidebarNavigation.length * 0.05}
                               shouldAnimate={shouldAnimate}
                             >
                               <div className="text-xs/6 font-bold text-gray-400">
@@ -461,7 +459,6 @@ export const Navbar = () => {
           </NavbarContent>
 
           <NavbarContent className="md:hidden basis-1 pl-4 gap-0" justify="end">
-
             <FadeHorizontal
               className=" md:hidden flex h-[40px] mr-8  w-[24px] "
               delay={0.05}
@@ -474,7 +471,11 @@ export const Navbar = () => {
               delay={0.1}
               shouldAnimate={shouldAnimate}
             >
-              <SearchIcon size={40} onClick={openSearch} className={"text-gray-400"}/>
+              <SearchIcon
+                className={"text-gray-400"}
+                size={40}
+                onClick={openSearch}
+              />
             </FadeHorizontal>
             <FadeHorizontal
               className="mr-7"

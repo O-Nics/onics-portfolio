@@ -8,6 +8,7 @@ import DefaultLayout from "@/layouts/default";
 import { LinkNavigation } from "@/types";
 import { NavigationInPage } from "@/components/navigationInPage";
 import FadeUp from "@/components/animation/fade-up";
+import Image from "next/image";
 
 export default function ContactPage() {
   const [formData, setFormData] = useState({
@@ -89,10 +90,29 @@ export default function ContactPage() {
           <h1>Contact</h1>
         </FadeUp>
         <FadeUp delay={0.05}>
-          <p className="subtitle">
-            Une idée ? Un projet ? Un recrutement ? N&apos;hésitez pas à me
-            contacter
-          </p>
+          <div className=" relative flex flex-row items-center mt-6  linear-gradient-to-r from-primary/10 via-transparent to-transparent pt-2 pb-2">
+            <div className="self-stretch md:flex hidden w-1 mr-10 rounded-full bg-primary"/>
+            <div className="md:flex flex-row justify-center items-center">
+              <div className="flex items-center">
+                <Image
+                  priority
+                  alt="Nicolas Planche"
+                  className="rounded-full"
+                  height={150}
+                  quality={90}
+                  unoptimized
+                  src="/61987116.jpeg"
+                  width={150}
+                />
+                <div className="h-0.5 md:hidden flex w-full ml-6 rounded-full bg-primary"/>
+
+              </div>
+              <p className="corp w-full md:ml-6 font-bold text-gray-600 dark:text-gray-300">
+                Un projet en tête ? Une opportunité à partager ? <br/>Je serais ravi(e) d'en discuter avec vous. Laissez-moi un message ci-dessous. <br/> J'ai hâte de vous lire !
+              </p>
+            </div>
+
+          </div>
         </FadeUp>
         {/* Formulaire */}
         <div className="pt-10">

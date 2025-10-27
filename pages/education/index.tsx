@@ -2,7 +2,7 @@ import DefaultLayout from "@/layouts/default";
 import { NavigationInPage } from "@/components/navigationInPage";
 import {Education, LinkNavigation} from "@/types";
 import FadeUp from "@/components/animation/fade-up";
-import {HorizontalTimeline} from "@/components/horizontal-timeline";
+import {VerticalTimeline} from "@/components/vertical-timeline";
 import {useEffect, useState} from "react";
 import {getAllFormation} from "@/lib/formations";
 
@@ -44,7 +44,7 @@ export default function AProposPage() {
         {educations.length > 0 &&(
           <div className="mt-10">
           {educations.map((education, index) => (
-            <HorizontalTimeline key={index} index={index} education={education} />
+            <VerticalTimeline key={index} index={index} education={education} />
             ))}
           </div>
         )}
