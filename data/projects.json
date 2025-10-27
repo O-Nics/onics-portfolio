@@ -42,7 +42,7 @@
         },
         {
           "url": "https://apps.apple.com/fr/app/da-auto-sport/id6746983342",
-          "text": "Application mobile IOs",
+          "text": "Application iOs",
           "title": "Da Auto Sport - Application mobile IOs",
           "alt": "Da Auto Sport",
           "target": "_blank",
@@ -50,7 +50,7 @@
         },
         {
           "url": "https://play.google.com/store/apps/details?id=com.daautosport.app&pcampaignid=web_share",
-          "text": "Application mobile Android",
+          "text": "Application Android",
           "title": "Da Auto Sport - Application mobile Android",
           "alt": "Da Auto Sport",
           "target": "_blank",
@@ -339,7 +339,7 @@
         },
         {
           "name": "Open Food Facts API",
-          "image": null
+          "image": "OpenFoodFact.png"
         }
         ],
 

@@ -38,19 +38,112 @@ interface ProjectPageProps {
 }
 
 function getColorLink(type: string) {
+  // common base: transition + rounded already applied by Button elsewhere
+  const common = "transition-colors duration-200";
+
   switch (type) {
-    case "website":
-      return "dark:hover:bg-secondary border border-secondary hover:bg-secondary hover:text-white md:bg-transparent bg-secondary";
-    case "ios":
-      return "dark:hover:bg-gray-100 border dark:border-gray-50/10 border-black  hover:bg-black dark:hover:text-black hover:text-white md:bg-transparent bg-gray-100 dark:bg-gray-700";
-    case "android":
-      return "dark:hover:bg-green-600 border border-green-600 hover:bg-green-600 hover:text-white md:bg-transparent bg-green-600";
-    case "github":
-      return "dark:hover:bg-black border border-black hover:bg-black hover:text-white md:bg-transparent bg-black";
-    case "flutter":
-      return "dark:hover:bg-blue-500 border border-blue-500 hover:bg-blue-500 hover:text-white md:bg-transparent bg-blue-500 ";
-    default:
-      return "gray";
+    case "website": {
+      const color = "secondary";
+      return [
+        common,
+        // default
+        "bg-secondary",
+        "border",
+        "border-secondary",
+        "text-white",
+        // hover becomes outline
+        "hover:bg-transparent",
+        "dark:hover:!text-purple-300",
+        "hover:!text-secondary",
+        "hover:border-secondary",
+        "dark:hover:border-purple-300",
+      ].join(" ");
+    }
+    case "ios": {
+      // Apple brand: black
+      return [
+        common,
+        "bg-black",
+        "dark:bg-white",
+        "border",
+        "border-black",
+        "dark:border-white",
+        "text-white",
+        "dark:text-black",
+        "hover:!bg-transparent",
+        "hover:text-black",
+        "dark:hover:!text-white",
+        "hover:border-black",
+        "dark:hover:border-white",
+        // dark mode keeps contrast
+        "dark:hover:text-black",
+      ].join(" ");
+    }
+    case "android": {
+      return [
+        common,
+        "bg-green-600",
+        "border",
+        "border-green-600",
+        "text-white",
+        "hover:bg-transparent",
+        "dark:hover:text-green-400",
+        "hover:text-green-600",
+        "dark:hover:border-green-400",
+        "hover:border-green-600",
+      ].join(" ");
+    }
+    case "github": {
+      return [
+        common,
+        "bg-black",
+        "dark:bg-white",
+        "border",
+        "border-black",
+        "dark:border-white",
+        "text-white",
+        "dark:text-black",
+        "hover:!bg-transparent",
+        "hover:text-black",
+        "dark:hover:!text-white",
+        "hover:border-black",
+        "dark:hover:border-white",
+        // dark mode keeps contrast
+        "dark:hover:text-black",
+      ].join(" ");
+    }
+    case "flutter": {
+      return [
+        common,
+        "bg-blue-500",
+        "border",
+        "border-blue-500",
+        "text-white",
+        "hover:bg-transparent",
+        "hover:text-blue-500",
+        "dark:hover:text-blue-300",
+        "dark:hover:border-blue-300",
+        "hover:border-blue-500",
+      ].join(" ");
+    }
+    default: {
+      // Neutral/unknown type: subtle gray outline behavior
+      return [
+        common,
+        "bg-gray-200",
+        "border",
+        "border-gray-300",
+        "text-gray-900",
+        "hover:bg-transparent",
+        "hover:text-gray-700",
+        "hover:border-gray-400",
+        "dark:bg-gray-700",
+        "dark:text-gray-100",
+        "dark:border-gray-600",
+        "dark:hover:text-gray-300",
+        "dark:hover:border-gray-500",
+      ].join(" ");
+    }
   }
 }
 

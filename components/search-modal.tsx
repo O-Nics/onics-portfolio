@@ -15,6 +15,7 @@ import { SearchIcon } from "@/components/icons";
 import { siteConfig } from "@/config/site";
 import projectsData from "@/data/projects.json";
 import educationData from "@/data/formations.json";
+import experienceData from "@/data/experiences.json";
 import { useSearch } from "@/contexts/SearchContext";
 import { SearchResult } from "@/types";
 import { ResearchResult } from "@/components/ui/research-result";
@@ -93,10 +94,16 @@ const SearchModal = () => {
       category: "project" as const,
     }));
 
-    // TODO: Ajouter les expériences quand les données seront disponibles
-    const experiences: SearchResult[] = [];
-
-    // TODO: Ajouter les formations quand les données seront disponibles
+    const experiences: SearchResult[] = experienceData.experiences.map(
+      (experience) => ({
+        id: `experience-${experience.id}`,
+        title: experience.title,
+        description: experience.description,
+        href: `/xp#${experience.id}`,
+        school: experience.society || undefined,
+        category: "experience" as const,
+      }),
+    );
     const formations: SearchResult[] = educationData.educations.map(
       (education) => ({
         id: `formation-${education.id}`,
