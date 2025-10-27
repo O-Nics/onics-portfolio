@@ -19,6 +19,7 @@ import experienceData from "@/data/experiences.json";
 import { useSearch } from "@/contexts/SearchContext";
 import { SearchResult } from "@/types";
 import { ResearchResult } from "@/components/ui/research-result";
+import { useKeyboardHeight } from "@/hooks/useKeyboardHeight";
 
 const SearchModal = () => {
   const { isOpen, openSearch, closeSearch } = useSearch();
@@ -28,6 +29,12 @@ const SearchModal = () => {
   const router = useRouter();
   const targetRef = React.useRef(null);
   const { moveProps } = useDraggable({ targetRef, isDisabled: !isOpen });
+
+  // Détection du clavier mobile
+  const { keyboardHeight, isKeyboardOpen, viewportHeight } =
+    useKeyboardHeight();
+
+
 
   // Détection du raccourci Cmd+K (ou Ctrl+K)
   useEffect(() => {
@@ -256,11 +263,10 @@ const SearchModal = () => {
   return (
     <Modal
       ref={targetRef}
-           classNames={{
-        base: "  overflow-y-hidden ",
+      classNames={{
         backdrop: "bg-linear-to-t dark:from-zinc-900 from-white  to-zinc-900/10 ",
       }}
-           backdrop="blur"
+      backdrop="blur"
       // classNames={{
       //   base: "bg-white dark:bg-background",
       //   backdrop: "bg-black/30",
@@ -296,7 +302,14 @@ const SearchModal = () => {
             onChange={(e) => setSearchQuery(e.target.value)}
           />
         </ModalHeader>
-        <ModalBody className="px-0 py-3 max-h-[500px] overflow-y-scroll">
+        <ModalBody
+          className="px-0 py-3 md:max-h-[500px] overflow-y-auto"
+          style={{
+            maxHeight: isKeyboardOpen
+              ? `${viewportHeight - 110}px` // 150px pour le header et les marges
+              : "60vh",
+          }}
+        >
           {filteredResults.length > 0 && (
             <ResearchResult
               closeSearch={closeSearch}
