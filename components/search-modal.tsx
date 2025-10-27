@@ -1,6 +1,12 @@
 "use client";
 import React, { useState, useEffect, useMemo, useCallback } from "react";
-import {Modal, ModalContent, ModalHeader, ModalBody, useDraggable} from "@heroui/modal";
+import {
+  Modal,
+  ModalContent,
+  ModalHeader,
+  ModalBody,
+  useDraggable,
+} from "@heroui/modal";
 import { Input } from "@heroui/input";
 import { useRouter } from "next/router";
 import { Kbd } from "@heroui/kbd";
@@ -14,13 +20,14 @@ import { SearchResult } from "@/types";
 import { ResearchResult } from "@/components/ui/research-result";
 
 const SearchModal = () => {
-  const { isOpen, openSearch, closeSearch, onOpenChange} = useSearch();
+  const { isOpen, openSearch, closeSearch } = useSearch();
   const [searchQuery, setSearchQuery] = useState("");
   const [selectedIndex, setSelectedIndex] = useState(0);
   const [recentSearches, setRecentSearches] = useState<SearchResult[]>([]);
   const router = useRouter();
   const targetRef = React.useRef(null);
-  const {moveProps} = useDraggable({targetRef, isDisabled: !isOpen});
+  const { moveProps } = useDraggable({ targetRef, isDisabled: !isOpen });
+
   // Détection du raccourci Cmd+K (ou Ctrl+K)
   useEffect(() => {
     const handleKeyDown = (e: KeyboardEvent) => {
@@ -240,25 +247,25 @@ const SearchModal = () => {
   }, [filteredResults.length]);
 
   return (
-    <Modal ref={targetRef}
-           onOpenChange={onOpenChange}
+    <Modal
+      ref={targetRef}
+           classNames={{
+        base: "  overflow-y-hidden ",
+        backdrop: "bg-linear-to-t dark:from-zinc-900 from-white  to-zinc-900/10 ",
+      }}
            backdrop="blur"
       // classNames={{
       //   base: "bg-white dark:bg-background",
       //   backdrop: "bg-black/30",
       // }}
-      classNames={{
-        base: "  overflow-y-hidden ",
-        backdrop: "bg-linear-to-t dark:from-zinc-900 from-white  to-zinc-900/10 ",
-      }}
       isOpen={isOpen}
       placement="top"
       size="2xl"
       onClose={closeSearch}
     >
       <ModalContent>
-          <div {...moveProps} className="h-3 md:flex hidden bg-primary z-220"/>
-        <ModalHeader  className="pb-2 pt-0 px-0">
+        <div {...moveProps} className="h-3 md:flex hidden bg-primary z-220" />
+        <ModalHeader className="pb-2 pt-0 px-0">
           <Input
             endContent={
               <Kbd className="hidden lg:inline-block dark:bg-primary/6 bg-white !shadow-none  px-1 !py-0.5 font-bold">

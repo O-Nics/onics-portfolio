@@ -108,7 +108,7 @@ export default function ContactPage() {
 
               </div>
               <p className="corp w-full md:ml-6 font-bold text-gray-600 dark:text-gray-300">
-                Un projet en tête ? Une opportunité à partager ? <br/>Je serais ravi(e) d'en discuter avec vous. Laissez-moi un message ci-dessous. <br/> J'ai hâte de vous lire !
+                Un projet en tête ? Une opportunité à partager ? <br/>Je serais ravi(e) d&#39;en discuter avec vous. Laissez-moi un message ci-dessous. <br/> J&#39;ai hâte de vous lire !
               </p>
             </div>
 
