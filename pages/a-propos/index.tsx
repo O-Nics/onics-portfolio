@@ -22,35 +22,47 @@ export default function AProposPage() {
         <FadeUp delay={0.1}>
           <p className="subtitle">Créer, apprendre, itérer</p>
         </FadeUp>
-        <FadeUp delay={0.2}>
+        <FadeUp delay={0.15}>
           <p className="corp !pt-6">
-            Je suis le développeur full-stack passionné par la création
-            d’expériences numériques élégantes, performantes et utiles.
+            Développeur full-stack passionné, j’aime donner vie à des produits
+            qui allient esthétique, performance et sens.
+          </p>
+        </FadeUp>
+        <FadeUp delay={0.2}>
+          <p className="corp">
+            Mon approche repose sur la rigueur technique, la curiosité et une
+            volonté constante d’apprendre et de progresser.
+          </p>
+        </FadeUp>
+        <FadeUp delay={0.25}>
+          <p className="corp">
+            Du front au back, j’accorde une attention particulière à chaque
+            détail : concevoir une interface fluide, structurer une architecture
+            propre, optimiser les performances ou garantir la maintenabilité du
+            code.
           </p>
         </FadeUp>
         <FadeUp delay={0.3}>
           <p className="corp">
-            Mon expertise couvre le mobile avec Flutter, le back-end avec
-            Laravel, et le web moderne avec Nuxt, Next.js et React. J’aime
-            transformer des idées complexes en produits clairs, scalables et
-            centrés sur l’utilisateur.
+            Mon objectif est simple : créer des applications utiles, agréables à
+            utiliser et faciles à faire évoluer.
+          </p>
+        </FadeUp>
+        <FadeUp delay={0.35}>
+          <p className="corp">
+            J’aime collaborer avec des équipes motivées, confronter les idées et
+            trouver les solutions les plus adaptées aux besoins réels des
+            utilisateurs.
           </p>
         </FadeUp>
         <FadeUp delay={0.4}>
           <p className="corp">
-            Curieux et rigoureux, je m’attache à appliquer des pratiques de
-            clean code, d’optimisation, d’accessibilité et de DevOps pour
-            concevoir des solutions durables.
+            Chaque projet est pour moi une nouvelle opportunité d’expérimenter,
+            d’améliorer mes pratiques et de repousser mes limites pour livrer
+            des produits fiables et durables.{" "}
           </p>
         </FadeUp>
-        <FadeUp delay={0.5}>
-          <p className="corp">
-            Ce qui me motive avant tout ? La collaboration. J’aime créer,
-            apprendre et construire avec des équipes passionnées pour donner vie
-            à des projets qui ont un vrai impact.
-          </p>
-        </FadeUp>
-        <FadeUp delay={0.6}>
+        <FadeUp delay={0.45}>
           <NavigationInPage left={leftLink} right={rightLink} />
         </FadeUp>
       </main>

@@ -15,8 +15,8 @@ interface FadeUpProps extends PropsWithChildren {
 export default function FadeUp({
   children,
   delay = 0,
-  duration = 0.35,
-  y = 10,
+  duration = 0.9,
+  y = 15,
   once = true,
   className,
   shouldAnimate = true,

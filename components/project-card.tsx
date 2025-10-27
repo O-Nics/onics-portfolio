@@ -23,7 +23,7 @@ export const ProjectCard = ({ project }: ProjectCardProps) => {
       {thumbnail && (
         <CardHeader className="p-0 overflow-hidden">
           <Image
-            alt={thumbnail.alt || project.shortTitle}
+            alt={thumbnail.alt || project.name}
             className="object-cover w-full h-48"
             src={thumbnail.path}
             width="100%"
@@ -32,7 +32,7 @@ export const ProjectCard = ({ project }: ProjectCardProps) => {
       )}
       <CardBody className="gap-3">
         <div className="flex justify-between items-start">
-          <h3 className="text-xl font-bold">{project.shortTitle}</h3>
+          <h3 className="text-xl font-bold">{project.name}</h3>
           {project.status === "in-progress" && (
             <Chip color="warning" size="sm" variant="flat">
               En cours
@@ -42,8 +42,8 @@ export const ProjectCard = ({ project }: ProjectCardProps) => {
         <p className="text-default-600 text-sm">{project.shortDescription}</p>
         <div className="flex flex-wrap gap-1 mt-2">
           {project.stack.slice(0, 4).map((tech) => (
-            <Chip key={tech} color="primary" size="sm" variant="flat">
-              {tech}
+            <Chip key={tech.name} color="primary" size="sm" variant="flat">
+              {tech.name}
             </Chip>
           ))}
           {project.stack.length > 4 && (

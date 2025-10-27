@@ -1,4 +1,11 @@
-import React, { createContext, useContext, useState, useRef, ReactNode, useEffect } from "react";
+import React, {
+  createContext,
+  useContext,
+  useState,
+  useRef,
+  ReactNode,
+  useEffect,
+} from "react";
 
 interface MusicContextType {
   isPlaying: boolean;
@@ -19,17 +26,20 @@ export function MusicProvider({ children }: { children: ReactNode }) {
   // Initialiser l'audio seulement côté client
   useEffect(() => {
     if (typeof window !== "undefined" && !audioRef.current) {
-      audioRef.current = new Audio("/music/lc.mp3");
+      audioRef.current = new Audio("/music/audio.mp3");
       audioRef.current.crossOrigin = "anonymous";
 
       // Créer le contexte audio et l'analyseur
-      const audioContext = new (window.AudioContext || (window as any).webkitAudioContext)();
+      const audioContext = new (window.AudioContext ||
+        (window as any).webkitAudioContext)();
       const analyser = audioContext.createAnalyser();
+
       // FFT plus large pour meilleure résolution dans les basses
       analyser.fftSize = 2048;
-      analyser.smoothingTimeConstant = .6; // Lissage pour des transitions fluides
+      analyser.smoothingTimeConstant = 0.6; // Lissage pour des transitions fluides
 
       const source = audioContext.createMediaElementSource(audioRef.current);
+
       source.connect(analyser);
       analyser.connect(audioContext.destination);
 
@@ -48,6 +58,7 @@ export function MusicProvider({ children }: { children: ReactNode }) {
   useEffect(() => {
     if (!isPlaying || !analyserRef.current || !audioContextRef.current) {
       setAudioLevel(0);
+
       return;
     }
 
@@ -68,6 +79,7 @@ export function MusicProvider({ children }: { children: ReactNode }) {
       // Focus sur les fréquences kick/basse (40-120 Hz)
       let sum = 0;
       let max = 0;
+
       for (let i = kickStartBin; i <= kickEndBin; i++) {
         sum += dataArray[i];
         max = Math.max(max, dataArray[i]);
@@ -80,6 +92,7 @@ export function MusicProvider({ children }: { children: ReactNode }) {
 
       // Détection de pic : boost si forte augmentation (kick détecté)
       const delta = level - previousLevel;
+
       if (delta > 0.15) {
         level = Math.min(level * 1.5, 1); // Boost les kicks
       }

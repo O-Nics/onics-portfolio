@@ -1,0 +1,28 @@
+{
+  "experiences": [
+    {
+      "id": 1,
+      "title": "Freelance Développeur Full Stack",
+      "society": null,
+      "date": "Octobre 2022 - Présent",
+      "location": "Remote, France",
+      "description": "Développeur full-stack, j’ai participé au développement d’une application mobile et web en Flutter, Laravel et Nuxt.js, avec un fort accent sur l’optimisation des performances, la sécurité des données et la fiabilité du backend. J’y ai intégré des services tiers (HelloAsso, OneSignal), amélioré l’architecture technique et mis en place un workflow complet CI/CD pour assurer stabilité et qualité continue du produit."
+    },
+    {
+      "id": 2,
+      "title": "Alternance Développeur Full Stack",
+      "society": "SportCorico",
+      "date": "Aout 2023 - Aout 2025",
+      "location": "Neuville sur Saône, France",
+      "description": "Développeur full-stack, j’ai participé au développement d’une application mobile et web en Flutter, Laravel et Nuxt.js, avec un fort accent sur l’optimisation des performances, la sécurité des données et la fiabilité du backend. J’y ai intégré des services tiers (HelloAsso, OneSignal), amélioré l’architecture technique et mis en place un workflow complet CI/CD pour assurer stabilité et qualité continue du produit."
+    },
+    {
+      "id": 3,
+      "title": "Stage Développeur Informatique",
+      "society": "Serpolen",
+      "location": "Vonnas, France",
+      "date": "Mai 2022 - Juillet 2022",
+      "description": "Création d’un site vitrine complet pour présenter les services de l’entreprise et améliorer sa visibilité en ligne. Mise en place d’un réseau local sécurisé, configuration du matériel et renforcement de la sécurité informatique afin d’optimiser la fiabilité et la performance de l’infrastructure interne."
+    }
+  ]
+}

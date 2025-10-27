@@ -3,6 +3,7 @@ import { Input, Textarea } from "@heroui/input";
 import { Button } from "@heroui/button";
 import { Select, SelectItem } from "@heroui/select";
 import { CloseIcon } from "@heroui/shared-icons";
+import Image from "next/image";
 
 import DefaultLayout from "@/layouts/default";
 import { LinkNavigation } from "@/types";
@@ -86,18 +87,50 @@ export default function ContactPage() {
       <main>
         {/* En-tête */}
         <FadeUp>
-          <h1>Contact</h1>
+          <div className="pt-0 md:pt-4" />
+          <div className="flex justify-between items-center">
+            <h1 className="!pt-0">Contact</h1>
+            <Image
+              priority
+              unoptimized
+              alt="Nicolas Planche"
+              className="rounded-full md:hidden flex "
+              height={70}
+              quality={90}
+              src="/61987116.jpeg"
+              width={70}
+            />
+          </div>
         </FadeUp>
-        <FadeUp delay={0.1}>
-          <p className="subtitle">
-            Une idée ? Un projet ? Un recrutement ? N&apos;hésitez pas à me
-            contacter
-          </p>
+        <FadeUp delay={0.05}>
+          <div className=" relative flex flex-row items-center md:mt-6  linear-gradient-to-r from-primary/10 via-transparent to-transparent pt-2 pb-2">
+            <div className="self-stretch md:flex hidden w-1 mr-10 rounded-full bg-primary" />
+            <div className="md:flex flex-row justify-center items-center">
+              <div className="flex items-center md:flex hidden">
+                <Image
+                  priority
+                  unoptimized
+                  alt="Nicolas Planche"
+                  className="rounded-full"
+                  height={150}
+                  quality={90}
+                  src="/61987116.jpeg"
+                  width={150}
+                />
+                <div className="h-0.5 md:hidden flex w-full ml-6 rounded-full bg-primary" />
+              </div>
+              <p className="corp w-full md:ml-6 font-bold text-gray-600 dark:text-gray-300">
+                Un projet en tête ? Une opportunité à partager ? <br />
+                Je serais ravi(e) d&#39;en discuter avec vous. Laissez-moi un
+                message ci-dessous. <br /> J&#39;ai hâte de vous lire !
+              </p>
+            </div>
+          </div>
         </FadeUp>
         {/* Formulaire */}
         <div className="pt-10">
           <form className="flex flex-col gap-4" onSubmit={handleSubmit}>
-            <FadeUp delay={0.2}>
+            <FadeUp delay={0.1}>
               <Input
                 isRequired
                 classNames={{
@@ -113,7 +146,7 @@ export default function ContactPage() {
               />
             </FadeUp>
 
-            <FadeUp delay={0.3}>
+            <FadeUp delay={0.15}>
               <Input
                 isRequired
                 classNames={{
@@ -129,7 +162,7 @@ export default function ContactPage() {
               />
             </FadeUp>
 
-            <FadeUp delay={0.4}>
+            <FadeUp delay={0.2}>
               <Select
                 isRequired
                 classNames={{
@@ -161,7 +194,7 @@ export default function ContactPage() {
               </Select>
             </FadeUp>
 
-            <FadeUp delay={0.5}>
+            <FadeUp delay={0.25}>
               <Textarea
                 isRequired
                 classNames={{
@@ -178,7 +211,7 @@ export default function ContactPage() {
               />
             </FadeUp>
 
-            <FadeUp delay={0.6}>
+            <FadeUp delay={0.3}>
               {submitStatus.type && (
                 <div
                   className={`p-4 rounded-lg justify-between flex ${
@@ -200,7 +233,7 @@ export default function ContactPage() {
               )}
             </FadeUp>
 
-            <FadeUp delay={0.7}>
+            <FadeUp delay={0.35}>
               <Button
                 className="text-md text-primary bg-primary/8"
                 color="primary"
