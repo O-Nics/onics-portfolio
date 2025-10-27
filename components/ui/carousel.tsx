@@ -4,10 +4,10 @@ import * as React from "react";
 import useEmblaCarousel, {
   type UseEmblaCarouselType,
 } from "embla-carousel-react";
-
 import { cn } from "@heroui/theme";
 import { Button } from "@heroui/button";
-import {ArrowHorizontalIcon} from "@/components/icons";
+
+import { ArrowHorizontalIcon } from "@/components/icons";
 
 type CarouselApi = UseEmblaCarouselType[1];
 type UseCarouselParameters = Parameters<typeof useEmblaCarousel>;
@@ -195,7 +195,7 @@ function CarouselPrevious({
       onClick={scrollPrev}
       {...props}
     >
-      <ArrowHorizontalIcon className="rotate-180"/>
+      <ArrowHorizontalIcon className="rotate-180" />
       {/*<ArrowLeft />*/}
       <span className="sr-only">Previous slide</span>
     </Button>
@@ -226,7 +226,7 @@ function CarouselNext({
       onClick={scrollNext}
       {...props}
     >
-      <ArrowHorizontalIcon/>
+      <ArrowHorizontalIcon />
       <span className="sr-only">Next slide</span>
     </Button>
   );

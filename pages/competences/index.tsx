@@ -1,12 +1,11 @@
 import Image from "next/image";
-import {useEffect, useState} from "react";
+import { useEffect, useState } from "react";
 
 import DefaultLayout from "@/layouts/default";
 import { LinkNavigation, Skill } from "@/types";
 import FadeUp from "@/components/animation/fade-up";
 import { NavigationInPage } from "@/components/navigationInPage";
-import {getAllSkills} from "@/lib/skills";
-import {getAllFormation} from "@/lib/formations";
+import { getAllSkills } from "@/lib/skills";
 
 export default function CompetencesPage({}) {
   const leftLink: LinkNavigation = {

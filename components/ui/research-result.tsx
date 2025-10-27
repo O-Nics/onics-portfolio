@@ -1,13 +1,13 @@
 import { useCallback } from "react";
+import { NextRouter } from "next/router";
 
 import { SearchResult } from "@/types";
-import {NextRouter} from "next/router";
 
 export const ResearchResult = ({
   items,
   selectedIndex,
   closeSearch,
-  router
+  router,
 }: {
   items: SearchResult[];
   selectedIndex: number;

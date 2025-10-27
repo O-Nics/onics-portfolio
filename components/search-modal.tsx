@@ -31,10 +31,7 @@ const SearchModal = () => {
   const { moveProps } = useDraggable({ targetRef, isDisabled: !isOpen });
 
   // Détection du clavier mobile
-  const { keyboardHeight, isKeyboardOpen, viewportHeight } =
-    useKeyboardHeight();
-
-
+  const { isKeyboardOpen, viewportHeight } = useKeyboardHeight();
 
   // Détection du raccourci Cmd+K (ou Ctrl+K)
   useEffect(() => {
@@ -205,7 +202,7 @@ const SearchModal = () => {
       localStorage.setItem("recentSearches", JSON.stringify(recentSearches));
 
       // Gérer la navigation avec ancre
-      const [path, hash] = item.href.split("#");
+      const [hash] = item.href.split("#");
 
       if (hash) {
         // Si l'URL contient une ancre
@@ -263,12 +260,13 @@ const SearchModal = () => {
   return (
     <Modal
       ref={targetRef}
-      classNames={{
-        backdrop: "bg-linear-to-t dark:from-zinc-900 from-white  to-zinc-900/10 ",
-      }}
       backdrop="blur"
+      classNames={{
+        base: "bg-white dark:bg-background",
+        backdrop:
+          "bg-linear-to-t dark:from-zinc-900 from-white/50  dark:to-primary/5 to-primary/10",
+      }}
       // classNames={{
-      //   base: "bg-white dark:bg-background",
       //   backdrop: "bg-black/30",
       // }}
       isOpen={isOpen}
@@ -276,23 +274,29 @@ const SearchModal = () => {
       size="2xl"
       onClose={closeSearch}
     >
-      <ModalContent>
-        <div {...moveProps} className="h-3 md:flex hidden bg-primary z-220" />
-        <ModalHeader className="pb-2 pt-0 px-0">
+      <ModalContent className="dark:bg-background bg-white ">
+        <div
+          {...moveProps}
+          className="h-6 my-2 ml-2 mr-10 dark:bg-gray-50/10 bg-gray-100  rounded-full md:flex hidden  !z-0 text-center items-center justify-center text-sm dark:text-gray-50/8 text-gray-200 font-bold cursor-move"
+        >
+          Déplacer
+        </div>
+
+        <ModalHeader className="pb-2 !pt-[00px] px-0">
           <Input
-            endContent={
-              <Kbd className="hidden lg:inline-block dark:bg-primary/6 bg-white !shadow-none  px-1 !py-0.5 font-bold">
-                ESC
-              </Kbd>
-            }
             /* eslint-disable-next-line jsx-a11y/no-autofocus */
             autoFocus
             classNames={{
               base: "w-full",
               inputWrapper:
-                "!py-0 !h-18 border !border-b-primary border-transparent border-dashed rounded-none   lg:z-40  min-h-0  dark:!bg-background  lg:mt-0 mt-0  bg-gray-50 hover:!bg-gray-100",
+                "!py-0 !h-15 border !border-b-primary border-transparent border-dashed rounded-none   lg:z-40  min-h-0  dark:!bg-background  lg:mt-0 mt-0  bg-gray-50 hover:!bg-gray-100",
               input: "text-base",
             }}
+            endContent={
+              <Kbd className="hidden lg:inline-block dark:bg-primary/6 bg-white !shadow-none  px-1 !py-0.5 font-bold">
+                ESC
+              </Kbd>
+            }
             placeholder="Rechercher des pages, projets, expériences, formations..."
             startContent={
               <SearchIcon className="text-xl text-default-400 pointer-events-none flex-shrink-0" />

@@ -1,8 +1,6 @@
-import { CalendarIcon } from "@heroicons/react/24/outline";
-
 import {
   AboutIcon,
-  CoffeeIcon, CompetenceIcon,
+  CompetenceIcon,
   ContactIcon,
   DocIcon,
   GithubIcon,

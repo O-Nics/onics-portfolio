@@ -40,7 +40,8 @@ export default function ProjetsPage({}: ProjetsPageProps) {
         </FadeUp>
         <FadeUp delay={0.15}>
           <p className="corp !pt-6 ">
-            Chaque projet est une occasion de transformer une idée en solution concrète.
+            Chaque projet est une occasion de transformer une idée en solution
+            concrète.
           </p>
         </FadeUp>
         <div className="pt-8 grid grid-cols-1  lg:grid-cols-2 xl:grid-cols-3 gap-4">

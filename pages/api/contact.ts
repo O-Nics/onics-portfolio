@@ -77,7 +77,7 @@ export default async function handler(
     });
 
     if (error) {
-      console.error("Erreur Resend:", error);
+      // console.error("Erreur Resend:", error);
 
       return res.status(500).json({
         message: "Erreur lors de l'envoi de l'email",
@@ -89,7 +89,7 @@ export default async function handler(
       message: "Email envoyé avec succès",
     });
   } catch (error) {
-    console.error("Erreur serveur:", error);
+    // console.error("Erreur serveur:", error);
 
     return res.status(500).json({
       message: "Erreur serveur lors de l'envoi de l'email",

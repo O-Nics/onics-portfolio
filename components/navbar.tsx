@@ -8,7 +8,7 @@ import {
 import { Kbd } from "@heroui/kbd";
 import { Input } from "@heroui/input";
 import Link from "next/link";
-import React, { useState } from "react";
+import React from "react";
 import { Button } from "@heroui/button";
 import { usePathname } from "next/navigation";
 import Image from "next/image";
@@ -42,7 +42,6 @@ function classNames(...classes: string[]) {
 
 export const Navbar = () => {
   const pathname = usePathname();
-  const [isOpen, setIsOpen] = useState(false);
   const { openSearch } = useSearch();
   // const { shouldAnimate } = true;
   const { shouldAnimate } = useFirstVisitAnimation("nav-animated");

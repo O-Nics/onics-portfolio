@@ -19,6 +19,7 @@ export function useKeyboardHeight() {
     if (typeof window === "undefined" || !window.visualViewport) {
       // Fallback pour les navigateurs qui ne supportent pas visualViewport
       setViewportHeight(window.innerHeight);
+
       return;
     }
 

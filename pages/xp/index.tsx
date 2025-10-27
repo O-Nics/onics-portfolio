@@ -5,8 +5,7 @@ import { NavigationInPage } from "@/components/navigationInPage";
 import { Experience, LinkNavigation } from "@/types";
 import FadeUp from "@/components/animation/fade-up";
 import { getAllExperiences } from "@/lib/experiences";
-import {VerticalTimelineEducation} from "@/components/vertical-timeline-education";
-import {VerticalTimelineExperience} from "@/components/vertical-timeline-experience";
+import { VerticalTimelineExperience } from "@/components/vertical-timeline-experience";
 
 export default function AProposPage() {
   const leftLink: LinkNavigation = {
@@ -62,7 +61,6 @@ export default function AProposPage() {
             {expericences.map((experience, index) => (
               <VerticalTimelineExperience
                 key={index}
-
                 experience={experience}
                 index={index}
               />

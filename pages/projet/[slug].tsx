@@ -4,10 +4,8 @@ import { Button } from "@heroui/button";
 import { Chip } from "@heroui/chip";
 import { Link } from "@heroui/link";
 import { Image } from "@heroui/image";
-import { Divider } from "@heroui/divider";
 import NextLink from "next/link";
 import { ReactNode, useState } from "react";
-import { capitalize } from "@heroui/shared-utils";
 import Autoplay from "embla-carousel-autoplay";
 import FsLightbox from "fslightbox-react";
 
@@ -43,7 +41,6 @@ function getColorLink(type: string) {
 
   switch (type) {
     case "website": {
-      const color = "secondary";
       return [
         common,
         // default
@@ -402,17 +399,14 @@ export default function ProjectPage({ project }: ProjectPageProps) {
 
         {/* Corps du texte (markdown simplifié) */}
         <div className="prose dark:prose-invert max-w-none">
-          <FadeUp  delay={0.25}>
-            <p  className="text-default-700 mb-0">
-              {project.body}
-            </p>
+          <FadeUp delay={0.25}>
+            <p className="text-default-700 mb-0">{project.body}</p>
           </FadeUp>
         </div>
 
-        <FadeUp  delay={0.3}>
-          <h2  className="text-2xl font-bold mt-4 mb-0">
-            <span className="text-primary">|</span>{" "}
-            Fonctionnalités
+        <FadeUp delay={0.3}>
+          <h2 className="text-2xl font-bold mt-4 mb-0">
+            <span className="text-primary">|</span> Fonctionnalités
           </h2>
         </FadeUp>
         <div className="gap-0 flex flex-col">
@@ -425,10 +419,9 @@ export default function ProjectPage({ project }: ProjectPageProps) {
           ))}
         </div>
 
-        <FadeUp  delay={0.35}>
-          <h2  className="text-2xl font-bold mt-4 mb-0">
-            <span className="text-primary">|</span>{" "}
-            Défis relevés
+        <FadeUp delay={0.35}>
+          <h2 className="text-2xl font-bold mt-4 mb-0">
+            <span className="text-primary">|</span> Défis relevés
           </h2>
         </FadeUp>
         <div className="gap-0 flex flex-col">
@@ -441,10 +434,9 @@ export default function ProjectPage({ project }: ProjectPageProps) {
           ))}
         </div>
 
-        <FadeUp  delay={0.35}>
-          <h2  className="text-2xl font-bold mt-4 mb-0">
-            <span className="text-primary">|</span>{" "}
-            Leçons apprises
+        <FadeUp delay={0.35}>
+          <h2 className="text-2xl font-bold mt-4 mb-0">
+            <span className="text-primary">|</span> Leçons apprises
           </h2>
         </FadeUp>
         <div className="gap-0 flex flex-col">
@@ -457,8 +449,6 @@ export default function ProjectPage({ project }: ProjectPageProps) {
           ))}
         </div>
 
-
-
         {/* Stack technique */}
         <div className="flex flex-col pt-5 gap-4">
           <FadeUp delay={0.4}>
@@ -470,11 +460,7 @@ export default function ProjectPage({ project }: ProjectPageProps) {
           <div className="flex flex-wrap gap-2 pt-4">
             {project.stack.map((tech, index) => (
               <div key={tech.name} className="w-fit shadow-red-50">
-                <FadeUp
-                  delay={
-                    0.45 + index * 0.02
-                  }
-                >
+                <FadeUp delay={0.45 + index * 0.02}>
                   <div className="flex-row flex items-center align-middle rounded-lg dark:bg-white/3 bg-gray-100 pr-3 pl-2 hover:bg-gray-100 dark:hover:bg-primary/10 hover:bg-primary/10 transition py-2 ">
                     <div className="flex h-5 flex-row items-center gap-2">
                       {tech.image && (
@@ -506,23 +492,17 @@ export default function ProjectPage({ project }: ProjectPageProps) {
             </FadeUp>
             <div className="flex flex-wrap pt-2 gap-3">
               {project.links.map((link, index) => (
-                <FadeUp
-                  key={index}
-                  delay={
-                    0.5 + index * 0.05
-                  }
-                >
+                <FadeUp key={index} delay={0.5 + index * 0.05}>
                   <Button
                     key={index}
+                    as={Link}
                     className={`${getColorLink(link.type)} px-3 h-8 `}
                     href={link.url}
+                    isExternal={link.target === "_blank"}
                     radius={"full"}
                     startContent={getIconLink(link.type)}
                     target={link.target}
                     title={link.title}
-                    as={Link}
-                    // className="px-2 h-8 mt-10 bg-white  text-gray-600 dark:text-gray-300  dark:bg-gray-800"
-                    isExternal={link.target === "_blank"}
                   >
                     {link.text}
                   </Button>
