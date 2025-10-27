@@ -2,7 +2,7 @@ import { CalendarIcon } from "@heroicons/react/24/outline";
 
 import {
   AboutIcon,
-  CoffeeIcon,
+  CoffeeIcon, CompetenceIcon,
   ContactIcon,
   DocIcon,
   GithubIcon,
@@ -23,8 +23,8 @@ export const siteConfig = {
     { name: "Introduction", href: "/", icon: IntroIcon },
     { name: "À propos de moi", href: "/a-propos", icon: AboutIcon },
     { name: "Projets", href: "/projets", icon: ProjectsIcon },
-    { name: "Compétences", href: "/competences", icon: XpIcon },
-    { name: "Experiences", href: "/xp", icon: CalendarIcon },
+    { name: "Compétences", href: "/competences", icon: CompetenceIcon },
+    { name: "Experiences", href: "/xp", icon: XpIcon },
     {
       name: "Formations",
       href: "/education",

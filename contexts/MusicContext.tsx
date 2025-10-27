@@ -19,7 +19,7 @@ export function MusicProvider({ children }: { children: ReactNode }) {
   // Initialiser l'audio seulement côté client
   useEffect(() => {
     if (typeof window !== "undefined" && !audioRef.current) {
-      audioRef.current = new Audio("/music/lc.mp3");
+      audioRef.current = new Audio("/music/audio.mp3");
       audioRef.current.crossOrigin = "anonymous";
 
       // Créer le contexte audio et l'analyseur

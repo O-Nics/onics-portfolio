@@ -1,4 +1,4 @@
-import { SVGProps } from "react";
+import React, { SVGProps } from "react";
 
 import { ProjectStack } from "@/types/project";
 
@@ -53,4 +53,17 @@ export interface Skill {
 
 export interface SkillsData {
   skills: Skill[];
+}
+
+export interface Experience {
+  id: number;
+  title: string;
+  society?: string | null;
+  date: string;
+  location: string;
+  description: string;
+}
+
+export interface ExperienceData {
+  experiences: Experience[];
 }

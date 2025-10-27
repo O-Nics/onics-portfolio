@@ -1,12 +1,13 @@
+import { useEffect, useState } from "react";
+
 import DefaultLayout from "@/layouts/default";
 import { NavigationInPage } from "@/components/navigationInPage";
-import {Education, LinkNavigation} from "@/types";
+import { Education, LinkNavigation } from "@/types";
 import FadeUp from "@/components/animation/fade-up";
-import {VerticalTimeline} from "@/components/vertical-timeline";
-import {useEffect, useState} from "react";
-import {getAllFormation} from "@/lib/formations";
+import { VerticalTimelineEducation } from "@/components/vertical-timeline-education";
+import { getAllFormation } from "@/lib/formations";
 
-export default function AProposPage() {
+export default function AboutPage() {
   const leftLink: LinkNavigation = {
     name: "Éxpériences",
     href: "/xp",
@@ -33,18 +34,27 @@ export default function AProposPage() {
         </FadeUp>
         <FadeUp delay={0.1}>
           <p className="corp !pt-6">
-            De ma formation scientifique au lycée jusqu’à la licence Mathématiques et Informatique à l’Université Lyon 1, j’ai construit une base solide en logique et en conception logicielle.
+            De ma formation scientifique au lycée jusqu’à la licence
+            Mathématiques et Informatique à l’Université Lyon 1, j’ai construit
+            une base solide en logique et en conception logicielle.
           </p>
         </FadeUp>
         <FadeUp delay={0.15}>
           <p className="corp ">
-            Mon Master Développeur Full-Stack à MyDigitalSchool Lyon a marqué une étape clé : j’y ai consolidé mes compétences en développement web et mobile, en travaillant sur des projets concrets alliant performance, design et expérience utilisateur.
+            Mon Master Développeur Full-Stack à MyDigitalSchool Lyon a marqué
+            une étape clé : j’y ai consolidé mes compétences en développement
+            web et mobile, en travaillant sur des projets concrets alliant
+            performance, design et expérience utilisateur.
           </p>
         </FadeUp>
-        {educations.length > 0 &&(
+        {educations.length > 0 && (
           <div className="mt-10">
-          {educations.map((education, index) => (
-            <VerticalTimeline key={index} index={index} education={education} />
+            {educations.map((education, index) => (
+              <VerticalTimelineEducation
+                key={index}
+                education={education}
+                index={index}
+              />
             ))}
           </div>
         )}
