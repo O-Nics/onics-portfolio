@@ -1,7 +1,7 @@
 import { Button } from "@heroui/button";
 
 import { MusicIcon } from "@/components/icons";
-import { useMusic } from "@/contexts/MusicContext";
+import { useMusic } from "@/features/music";
 type LaunchMusicProps = {
   size?: number;
 };

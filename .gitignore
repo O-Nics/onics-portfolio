@@ -39,3 +39,7 @@ yarn.lock
 package-lock.json
 bun.lockb
 CLAUDE.md
+
+# Fichiers d'analyse
+ANALYSE_PROJET.md
+ARCHITECTURE_REFACTORING.md

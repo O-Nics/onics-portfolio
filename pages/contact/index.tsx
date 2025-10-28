@@ -7,8 +7,9 @@ import Image from "next/image";
 
 import DefaultLayout from "@/layouts/default";
 import { LinkNavigation } from "@/types";
-import { NavigationInPage } from "@/components/navigationInPage";
+import { NavigationInPage } from "@/features/navigation";
 import FadeUp from "@/components/animation/fade-up";
+import Fade from "@/components/animation/fade";
 
 export default function ContactPage() {
   const [formData, setFormData] = useState({
@@ -83,7 +84,13 @@ export default function ContactPage() {
   };
 
   return (
-    <DefaultLayout>
+    <DefaultLayout
+      description="Contactez-moi pour vos projets de développement web et mobile, collaborations ou questions techniques."
+      keywords="contact développeur, freelance, collaboration, projet web, projet mobile, recrutement, développeur full-stack"
+      title="Contact"
+      type="website"
+      url="https://nicolas-planche.fr/contact"
+    >
       <main>
         {/* En-tête */}
         <FadeUp>
@@ -247,8 +254,9 @@ export default function ContactPage() {
             </FadeUp>
           </form>
         </div>
-
-        <NavigationInPage left={leftLink} right={rightLink} />
+        <Fade delay={0.45}>
+          <NavigationInPage leftLink={leftLink} rightLink={rightLink} />
+        </Fade>{" "}
       </main>
     </DefaultLayout>
   );

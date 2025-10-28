@@ -4,37 +4,40 @@ import { LinkNavigation } from "@/types";
 import { ArrowHorizontalIcon } from "@/components/icons";
 
 interface NavigationLinks {
-  left?: LinkNavigation;
-  right?: LinkNavigation;
+  leftLink?: LinkNavigation;
+  rightLink?: LinkNavigation;
 }
 
-export const NavigationInPage = ({ left, right }: NavigationLinks) => {
+export default function NavigationInPage({
+  leftLink,
+  rightLink,
+}: NavigationLinks) {
   return (
     <div className="flex justify-between pt-10 pb-10 items-center">
       <div>
-        {left && (
+        {leftLink && (
           <Link
             className="text-sm text-default-600 hover:text-primary transition font-bold cursor-pointer"
-            href={left.href}
+            href={leftLink.href}
           >
             <ArrowHorizontalIcon className="rotate-180  inline-block mr-2" />
-            {left.name}
+            {leftLink.name}
           </Link>
         )}
       </div>
 
       <div>
-        {right && (
+        {rightLink && (
           <Link
             className="text-sm text-default-600 font-bold transition text-primary cursor-pointer"
-            href={right.href}
-            title={right.name}
+            href={rightLink.href}
+            title={rightLink.name}
           >
-            {right.name}
+            {rightLink.name}
             <ArrowHorizontalIcon className="inline-block ml-2" />
           </Link>
         )}
       </div>
     </div>
   );
-};
+}

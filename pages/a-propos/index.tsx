@@ -1,7 +1,8 @@
 import DefaultLayout from "@/layouts/default";
-import { NavigationInPage } from "@/components/navigationInPage";
+import { NavigationInPage } from "@/features/navigation";
 import { LinkNavigation } from "@/types";
 import FadeUp from "@/components/animation/fade-up";
+import Fade from "@/components/animation/fade";
 
 export default function AProposPage() {
   const leftLink: LinkNavigation = {
@@ -14,7 +15,13 @@ export default function AProposPage() {
   };
 
   return (
-    <DefaultLayout>
+    <DefaultLayout
+      description="Développeur full-stack passionné, j'aime donner vie à des produits qui allient esthétique, performance et sens. Découvrez mon parcours et mes valeurs."
+      keywords="à propos, parcours développeur, valeurs, développeur full-stack, Nicolas Planche"
+      title="À propos de moi"
+      type="profile"
+      url="https://nicolas-planche.fr/a-propos"
+    >
       <main className="">
         <FadeUp>
           <h1>À propos de moi</h1>
@@ -62,9 +69,9 @@ export default function AProposPage() {
             des produits fiables et durables.{" "}
           </p>
         </FadeUp>
-        <FadeUp delay={0.45}>
-          <NavigationInPage left={leftLink} right={rightLink} />
-        </FadeUp>
+        <Fade delay={0.45}>
+          <NavigationInPage leftLink={leftLink} rightLink={rightLink} />
+        </Fade>
       </main>
     </DefaultLayout>
   );

@@ -1,11 +1,12 @@
 import { useEffect, useState } from "react";
 
 import DefaultLayout from "@/layouts/default";
-import { NavigationInPage } from "@/components/navigationInPage";
 import { Education, LinkNavigation } from "@/types";
 import FadeUp from "@/components/animation/fade-up";
-import { VerticalTimelineEducation } from "@/components/vertical-timeline-education";
+import { TimelineEducation } from "@/features/timeline";
 import { getAllFormation } from "@/lib/formations";
+import { NavigationInPage } from "@/features/navigation";
+import Fade from "@/components/animation/fade";
 
 export default function AboutPage() {
   const leftLink: LinkNavigation = {
@@ -24,7 +25,13 @@ export default function AboutPage() {
   }, []);
 
   return (
-    <DefaultLayout>
+    <DefaultLayout
+      description="Mon parcours académique et mes formations : Licence, Master, formation scientifique et apprentissage continu."
+      keywords="formations développeur, parcours académique, licence informatique, mathématiques, Université Lyon 1, formation scientifique"
+      title="Formations"
+      type="profile"
+      url="https://nicolas-planche.fr/education"
+    >
       <main className="">
         <FadeUp>
           <h1>Formations</h1>
@@ -50,7 +57,7 @@ export default function AboutPage() {
         {educations.length > 0 && (
           <div className="mt-10">
             {educations.map((education, index) => (
-              <VerticalTimelineEducation
+              <TimelineEducation
                 key={index}
                 education={education}
                 index={index}
@@ -59,9 +66,10 @@ export default function AboutPage() {
           </div>
         )}
       </main>
-      <FadeUp delay={educations.length * 0.1 + 0.3}>
-        <NavigationInPage left={leftLink} right={rightLink} />
-      </FadeUp>
+
+      <Fade delay={educations.length * 0.1 + 0.3}>
+        <NavigationInPage leftLink={leftLink} rightLink={rightLink} />
+      </Fade>
     </DefaultLayout>
   );
 }

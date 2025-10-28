@@ -1,8 +1,11 @@
 "use client";
 import DefaultLayout from "@/layouts/default";
-import { NavigationInPage } from "@/components/navigationInPage";
+import { NavigationInPage } from "@/features/navigation";
 import { LinkNavigation } from "@/types";
 import FadeUp from "@/components/animation/fade-up";
+import Fade from "@/components/animation/fade";
+import { PersonJsonLd, WebsiteJsonLd } from "@/components/seo/json-ld";
+import { siteConfig } from "@/config/site";
 
 export default function Example() {
   const rightLink: LinkNavigation = {
@@ -12,15 +15,27 @@ export default function Example() {
 
   return (
     <>
-      {/*
-        This example requires updating your template:
-
-        ```
-        <html class="h-full bg-white dark:bg-gray-900">
-        <body class="h-full">
-        ```
-      */}
-      <DefaultLayout>
+      <PersonJsonLd
+        jobTitle="Développeur Full-Stack & Mobile"
+        name="Nicolas Planche"
+        sameAs={[
+          "https://github.com/O-Nicks",
+          "https://www.linkedin.com/in/nicolas-planche/",
+        ]}
+        url="https://nicolas-planche.fr"
+      />
+      <WebsiteJsonLd
+        description={siteConfig.description}
+        name={siteConfig.name}
+        url="https://nicolas-planche.fr"
+      />
+      <DefaultLayout
+        description="Développeur Full-Stack & Mobile passionné par la tech. Je conçois des applications mobiles, web et des back-ends solides avec Flutter, Laravel, React, Vue.js et Tailwind CSS."
+        keywords="développeur full-stack, développeur mobile, Flutter, Laravel, React, Next.js, Vue.js, Nuxt.js, Tailwind CSS, portfolio développeur"
+        title="Accueil"
+        type="profile"
+        url="https://nicolas-planche.fr"
+      >
         <main>
           <FadeUp>
             <h1>Nicolas Planche</h1>
@@ -43,9 +58,9 @@ export default function Example() {
             </p>
           </FadeUp>
 
-          <FadeUp delay={0.2}>
-            <NavigationInPage right={rightLink} />
-          </FadeUp>
+          <Fade delay={0.2}>
+            <NavigationInPage rightLink={rightLink} />
+          </Fade>
         </main>
       </DefaultLayout>
     </>

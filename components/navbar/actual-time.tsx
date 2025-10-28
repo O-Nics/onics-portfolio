@@ -2,7 +2,7 @@
 import { Chip } from "@heroui/chip";
 import React from "react";
 
-import DotAnimated from "@/components/animation/dot_animated";
+import DotAnimated from "@/components/animation/dot-animated";
 
 declare global {
   interface Window {
@@ -92,11 +92,11 @@ export default function ActualTime() {
       classNames={{
         base: "dark:bg-gray-50/5 bg-gray-50 border-0",
         content:
-          "[font-feature-settings:'tnum'] font-sans font-bold text-gray-600 dark:text-gray-50/80 text-xs",
+          "tabular-nums font-mono font-bold text-gray-600 dark:text-gray-50/80 text-xs",
       }}
       startContent={<DotAnimated />}
     >
-      <span suppressHydrationWarning className="hidden lg:flex">
+      <span suppressHydrationWarning className="hidden lg:flex ">
         {display}{" "}
       </span>
       <span suppressHydrationWarning className="flex lg:hidden">

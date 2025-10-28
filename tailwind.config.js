@@ -11,7 +11,9 @@ const config = {
   theme: {
     extend: {
       fontFamily: {
-        sans: ["var(--font-sans)"],
+        poppins: ["var(--font-poppins)"],
+        sans: ["var(--font-poppins)"], // Poppins comme police principale
+        inter: ["var(--font-sans)"], // Inter disponible via font-inter
         mono: ["var(--font-mono)"],
       },
     },
@@ -32,6 +34,11 @@ const config = {
               primary: {
                 DEFAULT:"#00b3da"
               },
+              success: {
+                DEFAULT: "#3bec61",
+                  foreground: "#ffffff",
+              },
+
 
             },
           },
@@ -46,9 +53,10 @@ const config = {
                 // DEFAULT:"#bc47ff"
                 DEFAULT:"#5be6d4"
               },
-              // muted: {
-              //   DEFAULT: "#1e1e1e"
-              // }
+                success: {
+                    DEFAULT: "#3bec61",
+                    foreground: "#ffffff",
+                },
 
             },
           },
