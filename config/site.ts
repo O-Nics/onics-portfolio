@@ -22,7 +22,7 @@ export const siteConfig = {
     { name: "À propos de moi", href: "/a-propos", icon: AboutIcon },
     { name: "Projets", href: "/projets", icon: ProjectsIcon },
     { name: "Compétences", href: "/competences", icon: CompetenceIcon },
-    { name: "Experiences", href: "/xp", icon: XpIcon },
+    { name: "Éxperiences", href: "/xp", icon: XpIcon },
     {
       name: "Formations",
       href: "/education",
