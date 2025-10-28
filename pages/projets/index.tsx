@@ -3,7 +3,7 @@ import Link from "next/link";
 
 import DefaultLayout from "@/layouts/default";
 import { Project } from "@/types/project";
-import { NavigationInPage } from "@/components/navigation-in-page";
+import { NavigationInPage } from "@/features/navigation";
 import { LinkNavigation } from "@/types";
 import FadeUp from "@/components/animation/fade-up";
 import { getAllProjects } from "@/lib/projects";
@@ -111,7 +111,8 @@ export default function ProjetsPage({}: ProjetsPageProps) {
             ))}
         </div>
 
-        <NavigationInPage left={leftLink} right={rightLink} />
+        <NavigationInPage leftLink={leftLink} rightLink={rightLink} />
+        <NavigationInPage leftLink={leftLink} rightLink={rightLink} />
       </main>
     </DefaultLayout>
   );

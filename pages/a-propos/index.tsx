@@ -1,5 +1,5 @@
 import DefaultLayout from "@/layouts/default";
-import { NavigationInPage } from "@/components/navigation-in-page";
+import { NavigationInPage } from "@/features/navigation";
 import { LinkNavigation } from "@/types";
 import FadeUp from "@/components/animation/fade-up";
 
@@ -63,7 +63,7 @@ export default function AProposPage() {
           </p>
         </FadeUp>
         <FadeUp delay={0.45}>
-          <NavigationInPage left={leftLink} right={rightLink} />
+          <NavigationInPage leftLink={leftLink} rightLink={rightLink} />
         </FadeUp>
       </main>
     </DefaultLayout>

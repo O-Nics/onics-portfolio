@@ -1,6 +1,6 @@
 "use client";
 import DefaultLayout from "@/layouts/default";
-import { NavigationInPage } from "@/components/navigation-in-page";
+import { NavigationInPage } from "@/features/navigation";
 import { LinkNavigation } from "@/types";
 import FadeUp from "@/components/animation/fade-up";
 
@@ -44,7 +44,7 @@ export default function Example() {
           </FadeUp>
 
           <FadeUp delay={0.2}>
-            <NavigationInPage right={rightLink} />
+            <NavigationInPage rightLink={rightLink} />
           </FadeUp>
         </main>
       </DefaultLayout>

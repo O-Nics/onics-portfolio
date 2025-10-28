@@ -4,11 +4,11 @@ import { NavbarContent, NavbarItem } from "@heroui/navbar";
 import { Button } from "@heroui/button";
 
 import { GithubIcon } from "@/components/icons";
-import { ThemeSwitch } from "@/components/theme-switch";
+import { ThemeSwitch } from "@/features/theme";
 import { siteConfig } from "@/config/site";
 import FadeHorizontal from "@/components/animation/fade-horizontal";
-import ActualTime from "@/components/actual-time";
-import LaunchMusic from "@/components/launch-music";
+import ActualTime from "@/components/navbar/actual-time";
+import { LaunchMusic } from "@/features/music";
 
 import { SearchInput } from "./search-input";
 

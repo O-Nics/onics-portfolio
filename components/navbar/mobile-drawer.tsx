@@ -12,7 +12,7 @@ import {
   DrawerTrigger,
 } from "@/components/ui/drawer";
 import FadeHorizontal from "@/components/animation/fade-horizontal";
-import ActualTime from "@/components/actual-time";
+import ActualTime from "@/components/navbar/actual-time";
 import { ToggleIcon } from "@/components/icons";
 import { siteConfig } from "@/config/site";
 

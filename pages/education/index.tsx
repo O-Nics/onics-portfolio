@@ -1,11 +1,11 @@
 import { useEffect, useState } from "react";
 
 import DefaultLayout from "@/layouts/default";
-import { NavigationInPage } from "@/components/navigation-in-page";
 import { Education, LinkNavigation } from "@/types";
 import FadeUp from "@/components/animation/fade-up";
-import { VerticalTimelineEducation } from "@/components/vertical-timeline-education";
+import { TimelineEducation } from "@/features/timeline";
 import { getAllFormation } from "@/lib/formations";
+import { NavigationInPage } from "@/features/navigation";
 
 export default function AboutPage() {
   const leftLink: LinkNavigation = {
@@ -50,7 +50,7 @@ export default function AboutPage() {
         {educations.length > 0 && (
           <div className="mt-10">
             {educations.map((education, index) => (
-              <VerticalTimelineEducation
+              <TimelineEducation
                 key={index}
                 education={education}
                 index={index}
@@ -60,7 +60,7 @@ export default function AboutPage() {
         )}
       </main>
       <FadeUp delay={educations.length * 0.1 + 0.3}>
-        <NavigationInPage left={leftLink} right={rightLink} />
+        <NavigationInPage leftLink={leftLink} rightLink={rightLink} />
       </FadeUp>
     </DefaultLayout>
   );

@@ -1,11 +1,11 @@
 import { useEffect, useState } from "react";
 
 import DefaultLayout from "@/layouts/default";
-import { NavigationInPage } from "@/components/navigation-in-page";
+import { NavigationInPage } from "@/features/navigation";
 import { Experience, LinkNavigation } from "@/types";
 import FadeUp from "@/components/animation/fade-up";
 import { getAllExperiences } from "@/lib/experiences";
-import { VerticalTimelineExperience } from "@/components/vertical-timeline-experience";
+import { TimelineExperience } from "@/features/timeline";
 
 export default function AProposPage() {
   const leftLink: LinkNavigation = {
@@ -59,7 +59,7 @@ export default function AProposPage() {
         {expericences.length > 0 && (
           <div className="mt-10">
             {expericences.map((experience, index) => (
-              <VerticalTimelineExperience
+              <TimelineExperience
                 key={index}
                 experience={experience}
                 index={index}
@@ -68,7 +68,7 @@ export default function AProposPage() {
           </div>
         )}
         <FadeUp delay={0.45}>
-          <NavigationInPage left={leftLink} right={rightLink} />
+          <NavigationInPage leftLink={leftLink} rightLink={rightLink} />
         </FadeUp>
       </main>
     </DefaultLayout>

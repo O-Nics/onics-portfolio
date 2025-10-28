@@ -12,7 +12,6 @@ import FsLightbox from "fslightbox-react";
 import DefaultLayout from "@/layouts/default";
 import { getAllProjects, getProjectBySlug } from "@/lib/projects";
 import { Project } from "@/types/project";
-import { title as titleClass } from "@/components/primitives";
 import {
   AndroidIcon,
   AppleIcon,
@@ -21,7 +20,7 @@ import {
   GithubIcon,
 } from "@/components/icons";
 import FadeUp from "@/components/animation/fade-up";
-import { NavigationInPage } from "@/components/navigation-in-page";
+import { NavigationInPage } from "@/features/navigation";
 import { LinkNavigation } from "@/types";
 import {
   Carousel,
@@ -231,7 +230,7 @@ export default function ProjectPage({ project }: ProjectPageProps) {
         <div className="flex flex-col gap-4">
           <div className="flex items-start justify-between">
             <FadeUp delay={0.05}>
-              <h1 className={titleClass({ size: "lg" })}>{project.title}</h1>
+              <h1>{project.title}</h1>
             </FadeUp>
             {project.status === "in-progress" && (
               <Chip color="warning" variant="flat">
@@ -514,7 +513,7 @@ export default function ProjectPage({ project }: ProjectPageProps) {
 
         {/* Navigation */}
         <FadeUp delay={0.55}>
-          <NavigationInPage left={leftLink} />
+          <NavigationInPage leftLink={leftLink}  />
         </FadeUp>
       </section>
     </DefaultLayout>

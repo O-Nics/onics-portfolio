@@ -3,11 +3,11 @@ import Link from "next/link";
 import { NavbarContent } from "@heroui/navbar";
 
 import { GithubIcon, SearchIcon } from "@/components/icons";
-import { ThemeSwitch } from "@/components/theme-switch";
+import { ThemeSwitch } from "@/features/theme";
 import { siteConfig } from "@/config/site";
 import FadeHorizontal from "@/components/animation/fade-horizontal";
-import LaunchMusic from "@/components/launch-music";
-import { useSearch } from "@/contexts/SearchContext";
+import { LaunchMusic } from "@/features/music";
+import { useSearch } from "@/features/search";
 
 interface MobileActionsProps {
   shouldAnimate: boolean;

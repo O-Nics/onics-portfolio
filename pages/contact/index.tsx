@@ -7,7 +7,7 @@ import Image from "next/image";
 
 import DefaultLayout from "@/layouts/default";
 import { LinkNavigation } from "@/types";
-import { NavigationInPage } from "@/components/navigation-in-page";
+import { NavigationInPage } from "@/features/navigation";
 import FadeUp from "@/components/animation/fade-up";
 
 export default function ContactPage() {
@@ -248,7 +248,7 @@ export default function ContactPage() {
           </form>
         </div>
 
-        <NavigationInPage left={leftLink} right={rightLink} />
+        <NavigationInPage leftLink={leftLink} rightLink={rightLink} />
       </main>
     </DefaultLayout>
   );

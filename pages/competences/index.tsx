@@ -4,7 +4,7 @@ import { useEffect, useState } from "react";
 import DefaultLayout from "@/layouts/default";
 import { LinkNavigation, Skill } from "@/types";
 import FadeUp from "@/components/animation/fade-up";
-import { NavigationInPage } from "@/components/navigation-in-page";
+import { NavigationInPage } from "@/features/navigation";
 import { getAllSkills } from "@/lib/skills";
 
 export default function CompetencesPage({}) {
@@ -80,7 +80,7 @@ dark:border-white/5 dark:bg-black/10"
         ))}
 
         <FadeUp delay={0.5}>
-          <NavigationInPage left={leftLink} right={rightLink} />
+          <NavigationInPage leftLink={leftLink} rightLink={rightLink} />
         </FadeUp>
       </main>
     </DefaultLayout>

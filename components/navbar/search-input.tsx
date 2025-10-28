@@ -3,7 +3,7 @@ import { Input } from "@heroui/input";
 import { Kbd } from "@heroui/kbd";
 
 import { SearchIcon } from "@/components/icons";
-import { useSearch } from "@/contexts/SearchContext";
+import { useSearch } from "@/features/search";
 
 export const SearchInput: React.FC = () => {
   const { openSearch } = useSearch();
