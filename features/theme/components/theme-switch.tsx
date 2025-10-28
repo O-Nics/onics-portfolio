@@ -33,7 +33,7 @@ export const ThemeSwitch: FC<ThemeSwitchProps> = ({ className }) => {
       <Button
         isIconOnly
         aria-label="Changer le thème"
-        className="icon-nav mt-[7px]"
+        className="icon-nav "
         variant="light"
       >
         <LightDarkIcon

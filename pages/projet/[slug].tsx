@@ -194,6 +194,15 @@ export default function ProjectPage({ project }: ProjectPageProps) {
     );
   }
 
+
+  const getChipColor = (status: string) => {
+    switch (status) {
+      case "Terminé":
+        return "success";
+      case "Actif":
+        return "warning";
+    }
+  }
   // Séparer les images et vidéos
   const images = project.media.filter((m) => m.type === "image");
   const videos = project.media.filter((m) => m.type === "video");
@@ -203,26 +212,40 @@ export default function ProjectPage({ project }: ProjectPageProps) {
       <section className="flex flex-col gap-6 pt-3 pb-4 md:pb-6">
         {/* Breadcrumb */}
         <FadeUp>
-          <div className="flex items-center  gap-2 font-bold text-sm">
-            <Link
-              as={NextLink}
-              className="text-default-500"
-              color="foreground"
-              href="/"
+          <div className="flex flex-col md:flex-row md:justify-between gap-2 md:items-center">
+            <div className="flex items-center  gap-2 font-bold text-sm">
+              <Link
+                as={NextLink}
+                className="text-default-500"
+                color="foreground"
+                href="/"
+              >
+                Accueil
+              </Link>
+              <span className="text-default-400 ">/</span>
+              <Link
+                as={NextLink}
+                className="text-default-500"
+                color="foreground"
+                href="/projets"
+              >
+                Projets
+              </Link>
+              <span className="text-default-400 ">/</span>
+              <span className="text-primary font-extrabold">{project.name}</span>
+            </div>
+            <Chip
+              classNames={{
+                dot: "dot-classes",
+                content: "text-xs font-bold px-3 py-1",
+                avatar: "avatar-classes",
+                closeButton: "close-button-classes",
+              }}
+              variant="flat"
+              color={getChipColor(project.status)}
             >
-              Accueil
-            </Link>
-            <span className="text-default-400 ">/</span>
-            <Link
-              as={NextLink}
-              className="text-default-500"
-              color="foreground"
-              href="/projets"
-            >
-              Projets
-            </Link>
-            <span className="text-default-400 ">/</span>
-            <span className="text-primary font-extrabold">{project.name}</span>
+              {project.status}
+            </Chip>
           </div>
         </FadeUp>
 

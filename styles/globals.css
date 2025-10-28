@@ -16,7 +16,7 @@ h1{
 }
 
 .corp{
-    @apply pt-4 lg:text-lg text-base;
+    @apply pt-4 lg:text-[16px] text-base;
 }
 
 .bg-no-saturate{

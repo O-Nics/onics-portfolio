@@ -1,7 +1,7 @@
 import { Html, Head, Main, NextScript } from "next/document";
 import clsx from "clsx";
 
-import {fontMono, fontSans} from "@/config/fonts";
+import {fontMono,  poppins} from "@/config/fonts";
 
 export default function Document() {
   return (
@@ -10,6 +10,7 @@ export default function Document() {
       <body
         className={clsx(
           "min-h-screen bg-background font-sans antialiased",
+          poppins.variable,
           fontMono.variable,
         )}
       >

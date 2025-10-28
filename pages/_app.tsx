@@ -4,7 +4,7 @@ import { HeroUIProvider } from "@heroui/system";
 import { ThemeProvider as NextThemesProvider } from "next-themes";
 import { useRouter } from "next/router";
 
-import { fontSans, fontMono } from "@/config/fonts";
+import {poppins, fontMono, fontSans} from "@/config/fonts";
 import "@/styles/globals.css";
 import { MusicProvider } from "@/features/music";
 
@@ -28,6 +28,7 @@ export default function App({ Component, pageProps }: AppProps) {
 }
 
 export const fonts = {
+  poppins: poppins.style.fontFamily,
   sans: fontSans.style.fontFamily,
   mono: fontMono.style.fontFamily,
 };

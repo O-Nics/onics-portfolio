@@ -112,7 +112,6 @@ export default function ProjetsPage({}: ProjetsPageProps) {
         </div>
 
         <NavigationInPage leftLink={leftLink} rightLink={rightLink} />
-        <NavigationInPage leftLink={leftLink} rightLink={rightLink} />
       </main>
     </DefaultLayout>
   );
