@@ -11,7 +11,7 @@ import Fade from "@/components/animation/fade";
 export default function AProposPage() {
   const leftLink: LinkNavigation = {
     name: "Compétences",
-    href: "/compétences",
+    href: "/competences",
   };
   const rightLink: LinkNavigation = {
     name: "Formations",

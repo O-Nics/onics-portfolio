@@ -18,12 +18,16 @@ import FadeHorizontal from "@/components/animation/fade-horizontal";
 import ActualTime from "@/components/navbar/actual-time";
 import { ToggleIcon } from "@/components/icons";
 import { siteConfig } from "@/config/site";
+import { getNavigationLinks } from "@/config/navigation";
+import { useTranslations } from "@/hooks/useTranslations";
 
 interface Props {
   shouldAnimate: boolean;
 }
 
 export const MobileDrawer: React.FC<Props> = ({ shouldAnimate }) => {
+  const { t } = useTranslations();
+  const navigationLinks = getNavigationLinks(t);
   return (
     <div className="h-[64px] md:hidden flex">
       <Drawer>
@@ -71,7 +75,7 @@ export const MobileDrawer: React.FC<Props> = ({ shouldAnimate }) => {
           <ul className="flex flex-1 w- flex-col gap-y-7 pt-4 px-6 pb-6 overflow-y-scroll">
             <li>
               <NavigationLinks
-                links={siteConfig.sidebarNavigation}
+                links={navigationLinks}
                 shouldAnimate={shouldAnimate}
               />
             </li>

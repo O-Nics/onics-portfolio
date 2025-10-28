@@ -5,8 +5,9 @@ const nextConfig = {
     viewTransition: true,
   },
   i18n: {
-    locales: ['fr'],
+    locales: ['fr', 'en'],
     defaultLocale: 'fr',
+    // La détection automatique est activée par défaut
   },
   // Compression automatique
   compress: true,

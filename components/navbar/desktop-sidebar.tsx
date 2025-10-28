@@ -4,12 +4,17 @@ import { NavigationLinks } from "./navigation-links";
 import { QuickLinks } from "./quick-links";
 
 import { siteConfig } from "@/config/site";
+import { getNavigationLinks } from "@/config/navigation";
+import { useTranslations } from "@/hooks/useTranslations";
 
 interface Props {
   shouldAnimate: boolean;
 }
 
 export const DesktopSidebar: React.FC<Props> = ({ shouldAnimate }) => {
+  const { t } = useTranslations();
+  const navigationLinks = getNavigationLinks(t);
+
   return (
     <div className="hidden mt-[65px] py-0 md:fixed md:inset-y-0 md:z-30 md:flex md:w-72 md:flex-col">
       <div className="bg-white dark:bg-primary/1 dark:border-primary/10 border-r border-l border-dashed border-gray-200">
@@ -18,7 +23,7 @@ export const DesktopSidebar: React.FC<Props> = ({ shouldAnimate }) => {
             <ul className="flex flex-1 flex-col gap-y-7">
               <li>
                 <NavigationLinks
-                  links={siteConfig.sidebarNavigation}
+                  links={navigationLinks}
                   shouldAnimate={shouldAnimate}
                 />
               </li>

@@ -6,18 +6,21 @@ import FadeUp from "@/components/animation/fade-up";
 import Fade from "@/components/animation/fade";
 import { PersonJsonLd, WebsiteJsonLd } from "@/components/seo/json-ld";
 import { siteConfig } from "@/config/site";
+import { useTranslations } from "@/hooks/useTranslations";
 
 export default function Example() {
+  const { t } = useTranslations();
+
   const rightLink: LinkNavigation = {
-    name: "À propos de moi",
+    name: t.home.nextLink,
     href: "/a-propos",
   };
 
   return (
     <>
       <PersonJsonLd
-        jobTitle="Développeur Full-Stack & Mobile"
-        name="Nicolas Planche"
+        jobTitle={t.home.subtitle}
+        name={t.home.title}
         sameAs={[
           "https://github.com/O-Nicks",
           "https://www.linkedin.com/in/nicolas-planche/",
@@ -30,31 +33,27 @@ export default function Example() {
         url="https://nicolas-planche.fr"
       />
       <DefaultLayout
-        description="Développeur Full-Stack & Mobile passionné par la tech. Je conçois des applications mobiles, web et des back-ends solides avec Flutter, Laravel, React, Vue.js et Tailwind CSS."
+        description={t.home.description1}
         keywords="développeur full-stack, développeur mobile, Flutter, Laravel, React, Next.js, Vue.js, Nuxt.js, Tailwind CSS, portfolio développeur"
-        title="Accueil"
+        title={t.common.home}
         type="profile"
         url="https://nicolas-planche.fr"
       >
         <main>
           <FadeUp>
-            <h1>Nicolas Planche</h1>
+            <h1>{t.home.title}</h1>
           </FadeUp>
           <FadeUp delay={0.05}>
-            <p className="subtitle">Développeur Full-Stack & Mobile</p>
+            <p className="subtitle">{t.home.subtitle}</p>
           </FadeUp>
           <FadeUp delay={0.1}>
             <p className="corp !pt-6">
-              Amoureux de la tech, je conçois des applications mobiles et web
-              ainsi que des back-ends solides.
+              {t.home.description1}
             </p>
           </FadeUp>
           <FadeUp delay={0.15}>
             <p className="corp">
-              J’utilise des technologies modernes tel que Flutter, Laravel,
-              Vue/Nuxt, Next/React, Tailwind CSS et des pratiques DevOps pour
-              livrer des solutions logicielles complètes, orientées utilisateur
-              et de haute qualité.
+              {t.home.description2}
             </p>
           </FadeUp>
 

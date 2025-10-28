@@ -1,0 +1,87 @@
+{
+  "nav": {
+    "introduction": "Introduction",
+    "about": "À propos de moi",
+    "projects": "Projets",
+    "skills": "Compétences",
+    "experiences": "Experiences",
+    "education": "Formations",
+    "contact": "Contact"
+  },
+  "home": {
+    "title": "Nicolas Planche",
+    "subtitle": "Développeur Full-Stack & Mobile",
+    "description1": "Amoureux de la tech, je conçois des applications mobiles et web ainsi que des back-ends solides.",
+    "description2": "J'utilise des technologies modernes tel que Flutter, Laravel, Vue/Nuxt, Next/React, Tailwind CSS et des pratiques DevOps pour livrer des solutions logicielles complètes, orientées utilisateur et de haute qualité.",
+    "nextLink": "À propos de moi"
+  },
+  "about": {
+    "title": "À propos de moi",
+    "subtitle": "Créer, apprendre, itérer",
+    "description1": "Développeur full-stack passionné, j'aime donner vie à des produits qui allient esthétique, performance et sens.",
+    "description2": "Mon approche repose sur la rigueur technique, la curiosité et une volonté constante d'apprendre et de progresser.",
+    "description3": "Du front au back, j'accorde une attention particulière à chaque détail : concevoir une interface fluide, structurer une architecture propre, optimiser les performances ou garantir la maintenabilité du code.",
+    "description4": "Mon objectif est simple : créer des applications utiles, agréables à utiliser et faciles à faire évoluer.",
+    "description5": "J'aime collaborer avec des équipes motivées, confronter les idées et trouver les solutions les plus adaptées aux besoins réels des utilisateurs.",
+    "description6": "Chaque projet est pour moi une nouvelle opportunité d'expérimenter, d'améliorer mes pratiques et de repousser mes limites pour livrer des produits fiables et durables."
+  },
+  "projects": {
+    "title": "Projets",
+    "subtitle": "Du concept à la mise en production.",
+    "subtitle2": "Mes projets les plus marquants.",
+    "description": "Chaque projet est une occasion de transformer une idée en solution concrète.",
+    "seeMore": "Voir plus",
+    "backToProjects": "Revenir aux projets",
+    "features": "Fonctionnalités",
+    "challenges": "Défis relevés",
+    "lessons": "Leçons apprises",
+    "technologies": "Technologies utilisées",
+    "links": "Liens"
+  },
+  "skills": {
+    "title": "Compétences",
+    "subtitle": "Apprendre par la pratique, maîtriser par la rigueur.",
+    "description": "J'ai appris en codant, en testant et en déboguant, jusqu'à faire du développement bien plus qu'un métier : une manière de penser. En tant que développeur full-stack, je conçois des applications web et mobiles performantes, maintenables et scalables, en cherchant toujours à repousser mes limites et à enrichir ma stack au fil des projets."
+  },
+  "experiences": {
+    "title": "Éxperience",
+    "subtitle": "On a besoin d'expérience pour décrocher le job… mais c'est le job qui donne l'expérience !"
+  },
+  "education": {
+    "title": "Formations",
+    "subtitle": "Apprendre, expérimenter, évoluer.",
+    "description": "De ma formation scientifique au lycée jusqu'à la licence Mathématiques et Informatique à l'Université Lyon 1, j'ai construit une base solide en logique et en conception logicielle."
+  },
+  "contact": {
+    "title": "Contact",
+    "subtitle": "Une question ? Un projet ? Envie de collaborer ?",
+    "description": "N'hésitez pas à me contacter. Je suis disponible pour discuter de vos projets ou répondre à vos questions.",
+    "form": {
+      "name": "Nom",
+      "namePlaceholder": "Votre nom",
+      "email": "Email",
+      "emailPlaceholder": "votre@email.com",
+      "subject": "Sujet",
+      "subjectPlaceholder": "Choisissez un sujet",
+      "message": "Message",
+      "messagePlaceholder": "Votre message...",
+      "submit": "Envoyer le message",
+      "submitting": "Envoi en cours...",
+      "success": "Message envoyé avec succès !",
+      "error": "Une erreur est survenue. Veuillez réessayer."
+    },
+    "subjects": {
+      "project": "Nouveau projet",
+      "collaboration": "Collaboration",
+      "question": "Question technique",
+      "recruits": "Recrutement",
+      "other": "Autre"
+    }
+  },
+  "common": {
+    "home": "Accueil",
+    "loading": "Chargement...",
+    "notFound": "Page non trouvée",
+    "backHome": "Retour à l'accueil"
+  }
+}
