@@ -7,6 +7,7 @@ import { NavigationInPage } from "@/features/navigation";
 import { LinkNavigation } from "@/types";
 import FadeUp from "@/components/animation/fade-up";
 import { getAllProjects } from "@/lib/projects";
+import Fade from "@/components/animation/fade";
 
 const projects = getAllProjects();
 
@@ -27,7 +28,13 @@ export default function ProjetsPage({}: ProjetsPageProps) {
   };
 
   return (
-    <DefaultLayout>
+    <DefaultLayout
+      title="Projets"
+      description="Découvrez mes projets de développement web et mobile : applications Flutter, sites Laravel, projets React/Vue. Du concept à la mise en production."
+      url="https://nicolas-planche.fr/projets"
+      type="website"
+      keywords="projets développeur, portfolio projets, Flutter, Laravel, React, Vue, applications web, applications mobile, Da Auto Sport, SpiderVO"
+    >
       <main>
         <FadeUp>
           <h1>Projets</h1>
@@ -110,8 +117,9 @@ export default function ProjetsPage({}: ProjetsPageProps) {
               </FadeUp>
             ))}
         </div>
-
-        <NavigationInPage leftLink={leftLink} rightLink={rightLink} />
+        <Fade delay={projects.length * 0.1 + 0.2}>
+          <NavigationInPage leftLink={leftLink} rightLink={rightLink} />
+        </Fade>
       </main>
     </DefaultLayout>
   );

@@ -6,6 +6,7 @@ import FadeUp from "@/components/animation/fade-up";
 import { TimelineEducation } from "@/features/timeline";
 import { getAllFormation } from "@/lib/formations";
 import { NavigationInPage } from "@/features/navigation";
+import Fade from "@/components/animation/fade";
 
 export default function AboutPage() {
   const leftLink: LinkNavigation = {
@@ -24,7 +25,13 @@ export default function AboutPage() {
   }, []);
 
   return (
-    <DefaultLayout>
+    <DefaultLayout
+      title="Formations"
+      description="Mon parcours académique et mes formations : Licence Mathématiques et Informatique, formation scientifique et apprentissage continu."
+      url="https://nicolas-planche.fr/education"
+      type="profile"
+      keywords="formations développeur, parcours académique, licence informatique, mathématiques, Université Lyon 1, formation scientifique"
+    >
       <main className="">
         <FadeUp>
           <h1>Formations</h1>
@@ -59,9 +66,10 @@ export default function AboutPage() {
           </div>
         )}
       </main>
-      <FadeUp delay={educations.length * 0.1 + 0.3}>
-        <NavigationInPage leftLink={leftLink} rightLink={rightLink} />
-      </FadeUp>
+
+        <Fade delay={educations.length * 0.1 + 0.3}>
+          <NavigationInPage leftLink={leftLink} rightLink={rightLink} />
+        </Fade>
     </DefaultLayout>
   );
 }

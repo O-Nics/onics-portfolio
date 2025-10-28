@@ -6,6 +6,7 @@ import { Experience, LinkNavigation } from "@/types";
 import FadeUp from "@/components/animation/fade-up";
 import { getAllExperiences } from "@/lib/experiences";
 import { TimelineExperience } from "@/features/timeline";
+import Fade from "@/components/animation/fade";
 
 export default function AProposPage() {
   const leftLink: LinkNavigation = {
@@ -24,7 +25,13 @@ export default function AProposPage() {
   }, []);
 
   return (
-    <DefaultLayout>
+    <DefaultLayout
+      title="Expériences"
+      description="Mon parcours professionnel en tant que développeur full-stack et mobile : expériences, projets réalisés et compétences acquises."
+      url="https://nicolas-planche.fr/xp"
+      type="profile"
+      keywords="expériences professionnelles, parcours développeur, développeur full-stack, freelance, Da Auto Sport, projets professionnels"
+    >
       <main className="">
         <FadeUp>
           <h1>Éxperience</h1>
@@ -67,9 +74,9 @@ export default function AProposPage() {
             ))}
           </div>
         )}
-        <FadeUp delay={0.45}>
+        <Fade delay={0.45}>
           <NavigationInPage leftLink={leftLink} rightLink={rightLink} />
-        </FadeUp>
+        </Fade>
       </main>
     </DefaultLayout>
   );

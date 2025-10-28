@@ -3,15 +3,36 @@ import { Head } from "./head";
 import { Navbar } from "@/components/navbar";
 import { SearchModal, SearchProvider } from "@/features/search";
 
+interface DefaultLayoutProps {
+  children: React.ReactNode;
+  title?: string;
+  description?: string;
+  image?: string;
+  url?: string;
+  type?: "website" | "article" | "profile";
+  keywords?: string;
+}
+
 export default function DefaultLayout({
   children,
-}: {
-  children: React.ReactNode;
-}) {
+  title,
+  description,
+  image,
+  url,
+  type,
+  keywords,
+}: DefaultLayoutProps) {
   return (
     <SearchProvider>
       <div className="relative flex flex-col min-h-screen">
-        <Head />
+        <Head
+          title={title}
+          description={description}
+          image={image}
+          url={url}
+          type={type}
+          keywords={keywords}
+        />
         <Navbar />
         <SearchModal />
         <main className="container-wrapper flex-grow md:pl-72 border-gray-200 dark:border-primary/10 border-dashed border-r">

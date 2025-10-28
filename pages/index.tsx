@@ -3,6 +3,9 @@ import DefaultLayout from "@/layouts/default";
 import { NavigationInPage } from "@/features/navigation";
 import { LinkNavigation } from "@/types";
 import FadeUp from "@/components/animation/fade-up";
+import Fade from "@/components/animation/fade";
+import { PersonJsonLd, WebsiteJsonLd } from "@/components/seo/json-ld";
+import { siteConfig } from "@/config/site";
 
 export default function Example() {
   const rightLink: LinkNavigation = {
@@ -12,15 +15,27 @@ export default function Example() {
 
   return (
     <>
-      {/*
-        This example requires updating your template:
-
-        ```
-        <html class="h-full bg-white dark:bg-gray-900">
-        <body class="h-full">
-        ```
-      */}
-      <DefaultLayout>
+      <PersonJsonLd
+        name="Nicolas Planche"
+        jobTitle="Développeur Full-Stack & Mobile"
+        url="https://nicolas-planche.fr"
+        sameAs={[
+          "https://github.com/O-Nicks",
+          "https://www.linkedin.com/in/nicolas-planche/",
+        ]}
+      />
+      <WebsiteJsonLd
+        name={siteConfig.name}
+        description={siteConfig.description}
+        url="https://nicolas-planche.fr"
+      />
+      <DefaultLayout
+        title="Accueil"
+        description="Développeur Full-Stack & Mobile passionné par la tech. Je conçois des applications mobiles, web et des back-ends solides avec Flutter, Laravel, React, Vue.js et Tailwind CSS."
+        url="https://nicolas-planche.fr"
+        type="profile"
+        keywords="développeur full-stack, développeur mobile, Flutter, Laravel, React, Next.js, Vue.js, Nuxt.js, Tailwind CSS, portfolio développeur"
+      >
         <main>
           <FadeUp>
             <h1>Nicolas Planche</h1>
@@ -43,9 +58,9 @@ export default function Example() {
             </p>
           </FadeUp>
 
-          <FadeUp delay={0.2}>
+          <Fade delay={0.2}>
             <NavigationInPage rightLink={rightLink} />
-          </FadeUp>
+          </Fade>
         </main>
       </DefaultLayout>
     </>

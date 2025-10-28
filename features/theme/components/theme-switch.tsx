@@ -48,15 +48,15 @@ export const ThemeSwitch: FC<ThemeSwitchProps> = ({ className }) => {
     <Dropdown
       classNames={{
         content: "!z-[99999]",
-        base: "!z-[99999]",
+        base: "!z-[99999] hover:!bg-transparent",
       }}
       shouldBlockScroll={false}
     >
-      <DropdownTrigger>
+      <DropdownTrigger >
         <Button
           isIconOnly
           aria-label="Changer le thème"
-          className="icon-nav rounded-full"
+          className="icon-nav rounded-full "
           variant="light"
         >
           <LightDarkIcon
@@ -70,26 +70,27 @@ export const ThemeSwitch: FC<ThemeSwitchProps> = ({ className }) => {
         </Button>
       </DropdownTrigger>
       <DropdownMenu
+
         aria-label="Sélection du thème"
         onAction={(key) => setTheme(key as string)}
       >
         <DropdownItem
           key="light"
-          className={`${theme === "light" ? "bg-primary/20 " : ""}`}
+          className={`${theme === "light" ? "bg-primary/20 " : "hover:!bg-gray-100 dark:hover:!bg-gray-700/50"}`}
           startContent={<SunIcon size={18} />}
         >
           Clair
         </DropdownItem>
         <DropdownItem
           key="dark"
-          className={`${theme === "dark" ? "bg-primary/50" : ""}`}
+          className={`${theme === "dark" ? "bg-primary/50" : "hover:!bg-gray-100 dark:hover:!bg-gray-700/50"}`}
           startContent={<MoonIcon size={18} />}
         >
           Sombre
         </DropdownItem>
         <DropdownItem
           key="system"
-          className={`${theme === "system" ? "bg-primary/50" : ""}`}
+          className={`${theme === "system" ? "bg-primary/50" : "hover:!bg-gray-100 dark:hover:!bg-gray-700/50"}`}
           startContent={<MonitorIcon size={18} />}
         >
           Système

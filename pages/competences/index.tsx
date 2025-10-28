@@ -6,6 +6,7 @@ import { LinkNavigation, Skill } from "@/types";
 import FadeUp from "@/components/animation/fade-up";
 import { NavigationInPage } from "@/features/navigation";
 import { getAllSkills } from "@/lib/skills";
+import Fade from "@/components/animation/fade";
 
 export default function CompetencesPage({}) {
   const leftLink: LinkNavigation = {
@@ -24,7 +25,13 @@ export default function CompetencesPage({}) {
   }, []);
 
   return (
-    <DefaultLayout>
+    <DefaultLayout
+      title="Compétences"
+      description="Mes compétences techniques en développement : Flutter, Laravel, React, Vue.js, Next.js, Nuxt.js, TypeScript, Tailwind CSS, DevOps et bien plus."
+      url="https://nicolas-planche.fr/competences"
+      type="website"
+      keywords="compétences développeur, Flutter, Laravel, React, Vue.js, Next.js, Nuxt.js, TypeScript, JavaScript, Tailwind CSS, DevOps, Docker, Git"
+    >
       <main>
         <FadeUp>
           <h1>Compétences</h1>
@@ -79,9 +86,9 @@ dark:border-white/5 dark:bg-black/10"
           </FadeUp>
         ))}
 
-        <FadeUp delay={0.5}>
+        <Fade delay={0.5}>
           <NavigationInPage leftLink={leftLink} rightLink={rightLink} />
-        </FadeUp>
+        </Fade>
       </main>
     </DefaultLayout>
   );

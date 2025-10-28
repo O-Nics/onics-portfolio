@@ -37,6 +37,7 @@ export const MobileDrawer: React.FC<Props> = ({ shouldAnimate }) => {
                 <Image
                   priority
                   alt="Nicolas Planche"
+                  title="Nicolas Planche"
                   className="rounded-full"
                   height={45}
                   quality={90}
