@@ -43,7 +43,7 @@ export default function FadeHorizontal({
 
   return (
     <LazyMotion features={domAnimation}>
-      <m.span
+      <m.div
         className={className}
         initial={
           shouldAnimate
@@ -55,7 +55,7 @@ export default function FadeHorizontal({
         whileInView={{ opacity: 1, x: 0, y: 0 }}
       >
         {children}
-      </m.span>
+      </m.div>
     </LazyMotion>
   );
 }

@@ -244,21 +244,9 @@ export const Navbar = () => {
                           </Link>
 
                           <NavbarItem className="flex  items-center">
-                            <FadeHorizontal
-                              className="mr-3"
-                              delay={0.1}
-                              shouldAnimate={shouldAnimate}
-                            >
-                              <LaunchMusic />
-                            </FadeHorizontal>
 
-                            <FadeHorizontal
-                              className="mr-5"
-                              delay={0.15}
-                              shouldAnimate={shouldAnimate}
-                            >
-                              <ThemeSwitch />
-                            </FadeHorizontal>
+
+
 
                             <FadeHorizontal
                               className=""
@@ -422,37 +410,45 @@ export const Navbar = () => {
             >
               <ActualTime />
             </FadeHorizontal>
-            <NavbarItem className="hidden sm:flex  items-center">
+            <NavbarItem className="hidden sm:flex  items-center ">
               <FadeHorizontal
-                className=""
                 delay={0.15}
+                className="items-center flex "
                 shouldAnimate={shouldAnimate}
               >
                 <LaunchMusic />
               </FadeHorizontal>
               <FadeHorizontal
-                className=""
+                className="items-center flex"
                 delay={0.2}
                 shouldAnimate={shouldAnimate}
               >
                 <Link
-                  className="icon-nav"
+                  className="items-center flex "
                   href={siteConfig.links.github}
                   title="GitHub"
                 >
+                  <Button
+                    isIconOnly
+                    aria-label="Changer le thème"
+                    className="icon-nav rounded-full"
+                    variant="light">
+
                   <GithubIcon
                     className="icon text-default-500 hover:text-black dark:hover:text-white"
                     size={44}
                   />
+                  </Button>
                 </Link>
               </FadeHorizontal>
 
               <FadeHorizontal
-                className=""
                 delay={0.25}
+                className="items-center flex "
+
                 shouldAnimate={shouldAnimate}
               >
-                <ThemeSwitch />
+                  <ThemeSwitch />
               </FadeHorizontal>
             </NavbarItem>
           </NavbarContent>
@@ -477,7 +473,7 @@ export const Navbar = () => {
               />
             </FadeHorizontal>
             <FadeHorizontal
-              className="mr-7"
+              className="mr-4"
               delay={0.15}
               shouldAnimate={shouldAnimate}
             >
@@ -486,7 +482,10 @@ export const Navbar = () => {
               </Link>
             </FadeHorizontal>
 
-            <FadeHorizontal delay={0.2} shouldAnimate={shouldAnimate}>
+            <FadeHorizontal delay={0.2} shouldAnimate={shouldAnimate}
+                            className="items-center flex "
+            >
+
               <ThemeSwitch />
             </FadeHorizontal>
             <FadeHorizontal delay={0.25} shouldAnimate={shouldAnimate} />

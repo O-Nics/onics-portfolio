@@ -1,98 +1,100 @@
 import { FC, useState, useEffect } from "react";
-import { VisuallyHidden } from "@react-aria/visually-hidden";
-import { SwitchProps, useSwitch } from "@heroui/switch";
 import { useTheme } from "next-themes";
-import clsx from "clsx";
+import {
+  Dropdown,
+  DropdownTrigger,
+  DropdownMenu,
+  DropdownItem,
+} from "@heroui/dropdown";
+import { Button } from "@heroui/button";
 
-import { MoonIcon, SunIcon } from "@/components/icons";
+import {
+  MoonIcon,
+  SunIcon,
+  MonitorIcon,
+  LightDarkIcon,
+} from "@/components/icons";
 
 export interface ThemeSwitchProps {
   className?: string;
-  classNames?: SwitchProps["classNames"];
 }
 
-export const ThemeSwitch: FC<ThemeSwitchProps> = ({
-  className,
-  classNames,
-}) => {
+export const ThemeSwitch: FC<ThemeSwitchProps> = ({ className }) => {
   const [isMounted, setIsMounted] = useState(false);
-
   const { theme, setTheme } = useTheme();
-
-  const onChange = () => {
-    theme === "light" ? setTheme("dark") : setTheme("light");
-  };
-
-  const {
-    Component,
-    slots,
-    isSelected,
-    getBaseProps,
-    getInputProps,
-    getWrapperProps,
-  } = useSwitch({
-    isSelected: theme === "light",
-    onChange,
-  });
 
   useEffect(() => {
     setIsMounted(true);
-  }, [isMounted]);
+  }, []);
 
   // Prevent Hydration Mismatch
-  if (!isMounted) return <div className="md:w-[41px] md:h-6 w-[19px] h-5" />;
+  if (!isMounted)
+    return (
+      <Button
+        isIconOnly
+        aria-label="Changer le thème"
+        className="icon-nav mt-[7px]"
+        variant="light"
+      >
+        <LightDarkIcon
+          className="icon text-default-500 hidden md:block hover:text-black dark:hover:text-white"
+          size={44}
+        />
+        <LightDarkIcon className="text-default-500 block md:hidden" size={21} />
+      </Button>
+    );
 
   return (
-    <Component
-      aria-label={isSelected ? "Switch to dark mode" : "Switch to light mode"}
-      {...getBaseProps({
-        className: clsx(
-          "item-center flex transition-opacity hover:opacity-80 cursor-pointer",
-          className,
-          classNames?.base,
-        ),
-      })}
+    <Dropdown
+      classNames={{
+        content: "!z-[99999]",
+        base: "!z-[99999]",
+      }}
+      shouldBlockScroll={false}
     >
-      <VisuallyHidden>
-        <input {...getInputProps()} />
-      </VisuallyHidden>
-      <div
-        {...getWrapperProps()}
-        className={slots.wrapper({
-          class: clsx(
-            [
-              "w-auto h-auto",
-              "bg-transparent",
-              "rounded-lg",
-              "flex items-center justify-center",
-              "group-data-[selected=true]:bg-transparent",
-              "!text-default-500",
-              "pt-px",
-              "px-0",
-              "mx-0",
-            ],
-            classNames?.wrapper,
-          ),
-        })}
+      <DropdownTrigger>
+        <Button
+          isIconOnly
+          aria-label="Changer le thème"
+          className="icon-nav rounded-full"
+          variant="light"
+        >
+          <LightDarkIcon
+            className="icon text-default-500 hidden md:block hover:text-black dark:hover:text-white"
+            size={45}
+          />
+          <LightDarkIcon
+            className="text-default-500 block md:hidden"
+            size={20}
+          />
+        </Button>
+      </DropdownTrigger>
+      <DropdownMenu
+        aria-label="Sélection du thème"
+        onAction={(key) => setTheme(key as string)}
       >
-        {isSelected ? (
-          <div className="icon-nav">
-            {/* Mobile (moins que lg) */}
-            <MoonIcon className="block mb-[1px] md:hidden" size={19} />
-
-            {/* Desktop (lg et plus) */}
-            <MoonIcon className="hidden mb-[1px] md:block icon " size={41} />
-          </div>
-        ) : (
-          <div className="icon-nav">
-            {/* Mobile (moins que lg) */}
-            <SunIcon className="block mb-[1px] md:hidden  " size={19} />
-
-            {/* Desktop (lg et plus) */}
-            <SunIcon className="hidden mb-[1px] md:block icon" size={41} />
-          </div>
-        )}
-      </div>
-    </Component>
+        <DropdownItem
+          key="light"
+          className={`${theme === "light" ? "bg-primary/20 " : ""}`}
+          startContent={<SunIcon size={18} />}
+        >
+          Clair
+        </DropdownItem>
+        <DropdownItem
+          key="dark"
+          className={`${theme === "dark" ? "bg-primary/50" : ""}`}
+          startContent={<MoonIcon size={18} />}
+        >
+          Sombre
+        </DropdownItem>
+        <DropdownItem
+          key="system"
+          className={`${theme === "system" ? "bg-primary/50" : ""}`}
+          startContent={<MonitorIcon size={18} />}
+        >
+          Système
+        </DropdownItem>
+      </DropdownMenu>
+    </Dropdown>
   );
 };

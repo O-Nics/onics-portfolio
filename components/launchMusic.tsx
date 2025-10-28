@@ -1,3 +1,5 @@
+import { Button } from "@heroui/button";
+
 import { MusicIcon } from "@/components/icons";
 import { useMusic } from "@/contexts/MusicContext";
 type LaunchMusicProps = {
@@ -16,19 +18,22 @@ export default function LaunchMusic({ size = 42 }: LaunchMusicProps) {
 
   return (
     <>
-      <button
-        className={`icon-nav cursor-pointer items-center flex`}
+      <Button
+        isIconOnly
+        aria-label="Changer le thème"
+        className="icon-nav mt-[2px]  rounded-full"
+        variant="light"
         onClick={toggleMusic}
       >
         <MusicIcon
-          className={`icon mt-[4px] hover:text-red-500 transition-all ${isPlaying ? "!text-red-500" : "text-default-500"}`}
+          className={`icon hover:text-red-500 transition-all ${isPlaying ? "!text-red-500" : "text-default-500"}`}
           size={size}
           style={{
             transform: `scale(${dynamicScale})  `,
-            transition: "transform 0.1s ease-out",
+            transition: `${isPlaying ? "transform 0.1s ease-out" : ""}`,
           }}
         />
-      </button>
+      </Button>
     </>
   );
 }

@@ -236,6 +236,36 @@ export const MoonIcon: React.FC<IconSvgProps> = ({
     </svg>
   );
 };
+export const LightDarkIcon: React.FC<IconSvgProps> = ({
+  size = 24,
+  width,
+  height,
+  ...props
+}) => {
+  return (
+    <svg
+      className="size-4.5"
+      fill="none"
+      height={size || height}
+      stroke="currentColor"
+      strokeLinecap="round"
+      strokeLinejoin="round"
+      strokeWidth="2"
+      viewBox="0 0 24 24"
+      width={size || width}
+      xmlns="http://www.w3.org/2000/svg"
+      {...props}
+    >
+      <path d="M0 0h24v24H0z" fill="none" stroke="none" />
+      <path d="M12 12m-9 0a9 9 0 1 0 18 0a9 9 0 1 0 -18 0" />
+      <path d="M12 3l0 18" />
+      <path d="M12 9l4.65 -4.65" />
+      <path d="M12 14.3l7.37 -7.37" />
+      <path d="M12 19.6l8.85 -8.85" />
+    </svg>
+  );
+};
+
 export const SunIcon: React.FC<IconSvgProps> = ({
   size = 24,
   width,
@@ -264,6 +294,33 @@ export const SunIcon: React.FC<IconSvgProps> = ({
     </svg>
   );
 };
+
+export const MonitorIcon: React.FC<IconSvgProps> = ({
+  size = 24,
+  width,
+  height,
+  ...props
+}) => {
+  return (
+    <svg
+      fill="none"
+      height={size || height}
+      stroke="currentColor"
+      strokeLinecap="round"
+      strokeLinejoin="round"
+      strokeWidth="2"
+      viewBox="0 0 24 24"
+      width={size || width}
+      xmlns="http://www.w3.org/2000/svg"
+      {...props}
+    >
+      <rect height="14" rx="2" width="20" x="2" y="3" />
+      <line x1="8" x2="16" y1="21" y2="21" />
+      <line x1="12" x2="12" y1="17" y2="21" />
+    </svg>
+  );
+};
+
 export const MusicIcon: React.FC<IconSvgProps> = ({
   size = 24,
   width,
