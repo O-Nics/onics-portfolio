@@ -1,7 +1,7 @@
 import { useEffect, useState } from "react";
 
 import DefaultLayout from "@/layouts/default";
-import { NavigationInPage } from "@/components/navigationInPage";
+import { NavigationInPage } from "@/components/navigation-in-page";
 import { Experience, LinkNavigation } from "@/types";
 import FadeUp from "@/components/animation/fade-up";
 import { getAllExperiences } from "@/lib/experiences";

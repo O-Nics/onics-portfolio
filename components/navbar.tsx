@@ -26,7 +26,7 @@ import FadeUp from "@/components/animation/fade-up";
 import { useFirstVisitAnimation } from "@/hooks/useFirstVisitAnimation";
 import FadeHorizontal from "@/components/animation/fade-horizontal";
 import ActualTime from "@/components/actual-time";
-import LaunchMusic from "@/components/launchMusic";
+import LaunchMusic from "@/components/launch-music";
 import {
   Drawer,
   DrawerClose,

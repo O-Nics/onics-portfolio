@@ -2,7 +2,7 @@
 import { Chip } from "@heroui/chip";
 import React from "react";
 
-import DotAnimated from "@/components/animation/dot_animated";
+import DotAnimated from "@/components/animation/dot-animated";
 
 declare global {
   interface Window {

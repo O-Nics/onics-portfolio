@@ -1,7 +1,7 @@
 import { useEffect, useState } from "react";
 
 import DefaultLayout from "@/layouts/default";
-import { NavigationInPage } from "@/components/navigationInPage";
+import { NavigationInPage } from "@/components/navigation-in-page";
 import { Education, LinkNavigation } from "@/types";
 import FadeUp from "@/components/animation/fade-up";
 import { VerticalTimelineEducation } from "@/components/vertical-timeline-education";

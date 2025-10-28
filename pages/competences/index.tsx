@@ -4,7 +4,7 @@ import { useEffect, useState } from "react";
 import DefaultLayout from "@/layouts/default";
 import { LinkNavigation, Skill } from "@/types";
 import FadeUp from "@/components/animation/fade-up";
-import { NavigationInPage } from "@/components/navigationInPage";
+import { NavigationInPage } from "@/components/navigation-in-page";
 import { getAllSkills } from "@/lib/skills";
 
 export default function CompetencesPage({}) {

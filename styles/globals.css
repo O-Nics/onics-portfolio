@@ -1,5 +1,5 @@
 @import "tailwindcss";
-@plugin "../hero.ts";
+@plugin "../config/heroui-plugin.ts";
 
 .container-wrapper {
     max-width: 1560px;

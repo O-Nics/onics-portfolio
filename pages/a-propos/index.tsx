@@ -1,5 +1,5 @@
 import DefaultLayout from "@/layouts/default";
-import { NavigationInPage } from "@/components/navigationInPage";
+import { NavigationInPage } from "@/components/navigation-in-page";
 import { LinkNavigation } from "@/types";
 import FadeUp from "@/components/animation/fade-up";
 

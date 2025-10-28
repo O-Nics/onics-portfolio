@@ -21,7 +21,7 @@ import {
   GithubIcon,
 } from "@/components/icons";
 import FadeUp from "@/components/animation/fade-up";
-import { NavigationInPage } from "@/components/navigationInPage";
+import { NavigationInPage } from "@/components/navigation-in-page";
 import { LinkNavigation } from "@/types";
 import {
   Carousel,
