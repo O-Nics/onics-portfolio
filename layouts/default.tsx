@@ -26,12 +26,12 @@ export default function DefaultLayout({
     <SearchProvider>
       <div className="relative flex flex-col min-h-screen">
         <Head
-          title={title}
           description={description}
           image={image}
-          url={url}
-          type={type}
           keywords={keywords}
+          title={title}
+          type={type}
+          url={url}
         />
         <Navbar />
         <SearchModal />

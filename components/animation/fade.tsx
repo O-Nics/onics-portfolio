@@ -40,7 +40,7 @@ export default function Fade({
     <LazyMotion features={domAnimation}>
       <m.div
         className={className}
-        initial={shouldAnimate ? { opacity: 0, y:0 } : { opacity: 1, y: 0 }}
+        initial={shouldAnimate ? { opacity: 0, y: 0 } : { opacity: 1, y: 0 }}
         transition={{ duration, delay, ease: "backOut" }}
         viewport={{ once, margin: "0px 0px 10% 0px" }}
         whileInView={{ opacity: 1, y: 0 }}

@@ -56,9 +56,7 @@ export const QuickLinks: React.FC<Props> = ({
                     </span>
                     {quickLink.isExternal && (
                       <span>
-                        <ArrowHorizontalLineIcon
-                          className="size-5 rotate-320 transition text-transparent dark:group-hover:text-primary group-hover:text-gray-400"
-                        />
+                        <ArrowHorizontalLineIcon className="size-5 rotate-320 transition text-transparent dark:group-hover:text-primary group-hover:text-gray-400" />
                       </span>
                     )}
                   </div>

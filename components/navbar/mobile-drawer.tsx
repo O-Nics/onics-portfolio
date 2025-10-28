@@ -4,6 +4,9 @@ import Image from "next/image";
 import { CloseIcon } from "@heroui/shared-icons";
 import { NavbarItem } from "@heroui/navbar";
 
+import { NavigationLinks } from "./navigation-links";
+import { QuickLinks } from "./quick-links";
+
 import {
   Drawer,
   DrawerClose,
@@ -15,9 +18,6 @@ import FadeHorizontal from "@/components/animation/fade-horizontal";
 import ActualTime from "@/components/navbar/actual-time";
 import { ToggleIcon } from "@/components/icons";
 import { siteConfig } from "@/config/site";
-
-import { NavigationLinks } from "./navigation-links";
-import { QuickLinks } from "./quick-links";
 
 interface Props {
   shouldAnimate: boolean;
@@ -37,11 +37,11 @@ export const MobileDrawer: React.FC<Props> = ({ shouldAnimate }) => {
                 <Image
                   priority
                   alt="Nicolas Planche"
-                  title="Nicolas Planche"
                   className="rounded-full"
                   height={45}
                   quality={90}
                   src="/61987116.jpeg"
+                  title="Nicolas Planche"
                   width={45}
                 />
               </FadeHorizontal>

@@ -16,25 +16,25 @@ export default function Example() {
   return (
     <>
       <PersonJsonLd
-        name="Nicolas Planche"
         jobTitle="Développeur Full-Stack & Mobile"
-        url="https://nicolas-planche.fr"
+        name="Nicolas Planche"
         sameAs={[
           "https://github.com/O-Nicks",
           "https://www.linkedin.com/in/nicolas-planche/",
         ]}
+        url="https://nicolas-planche.fr"
       />
       <WebsiteJsonLd
-        name={siteConfig.name}
         description={siteConfig.description}
+        name={siteConfig.name}
         url="https://nicolas-planche.fr"
       />
       <DefaultLayout
-        title="Accueil"
         description="Développeur Full-Stack & Mobile passionné par la tech. Je conçois des applications mobiles, web et des back-ends solides avec Flutter, Laravel, React, Vue.js et Tailwind CSS."
-        url="https://nicolas-planche.fr"
-        type="profile"
         keywords="développeur full-stack, développeur mobile, Flutter, Laravel, React, Next.js, Vue.js, Nuxt.js, Tailwind CSS, portfolio développeur"
+        title="Accueil"
+        type="profile"
+        url="https://nicolas-planche.fr"
       >
         <main>
           <FadeUp>

@@ -1,7 +1,7 @@
 import { Html, Head, Main, NextScript } from "next/document";
 import clsx from "clsx";
 
-import {fontMono,  poppins} from "@/config/fonts";
+import { fontMono, poppins } from "@/config/fonts";
 
 export default function Document() {
   return (

@@ -19,7 +19,7 @@ export interface ThemeSwitchProps {
   className?: string;
 }
 
-export const ThemeSwitch: FC<ThemeSwitchProps> = ({ className }) => {
+export const ThemeSwitch: FC<ThemeSwitchProps> = () => {
   const [isMounted, setIsMounted] = useState(false);
   const { theme, setTheme } = useTheme();
 
@@ -52,7 +52,7 @@ export const ThemeSwitch: FC<ThemeSwitchProps> = ({ className }) => {
       }}
       shouldBlockScroll={false}
     >
-      <DropdownTrigger >
+      <DropdownTrigger>
         <Button
           isIconOnly
           aria-label="Changer le thème"
@@ -70,7 +70,6 @@ export const ThemeSwitch: FC<ThemeSwitchProps> = ({ className }) => {
         </Button>
       </DropdownTrigger>
       <DropdownMenu
-
         aria-label="Sélection du thème"
         onAction={(key) => setTheme(key as string)}
       >

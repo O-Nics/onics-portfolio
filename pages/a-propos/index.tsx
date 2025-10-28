@@ -16,11 +16,11 @@ export default function AProposPage() {
 
   return (
     <DefaultLayout
-      title="À propos de moi"
       description="Développeur full-stack passionné, j'aime donner vie à des produits qui allient esthétique, performance et sens. Découvrez mon parcours et mes valeurs."
-      url="https://nicolas-planche.fr/a-propos"
-      type="profile"
       keywords="à propos, parcours développeur, valeurs, développeur full-stack, Nicolas Planche"
+      title="À propos de moi"
+      type="profile"
+      url="https://nicolas-planche.fr/a-propos"
     >
       <main className="">
         <FadeUp>

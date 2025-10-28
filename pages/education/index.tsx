@@ -26,11 +26,11 @@ export default function AboutPage() {
 
   return (
     <DefaultLayout
-      title="Formations"
-      description="Mon parcours académique et mes formations : Licence Mathématiques et Informatique, formation scientifique et apprentissage continu."
-      url="https://nicolas-planche.fr/education"
-      type="profile"
+      description="Mon parcours académique et mes formations : Licence, Master, formation scientifique et apprentissage continu."
       keywords="formations développeur, parcours académique, licence informatique, mathématiques, Université Lyon 1, formation scientifique"
+      title="Formations"
+      type="profile"
+      url="https://nicolas-planche.fr/education"
     >
       <main className="">
         <FadeUp>
@@ -67,9 +67,9 @@ export default function AboutPage() {
         )}
       </main>
 
-        <Fade delay={educations.length * 0.1 + 0.3}>
-          <NavigationInPage leftLink={leftLink} rightLink={rightLink} />
-        </Fade>
+      <Fade delay={educations.length * 0.1 + 0.3}>
+        <NavigationInPage leftLink={leftLink} rightLink={rightLink} />
+      </Fade>
     </DefaultLayout>
   );
 }

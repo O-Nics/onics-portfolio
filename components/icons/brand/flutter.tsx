@@ -1,4 +1,5 @@
 import React from "react";
+
 import { IconSvgProps } from "../types";
 
 export const FlutterIcon: React.FC<IconSvgProps> = ({

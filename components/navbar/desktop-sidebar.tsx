@@ -1,9 +1,9 @@
 import React from "react";
 
-import { siteConfig } from "@/config/site";
-
 import { NavigationLinks } from "./navigation-links";
 import { QuickLinks } from "./quick-links";
+
+import { siteConfig } from "@/config/site";
 
 interface Props {
   shouldAnimate: boolean;

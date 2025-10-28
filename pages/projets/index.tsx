@@ -29,11 +29,11 @@ export default function ProjetsPage({}: ProjetsPageProps) {
 
   return (
     <DefaultLayout
-      title="Projets"
       description="Découvrez mes projets de développement web et mobile : applications Flutter, sites Laravel, projets React/Vue. Du concept à la mise en production."
-      url="https://nicolas-planche.fr/projets"
-      type="website"
       keywords="projets développeur, portfolio projets, Flutter, Laravel, React, Vue, applications web, applications mobile, Da Auto Sport, SpiderVO"
+      title="Projets"
+      type="website"
+      url="https://nicolas-planche.fr/projets"
     >
       <main>
         <FadeUp>

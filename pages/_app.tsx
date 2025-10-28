@@ -4,7 +4,7 @@ import { HeroUIProvider } from "@heroui/system";
 import { ThemeProvider as NextThemesProvider } from "next-themes";
 import { useRouter } from "next/router";
 
-import {poppins, fontMono, fontSans} from "@/config/fonts";
+import { poppins, fontMono, fontSans } from "@/config/fonts";
 import "@/styles/globals.css";
 import { MusicProvider } from "@/features/music";
 

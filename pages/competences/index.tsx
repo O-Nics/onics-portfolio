@@ -26,11 +26,11 @@ export default function CompetencesPage({}) {
 
   return (
     <DefaultLayout
-      title="Compétences"
       description="Mes compétences techniques en développement : Flutter, Laravel, React, Vue.js, Next.js, Nuxt.js, TypeScript, Tailwind CSS, DevOps et bien plus."
-      url="https://nicolas-planche.fr/competences"
-      type="website"
       keywords="compétences développeur, Flutter, Laravel, React, Vue.js, Next.js, Nuxt.js, TypeScript, JavaScript, Tailwind CSS, DevOps, Docker, Git"
+      title="Compétences"
+      type="website"
+      url="https://nicolas-planche.fr/competences"
     >
       <main>
         <FadeUp>

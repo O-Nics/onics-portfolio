@@ -42,15 +42,19 @@ export const MobileActions: React.FC<MobileActionsProps> = ({
         </div>
       </FadeHorizontal>
 
-      <FadeHorizontal className="mr-4" delay={0.15} shouldAnimate={shouldAnimate}>
+      <FadeHorizontal
+        className="mr-4"
+        delay={0.15}
+        shouldAnimate={shouldAnimate}
+      >
         <Link href={siteConfig.links.github}>
           <GithubIcon className="text-default-500" size={21} />
         </Link>
       </FadeHorizontal>
 
       <FadeHorizontal
-        delay={0.2}
         className="items-center flex"
+        delay={0.2}
         shouldAnimate={shouldAnimate}
       >
         <ThemeSwitch />

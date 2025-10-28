@@ -85,11 +85,11 @@ export default function ContactPage() {
 
   return (
     <DefaultLayout
-      title="Contact"
-      description="Contactez-moi pour vos projets de développement web et mobile, collaborations ou questions techniques. Développeur full-stack disponible pour freelance."
-      url="https://nicolas-planche.fr/contact"
-      type="website"
+      description="Contactez-moi pour vos projets de développement web et mobile, collaborations ou questions techniques."
       keywords="contact développeur, freelance, collaboration, projet web, projet mobile, recrutement, développeur full-stack"
+      title="Contact"
+      type="website"
+      url="https://nicolas-planche.fr/contact"
     >
       <main>
         {/* En-tête */}
@@ -254,10 +254,10 @@ export default function ContactPage() {
             </FadeUp>
           </form>
         </div>
-
         <Fade delay={0.45}>
           <NavigationInPage leftLink={leftLink} rightLink={rightLink} />
-        </Fade>      </main>
+        </Fade>{" "}
+      </main>
     </DefaultLayout>
   );
 }

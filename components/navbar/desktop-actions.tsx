@@ -3,14 +3,14 @@ import Link from "next/link";
 import { NavbarContent, NavbarItem } from "@heroui/navbar";
 import { Button } from "@heroui/button";
 
+import { SearchInput } from "./search-input";
+
 import { GithubIcon } from "@/components/icons";
 import { ThemeSwitch } from "@/features/theme";
 import { siteConfig } from "@/config/site";
 import FadeHorizontal from "@/components/animation/fade-horizontal";
 import ActualTime from "@/components/navbar/actual-time";
 import { LaunchMusic } from "@/features/music";
-
-import { SearchInput } from "./search-input";
 
 interface DesktopActionsProps {
   shouldAnimate: boolean;
@@ -36,8 +36,8 @@ export const DesktopActions: React.FC<DesktopActionsProps> = ({
 
       <NavbarItem className="hidden sm:flex items-center">
         <FadeHorizontal
-          delay={0.15}
           className="items-center flex"
+          delay={0.15}
           shouldAnimate={shouldAnimate}
         >
           <LaunchMusic />
@@ -68,8 +68,8 @@ export const DesktopActions: React.FC<DesktopActionsProps> = ({
         </FadeHorizontal>
 
         <FadeHorizontal
-          delay={0.25}
           className="items-center flex"
+          delay={0.25}
           shouldAnimate={shouldAnimate}
         >
           <ThemeSwitch />

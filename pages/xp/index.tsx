@@ -26,11 +26,11 @@ export default function AProposPage() {
 
   return (
     <DefaultLayout
-      title="Expériences"
-      description="Mon parcours professionnel en tant que développeur full-stack et mobile : expériences, projets réalisés et compétences acquises."
-      url="https://nicolas-planche.fr/xp"
-      type="profile"
+      description="Mon parcours professionnel en tant que développeur full-stack et mobile"
       keywords="expériences professionnelles, parcours développeur, développeur full-stack, freelance, Da Auto Sport, projets professionnels"
+      title="Expériences"
+      type="profile"
+      url="https://nicolas-planche.fr/xp"
     >
       <main className="">
         <FadeUp>

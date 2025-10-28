@@ -11,6 +11,8 @@ import { Input } from "@heroui/input";
 import { useRouter } from "next/router";
 import { Kbd } from "@heroui/kbd";
 
+import { ResearchResult } from "./search-result";
+
 import { SearchIcon } from "@/components/icons";
 import { siteConfig } from "@/config/site";
 import projectsData from "@/data/projects.json";
@@ -18,7 +20,6 @@ import educationData from "@/data/formations.json";
 import experienceData from "@/data/experiences.json";
 import { useSearch } from "@/features/search";
 import { SearchResult } from "@/types";
-import { ResearchResult } from "./search-result";
 import { useKeyboardHeight } from "@/hooks/useKeyboardHeight";
 
 const SearchModal = () => {

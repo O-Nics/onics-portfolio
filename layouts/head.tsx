@@ -18,7 +18,7 @@ export const Head = ({
   image = "/images/og-image.png",
   url,
   type = "website",
-  keywords = "développeur full-stack, développeur mobile, Flutter, Laravel, React, Next.js, Vue.js, Nuxt.js, Tailwind CSS, portfolio développeur, Nicolas Planche"
+  keywords = "développeur full-stack, développeur mobile, Flutter, Laravel, React, Next.js, Vue.js, Nuxt.js, Tailwind CSS, portfolio développeur, Nicolas Planche",
 }: HeadProps = {}) => {
   const siteTitle = title ? `${title} | ${siteConfig.name}` : siteConfig.name;
   const siteDescription = description || siteConfig.description;
@@ -29,49 +29,63 @@ export const Head = ({
     <NextHead>
       {/* Balises de base */}
       <title>{siteTitle}</title>
-      <meta name="description" content={siteDescription} />
-      <meta name="keywords" content={keywords} />
-      <meta name="author" content="Nicolas Planche" />
+      <meta content={siteDescription} name="description" />
+      <meta content={keywords} name="keywords" />
+      <meta content="Nicolas Planche" name="author" />
       <meta
         key="viewport"
-        name="viewport"
         content="viewport-fit=cover, width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=0"
+        name="viewport"
       />
 
       {/* Langue */}
-      <meta httpEquiv="content-language" content="fr" />
+      <meta content="fr" httpEquiv="content-language" />
 
       {/* Open Graph / Facebook */}
-      <meta property="og:type" content={type} />
-      <meta property="og:url" content={siteUrl} />
-      <meta property="og:title" content={siteTitle} />
-      <meta property="og:description" content={siteDescription} />
-      <meta property="og:image" content={ogImage} />
-      <meta property="og:image:width" content="1200" />
-      <meta property="og:image:height" content="630" />
-      <meta property="og:locale" content="fr_FR" />
-      <meta property="og:site_name" content="Nicolas Planche" />
+      <meta content={type} property="og:type" />
+      <meta content={siteUrl} property="og:url" />
+      <meta content={siteTitle} property="og:title" />
+      <meta content={siteDescription} property="og:description" />
+      <meta content={ogImage} property="og:image" />
+      <meta content="1200" property="og:image:width" />
+      <meta content="630" property="og:image:height" />
+      <meta content="fr_FR" property="og:locale" />
+      <meta content="Nicolas Planche" property="og:site_name" />
 
       {/* Twitter */}
-      <meta name="twitter:card" content="summary_large_image" />
-      <meta name="twitter:url" content={siteUrl} />
-      <meta name="twitter:title" content={siteTitle} />
-      <meta name="twitter:description" content={siteDescription} />
-      <meta name="twitter:image" content={ogImage} />
-      <meta name="twitter:creator" content="@nicolasplanche" />
+      <meta content="summary_large_image" name="twitter:card" />
+      <meta content={siteUrl} name="twitter:url" />
+      <meta content={siteTitle} name="twitter:title" />
+      <meta content={siteDescription} name="twitter:description" />
+      <meta content={ogImage} name="twitter:image" />
+      <meta content="@nicolasplanche" name="twitter:creator" />
 
       {/* Icônes */}
-      <link rel="icon" href="/favicon.ico" />
-      <link rel="apple-touch-icon" sizes="180x180" href="/apple-touch-icon.png" />
-      <link rel="icon" type="image/png" sizes="32x32" href="/favicon-32x32.png" />
-      <link rel="icon" type="image/png" sizes="16x16" href="/favicon-16x16.png" />
+      <link href="/favicon.ico" rel="icon" />
+      <link
+        href="/apple-touch-icon.png"
+        rel="apple-touch-icon"
+        sizes="180x180"
+      />
+      <link
+        href="/favicon-32x32.png"
+        rel="icon"
+        sizes="32x32"
+        type="image/png"
+      />
+      <link
+        href="/favicon-16x16.png"
+        rel="icon"
+        sizes="16x16"
+        type="image/png"
+      />
 
       {/* Canonical URL */}
-      <link rel="canonical" href={siteUrl} />
+      <link href={siteUrl} rel="canonical" />
 
       {/* Robots */}
-      <meta name="robots" content="index, follow" />
-      <meta name="googlebot" content="index, follow" />
+      <meta content="index, follow" name="robots" />
+      <meta content="index, follow" name="googlebot" />
     </NextHead>
   );
 };

@@ -1,14 +1,18 @@
 "use client";
 import React from "react";
-import { Navbar as HeroUINavbar, NavbarContent, NavbarBrand } from "@heroui/navbar";
-
-import { useFirstVisitAnimation } from "@/hooks/useFirstVisitAnimation";
+import {
+  Navbar as HeroUINavbar,
+  NavbarContent,
+  NavbarBrand,
+} from "@heroui/navbar";
 
 import { DesktopSidebar } from "./desktop-sidebar";
 import { MobileDrawer } from "./mobile-drawer";
 import { DesktopLogo } from "./desktop-logo";
 import { DesktopActions } from "./desktop-actions";
 import { MobileActions } from "./mobile-actions";
+
+import { useFirstVisitAnimation } from "@/hooks/useFirstVisitAnimation";
 
 export const Navbar = () => {
   const { shouldAnimate } = useFirstVisitAnimation("nav-animated");
