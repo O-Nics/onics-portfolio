@@ -9,7 +9,7 @@ import { NavigationInPage } from "@/features/navigation";
 import Fade from "@/components/animation/fade";
 import { useTranslations } from "@/hooks/useTranslations";
 import { getPageMeta } from "@/lib/meta";
-import {siteConfig} from "@/config";
+import { siteConfig } from "@/config";
 
 export default function AboutPage() {
   const { t, locale } = useTranslations();
@@ -46,14 +46,10 @@ export default function AboutPage() {
           <p className="subtitle">{t.education.subtitle}</p>
         </FadeUp>
         <FadeUp delay={0.1}>
-          <p className="corp !pt-6">
-            {t.education.description1}
-          </p>
+          <p className="corp !pt-6">{t.education.description1}</p>
         </FadeUp>
         <FadeUp delay={0.15}>
-          <p className="corp ">
-            {t.education.description2}
-          </p>
+          <p className="corp ">{t.education.description2}</p>
         </FadeUp>
         {educations.length > 0 && (
           <div className="mt-10">

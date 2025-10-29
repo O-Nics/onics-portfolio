@@ -65,12 +65,11 @@ const SearchModal = () => {
         title:
           typeof item.title === "string"
             ? item.title
-            : item.title[(locale as "fr" | "en")] || item.title.fr,
+            : item.title[locale as "fr" | "en"] || item.title.fr,
         description: item.description
           ? typeof item.description === "string"
             ? item.description
-            : item.description[(locale as "fr" | "en")] ||
-              item.description.fr
+            : item.description[locale as "fr" | "en"] || item.description.fr
           : undefined,
         href: item.href,
         category: item.category,
@@ -313,7 +312,7 @@ const SearchModal = () => {
         href: item.href,
         category: item.category,
       };
- 
+
       recentSearches.unshift(entry);
 
       // De-duplicate by id and keep only 10 most recent

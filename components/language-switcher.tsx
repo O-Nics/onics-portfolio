@@ -1,6 +1,11 @@
 import { useRouter } from "next/router";
 import { Button } from "@heroui/button";
-import { Dropdown, DropdownTrigger, DropdownMenu, DropdownItem } from "@heroui/dropdown";
+import {
+  Dropdown,
+  DropdownTrigger,
+  DropdownMenu,
+  DropdownItem,
+} from "@heroui/dropdown";
 
 const languages = [
   { code: "fr", name: "Français", flag: "🇫🇷" },
@@ -11,7 +16,8 @@ export function LanguageSwitcher() {
   const router = useRouter();
   const { pathname, asPath, query, locale } = router;
 
-  const currentLanguage = languages.find((lang) => lang.code === locale) || languages[0];
+  const currentLanguage =
+    languages.find((lang) => lang.code === locale) || languages[0];
 
   const changeLanguage = (newLocale: string) => {
     router.push({ pathname, query }, asPath, { locale: newLocale });
@@ -21,10 +27,10 @@ export function LanguageSwitcher() {
     <Dropdown>
       <DropdownTrigger>
         <Button
-          variant="flat"
-          size="sm"
           className="text-sm font-medium"
+          size="sm"
           startContent={<span className="text-lg">{currentLanguage.flag}</span>}
+          variant="flat"
         >
           {currentLanguage.code.toUpperCase()}
         </Button>
@@ -36,8 +42,8 @@ export function LanguageSwitcher() {
         {languages.map((lang) => (
           <DropdownItem
             key={lang.code}
-            startContent={<span className="text-lg">{lang.flag}</span>}
             className={locale === lang.code ? "bg-primary/10" : ""}
+            startContent={<span className="text-lg">{lang.flag}</span>}
           >
             {lang.name}
           </DropdownItem>

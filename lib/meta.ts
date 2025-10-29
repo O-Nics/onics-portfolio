@@ -20,10 +20,7 @@ type PageKey =
 /**
  * Récupère les métadonnées d'une page selon la locale
  */
-export function getPageMeta(
-  pageKey: PageKey,
-  locale: string = "fr",
-): PageMeta {
+export function getPageMeta(pageKey: PageKey, locale: string = "fr"): PageMeta {
   const pageMeta = metaData.pages[pageKey];
 
   if (!pageMeta) {

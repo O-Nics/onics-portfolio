@@ -28,6 +28,7 @@ interface Props {
 export const MobileDrawer: React.FC<Props> = ({ shouldAnimate }) => {
   const { t } = useTranslations();
   const navigationLinks = getNavigationLinks(t);
+
   return (
     <div className="h-[64px] md:hidden flex">
       <Drawer>
@@ -84,6 +85,7 @@ export const MobileDrawer: React.FC<Props> = ({ shouldAnimate }) => {
                 baseDelay={siteConfig.sidebarNavigation.length * 0.05}
                 links={siteConfig.quickLinks}
                 shouldAnimate={shouldAnimate}
+                title={t.nav.quickLinks}
               />
             </li>
           </ul>

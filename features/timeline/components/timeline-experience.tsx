@@ -1,7 +1,6 @@
 import { XpIcon } from "@/components/icons";
-import {Experience} from "@/types";
+import { Experience } from "@/types";
 import FadeUp from "@/components/animation/fade-up";
-
 
 export const VerticalTimelineExperience = ({
   experience,

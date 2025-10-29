@@ -9,7 +9,7 @@ import { getAllSkills } from "@/lib/skills";
 import Fade from "@/components/animation/fade";
 import { useTranslations } from "@/hooks/useTranslations";
 import { getPageMeta } from "@/lib/meta";
-import {siteConfig} from "@/config";
+import { siteConfig } from "@/config";
 
 export default function CompetencesPage({}) {
   const { t, locale } = useTranslations();
@@ -43,14 +43,10 @@ export default function CompetencesPage({}) {
           <h1>{t.skills.title}</h1>
         </FadeUp>
         <FadeUp delay={0.05}>
-          <p className="subtitle">
-            {t.skills.subtitle}
-          </p>
+          <p className="subtitle">{t.skills.subtitle}</p>
         </FadeUp>
         <FadeUp delay={0.1}>
-          <p className="corp !pt-6 ">
-            {t.skills.description}
-          </p>
+          <p className="corp !pt-6 ">{t.skills.description}</p>
         </FadeUp>
 
         {skills.map((skillCategory, index) => (

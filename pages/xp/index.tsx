@@ -9,7 +9,7 @@ import { TimelineExperience } from "@/features/timeline";
 import Fade from "@/components/animation/fade";
 import { useTranslations } from "@/hooks/useTranslations";
 import { getPageMeta } from "@/lib/meta";
-import {siteConfig} from "@/config";
+import { siteConfig } from "@/config";
 
 export default function AProposPage() {
   const { t, locale } = useTranslations();
@@ -43,19 +43,13 @@ export default function AProposPage() {
           <h1>{t.experiences.title}</h1>
         </FadeUp>
         <FadeUp delay={0.1}>
-          <p className="subtitle">
-            {t.experiences.subtitle}
-          </p>
+          <p className="subtitle">{t.experiences.subtitle}</p>
         </FadeUp>
         <FadeUp delay={0.15}>
-          <p className="corp !pt-6">
-            {t.experiences.description1}
-          </p>
+          <p className="corp !pt-6">{t.experiences.description1}</p>
         </FadeUp>
         <FadeUp delay={0.2}>
-          <p className="corp">
-            {t.experiences.description2}
-          </p>
+          <p className="corp">{t.experiences.description2}</p>
         </FadeUp>
 
         {expericences.length > 0 && (

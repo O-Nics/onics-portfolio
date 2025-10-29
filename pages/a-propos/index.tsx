@@ -5,7 +5,7 @@ import FadeUp from "@/components/animation/fade-up";
 import Fade from "@/components/animation/fade";
 import { useTranslations } from "@/hooks/useTranslations";
 import { getPageMeta } from "@/lib/meta";
-import {siteConfig} from "@/config";
+import { siteConfig } from "@/config";
 
 export default function AProposPage() {
   const { t, locale } = useTranslations();
@@ -36,34 +36,22 @@ export default function AProposPage() {
           <p className="subtitle">{t.about.subtitle}</p>
         </FadeUp>
         <FadeUp delay={0.15}>
-          <p className="corp !pt-6">
-            {t.about.description1}
-          </p>
+          <p className="corp !pt-6">{t.about.description1}</p>
         </FadeUp>
         <FadeUp delay={0.2}>
-          <p className="corp">
-            {t.about.description2}
-          </p>
+          <p className="corp">{t.about.description2}</p>
         </FadeUp>
         <FadeUp delay={0.25}>
-          <p className="corp">
-            {t.about.description3}
-          </p>
+          <p className="corp">{t.about.description3}</p>
         </FadeUp>
         <FadeUp delay={0.3}>
-          <p className="corp">
-            {t.about.description4}
-          </p>
+          <p className="corp">{t.about.description4}</p>
         </FadeUp>
         <FadeUp delay={0.35}>
-          <p className="corp">
-            {t.about.description5}
-          </p>
+          <p className="corp">{t.about.description5}</p>
         </FadeUp>
         <FadeUp delay={0.4}>
-          <p className="corp">
-            {t.about.description6}
-          </p>
+          <p className="corp">{t.about.description6}</p>
         </FadeUp>
         <Fade delay={0.45}>
           <NavigationInPage leftLink={leftLink} rightLink={rightLink} />

@@ -12,7 +12,7 @@ import FadeUp from "@/components/animation/fade-up";
 import Fade from "@/components/animation/fade";
 import { useTranslations } from "@/hooks/useTranslations";
 import { getPageMeta } from "@/lib/meta";
-import {siteConfig} from "@/config";
+import { siteConfig } from "@/config";
 
 export default function ContactPage() {
   const { t, locale } = useTranslations();

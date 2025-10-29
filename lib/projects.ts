@@ -49,6 +49,9 @@ export function getAllProjects(locale: string = "fr"): Project[] {
 /**
  * Récupère un projet par son slug selon la locale
  */
-export function getProjectBySlug(slug: string, locale: string = "fr"): Project | undefined {
+export function getProjectBySlug(
+  slug: string,
+  locale: string = "fr",
+): Project | undefined {
   return getAllProjects(locale).find((project) => project.slug === slug);
 }

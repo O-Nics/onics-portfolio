@@ -49,14 +49,10 @@ export default function Example() {
             <p className="subtitle">{t.home.subtitle}</p>
           </FadeUp>
           <FadeUp delay={0.1}>
-            <p className="corp !pt-6">
-              {t.home.description1}
-            </p>
+            <p className="corp !pt-6">{t.home.description1}</p>
           </FadeUp>
           <FadeUp delay={0.15}>
-            <p className="corp">
-              {t.home.description2}
-            </p>
+            <p className="corp">{t.home.description2}</p>
           </FadeUp>
 
           <Fade delay={0.2}>

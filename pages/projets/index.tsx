@@ -10,7 +10,7 @@ import { getAllProjects } from "@/lib/projects";
 import Fade from "@/components/animation/fade";
 import { useTranslations } from "@/hooks/useTranslations";
 import { getPageMeta } from "@/lib/meta";
-import {siteConfig} from "@/config";
+import { siteConfig } from "@/config";
 
 interface ProjetsPageProps {
   projects: Project[];
@@ -47,13 +47,11 @@ export default function ProjetsPage({}: ProjetsPageProps) {
         <FadeUp delay={0.1}>
           <p className="subtitle">
             {t.projects.subtitle}
-             <br />  {t.projects.subtitle2}
+            <br /> {t.projects.subtitle2}
           </p>
         </FadeUp>
         <FadeUp delay={0.15}>
-          <p className="corp !pt-6 ">
-            {t.projects.description}
-          </p>
+          <p className="corp !pt-6 ">{t.projects.description}</p>
         </FadeUp>
         <div className="pt-8 grid grid-cols-1  lg:grid-cols-2 xl:grid-cols-3 gap-4">
           {projects

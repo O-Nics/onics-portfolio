@@ -14,7 +14,7 @@ import {
   MonitorIcon,
   LightDarkIcon,
 } from "@/components/icons";
-import {useTranslations} from "@/hooks/useTranslations";
+import { useTranslations } from "@/hooks/useTranslations";
 
 export interface ThemeSwitchProps {
   className?: string;

@@ -1,8 +1,11 @@
 import {
   AboutIcon,
   CompetenceIcon,
-  ContactIcon, DocIcon, GithubIcon,
-  IntroIcon, LinkedinIcon,
+  ContactIcon,
+  DocIcon,
+  GithubIcon,
+  IntroIcon,
+  LinkedinIcon,
   ProjectsIcon,
   SchoolIcon,
   XpIcon,

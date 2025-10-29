@@ -32,14 +32,13 @@ import {
 } from "@/components/ui/carousel";
 import Fade from "@/components/animation/fade";
 import { ProjectJsonLd } from "@/components/seo/json-ld";
-import {useTranslations} from "@/hooks/useTranslations";
+import { useTranslations } from "@/hooks/useTranslations";
 
 interface ProjectPageProps {
   project: Project;
 }
 
 function getColorLink(type: string) {
-
   // common base: transition + rounded already applied by Button elsewhere
   const common = "transition-colors duration-200";
 
@@ -163,8 +162,6 @@ function getIconLink(type: string): ReactNode {
   }
 }
 
-
-
 export default function ProjectPage({ project }: ProjectPageProps) {
   const { t } = useTranslations();
   const leftLink: LinkNavigation = {
@@ -284,8 +281,10 @@ export default function ProjectPage({ project }: ProjectPageProps) {
           <div className="flex flex-col gap-4">
             <div className="flex items-start justify-between">
               <FadeUp delay={0.05}>
-                <h1 >{project.title} </h1>
-                <span className="text-gray-50/40 text-2xl font-black">{project.type}</span>
+                <h1>{project.title} </h1>
+                <span className="text-gray-50/40 text-2xl font-black">
+                  {project.type}
+                </span>
               </FadeUp>
             </div>
             <FadeUp delay={0.1}>
@@ -294,7 +293,7 @@ export default function ProjectPage({ project }: ProjectPageProps) {
             <FadeUp delay={0.125}>
               <div className="flex flex-wrap gap-2 mt-3 items-center">
                 {project.platform.map((category) => (
-                  <Chip key={category}  variant="flat">
+                  <Chip key={category} variant="flat">
                     {category}
                   </Chip>
                 ))}
@@ -513,7 +512,8 @@ export default function ProjectPage({ project }: ProjectPageProps) {
             <FadeUp delay={0.4}>
               <h2 className="text-2xl font-bold">
                 {" "}
-                <span className="text-primary">|</span> {t.projects.technologies}
+                <span className="text-primary">|</span>{" "}
+                {t.projects.technologies}
               </h2>
             </FadeUp>
             <div className="flex flex-wrap gap-2 pt-4">

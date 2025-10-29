@@ -1,4 +1,5 @@
 import { useRouter } from "next/router";
+
 import frMessages from "@/messages/fr.json";
 import enMessages from "@/messages/en.json";
 

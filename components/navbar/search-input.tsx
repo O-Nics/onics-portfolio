@@ -4,12 +4,11 @@ import { Kbd } from "@heroui/kbd";
 
 import { SearchIcon } from "@/components/icons";
 import { useSearch } from "@/features/search";
-import {useTranslations} from "@/hooks/useTranslations";
+import { useTranslations } from "@/hooks/useTranslations";
 
 export const SearchInput: React.FC = () => {
   const { openSearch } = useSearch();
   const { t } = useTranslations();
-
 
   return (
     <Input

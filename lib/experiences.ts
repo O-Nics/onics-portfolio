@@ -14,6 +14,7 @@ export function getAllExperiences(locale: string = "fr"): Experience[] {
     society: exp.society?.[locale] || exp.society?.fr || exp.society,
     date: exp.date?.[locale] || exp.date?.fr || exp.date,
     location: exp.location?.[locale] || exp.location?.fr || exp.location,
-    description: exp.description?.[locale] || exp.description?.fr || exp.description,
+    description:
+      exp.description?.[locale] || exp.description?.fr || exp.description,
   }));
 }
