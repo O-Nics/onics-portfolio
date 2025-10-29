@@ -3,10 +3,13 @@ import { NavigationInPage } from "@/features/navigation";
 import { LinkNavigation } from "@/types";
 import FadeUp from "@/components/animation/fade-up";
 import Fade from "@/components/animation/fade";
-import {useTranslations} from "@/hooks/useTranslations";
+import { useTranslations } from "@/hooks/useTranslations";
+import { getPageMeta } from "@/lib/meta";
+import {siteConfig} from "@/config";
 
 export default function AProposPage() {
-  const { t } = useTranslations();
+  const { t, locale } = useTranslations();
+  const meta = getPageMeta("about", locale);
 
   const leftLink: LinkNavigation = {
     name: t.about.leftLink,
@@ -19,11 +22,11 @@ export default function AProposPage() {
 
   return (
     <DefaultLayout
-      description="Développeur full-stack passionné, j'aime donner vie à des produits qui allient esthétique, performance et sens. Découvrez mon parcours et mes valeurs."
-      keywords="à propos, parcours développeur, valeurs, développeur full-stack, Nicolas Planche"
-      title="À propos de moi"
-      type="profile"
-      url="https://nicolas-planche.fr/a-propos"
+      description={meta.description}
+      keywords={meta.keywords}
+      title={meta.title}
+      type={meta.type}
+      url={`${siteConfig.canonicalUrl}/${meta.url}`}
     >
       <main className="">
         <FadeUp>

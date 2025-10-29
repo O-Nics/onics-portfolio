@@ -1,9 +1,10 @@
 import { GetServerSideProps } from "next";
 
 import { getAllProjects } from "@/lib/projects";
+import { siteConfig } from "@/config/site";
 
 function generateSiteMap() {
-  const baseUrl = "https://nicolas-planche.fr";
+  const baseUrl = siteConfig.canonicalUrl;
   const projects = getAllProjects();
 
   // Pages statiques

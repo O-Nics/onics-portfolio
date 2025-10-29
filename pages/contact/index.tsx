@@ -4,7 +4,6 @@ import { Button } from "@heroui/button";
 import { Select, SelectItem } from "@heroui/select";
 import { CloseIcon } from "@heroui/shared-icons";
 import Image from "next/image";
-import { useRouter } from "next/router";
 
 import DefaultLayout from "@/layouts/default";
 import { LinkNavigation } from "@/types";
@@ -12,10 +11,12 @@ import { NavigationInPage } from "@/features/navigation";
 import FadeUp from "@/components/animation/fade-up";
 import Fade from "@/components/animation/fade";
 import { useTranslations } from "@/hooks/useTranslations";
+import { getPageMeta } from "@/lib/meta";
+import {siteConfig} from "@/config";
 
 export default function ContactPage() {
-  const { t } = useTranslations();
-  const { locale } = useRouter();
+  const { t, locale } = useTranslations();
+  const meta = getPageMeta("contact", locale);
 
   const [formData, setFormData] = useState({
     name: "",
@@ -86,11 +87,11 @@ export default function ContactPage() {
 
   return (
     <DefaultLayout
-      description="Contactez-moi pour vos projets de développement web et mobile, collaborations ou questions techniques."
-      keywords="contact développeur, freelance, collaboration, projet web, projet mobile, recrutement, développeur full-stack"
-      title="Contact"
-      type="website"
-      url="https://nicolas-planche.fr/contact"
+      description={meta.description}
+      keywords={meta.keywords}
+      title={meta.title}
+      type={meta.type}
+      url={`${siteConfig.canonicalUrl}/${meta.url}`}
     >
       <main>
         {/* En-tête */}

@@ -7,10 +7,13 @@ import FadeUp from "@/components/animation/fade-up";
 import { getAllExperiences } from "@/lib/experiences";
 import { TimelineExperience } from "@/features/timeline";
 import Fade from "@/components/animation/fade";
-import {useTranslations} from "@/hooks/useTranslations";
+import { useTranslations } from "@/hooks/useTranslations";
+import { getPageMeta } from "@/lib/meta";
+import {siteConfig} from "@/config";
 
 export default function AProposPage() {
   const { t, locale } = useTranslations();
+  const meta = getPageMeta("experiences", locale);
 
   const leftLink: LinkNavigation = {
     name: t.experiences.leftLink,
@@ -29,11 +32,11 @@ export default function AProposPage() {
 
   return (
     <DefaultLayout
-      description="Mon parcours professionnel en tant que développeur full-stack et mobile"
-      keywords="expériences professionnelles, parcours développeur, développeur full-stack, freelance, Da Auto Sport, projets professionnels"
-      title="Expériences"
-      type="profile"
-      url="https://nicolas-planche.fr/xp"
+      description={meta.description}
+      keywords={meta.keywords}
+      title={meta.title}
+      type={meta.type}
+      url={`${siteConfig.canonicalUrl}/${meta.url}`}
     >
       <main className="">
         <FadeUp>

@@ -22,7 +22,7 @@ export const Head = ({
 }: HeadProps = {}) => {
   const siteTitle = title ? `${title} | ${siteConfig.name}` : siteConfig.name;
   const siteDescription = description || siteConfig.description;
-  const siteUrl = url || "https://nicolas-planche.fr";
+  const siteUrl = url || siteConfig.canonicalUrl;
   const ogImage = image.startsWith("http") ? image : `${siteUrl}${image}`;
 
   return (

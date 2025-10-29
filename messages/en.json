@@ -9,7 +9,10 @@
     "contact": "Contact",
     "cv": "Download resume",
     "quickLinks": "Quick links",
-    "search": "Search..."
+    "search": "Search...",
+    "lightMode": "Light",
+    "darkMode": "Dark",
+    "systemMode": "System"
   },
   "modal": {
     "search": "Search pages, projects...",

@@ -14,12 +14,15 @@ import {
   MonitorIcon,
   LightDarkIcon,
 } from "@/components/icons";
+import {useTranslations} from "@/hooks/useTranslations";
 
 export interface ThemeSwitchProps {
   className?: string;
 }
 
 export const ThemeSwitch: FC<ThemeSwitchProps> = () => {
+  const { t } = useTranslations();
+
   const [isMounted, setIsMounted] = useState(false);
   const { theme, setTheme } = useTheme();
 
@@ -78,21 +81,21 @@ export const ThemeSwitch: FC<ThemeSwitchProps> = () => {
           className={`${theme === "light" ? "bg-primary/20 " : "hover:!bg-gray-100 dark:hover:!bg-gray-700/50"}`}
           startContent={<SunIcon size={18} />}
         >
-          Clair
+          {t.nav.lightMode}
         </DropdownItem>
         <DropdownItem
           key="dark"
           className={`${theme === "dark" ? "bg-primary/50" : "hover:!bg-gray-100 dark:hover:!bg-gray-700/50"}`}
           startContent={<MoonIcon size={18} />}
         >
-          Sombre
+          {t.nav.darkMode}
         </DropdownItem>
         <DropdownItem
           key="system"
           className={`${theme === "system" ? "bg-primary/50" : "hover:!bg-gray-100 dark:hover:!bg-gray-700/50"}`}
           startContent={<MonitorIcon size={18} />}
         >
-          Système
+          {t.nav.systemMode}
         </DropdownItem>
       </DropdownMenu>
     </Dropdown>

@@ -19,6 +19,7 @@ import {
   FlutterIcon,
   GithubIcon,
 } from "@/components/icons";
+import { siteConfig } from "@/config/site";
 import FadeUp from "@/components/animation/fade-up";
 import { NavigationInPage } from "@/features/navigation";
 import { LinkNavigation } from "@/types";
@@ -225,17 +226,17 @@ export default function ProjectPage({ project }: ProjectPageProps) {
           name: "Nicolas Planche",
         }}
         description={project.shortDescription}
-        image={`https://nicolas-planche.fr${projectImage}`}
+        image={`${siteConfig.canonicalUrl}${projectImage}`}
         name={project.name}
-        url={`https://nicolas-planche.fr/projet/${project.slug}`}
+        url={`${siteConfig.canonicalUrl}/projet/${project.slug}`}
       />
       <DefaultLayout
         description={project.shortDescription}
         image={projectImage}
-        keywords={`${project.name}, ${project.stack?.join(", ") || ""}, projet ${project.type.toLowerCase()}, ${project.platform?.join(", ") || ""}`}
+        keywords={`${project.name}, ${project.stack?.join(", ") || ""}, projet ${project.type.toLowerCase()}, ${Array.isArray(project.platform) ? project.platform.join(", ") : ""}`}
         title={project.title}
         type="article"
-        url={`https://nicolas-planche.fr/projet/${project.slug}`}
+        url={`${siteConfig.canonicalUrl}/projet/${project.slug}`}
       >
         <section className="flex flex-col gap-6 pt-3 pb-4 md:pb-6">
           {/* Breadcrumb */}

@@ -11,14 +11,33 @@ export function getAllProjects(locale: string = "fr"): Project[] {
   return data.projects.map((project: any) => ({
     ...project,
     title: project.title?.[locale] || project.title?.fr || project.title,
-    shortDescription: project.shortDescription?.[locale] || project.shortDescription?.fr || project.shortDescription,
-    longDescription: project.longDescription?.[locale] || project.longDescription?.fr || project.longDescription,
+    shortDescription:
+      project.shortDescription?.[locale] ||
+      project.shortDescription?.fr ||
+      project.shortDescription,
+    longDescription:
+      project.longDescription?.[locale] ||
+      project.longDescription?.fr ||
+      project.longDescription,
     body: project.body?.[locale] || project.body?.fr || project.body,
     status: project.status?.[locale] || project.status?.fr || project.status,
     type: project.type?.[locale] || project.type?.fr || project.type,
-    features: project.features?.[locale] || project.features?.fr || project.features,
-    challenges: project.challenges?.[locale] || project.challenges?.fr || project.challenges,
-    lessonLearned: project.lessonLearned?.[locale] || project.lessonLearned?.fr || project.lessonLearned,
+    platform:
+      project.platform?.[locale] || project.platform?.fr || project.platform,
+    categories:
+      project.categories?.[locale] ||
+      project.categories?.fr ||
+      project.categories,
+    features:
+      project.features?.[locale] || project.features?.fr || project.features,
+    challenges:
+      project.challenges?.[locale] ||
+      project.challenges?.fr ||
+      project.challenges,
+    lessonLearned:
+      project.lessonLearned?.[locale] ||
+      project.lessonLearned?.fr ||
+      project.lessonLearned,
     links: project.links?.map((link: any) => ({
       ...link,
       text: link.text?.[locale] || link.text?.fr || link.text,

@@ -9,7 +9,10 @@
     "contact": "Contact",
     "cv": "Télécharger le CV",
     "quickLinks": "Liens rapides",
-    "search": "Rechercher..."
+    "search": "Rechercher...",
+    "lightMode": "Clair",
+    "darkMode": "Sombre",
+    "systemMode": "Système"
   },
   "modal": {
     "search": "Rechercher des pages, projets...",

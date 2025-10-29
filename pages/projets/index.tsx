@@ -8,7 +8,9 @@ import { LinkNavigation } from "@/types";
 import FadeUp from "@/components/animation/fade-up";
 import { getAllProjects } from "@/lib/projects";
 import Fade from "@/components/animation/fade";
-import {useTranslations} from "@/hooks/useTranslations";
+import { useTranslations } from "@/hooks/useTranslations";
+import { getPageMeta } from "@/lib/meta";
+import {siteConfig} from "@/config";
 
 interface ProjetsPageProps {
   projects: Project[];
@@ -19,6 +21,7 @@ interface ProjetsPageProps {
 export default function ProjetsPage({}: ProjetsPageProps) {
   const { t, locale } = useTranslations();
   const projects = getAllProjects(locale);
+  const meta = getPageMeta("projects", locale);
 
   const leftLink: LinkNavigation = {
     name: t.projects.leftLink,
@@ -31,11 +34,11 @@ export default function ProjetsPage({}: ProjetsPageProps) {
 
   return (
     <DefaultLayout
-      description="Découvrez mes projets de développement web et mobile : applications Flutter, sites Laravel, projets React/Vue. Du concept à la mise en production."
-      keywords="projets développeur, portfolio projets, Flutter, Laravel, React, Vue, applications web, applications mobile, Da Auto Sport, SpiderVO"
-      title="Projets"
-      type="website"
-      url="https://nicolas-planche.fr/projets"
+      description={meta.description}
+      keywords={meta.keywords}
+      title={meta.title}
+      type={meta.type}
+      url={`${siteConfig.canonicalUrl}/${meta.url}`}
     >
       <main>
         <FadeUp>

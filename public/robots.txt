@@ -3,4 +3,4 @@ User-agent: *
 Allow: /
 
 # Sitemap
-Sitemap: https://nicolas-planche.fr/sitemap.xml
+Sitemap: https://nicolas-planche.dev/sitemap.xml

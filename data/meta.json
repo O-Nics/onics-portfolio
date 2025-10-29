@@ -1,0 +1,116 @@
+{
+  "pages": {
+    "home": {
+      "title": {
+        "fr": "Accueil",
+        "en": "Home"
+      },
+      "description": {
+        "fr": "Nicolas Planche - Développeur Full-Stack & Mobile passionné. Spécialisé en Flutter, Laravel, React/Next.js, Vue/Nuxt. Création d'applications web et mobiles performantes.",
+        "en": "Nicolas Planche - Passionate Full-Stack & Mobile Developer. Specialized in Flutter, Laravel, React/Next.js, Vue/Nuxt. Building high-performance web and mobile applications."
+      },
+      "keywords": {
+        "fr": "Nicolas Planche, développeur full-stack, développeur mobile, Flutter, Laravel, React, Next.js, Vue.js, Nuxt.js, Tailwind CSS",
+        "en": "Nicolas Planche, full-stack developer, mobile developer, Flutter, Laravel, React, Next.js, Vue.js, Nuxt.js, Tailwind CSS"
+      },
+      "url": "/",
+      "type": "website"
+    },
+    "about": {
+      "title": {
+        "fr": "À propos de moi",
+        "en": "About me"
+      },
+      "description": {
+        "fr": "Développeur full-stack passionné, j'aime donner vie à des produits qui allient esthétique, performance et sens. Découvrez mon parcours et mes valeurs.",
+        "en": "Passionate full-stack developer, I love bringing to life products that combine aesthetics, performance and meaning. Discover my journey and values."
+      },
+      "keywords": {
+        "fr": "à propos, parcours développeur, valeurs, développeur full-stack, Nicolas Planche",
+        "en": "about, developer journey, values, full-stack developer, Nicolas Planche"
+      },
+      "url": "a-propos",
+      "type": "profile"
+    },
+    "projects": {
+      "title": {
+        "fr": "Projets",
+        "en": "Projects"
+      },
+      "description": {
+        "fr": "Découvrez mes projets de développement web et mobile : applications Flutter, sites Laravel, projets React/Vue. Du concept à la mise en production.",
+        "en": "Discover my web and mobile development projects: Flutter applications, Laravel websites, React/Vue projects. From concept to production."
+      },
+      "keywords": {
+        "fr": "projets développeur, portfolio projets, Flutter, Laravel, React, Vue, applications web, applications mobile, Da Auto Sport, SpiderVO",
+        "en": "developer projects, project portfolio, Flutter, Laravel, React, Vue, web applications, mobile applications, Da Auto Sport, SpiderVO"
+      },
+      "url": "projets",
+      "type": "website"
+    },
+    "skills": {
+      "title": {
+        "fr": "Compétences",
+        "en": "Skills"
+      },
+      "description": {
+        "fr": "Mes compétences techniques : développement web (React, Vue, Laravel), mobile (Flutter), DevOps, bases de données et outils de développement.",
+        "en": "My technical skills: web development (React, Vue, Laravel), mobile (Flutter), DevOps, databases and development tools."
+      },
+      "keywords": {
+        "fr": "compétences, technologies, stack technique, React, Vue, Next.js, Nuxt.js, Laravel, Flutter, MySQL, PostgreSQL, Docker, Git",
+        "en": "skills, technologies, tech stack, React, Vue, Next.js, Nuxt.js, Laravel, Flutter, MySQL, PostgreSQL, Docker, Git"
+      },
+      "url": "competences",
+      "type": "profile"
+    },
+    "experiences": {
+      "title": {
+        "fr": "Expériences",
+        "en": "Experiences"
+      },
+      "description": {
+        "fr": "Mon parcours professionnel en tant que développeur full-stack et mobile : missions freelance, projets professionnels et expériences marquantes.",
+        "en": "My professional journey as a full-stack and mobile developer: freelance missions, professional projects and significant experiences."
+      },
+      "keywords": {
+        "fr": "expériences professionnelles, parcours développeur, développeur full-stack, freelance, Da Auto Sport, projets professionnels",
+        "en": "professional experience, developer journey, full-stack developer, freelance, Da Auto Sport, professional projects"
+      },
+      "url": "xp",
+      "type": "profile"
+    },
+    "education": {
+      "title": {
+        "fr": "Formations",
+        "en": "Education"
+      },
+      "description": {
+        "fr": "Mon parcours académique et mes formations : Licence, Master, formation scientifique et apprentissage continu.",
+        "en": "My academic background and education: Bachelor's, Master's, scientific training and continuous learning."
+      },
+      "keywords": {
+        "fr": "formations développeur, parcours académique, licence informatique, mathématiques, Université Lyon 1, formation scientifique",
+        "en": "developer education, academic background, computer science degree, mathematics, Lyon 1 University, scientific training"
+      },
+      "url": "education",
+      "type": "profile"
+    },
+    "contact": {
+      "title": {
+        "fr": "Contact",
+        "en": "Contact"
+      },
+      "description": {
+        "fr": "Contactez-moi pour discuter de vos projets de développement web et mobile. Disponible pour missions freelance et collaborations.",
+        "en": "Contact me to discuss your web and mobile development projects. Available for freelance missions and collaborations."
+      },
+      "keywords": {
+        "fr": "contact, recrutement, freelance, développeur disponible, mission développeur, collaboration",
+        "en": "contact, recruitment, freelance, available developer, developer mission, collaboration"
+      },
+      "url": "contact",
+      "type": "website"
+    }
+  }
+}

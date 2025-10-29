@@ -7,9 +7,11 @@ import Fade from "@/components/animation/fade";
 import { PersonJsonLd, WebsiteJsonLd } from "@/components/seo/json-ld";
 import { siteConfig } from "@/config/site";
 import { useTranslations } from "@/hooks/useTranslations";
+import { getPageMeta } from "@/lib/meta";
 
 export default function Example() {
-  const { t } = useTranslations();
+  const { t, locale } = useTranslations();
+  const meta = getPageMeta("home", locale);
 
   const rightLink: LinkNavigation = {
     name: t.home.rightLink,
@@ -25,19 +27,19 @@ export default function Example() {
           "https://github.com/O-Nicks",
           "https://www.linkedin.com/in/nicolas-planche/",
         ]}
-        url="https://nicolas-planche.fr"
+        url={siteConfig.canonicalUrl}
       />
       <WebsiteJsonLd
         description={siteConfig.description}
         name={siteConfig.name}
-        url="https://nicolas-planche.fr"
+        url={siteConfig.canonicalUrl}
       />
       <DefaultLayout
-        description={t.home.description1}
-        keywords="développeur full-stack, développeur mobile, Flutter, Laravel, React, Next.js, Vue.js, Nuxt.js, Tailwind CSS, portfolio développeur"
-        title={t.common.home}
-        type="profile"
-        url="https://nicolas-planche.fr"
+        description={meta.description}
+        keywords={meta.keywords}
+        title={meta.title}
+        type={meta.type}
+        url={`${siteConfig.canonicalUrl}/${meta.url}`}
       >
         <main>
           <FadeUp>

@@ -19,7 +19,10 @@
         "fr": "Conception et développement complet du site vitrine et de l'application mobile, en collaboration avec une équipe UX/UI, de Da Auto Sport , un garage automobile spécialisé dans les véhicules BMW. Le projet permet de présenter le catalogue de véhicules en temps réel avec un affichage dynamique des caractéristiques, photos et historiques. L'écosystème repose sur une API Laravel connectée au logiciel interne SpiderVO (flux XML), un front-end Nuxt.js optimisé SEO et une application Flutter responsive iOS/Android intégrant un système de recommandations et de notifications personnalisées.",
         "en": "Complete design and development of the showcase website and mobile application, in collaboration with a UX/UI team, for Da Auto Sport, an automotive garage specializing in BMW vehicles. The project presents a real-time vehicle catalog with dynamic display of specifications, photos and history. The ecosystem relies on a Laravel API connected to the internal SpiderVO software (XML feed), a SEO-optimized Nuxt.js front-end and a responsive Flutter iOS/Android application integrating a personalized recommendation and notification system."
       },
-      "platform": ["Web", "Mobile"],
+      "platform": {
+        "fr": ["Web", "Mobile"],
+        "en": ["Web", "Mobile"]
+      },
       "endDate": "2025-09",
       "status": {
         "fr": "Terminé",
@@ -129,7 +132,10 @@
         }
 
       ],
-      "categories": ["Automobile", "Garage"],
+      "categories": {
+        "fr": ["Automobile", "Garage"],
+        "en": ["Automotive", "Garage"]
+      },
       "features": {
         "fr": [
           "Catalogue complet des véhicules avec fiches détaillées (moteur, kilométrage, options, historique...)",
@@ -209,7 +215,10 @@
         "fr": "Amazing Icons est une bibliothèque open-source d'icônes conçue pour offrir performance, flexibilité et cohérence visuelle sur toutes les plateformes. Le projet comprend plus de 5000 icônes réparties en 6 styles différents, intégrées sous forme de polices pour les environnements mobiles et exportables en SVG/PNG depuis le site web. Développée avec Next.js et Flutter, la solution met l'accent sur la légèreté (≈1 MB pour l'ensemble) et sur l'expérience développeur, avec une documentation complète et un moteur de recherche interactif accessible sur toutes les plateformes.",
         "en": "Amazing Icons is an open-source icon library designed to offer performance, flexibility and visual consistency across all platforms. The project includes over 5000 icons distributed in 6 different styles, integrated as fonts for mobile environments and exportable in SVG/PNG from the website. Developed with Next.js and Flutter, the solution emphasizes lightness (≈1 MB total) and developer experience, with complete documentation and an interactive search engine accessible on all platforms."
       },
-      "platform":  ["Web", "Mobile", "Desktop", "Linux"],
+      "platform": {
+        "fr": ["Web", "Mobile", "Bureau", "Linux"],
+        "en": ["Web", "Mobile", "Desktop", "Linux"]
+      },
       "status": {
         "fr": "Actif",
         "en": "Active"
@@ -296,7 +305,10 @@
         }
 
       ],
-      "categories": ["Developpement", "Open Source", "UI/UX", "Icônes", "Design", "Librairie", "Package"],
+      "categories": {
+        "fr": ["Développement", "Open Source", "UI/UX", "Icônes", "Design", "Librairie", "Package"],
+        "en": ["Development", "Open Source", "UI/UX", "Icons", "Design", "Library", "Package"]
+      },
       "features": {
         "fr": [
           "6 styles d'icônes inclus dans le package (Outline, Bulk, TwoTone, etc.) + 1 style exclusif sur le site web",
@@ -364,7 +376,10 @@
         "fr": "Find & Watch est une application mobile développée avec Flutter et un site vitrine réalisé sous Nuxt.js. L'application permet aux utilisateurs de découvrir, suivre et organiser leurs films, séries et animés préférés à partir des données TMDB. Chaque fiche affiche les informations détaillées (durée, nombre de saisons, distribution, plateformes de streaming disponibles) et propose un système de recommandations personnalisées. L'utilisateur peut marquer les contenus vus, suivre la progression d'une série épisode par épisode et recevoir des notifications lorsqu'un nouvel épisode sort ou qu'un film devient disponible sur une nouvelle plateforme de streaming. L'ensemble repose sur un backend Laravel connecté à TMDB et OneSignal pour la gestion des notifications et des tâches planifiées (cron jobs).",
         "en": "Find & Watch is a mobile application developed with Flutter and a showcase website built with Nuxt.js. The application allows users to discover, track and organize their favorite movies, series and anime from TMDB data. Each listing displays detailed information (duration, number of seasons, cast, available streaming platforms) and offers a personalized recommendation system. Users can mark viewed content, track series progress episode by episode and receive notifications when a new episode is released or a movie becomes available on a new streaming platform. The whole system relies on a Laravel backend connected to TMDB and OneSignal for notification management and scheduled tasks (cron jobs)."
       },
-      "platform": ["Web", "Mobile"],
+      "platform": {
+        "fr": ["Web", "Mobile"],
+        "en": ["Web", "Mobile"]
+      },
       "status": {
         "fr": "Terminé",
         "en": "Completed"
@@ -438,7 +453,10 @@
             "image": "OneSignal.png"
         }
       ],
-      "categories": ["Divertissement", "Films & Séries", "Animés"],
+      "categories": {
+        "fr": ["Divertissement", "Films & Séries", "Animés"],
+        "en": ["Entertainment", "Movies & Series", "Anime"]
+      },
       "features": {
         "fr": [
           "Recherche de films, séries et animés avec défilement infini",
@@ -512,7 +530,10 @@
         "fr": "Hinti est une application mobile de nutrition et de suivi sportif développée dans le cadre d'un projet scolaire. L'application génère automatiquement un programme calorique personnalisé en fonction du profil de l'utilisateur et de ses objectifs. Les aliments peuvent être ajoutés via une recherche instantanée propulsée par Meilisearch, par reconnaissance d'ingrédient via IA, par connexion à la base Open Food Facts ou par simple scan de code-barres. L'interface, moderne et fluide, intègre un thème clair/sombre, un calendrier de suivi et une base de données de plus de 4 millions d'ingrédients.",
         "en": "Hinti is a mobile nutrition and fitness tracking application developed as part of a school project. The application automatically generates a personalized calorie program based on the user's profile and goals. Foods can be added via instant search powered by Meilisearch, ingredient recognition via AI, connection to the Open Food Facts database or simple barcode scanning. The modern and smooth interface integrates a light/dark theme, a tracking calendar and a database of over 4 million ingredients."
       },
-      "platform": ["Mobile"],
+      "platform": {
+        "fr": ["Mobile"],
+        "en": ["Mobile"]
+      },
       "status": {
         "fr": "Actif",
         "en": "Active"
@@ -554,7 +575,10 @@
         }
         ],
 
-      "categories": ["Santé & Fitness", "Nutrition", "Sport"],
+      "categories": {
+        "fr": ["Santé & Fitness", "Nutrition", "Sport"],
+        "en": ["Health & Fitness", "Nutrition", "Sports"]
+      },
       "features": {
         "fr": [
           "Scan de code-barres pour ajout rapide d'aliments",

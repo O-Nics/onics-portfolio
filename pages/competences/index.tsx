@@ -7,10 +7,13 @@ import FadeUp from "@/components/animation/fade-up";
 import { NavigationInPage } from "@/features/navigation";
 import { getAllSkills } from "@/lib/skills";
 import Fade from "@/components/animation/fade";
-import {useTranslations} from "@/hooks/useTranslations";
+import { useTranslations } from "@/hooks/useTranslations";
+import { getPageMeta } from "@/lib/meta";
+import {siteConfig} from "@/config";
 
 export default function CompetencesPage({}) {
-  const { t } = useTranslations();
+  const { t, locale } = useTranslations();
+  const meta = getPageMeta("skills", locale);
 
   const leftLink: LinkNavigation = {
     name: t.skills.leftLink,
@@ -29,11 +32,11 @@ export default function CompetencesPage({}) {
 
   return (
     <DefaultLayout
-      description="Mes compétences techniques en développement : Flutter, Laravel, React, Vue.js, Next.js, Nuxt.js, TypeScript, Tailwind CSS, DevOps et bien plus."
-      keywords="compétences développeur, Flutter, Laravel, React, Vue.js, Next.js, Nuxt.js, TypeScript, JavaScript, Tailwind CSS, DevOps, Docker, Git"
-      title="Compétences"
-      type="website"
-      url="https://nicolas-planche.fr/competences"
+      description={meta.description}
+      keywords={meta.keywords}
+      title={meta.title}
+      type={meta.type}
+      url={`${siteConfig.canonicalUrl}/${meta.url}`}
     >
       <main>
         <FadeUp>

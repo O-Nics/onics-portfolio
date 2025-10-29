@@ -7,10 +7,13 @@ import { TimelineEducation } from "@/features/timeline";
 import { getAllFormation } from "@/lib/formations";
 import { NavigationInPage } from "@/features/navigation";
 import Fade from "@/components/animation/fade";
-import {useTranslations} from "@/hooks/useTranslations";
+import { useTranslations } from "@/hooks/useTranslations";
+import { getPageMeta } from "@/lib/meta";
+import {siteConfig} from "@/config";
 
 export default function AboutPage() {
   const { t, locale } = useTranslations();
+  const meta = getPageMeta("education", locale);
 
   const leftLink: LinkNavigation = {
     name: t.education.leftLink,
@@ -29,11 +32,11 @@ export default function AboutPage() {
 
   return (
     <DefaultLayout
-      description="Mon parcours académique et mes formations : Licence, Master, formation scientifique et apprentissage continu."
-      keywords="formations développeur, parcours académique, licence informatique, mathématiques, Université Lyon 1, formation scientifique"
-      title="Formations"
-      type="profile"
-      url="https://nicolas-planche.fr/education"
+      description={meta.description}
+      keywords={meta.keywords}
+      title={meta.title}
+      type={meta.type}
+      url={`${siteConfig.canonicalUrl}/${meta.url}`}
     >
       <main className="">
         <FadeUp>
