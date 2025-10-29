@@ -28,7 +28,8 @@ export interface Project {
   body: string;
   platform: string[];
   technologies: string[];
-  status: "completed" | "in-progress" | "active" | "archived" | "not completed";
+  status: string;
+  statusNumber: number;
   type: string;
   media: ProjectMedia[];
   links: ProjectLink[];

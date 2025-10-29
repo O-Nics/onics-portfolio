@@ -7,22 +7,25 @@ import FadeUp from "@/components/animation/fade-up";
 import { getAllExperiences } from "@/lib/experiences";
 import { TimelineExperience } from "@/features/timeline";
 import Fade from "@/components/animation/fade";
+import {useTranslations} from "@/hooks/useTranslations";
 
 export default function AProposPage() {
+  const { t, locale } = useTranslations();
+
   const leftLink: LinkNavigation = {
-    name: "Compétences",
+    name: t.experiences.leftLink,
     href: "/competences",
   };
   const rightLink: LinkNavigation = {
-    name: "Formations",
+    name: t.experiences.rightLink,
     href: "/education",
   };
 
   const [expericences, setExperiences] = useState<Experience[]>([]);
 
   useEffect(() => {
-    setExperiences(getAllExperiences());
-  }, []);
+    setExperiences(getAllExperiences(locale));
+  }, [locale]);
 
   return (
     <DefaultLayout
@@ -34,32 +37,21 @@ export default function AProposPage() {
     >
       <main className="">
         <FadeUp>
-          <h1>Éxperience</h1>
+          <h1>{t.experiences.title}</h1>
         </FadeUp>
         <FadeUp delay={0.1}>
           <p className="subtitle">
-            On a besoin d’expérience pour décrocher le job… mais c’est le job
-            qui donne l’expérience !
+            {t.experiences.subtitle}
           </p>
         </FadeUp>
         <FadeUp delay={0.15}>
           <p className="corp !pt-6">
-            Au fil de mon parcours de développeur full-stack, j’ai eu l’occasion
-            de toucher à tout : des applications mobiles construites avec
-            Flutter, aux API Laravel robustes, en passant par des interfaces web
-            élégantes réalisées avec Nuxt, Next.js et React. Chaque projet a été
-            un terrain d’apprentissage, entre créativité et rigueur, parfois à
-            peaufiner une animation, parfois à traquer un bug qui n’apparaît
-            qu’en production à 2 h du matin.{" "}
+            {t.experiences.description1}
           </p>
         </FadeUp>
         <FadeUp delay={0.2}>
           <p className="corp">
-            Ces expériences m’ont appris bien plus que la théorie : écrire du
-            code clair, collaborer efficacement et toujours chercher à
-            comprendre avant de corriger. Ce que j’aime avant tout ? Transformer
-            des idées complexes en produits performants, utiles et agréables à
-            utiliser.{" "}
+            {t.experiences.description2}
           </p>
         </FadeUp>
 

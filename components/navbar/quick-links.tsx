@@ -13,12 +13,14 @@ interface QuickLink {
 }
 
 interface Props {
+  title: string;
   links: QuickLink[];
   shouldAnimate: boolean;
   baseDelay?: number;
 }
 
 export const QuickLinks: React.FC<Props> = ({
+  title,
   links,
   shouldAnimate,
   baseDelay = 0,
@@ -26,7 +28,7 @@ export const QuickLinks: React.FC<Props> = ({
   return (
     <>
       <FadeUp delay={baseDelay} shouldAnimate={shouldAnimate}>
-        <div className="text-xs/6 font-bold text-gray-400">Liens rapides</div>
+        <div className="text-xs/6 font-bold text-gray-400">{title}</div>
       </FadeUp>
       <ul className="-mx-2 mt-2 space-y-1">
         {links.map((quickLink, index) => (

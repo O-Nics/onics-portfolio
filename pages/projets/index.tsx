@@ -8,8 +8,7 @@ import { LinkNavigation } from "@/types";
 import FadeUp from "@/components/animation/fade-up";
 import { getAllProjects } from "@/lib/projects";
 import Fade from "@/components/animation/fade";
-
-const projects = getAllProjects();
+import {useTranslations} from "@/hooks/useTranslations";
 
 interface ProjetsPageProps {
   projects: Project[];
@@ -18,12 +17,15 @@ interface ProjetsPageProps {
 }
 
 export default function ProjetsPage({}: ProjetsPageProps) {
+  const { t, locale } = useTranslations();
+  const projects = getAllProjects(locale);
+
   const leftLink: LinkNavigation = {
-    name: "À propos de moi",
+    name: t.projects.leftLink,
     href: "/a-propos",
   };
   const rightLink: LinkNavigation = {
-    name: "Compétences",
+    name: t.projects.rightLink,
     href: "/competences",
   };
 
@@ -37,18 +39,17 @@ export default function ProjetsPage({}: ProjetsPageProps) {
     >
       <main>
         <FadeUp>
-          <h1>Projets</h1>
+          <h1>{t.projects.title}</h1>
         </FadeUp>
         <FadeUp delay={0.1}>
           <p className="subtitle">
-            Du concept à la mise en production. <br /> Mes projets les plus
-            marquants.
+            {t.projects.subtitle}
+             <br />  {t.projects.subtitle2}
           </p>
         </FadeUp>
         <FadeUp delay={0.15}>
           <p className="corp !pt-6 ">
-            Chaque projet est une occasion de transformer une idée en solution
-            concrète.
+            {t.projects.description}
           </p>
         </FadeUp>
         <div className="pt-8 grid grid-cols-1  lg:grid-cols-2 xl:grid-cols-3 gap-4">
@@ -110,7 +111,7 @@ export default function ProjetsPage({}: ProjetsPageProps) {
                           </FadeUp>
                         </div>
                       </div>
-                      <strong className=" link ">Voir plus</strong>
+                      <strong className=" link ">{t.projects.seeMore}</strong>
                     </div>
                   </Link>
                 </div>

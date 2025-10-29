@@ -1,5 +1,5 @@
 import { SchoolIcon } from "@/components/icons";
-import { Education } from "@/types";
+import {Education} from "@/types";
 import FadeUp from "@/components/animation/fade-up";
 
 export const VerticalTimelineEducation = ({

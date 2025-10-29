@@ -4,9 +4,12 @@ import { Kbd } from "@heroui/kbd";
 
 import { SearchIcon } from "@/components/icons";
 import { useSearch } from "@/features/search";
+import {useTranslations} from "@/hooks/useTranslations";
 
 export const SearchInput: React.FC = () => {
   const { openSearch } = useSearch();
+  const { t } = useTranslations();
+
 
   return (
     <Input
@@ -28,7 +31,7 @@ export const SearchInput: React.FC = () => {
         </Kbd>
       }
       labelPlacement="outside"
-      placeholder="Rechercher..."
+      placeholder={t.nav.search}
       startContent={
         <SearchIcon className="text-base text-default-400 pointer-events-none flex-shrink-0" />
       }

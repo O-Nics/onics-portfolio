@@ -6,14 +6,25 @@
     "skills": "Skills",
     "experiences": "Experiences",
     "education": "Education",
-    "contact": "Contact"
+    "contact": "Contact",
+    "cv": "Download resume",
+    "quickLinks": "Quick links",
+    "search": "Search..."
+  },
+  "modal": {
+    "search": "Search pages, projects...",
+    "close": "Close modal window",
+    "recentSearches": "Recent searches",
+    "recent": "Recent",
+    "noResults": "No results found for",
+    "noRecent": "No recent searches"
   },
   "home": {
     "title": "Nicolas Planche",
     "subtitle": "Full-Stack & Mobile Developer",
     "description1": "Tech enthusiast, I design mobile and web applications as well as solid back-ends.",
     "description2": "I use modern technologies such as Flutter, Laravel, Vue/Nuxt, Next/React, Tailwind CSS and DevOps practices to deliver complete, user-oriented and high-quality software solutions.",
-    "nextLink": "About me"
+    "rightLink": "About me"
   },
   "about": {
     "title": "About me",
@@ -23,7 +34,9 @@
     "description3": "From front to back, I pay particular attention to every detail: designing a fluid interface, structuring a clean architecture, optimizing performance or ensuring code maintainability.",
     "description4": "My goal is simple: create useful, pleasant to use and easy to evolve applications.",
     "description5": "I enjoy collaborating with motivated teams, confronting ideas and finding solutions best suited to users' real needs.",
-    "description6": "Each project is for me a new opportunity to experiment, improve my practices and push my limits to deliver reliable and sustainable products."
+    "description6": "Each project is for me a new opportunity to experiment, improve my practices and push my limits to deliver reliable and sustainable products.",
+    "leftLink": "Home",
+    "rightLink": "Projects"
   },
   "projects": {
     "title": "Projects",
@@ -36,26 +49,38 @@
     "challenges": "Challenges met",
     "lessons": "Lessons learned",
     "technologies": "Technologies used",
-    "links": "Links"
+    "links": "Links",
+    "leftLink": "About me",
+    "rightLink": "Skills"
   },
   "skills": {
     "title": "Skills",
     "subtitle": "Learn by practice, master by rigor.",
-    "description": "I learned by coding, testing and debugging, until development became much more than a job: a way of thinking. As a full-stack developer, I design performant, maintainable and scalable web and mobile applications, always seeking to push my limits and enrich my stack through projects."
+    "description": "I learned by coding, testing and debugging, until development became much more than a job: a way of thinking. As a full-stack developer, I design performant, maintainable and scalable web and mobile applications, always seeking to push my limits and enrich my stack through projects.",
+    "leftLink": "Projects",
+    "rightLink": "Experiences"
   },
   "experiences": {
     "title": "Experience",
-    "subtitle": "You need experience to get the job... but it's the job that gives experience!"
+    "subtitle": "You need experience to get the job... but it's the job that gives experience!",
+    "description1": "Throughout my journey as a full-stack developer, I’ve had the chance to work on a bit of everything — from mobile applications built with Flutter, to robust Laravel APIs, and elegant web interfaces crafted with Nuxt, Next.js, and React. Each project has been a learning ground, balancing creativity and technical rigor — sometimes refining an animation, sometimes hunting down a bug that only appears in production at 2 a.m.",
+    "description2": "These experiences have taught me far more than theory: how to write clean code, collaborate efficiently, and always seek to understand before fixing. What I enjoy most? Turning complex ideas into performant, useful, and enjoyable products.",
+    "leftLink": "Skills",
+    "rightLink": "Education"
   },
   "education": {
     "title": "Education",
     "subtitle": "Learn, experiment, evolve.",
-    "description": "From my scientific training in high school to the Mathematics and Computer Science degree at University Lyon 1, I built a solid foundation in logic and software design."
+    "description1": "From my scientific background in high school to my Bachelor's degree in Mathematics and Computer Science at the University of Lyon 1, I built a strong foundation in logic and software design.",
+    "description2": "My Full-Stack Developer Master's at MyDigitalSchool Lyon marked a key milestone, it allowed me to strengthen my web and mobile development skills through real-world projects combining performance, design, and user experience.",
+    "leftLink": "Experiences",
+    "rightLink": "Contact"
   },
   "contact": {
     "title": "Contact",
-    "subtitle": "A question? A project? Want to collaborate?",
-    "description": "Feel free to contact me. I'm available to discuss your projects or answer your questions.",
+    "description1": "Got a project in mind? An opportunity to share?",
+    "description2": "I’d be happy to discuss it with you. Leave me a message below.",
+    "description3": "Looking forward to hearing from you!",
     "form": {
       "name": "Name",
       "namePlaceholder": "Your name",
@@ -68,7 +93,11 @@
       "submit": "Send message",
       "submitting": "Sending...",
       "success": "Message sent successfully!",
-      "error": "An error occurred. Please try again."
+      "error": "An error occurred. Please try again.",
+      "errorName": "Please enter your name.",
+        "errorEmail": "Please enter a valid email address.",
+        "errorSubject": "Please select a subject.",
+        "errorMessage": "Please enter your message."
     },
     "subjects": {
       "project": "New project",
@@ -76,7 +105,9 @@
       "question": "Technical question",
       "recruits": "Recruitment",
       "other": "Other"
-    }
+    },
+    "leftLink": "Education",
+    "rightLink": "Home"
   },
   "common": {
     "home": "Home",

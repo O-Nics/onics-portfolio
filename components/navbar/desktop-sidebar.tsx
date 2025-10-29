@@ -3,8 +3,10 @@ import React from "react";
 import { NavigationLinks } from "./navigation-links";
 import { QuickLinks } from "./quick-links";
 
-import { siteConfig } from "@/config/site";
-import { getNavigationLinks } from "@/config/navigation";
+import {
+  getNavigationLinks,
+  getNavigationQuickLinks,
+} from "@/config/navigation";
 import { useTranslations } from "@/hooks/useTranslations";
 
 interface Props {
@@ -14,6 +16,7 @@ interface Props {
 export const DesktopSidebar: React.FC<Props> = ({ shouldAnimate }) => {
   const { t } = useTranslations();
   const navigationLinks = getNavigationLinks(t);
+  const navigationQuickLinks = getNavigationQuickLinks(t);
 
   return (
     <div className="hidden mt-[65px] py-0 md:fixed md:inset-y-0 md:z-30 md:flex md:w-72 md:flex-col">
@@ -29,9 +32,10 @@ export const DesktopSidebar: React.FC<Props> = ({ shouldAnimate }) => {
               </li>
               <li>
                 <QuickLinks
-                  baseDelay={siteConfig.sidebarNavigation.length * 0.05}
-                  links={siteConfig.quickLinks}
+                  baseDelay={navigationLinks.length * 0.05}
+                  links={navigationQuickLinks}
                   shouldAnimate={shouldAnimate}
+                  title={t.nav.quickLinks}
                 />
               </li>
             </ul>

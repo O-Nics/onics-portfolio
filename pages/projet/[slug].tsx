@@ -31,12 +31,14 @@ import {
 } from "@/components/ui/carousel";
 import Fade from "@/components/animation/fade";
 import { ProjectJsonLd } from "@/components/seo/json-ld";
+import {useTranslations} from "@/hooks/useTranslations";
 
 interface ProjectPageProps {
   project: Project;
 }
 
 function getColorLink(type: string) {
+
   // common base: transition + rounded already applied by Button elsewhere
   const common = "transition-colors duration-200";
 
@@ -160,12 +162,14 @@ function getIconLink(type: string): ReactNode {
   }
 }
 
-const leftLink: LinkNavigation = {
-  name: "Revenir aux projets",
-  href: "/projets",
-};
+
 
 export default function ProjectPage({ project }: ProjectPageProps) {
+  const { t } = useTranslations();
+  const leftLink: LinkNavigation = {
+    name: t.projects.backToProjects,
+    href: "/projets",
+  };
   const router = useRouter();
   const [lightboxController, setLightboxController] = useState({
     toggler: false,
@@ -196,11 +200,11 @@ export default function ProjectPage({ project }: ProjectPageProps) {
     );
   }
 
-  const getChipColor = (status: string) => {
-    switch (status) {
-      case "Terminé":
+  const getChipColor = (statusNumber: number) => {
+    switch (statusNumber) {
+      case 1:
         return "success";
-      case "Actif":
+      case 2:
         return "warning";
     }
   };
@@ -244,7 +248,7 @@ export default function ProjectPage({ project }: ProjectPageProps) {
                   color="foreground"
                   href="/"
                 >
-                  Accueil
+                  {t.common.home}
                 </Link>
                 <span className="text-default-400 ">/</span>
                 <Link
@@ -253,7 +257,7 @@ export default function ProjectPage({ project }: ProjectPageProps) {
                   color="foreground"
                   href="/projets"
                 >
-                  Projets
+                  {t.projects.title}
                 </Link>
                 <span className="text-default-400 ">/</span>
                 <span className="text-primary font-extrabold">
@@ -267,7 +271,7 @@ export default function ProjectPage({ project }: ProjectPageProps) {
                   avatar: "avatar-classes",
                   closeButton: "close-button-classes",
                 }}
-                color={getChipColor(project.status)}
+                color={getChipColor(project.statusNumber)}
                 variant="flat"
               >
                 {project.status}
@@ -279,16 +283,21 @@ export default function ProjectPage({ project }: ProjectPageProps) {
           <div className="flex flex-col gap-4">
             <div className="flex items-start justify-between">
               <FadeUp delay={0.05}>
-                <h1>{project.title}</h1>
+                <h1 >{project.title} </h1>
+                <span className="text-gray-50/40 text-2xl font-black">{project.type}</span>
               </FadeUp>
-              {project.status === "in-progress" && (
-                <Chip color="warning" variant="flat">
-                  En cours
-                </Chip>
-              )}
             </div>
             <FadeUp delay={0.1}>
               <p className="text-default-600">{project.shortDescription}</p>
+            </FadeUp>
+            <FadeUp delay={0.125}>
+              <div className="flex flex-wrap gap-2 mt-3 items-center">
+                {project.platform.map((category) => (
+                  <Chip key={category}  variant="flat">
+                    {category}
+                  </Chip>
+                ))}
+              </div>
             </FadeUp>
 
             {/* Catégories et date */}
@@ -455,7 +464,7 @@ export default function ProjectPage({ project }: ProjectPageProps) {
 
           <FadeUp delay={0.3}>
             <h2 className="text-2xl font-bold mt-4 mb-0">
-              <span className="text-primary">|</span> Fonctionnalités
+              <span className="text-primary">|</span> {t.projects.features}
             </h2>
           </FadeUp>
           <div className="gap-0 flex flex-col">
@@ -470,7 +479,7 @@ export default function ProjectPage({ project }: ProjectPageProps) {
 
           <FadeUp delay={0.35}>
             <h2 className="text-2xl font-bold mt-4 mb-0">
-              <span className="text-primary">|</span> Défis relevés
+              <span className="text-primary">|</span> {t.projects.challenges}
             </h2>
           </FadeUp>
           <div className="gap-0 flex flex-col">
@@ -485,7 +494,7 @@ export default function ProjectPage({ project }: ProjectPageProps) {
 
           <FadeUp delay={0.35}>
             <h2 className="text-2xl font-bold mt-4 mb-0">
-              <span className="text-primary">|</span> Leçons apprises
+              <span className="text-primary">|</span> {t.projects.lessons}
             </h2>
           </FadeUp>
           <div className="gap-0 flex flex-col">
@@ -503,7 +512,7 @@ export default function ProjectPage({ project }: ProjectPageProps) {
             <FadeUp delay={0.4}>
               <h2 className="text-2xl font-bold">
                 {" "}
-                <span className="text-primary">|</span> Technologies utilisées
+                <span className="text-primary">|</span> {t.projects.technologies}
               </h2>
             </FadeUp>
             <div className="flex flex-wrap gap-2 pt-4">
@@ -536,7 +545,7 @@ export default function ProjectPage({ project }: ProjectPageProps) {
             <div className="flex flex-col pt-5 gap-4">
               <FadeUp delay={0.5}>
                 <h2 className="text-2xl font-bold">
-                  <span className="text-primary">|</span> Liens
+                  <span className="text-primary">|</span> {t.projects.links}
                 </h2>
               </FadeUp>
               <div className="flex flex-wrap pt-2 gap-3">
@@ -571,11 +580,20 @@ export default function ProjectPage({ project }: ProjectPageProps) {
   );
 }
 
-export const getStaticPaths: GetStaticPaths = async () => {
+export const getStaticPaths: GetStaticPaths = async ({ locales }) => {
   const projects = getAllProjects();
-  const paths = projects.map((project) => ({
-    params: { slug: project.slug },
-  }));
+
+  // Générer les paths pour toutes les locales
+  const paths = locales
+    ? locales.flatMap((locale) =>
+        projects.map((project) => ({
+          params: { slug: project.slug },
+          locale,
+        })),
+      )
+    : projects.map((project) => ({
+        params: { slug: project.slug },
+      }));
 
   return {
     paths,
@@ -585,9 +603,10 @@ export const getStaticPaths: GetStaticPaths = async () => {
 
 export const getStaticProps: GetStaticProps<ProjectPageProps> = async ({
   params,
+  locale,
 }) => {
   const slug = params?.slug as string;
-  const project = getProjectBySlug(slug);
+  const project = getProjectBySlug(slug, locale);
 
   if (!project) {
     return {
@@ -599,5 +618,6 @@ export const getStaticProps: GetStaticProps<ProjectPageProps> = async ({
     props: {
       project,
     },
+    revalidate: 60,
   };
 };

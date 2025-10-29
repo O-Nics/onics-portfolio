@@ -2,27 +2,69 @@
   "experiences": [
     {
       "id": 1,
-      "title": "Freelance Développeur Full Stack",
+      "title": {
+        "fr": "Freelance Développeur Full Stack",
+        "en": "Freelance Full Stack Developer"
+      },
       "society": null,
-      "date": "Octobre 2022 - Présent",
-      "location": "Remote, France",
-      "description": "Développeur full-stack, j’ai participé au développement d’une application mobile et web en Flutter, Laravel et Nuxt.js, avec un fort accent sur l’optimisation des performances, la sécurité des données et la fiabilité du backend. J’y ai intégré des services tiers (HelloAsso, OneSignal), amélioré l’architecture technique et mis en place un workflow complet CI/CD pour assurer stabilité et qualité continue du produit."
+      "date": {
+        "fr": "Octobre 2022 - Présent",
+        "en": "October 2022 - Present"
+      },
+      "location": {
+        "fr": "Remote, France",
+        "en": "Remote, France"
+      },
+      "description": {
+        "fr": "Développeur full-stack, j’ai participé au développement d’une application mobile et web en Flutter, Laravel et Nuxt.js, avec un fort accent sur l’optimisation des performances, la sécurité des données et la fiabilité du backend. J’y ai intégré des services tiers (HelloAsso, OneSignal), amélioré l’architecture technique et mis en place un workflow complet CI/CD pour assurer stabilité et qualité continue du produit.",
+        "en": "As a full-stack developer, I contributed to the development of a mobile and web application built with Flutter, Laravel, and Nuxt.js, with a strong focus on performance optimization, data security, and backend reliability. I integrated third-party services (HelloAsso, OneSignal), improved the technical architecture, and implemented a full CI/CD workflow to ensure product stability and continuous quality."
+      }
     },
     {
       "id": 2,
-      "title": "Alternance Développeur Full Stack",
-      "society": "SportCorico",
-      "date": "Aout 2023 - Aout 2025",
-      "location": "Neuville sur Saône, France",
-      "description": "Développeur full-stack, j’ai participé au développement d’une application mobile et web en Flutter, Laravel et Nuxt.js, avec un fort accent sur l’optimisation des performances, la sécurité des données et la fiabilité du backend. J’y ai intégré des services tiers (HelloAsso, OneSignal), amélioré l’architecture technique et mis en place un workflow complet CI/CD pour assurer stabilité et qualité continue du produit."
+      "title": {
+        "fr": "Alternance Développeur Full Stack",
+        "en": "Full Stack Developer Apprentice"
+      },
+      "society": {
+        "fr": "SportCorico",
+        "en": "SportCorico"
+      },
+      "date": {
+        "fr": "Août 2023 - Août 2025",
+        "en": "August 2023 - August 2025"
+      },
+      "location": {
+        "fr": "Neuville sur Saône, France",
+        "en": "Neuville-sur-Saône, France"
+      },
+      "description": {
+        "fr": "Développeur full-stack, j’ai participé au développement d’une application mobile et web en Flutter, Laravel et Nuxt.js, avec un fort accent sur l’optimisation des performances, la sécurité des données et la fiabilité du backend. J’y ai intégré des services tiers (HelloAsso, OneSignal), amélioré l’architecture technique et mis en place un workflow complet CI/CD pour assurer stabilité et qualité continue du produit.",
+        "en": "As a full-stack developer apprentice, I contributed to the development of a mobile and web application using Flutter, Laravel, and Nuxt.js, focusing on performance optimization, data security, and backend reliability. I integrated third-party services (HelloAsso, OneSignal), enhanced the technical architecture, and implemented a complete CI/CD workflow to ensure stability and continuous quality."
+      }
     },
     {
       "id": 3,
-      "title": "Stage Développeur Informatique",
-      "society": "Serpolen",
-      "location": "Vonnas, France",
-      "date": "Mai 2022 - Juillet 2022",
-      "description": "Création d’un site vitrine complet pour présenter les services de l’entreprise et améliorer sa visibilité en ligne. Mise en place d’un réseau local sécurisé, configuration du matériel et renforcement de la sécurité informatique afin d’optimiser la fiabilité et la performance de l’infrastructure interne."
+      "title": {
+        "fr": "Stage Développeur Informatique",
+        "en": "Software Development Intern"
+      },
+      "society": {
+        "fr": "Serpolen",
+        "en": "Serpolen"
+      },
+      "location": {
+        "fr": "Vonnas, France",
+        "en": "Vonnas, France"
+      },
+      "date": {
+        "fr": "Mai 2022 - Juillet 2022",
+        "en": "May 2022 - July 2022"
+      },
+      "description": {
+        "fr": "Création d’un site vitrine complet pour présenter les services de l’entreprise et améliorer sa visibilité en ligne. Mise en place d’un réseau local sécurisé, configuration du matériel et renforcement de la sécurité informatique afin d’optimiser la fiabilité et la performance de l’infrastructure interne.",
+        "en": "Developed a complete showcase website to present the company's services and improve its online visibility. Set up a secure local network, configured equipment, and strengthened IT security to optimize the reliability and performance of the internal infrastructure."
+      }
     }
   ]
 }

@@ -7,14 +7,17 @@ import FadeUp from "@/components/animation/fade-up";
 import { NavigationInPage } from "@/features/navigation";
 import { getAllSkills } from "@/lib/skills";
 import Fade from "@/components/animation/fade";
+import {useTranslations} from "@/hooks/useTranslations";
 
 export default function CompetencesPage({}) {
+  const { t } = useTranslations();
+
   const leftLink: LinkNavigation = {
-    name: "Projets",
+    name: t.skills.leftLink,
     href: "/projets",
   };
   const rightLink: LinkNavigation = {
-    name: "Éxperiences",
+    name: t.skills.rightLink,
     href: "/xp",
   };
 
@@ -34,21 +37,16 @@ export default function CompetencesPage({}) {
     >
       <main>
         <FadeUp>
-          <h1>Compétences</h1>
+          <h1>{t.skills.title}</h1>
         </FadeUp>
         <FadeUp delay={0.05}>
           <p className="subtitle">
-            Apprendre par la pratique, maîtriser par la rigueur.
+            {t.skills.subtitle}
           </p>
         </FadeUp>
         <FadeUp delay={0.1}>
           <p className="corp !pt-6 ">
-            J’ai appris en codant, en testant et en déboguant, jusqu’à faire du
-            développement bien plus qu’un métier : une manière de penser. En
-            tant que développeur full-stack, je conçois des applications web et
-            mobiles performantes, maintenables et scalables, en cherchant
-            toujours à repousser mes limites et à enrichir ma stack au fil des
-            projets.{" "}
+            {t.skills.description}
           </p>
         </FadeUp>
 

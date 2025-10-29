@@ -12,7 +12,7 @@ export default function Example() {
   const { t } = useTranslations();
 
   const rightLink: LinkNavigation = {
-    name: t.home.nextLink,
+    name: t.home.rightLink,
     href: "/a-propos",
   };
 

@@ -4,14 +4,19 @@ import { Button } from "@heroui/button";
 import { Select, SelectItem } from "@heroui/select";
 import { CloseIcon } from "@heroui/shared-icons";
 import Image from "next/image";
+import { useRouter } from "next/router";
 
 import DefaultLayout from "@/layouts/default";
 import { LinkNavigation } from "@/types";
 import { NavigationInPage } from "@/features/navigation";
 import FadeUp from "@/components/animation/fade-up";
 import Fade from "@/components/animation/fade";
+import { useTranslations } from "@/hooks/useTranslations";
 
 export default function ContactPage() {
+  const { t } = useTranslations();
+  const { locale } = useRouter();
+
   const [formData, setFormData] = useState({
     name: "",
     email: "",
@@ -25,18 +30,18 @@ export default function ContactPage() {
   }>({ type: null, message: "" });
 
   const subjects = [
-    { key: "project", label: "Nouveau projet" },
-    { key: "collaboration", label: "Collaboration" },
-    { key: "question", label: "Question technique" },
-    { key: "recruits", label: "Recrutement" },
-    { key: "other", label: "Autre" },
+    { key: "project", label: t.contact.subjects.project },
+    { key: "collaboration", label: t.contact.subjects.collaboration },
+    { key: "question", label: t.contact.subjects.question },
+    { key: "recruits", label: t.contact.subjects.recruits },
+    { key: "other", label: t.contact.subjects.other },
   ];
   const leftLink: LinkNavigation = {
-    name: "Formations",
+    name: t.contact.leftLink,
     href: "/education",
   };
   const rightLink: LinkNavigation = {
-    name: "Accueil",
+    name: t.contact.rightLink,
     href: "/",
   };
 
@@ -62,17 +67,13 @@ export default function ContactPage() {
 
       setSubmitStatus({
         type: "success",
-        message:
-          "Merci pour votre message ! Je vous répondrai dans les plus brefs délais.",
+        message: t.contact.form.success,
       });
       setFormData({ name: "", email: "", subject: "", message: "" });
     } catch (error) {
       setSubmitStatus({
         type: "error",
-        message:
-          error instanceof Error
-            ? error.message
-            : "Une erreur s'est produite lors de l'envoi. Veuillez réessayer.",
+        message: error instanceof Error ? error.message : t.contact.form.error,
       });
     } finally {
       setIsSubmitting(false);
@@ -96,7 +97,7 @@ export default function ContactPage() {
         <FadeUp>
           <div className="pt-0 md:pt-4" />
           <div className="flex justify-between items-center">
-            <h1 className="!pt-0">Contact</h1>
+            <h1 className="!pt-0">{t.contact.title}</h1>
             <Image
               priority
               unoptimized
@@ -127,9 +128,8 @@ export default function ContactPage() {
                 <div className="h-0.5 md:hidden flex w-full ml-6 rounded-full bg-primary" />
               </div>
               <p className="corp w-full md:ml-6 font-bold text-gray-600 dark:text-gray-300">
-                Un projet en tête ? Une opportunité à partager ? <br />
-                Je serais ravi(e) d&#39;en discuter avec vous. Laissez-moi un
-                message ci-dessous. <br /> J&#39;ai hâte de vous lire !
+                {t.contact.description1} <br /> {t.contact.description2} <br />{" "}
+                {t.contact.description3}
               </p>
             </div>
           </div>
@@ -145,8 +145,9 @@ export default function ContactPage() {
                     "dark:!bg-gray-50/3 border-0 dark:hover:!bg-gray-50/6 bg-gray-50 hover:!bg-gray-100 dark:focus-within:!bg-gray-50/5",
                   input: "text-sm",
                 }}
-                label="Nom"
-                placeholder="Votre nom"
+                errorMessage={t.contact.form.errorName}
+                label={t.contact.form.name}
+                placeholder={t.contact.form.namePlaceholder}
                 type="text"
                 value={formData.name}
                 onValueChange={(value) => handleChange("name", value)}
@@ -161,8 +162,9 @@ export default function ContactPage() {
                     "dark:!bg-gray-50/3 border-0 dark:hover:!bg-gray-50/6 bg-gray-50 hover:!bg-gray-100 dark:focus-within:!bg-gray-50/5",
                   input: "text-sm",
                 }}
-                label="Email"
-                placeholder="votre.email@exemple.com"
+                errorMessage={t.contact.form.errorEmail}
+                label={t.contact.form.email}
+                placeholder={t.contact.form.emailPlaceholder}
                 type="email"
                 value={formData.email}
                 onValueChange={(value) => handleChange("email", value)}
@@ -177,8 +179,9 @@ export default function ContactPage() {
                     "dark:!bg-gray-50/3 border-0 dark:hover:!bg-gray-50/6 bg-gray-50 hover:!bg-gray-100 dark:focus-within:!bg-gray-50/5",
                   popoverContent: "dark:bg-background bg-white",
                 }}
-                label="Sujet"
-                placeholder="Sélectionnez un sujet"
+                errorMessage={t.contact.form.errorSubject}
+                label={t.contact.form.subject}
+                placeholder={t.contact.form.subjectPlaceholder}
                 selectedKeys={formData.subject ? [formData.subject] : []}
                 onSelectionChange={(keys) => {
                   const selected = Array.from(keys)[0] as string;
@@ -210,9 +213,10 @@ export default function ContactPage() {
 
                   input: "text-sm",
                 }}
-                label="Message"
+                errorMessage={t.contact.form.errorMessage}
+                label={t.contact.form.message}
                 minRows={6}
-                placeholder="Décrivez votre projet ou votre question..."
+                placeholder={t.contact.form.messagePlaceholder}
                 value={formData.message}
                 onValueChange={(value) => handleChange("message", value)}
               />
@@ -249,7 +253,9 @@ export default function ContactPage() {
                 type="submit"
                 variant="flat"
               >
-                {isSubmitting ? "Envoi en cours..." : "Envoyer le message"}
+                {isSubmitting
+                  ? t.contact.form.submitting
+                  : t.contact.form.submit}
               </Button>
             </FadeUp>
           </form>

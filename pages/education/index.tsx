@@ -7,22 +7,25 @@ import { TimelineEducation } from "@/features/timeline";
 import { getAllFormation } from "@/lib/formations";
 import { NavigationInPage } from "@/features/navigation";
 import Fade from "@/components/animation/fade";
+import {useTranslations} from "@/hooks/useTranslations";
 
 export default function AboutPage() {
+  const { t, locale } = useTranslations();
+
   const leftLink: LinkNavigation = {
-    name: "Éxpériences",
+    name: t.education.leftLink,
     href: "/xp",
   };
   const rightLink: LinkNavigation = {
-    name: "Contactez-moi",
+    name: t.education.rightLink,
     href: "/contact",
   };
 
   const [educations, setEducations] = useState<Education[]>([]);
 
   useEffect(() => {
-    setEducations(getAllFormation());
-  }, []);
+    setEducations(getAllFormation(locale));
+  }, [locale]);
 
   return (
     <DefaultLayout
@@ -34,24 +37,19 @@ export default function AboutPage() {
     >
       <main className="">
         <FadeUp>
-          <h1>Formations</h1>
+          <h1>{t.education.title}</h1>
         </FadeUp>
         <FadeUp delay={0.05}>
-          <p className="subtitle">Apprendre, expérimenter, évoluer.</p>
+          <p className="subtitle">{t.education.subtitle}</p>
         </FadeUp>
         <FadeUp delay={0.1}>
           <p className="corp !pt-6">
-            De ma formation scientifique au lycée jusqu’à la licence
-            Mathématiques et Informatique à l’Université Lyon 1, j’ai construit
-            une base solide en logique et en conception logicielle.
+            {t.education.description1}
           </p>
         </FadeUp>
         <FadeUp delay={0.15}>
           <p className="corp ">
-            Mon Master Développeur Full-Stack à MyDigitalSchool Lyon a marqué
-            une étape clé : j’y ai consolidé mes compétences en développement
-            web et mobile, en travaillant sur des projets concrets alliant
-            performance, design et expérience utilisateur.
+            {t.education.description2}
           </p>
         </FadeUp>
         {educations.length > 0 && (

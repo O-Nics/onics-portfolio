@@ -14,13 +14,30 @@ import { Kbd } from "@heroui/kbd";
 import { ResearchResult } from "./search-result";
 
 import { SearchIcon } from "@/components/icons";
-import { siteConfig } from "@/config/site";
-import projectsData from "@/data/projects.json";
-import educationData from "@/data/formations.json";
-import experienceData from "@/data/experiences.json";
 import { useSearch } from "@/features/search";
 import { SearchResult } from "@/types";
 import { useKeyboardHeight } from "@/hooks/useKeyboardHeight";
+import { useTranslations } from "@/hooks/useTranslations";
+import { MoveIcon } from "@/components/icons/ui/move";
+import {
+  getNavigationLinks,
+  getNavigationQuickLinks,
+} from "@/config/navigation";
+import { getAllProjects } from "@/lib/projects";
+import { getAllExperiences } from "@/lib/experiences";
+import { getAllFormation } from "@/lib/formations";
+import projectsDataRaw from "@/data/projects.json";
+import educationDataRaw from "@/data/formations.json";
+import experienceDataRaw from "@/data/experiences.json";
+
+// Interface pour stocker les recherches récentes avec les deux langues
+interface StoredRecentSearch {
+  id: string;
+  title: { fr: string; en: string };
+  description?: { fr: string; en: string };
+  href: string;
+  category: SearchResult["category"];
+}
 
 const SearchModal = () => {
   const { isOpen, openSearch, closeSearch } = useSearch();
@@ -30,9 +47,38 @@ const SearchModal = () => {
   const router = useRouter();
   const targetRef = React.useRef(null);
   const { moveProps } = useDraggable({ targetRef, isDisabled: !isOpen });
+  const { t, locale } = useTranslations();
 
   // Détection du clavier mobile
   const { isKeyboardOpen, viewportHeight } = useKeyboardHeight();
+
+  // Charger les recherches récentes depuis localStorage avec la bonne langue
+  useEffect(() => {
+    const storage = localStorage.getItem("recentSearches");
+
+    if (storage) {
+      const storedRecent: StoredRecentSearch[] = JSON.parse(storage);
+
+      // Transformer en fonction de la locale
+      const localized: SearchResult[] = storedRecent.map((item) => ({
+        id: item.id,
+        title:
+          typeof item.title === "string"
+            ? item.title
+            : item.title[(locale as "fr" | "en")] || item.title.fr,
+        description: item.description
+          ? typeof item.description === "string"
+            ? item.description
+            : item.description[(locale as "fr" | "en")] ||
+              item.description.fr
+          : undefined,
+        href: item.href,
+        category: item.category,
+      }));
+
+      setRecentSearches(localized);
+    }
+  }, [locale]);
 
   // Détection du raccourci Cmd+K (ou Ctrl+K)
   useEffect(() => {
@@ -42,14 +88,6 @@ const SearchModal = () => {
         openSearch();
       }
     };
-
-    const storage = localStorage.getItem("recentSearches");
-
-    if (storage) {
-      const recent: SearchResult[] = JSON.parse(storage);
-
-      setRecentSearches(recent);
-    }
 
     window.addEventListener("keydown", handleKeyDown);
 
@@ -66,29 +104,33 @@ const SearchModal = () => {
     }
   }, [isOpen]);
 
-  // Préparer les données de recherche
+  // Préparer les données de recherche avec transformation selon la locale
   const searchData: SearchResult[] = useMemo(() => {
-    const menuItems: SearchResult[] = siteConfig.sidebarNavigation.map(
-      (item, index) => ({
-        id: `menu-${index}`,
-        title: item.name,
-        href: item.href,
-        category: "menu" as const,
-        icon: item.icon,
-      }),
-    );
+    const navigationLinks = getNavigationLinks(t);
+    const quickLinks = getNavigationQuickLinks(t);
 
-    const menuQuickItems: SearchResult[] = siteConfig.quickLinks.map(
-      (item, index) => ({
-        id: `menu-quick-${index}`,
-        title: item.name,
-        href: item.href,
-        category: "menu" as const,
-        icon: item.icon,
-      }),
-    );
+    const menuItems: SearchResult[] = navigationLinks.map((item, index) => ({
+      id: `menu-${index}`,
+      title: item.name,
+      href: item.href,
+      category: "menu" as const,
+      icon: item.icon,
+    }));
 
-    const projects: SearchResult[] = projectsData.projects.map((project) => ({
+    const menuQuickItems: SearchResult[] = quickLinks.map((item, index) => ({
+      id: `menu-quick-${index}`,
+      title: item.name,
+      href: item.href,
+      category: "menu" as const,
+      icon: item.icon,
+    }));
+
+    // Utiliser les fonctions de lib pour obtenir les données transformées
+    const projects = getAllProjects(locale);
+    const experiences = getAllExperiences(locale);
+    const formations = getAllFormation(locale);
+
+    const projectResults: SearchResult[] = projects.map((project) => ({
       id: `project-${project.slug}`,
       title: project.name,
       description: project.shortDescription,
@@ -99,36 +141,33 @@ const SearchModal = () => {
       category: "project" as const,
     }));
 
-    const experiences: SearchResult[] = experienceData.experiences.map(
-      (experience) => ({
-        id: `experience-${experience.id}`,
-        title: experience.title,
-        description: experience.description,
-        href: `/xp#${experience.id}`,
-        school: experience.society || undefined,
-        category: "experience" as const,
-      }),
-    );
-    const formations: SearchResult[] = educationData.educations.map(
-      (education) => ({
-        id: `formation-${education.id}`,
-        title: education.name,
-        description: education.description,
-        href: `/education#${education.id}`,
-        school: education.school,
-        level: education.level,
-        category: "formation" as const,
-      }),
-    );
+    const experienceResults: SearchResult[] = experiences.map((experience) => ({
+      id: `experience-${experience.id}`,
+      title: experience.title,
+      description: experience.description,
+      href: `/xp#${experience.id}`,
+      school: experience.society || undefined,
+      category: "experience" as const,
+    }));
+
+    const formationResults: SearchResult[] = formations.map((education) => ({
+      id: `formation-${education.id}`,
+      title: education.name,
+      description: education.description,
+      href: `/education#${education.id}`,
+      school: education.school,
+      level: education.level,
+      category: "formation" as const,
+    }));
 
     return [
       ...menuItems,
       ...menuQuickItems,
-      ...projects,
-      ...experiences,
-      ...formations,
+      ...projectResults,
+      ...experienceResults,
+      ...formationResults,
     ];
-  }, []);
+  }, [locale, t]);
 
   // Filtrer les résultats
   const filteredResults = useMemo(() => {
@@ -169,33 +208,115 @@ const SearchModal = () => {
     });
   }, [searchQuery, searchData]);
 
+  // Fonction helper pour trouver les données brutes et extraire fr/en
+  const findRawData = useCallback((item: SearchResult) => {
+    let titleFr = item.title;
+    let titleEn = item.title;
+    let descFr = item.description;
+    let descEn = item.description;
+
+    // Extraire les données brutes selon la catégorie
+    if (item.category === "project") {
+      const rawProject = projectsDataRaw.projects.find(
+        (p: any) => `project-${p.slug}` === item.id,
+      );
+
+      if (rawProject) {
+        titleFr =
+          typeof rawProject.name === "string"
+            ? rawProject.name
+            : (rawProject.name as any)?.fr || rawProject.name;
+        titleEn =
+          typeof rawProject.name === "string"
+            ? rawProject.name
+            : (rawProject.name as any)?.en || rawProject.name;
+        descFr =
+          typeof rawProject.shortDescription === "string"
+            ? rawProject.shortDescription
+            : (rawProject.shortDescription as any)?.fr ||
+              rawProject.shortDescription;
+        descEn =
+          typeof rawProject.shortDescription === "string"
+            ? rawProject.shortDescription
+            : (rawProject.shortDescription as any)?.en ||
+              rawProject.shortDescription;
+      }
+    } else if (item.category === "experience") {
+      const rawExp = experienceDataRaw.experiences.find(
+        (e: any) => `experience-${e.id}` === item.id,
+      );
+
+      if (rawExp) {
+        titleFr =
+          typeof rawExp.title === "string"
+            ? rawExp.title
+            : (rawExp.title as any)?.fr || rawExp.title;
+        titleEn =
+          typeof rawExp.title === "string"
+            ? rawExp.title
+            : (rawExp.title as any)?.en || rawExp.title;
+        descFr =
+          typeof rawExp.description === "string"
+            ? rawExp.description
+            : (rawExp.description as any)?.fr || rawExp.description;
+        descEn =
+          typeof rawExp.description === "string"
+            ? rawExp.description
+            : (rawExp.description as any)?.en || rawExp.description;
+      }
+    } else if (item.category === "formation") {
+      const rawForm = educationDataRaw.educations.find(
+        (f: any) => `formation-${f.id}` === item.id,
+      );
+
+      if (rawForm) {
+        titleFr =
+          typeof rawForm.name === "string"
+            ? rawForm.name
+            : (rawForm.name as any)?.fr || rawForm.name;
+        titleEn =
+          typeof rawForm.name === "string"
+            ? rawForm.name
+            : (rawForm.name as any)?.en || rawForm.name;
+        descFr =
+          typeof rawForm.description === "string"
+            ? rawForm.description
+            : (rawForm.description as any)?.fr || rawForm.description;
+        descEn =
+          typeof rawForm.description === "string"
+            ? rawForm.description
+            : (rawForm.description as any)?.en || rawForm.description;
+      }
+    }
+
+    return { titleFr, titleEn, descFr, descEn };
+  }, []);
+
   // Fonction de navigation
   const handleNavigate = useCallback(
     (item: SearchResult) => {
       closeSearch();
-      // ajout de recherche recente dans le local storage
+
+      // Récupérer les versions fr/en
+      const { titleFr, titleEn, descFr, descEn } = findRawData(item);
 
       const storage = localStorage.getItem("recentSearches");
-      let recentSearches: Array<{
-        id: string;
-        title: string;
-        description?: string;
-        href: string;
-        category: SearchResult["category"];
-      }> = storage ? JSON.parse(storage) : [];
+      let recentSearches: StoredRecentSearch[] = storage
+        ? JSON.parse(storage)
+        : [];
 
-      // add current search to the front (most recent first)
-      const entry = {
+      // Créer l'entrée avec les deux langues
+      const entry: StoredRecentSearch = {
         id: item.id,
-        title: item.title,
-        description: item.description,
+        title: { fr: titleFr, en: titleEn },
+        description: descFr && descEn ? { fr: descFr, en: descEn } : undefined,
         href: item.href,
         category: item.category,
       };
-
+ 
       recentSearches.unshift(entry);
 
-      // de-duplicate by id and keep only 10 most recent
+      // De-duplicate by id and keep only 10 most recent
       recentSearches = recentSearches
         .filter((v, i, arr) => arr.findIndex((x) => x.id === v.id) === i)
         .slice(0, 10);
@@ -203,11 +324,12 @@ const SearchModal = () => {
       localStorage.setItem("recentSearches", JSON.stringify(recentSearches));
 
       // Gérer la navigation avec ancre
-      const [hash] = item.href.split("#");
+      const hashMatch = item.href.match(/#(.+)$/);
+      const hash = hashMatch ? hashMatch[1] : null;
 
       if (hash) {
         // Si l'URL contient une ancre
-        router.push(item.href).then(() => {
+        void router.push(item.href).then(() => {
           // Attendre un court instant pour que le DOM se mette à jour
           setTimeout(() => {
             const element = document.getElementById(hash);
@@ -219,10 +341,10 @@ const SearchModal = () => {
         });
       } else {
         // Navigation normale sans ancre
-        router.push(item.href);
+        void router.push(item.href);
       }
     },
-    [closeSearch, router],
+    [closeSearch, router, findRawData],
   );
 
   // Navigation au clavier
@@ -278,9 +400,9 @@ const SearchModal = () => {
       <ModalContent className="dark:bg-background bg-white ">
         <div
           {...moveProps}
-          className="h-6 my-2 ml-2 mr-10 dark:bg-gray-50/10 bg-gray-100  rounded-full md:flex hidden  !z-0 text-center items-center justify-center text-sm dark:text-gray-50/8 text-gray-200 font-bold cursor-move"
+          className="h-6 my-2 ml-2 mr-10 p-3 dark:bg-gray-50/10 bg-gray-100  rounded-full md:flex hidden w-10 !z-0 text-center items-center justify-center text-sm dark:text-gray-50/8 text-gray-200 font-bold cursor-move"
         >
-          Déplacer
+          <MoveIcon className="dark:text-white text-gray-500" />
         </div>
 
         <ModalHeader className="pb-2 !pt-[00px] px-0">
@@ -298,7 +420,7 @@ const SearchModal = () => {
                 ESC
               </Kbd>
             }
-            placeholder="Rechercher des pages, projets, expériences, formations..."
+            placeholder={t.modal.search}
             startContent={
               <SearchIcon className="text-xl text-default-400 pointer-events-none flex-shrink-0" />
             }
@@ -327,7 +449,9 @@ const SearchModal = () => {
             searchQuery.length == 0 &&
             filteredResults.length == 0 && (
               <>
-                <div className="pl-3 font-bold">Récent</div>
+                <div className="pl-3 font-bold">
+                  {t.modal.recent || "Récent"}
+                </div>
                 <ResearchResult
                   closeSearch={closeSearch}
                   items={recentSearches}
@@ -339,10 +463,12 @@ const SearchModal = () => {
           {filteredResults.length === 0 && recentSearches.length < 1 && (
             <div className="px-4 py-8 text-center text-gray-500 dark:text-gray-400">
               {searchQuery && (
-                <p>Aucun résultat trouvé pour &#34;{searchQuery}&#34;</p>
+                <p>
+                  {t.modal.noResults} &#34;{searchQuery}&#34;
+                </p>
               )}
               {searchQuery.length == 0 && recentSearches.length == 0 && (
-                <p>Aucune recherche récente</p>
+                <p>{t.modal.noRecent}</p>
               )}
             </div>
           )}
