@@ -2,7 +2,7 @@ import type { NextApiRequest, NextApiResponse } from "next";
 
 import { Resend } from "resend";
 
-const resend = new Resend(process.env.RESEND_API_KEY);
+const resend = new Resend(process.env.RESEND_API_KEY || "keyPass");
 
 type ContactFormData = {
   name: string;
@@ -93,7 +93,8 @@ export default async function handler(
 
     return res.status(500).json({
       message: "Erreur serveur lors de l'envoi de l'email",
-      error: error instanceof Error ? error.message : "Erreur inconnue",
+      // error: error instanceof Error ? error.message : "Erreur inconnue",
+      error:  "Erreur inconnue",
     });
   }
 }
