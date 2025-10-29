@@ -15,7 +15,7 @@ export type SiteConfig = typeof siteConfig;
 
 export const siteConfig = {
   name: "Nicolas Planche",
-  canonicalUrl: "https://nicolas-planche.dev",
+  canonicalUrl: "https://www.nicolasplanche.fr",
   // canonicalUrl: "https://nicolas-planche.dev",
   description:
     "Portfolio de Nicolas Planche, développeur full-stack passionné par le développement web et mobile.",

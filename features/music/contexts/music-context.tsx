@@ -30,8 +30,11 @@ export function MusicProvider({ children }: { children: ReactNode }) {
       audioRef.current.crossOrigin = "anonymous";
 
       // Créer le contexte audio et l'analyseur
-      const audioContext = new (window.AudioContext ||
-        (window as any).webkitAudioContext)();
+      const AudioContextConstructor =
+        window.AudioContext ||
+        (window as typeof window & { webkitAudioContext: typeof AudioContext })
+          .webkitAudioContext;
+      const audioContext = new AudioContextConstructor();
       const analyser = audioContext.createAnalyser();
 
       // FFT plus large pour meilleure résolution dans les basses

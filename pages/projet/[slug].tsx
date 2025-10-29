@@ -607,7 +607,8 @@ export const getStaticProps: GetStaticProps<ProjectPageProps> = async ({
   locale,
 }) => {
   const slug = params?.slug as string;
-  const project = getProjectBySlug(slug, locale);
+  const normalizedLocale = (locale === "en" ? "en" : "fr") as "fr" | "en";
+  const project = getProjectBySlug(slug, normalizedLocale);
 
   if (!project) {
     return {

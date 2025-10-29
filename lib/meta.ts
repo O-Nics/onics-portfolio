@@ -1,4 +1,5 @@
 import metaData from "@/data/meta.json";
+import { Locale } from "@/types";
 
 export interface PageMeta {
   title: string;
@@ -6,6 +7,26 @@ export interface PageMeta {
   keywords: string;
   url: string;
   type: "website" | "article" | "profile";
+}
+
+interface PageMetaRaw {
+  title: { fr: string; en: string };
+  description: { fr: string; en: string };
+  keywords: { fr: string; en: string };
+  url: string;
+  type: "website" | "article" | "profile";
+}
+
+interface MetaData {
+  pages: {
+    home: PageMetaRaw;
+    about: PageMetaRaw;
+    projects: PageMetaRaw;
+    skills: PageMetaRaw;
+    experiences: PageMetaRaw;
+    education: PageMetaRaw;
+    contact: PageMetaRaw;
+  };
 }
 
 type PageKey =
@@ -20,27 +41,19 @@ type PageKey =
 /**
  * Récupère les métadonnées d'une page selon la locale
  */
-export function getPageMeta(pageKey: PageKey, locale: string = "fr"): PageMeta {
-  const pageMeta = metaData.pages[pageKey];
+export function getPageMeta(pageKey: PageKey, locale: Locale = "fr"): PageMeta {
+  const data = metaData as MetaData;
+  const pageMeta = data.pages[pageKey];
 
   if (!pageMeta) {
     throw new Error(`Page meta not found for key: ${pageKey}`);
   }
 
   return {
-    title:
-      (pageMeta.title as any)[locale] ||
-      (pageMeta.title as any).fr ||
-      pageMeta.title,
-    description:
-      (pageMeta.description as any)[locale] ||
-      (pageMeta.description as any).fr ||
-      pageMeta.description,
-    keywords:
-      (pageMeta.keywords as any)[locale] ||
-      (pageMeta.keywords as any).fr ||
-      pageMeta.keywords,
+    title: pageMeta.title[locale] || pageMeta.title.fr,
+    description: pageMeta.description[locale] || pageMeta.description.fr,
+    keywords: pageMeta.keywords[locale] || pageMeta.keywords.fr,
     url: locale === "en" ? `${pageMeta.url}/en` : pageMeta.url,
-    type: pageMeta.type as "website" | "article" | "profile",
+    type: pageMeta.type,
   };
 }

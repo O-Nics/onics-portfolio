@@ -1,47 +1,36 @@
-import { Project, ProjectsData } from "@/types/project";
+import { Project, ProjectRaw, ProjectsDataRaw } from "@/types/project";
 import projectsData from "@/data/projects.json";
+import { Locale } from "@/types";
 
 /**
  * Récupère tous les projets avec traduction selon la locale
  */
-export function getAllProjects(locale: string = "fr"): Project[] {
-  const data = projectsData as ProjectsData;
+export function getAllProjects(locale: Locale = "fr"): Project[] {
+  const data = projectsData as ProjectsDataRaw;
 
   // Transformer les projets pour retourner les valeurs traduites
-  return data.projects.map((project: any) => ({
+  return data.projects.map((project: ProjectRaw) => ({
     ...project,
-    title: project.title?.[locale] || project.title?.fr || project.title,
+    title: project.title[locale] || project.title.fr,
     shortDescription:
-      project.shortDescription?.[locale] ||
-      project.shortDescription?.fr ||
-      project.shortDescription,
+      project.shortDescription[locale] || project.shortDescription.fr,
     longDescription:
-      project.longDescription?.[locale] ||
-      project.longDescription?.fr ||
-      project.longDescription,
-    body: project.body?.[locale] || project.body?.fr || project.body,
-    status: project.status?.[locale] || project.status?.fr || project.status,
-    type: project.type?.[locale] || project.type?.fr || project.type,
-    platform:
-      project.platform?.[locale] || project.platform?.fr || project.platform,
-    categories:
-      project.categories?.[locale] ||
-      project.categories?.fr ||
-      project.categories,
-    features:
-      project.features?.[locale] || project.features?.fr || project.features,
-    challenges:
-      project.challenges?.[locale] ||
-      project.challenges?.fr ||
-      project.challenges,
-    lessonLearned:
-      project.lessonLearned?.[locale] ||
-      project.lessonLearned?.fr ||
-      project.lessonLearned,
-    links: project.links?.map((link: any) => ({
-      ...link,
-      text: link.text?.[locale] || link.text?.fr || link.text,
-      title: link.title?.[locale] || link.title?.fr || link.title,
+      project.longDescription[locale] || project.longDescription.fr,
+    body: project.body[locale] || project.body.fr,
+    status: project.status[locale] || project.status.fr,
+    type: project.type[locale] || project.type.fr,
+    platform: project.platform[locale] || project.platform.fr,
+    categories: project.categories[locale] || project.categories.fr,
+    features: project.features[locale] || project.features.fr,
+    challenges: project.challenges[locale] || project.challenges.fr,
+    lessonLearned: project.lessonLearned[locale] || project.lessonLearned.fr,
+    links: project.links.map((link) => ({
+      url: link.url,
+      text: link.text[locale] || link.text.fr,
+      title: link.title[locale] || link.title.fr,
+      alt: link.alt,
+      target: link.target,
+      type: link.type,
     })),
   }));
 }
@@ -51,7 +40,7 @@ export function getAllProjects(locale: string = "fr"): Project[] {
  */
 export function getProjectBySlug(
   slug: string,
-  locale: string = "fr",
+  locale: Locale = "fr",
 ): Project | undefined {
   return getAllProjects(locale).find((project) => project.slug === slug);
 }

@@ -1,3 +1,5 @@
+import React from "react";
+
 import {
   AboutIcon,
   CompetenceIcon,
@@ -11,7 +13,34 @@ import {
   XpIcon,
 } from "@/components/icons";
 
-export const getNavigationLinks = (t: any) => [
+interface Translations {
+  nav: {
+    introduction: string;
+    about: string;
+    projects: string;
+    skills: string;
+    experiences: string;
+    education: string;
+    contact: string;
+    cv: string;
+  };
+}
+
+interface NavigationLink {
+  name: string;
+  href: string;
+  icon: React.ComponentType<{ className?: string; size?: number }>;
+}
+
+interface QuickLink {
+  id: number;
+  name: string;
+  href: string;
+  icon: React.ComponentType<{ className?: string; size?: number }>;
+  isExternal: boolean;
+}
+
+export const getNavigationLinks = (t: Translations): NavigationLink[] => [
   { name: t.nav.introduction, href: "/", icon: IntroIcon },
   { name: t.nav.about, href: "/a-propos", icon: AboutIcon },
   { name: t.nav.projects, href: "/projets", icon: ProjectsIcon },
@@ -21,7 +50,7 @@ export const getNavigationLinks = (t: any) => [
   { name: t.nav.contact, href: "/contact", icon: ContactIcon },
 ];
 
-export const getNavigationQuickLinks = (t: any) => [
+export const getNavigationQuickLinks = (t: Translations): QuickLink[] => [
   {
     id: 1,
     name: "Github",

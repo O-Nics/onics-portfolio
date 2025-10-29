@@ -28,6 +28,8 @@ import { getAllExperiences } from "@/lib/experiences";
 import { getAllFormation } from "@/lib/formations";
 import projectsDataRaw from "@/data/projects.json";
 import educationDataRaw from "@/data/formations.json";
+import { ProjectsDataRaw } from "@/types/project";
+import { EducationDataRaw, ExperienceDataRaw } from "@/types";
 import experienceDataRaw from "@/data/experiences.json";
 
 // Interface pour stocker les recherches récentes avec les deux langues
@@ -216,75 +218,40 @@ const SearchModal = () => {
 
     // Extraire les données brutes selon la catégorie
     if (item.category === "project") {
-      const rawProject = projectsDataRaw.projects.find(
-        (p: any) => `project-${p.slug}` === item.id,
+      const rawData = projectsDataRaw as ProjectsDataRaw;
+      const rawProject = rawData.projects.find(
+        (p) => `project-${p.slug}` === item.id,
       );
 
       if (rawProject) {
-        titleFr =
-          typeof rawProject.name === "string"
-            ? rawProject.name
-            : (rawProject.name as any)?.fr || rawProject.name;
-        titleEn =
-          typeof rawProject.name === "string"
-            ? rawProject.name
-            : (rawProject.name as any)?.en || rawProject.name;
-        descFr =
-          typeof rawProject.shortDescription === "string"
-            ? rawProject.shortDescription
-            : (rawProject.shortDescription as any)?.fr ||
-              rawProject.shortDescription;
-        descEn =
-          typeof rawProject.shortDescription === "string"
-            ? rawProject.shortDescription
-            : (rawProject.shortDescription as any)?.en ||
-              rawProject.shortDescription;
+        titleFr = rawProject.title.fr;
+        titleEn = rawProject.title.en;
+        descFr = rawProject.shortDescription.fr;
+        descEn = rawProject.shortDescription.en;
       }
     } else if (item.category === "experience") {
-      const rawExp = experienceDataRaw.experiences.find(
-        (e: any) => `experience-${e.id}` === item.id,
+      const rawData = experienceDataRaw as ExperienceDataRaw;
+      const rawExp = rawData.experiences.find(
+        (e) => `experience-${e.id}` === item.id,
       );
 
       if (rawExp) {
-        titleFr =
-          typeof rawExp.title === "string"
-            ? rawExp.title
-            : (rawExp.title as any)?.fr || rawExp.title;
-        titleEn =
-          typeof rawExp.title === "string"
-            ? rawExp.title
-            : (rawExp.title as any)?.en || rawExp.title;
-        descFr =
-          typeof rawExp.description === "string"
-            ? rawExp.description
-            : (rawExp.description as any)?.fr || rawExp.description;
-        descEn =
-          typeof rawExp.description === "string"
-            ? rawExp.description
-            : (rawExp.description as any)?.en || rawExp.description;
+        titleFr = rawExp.title.fr;
+        titleEn = rawExp.title.en;
+        descFr = rawExp.description.fr;
+        descEn = rawExp.description.en;
       }
     } else if (item.category === "formation") {
-      const rawForm = educationDataRaw.educations.find(
-        (f: any) => `formation-${f.id}` === item.id,
+      const rawData = educationDataRaw as EducationDataRaw;
+      const rawForm = rawData.educations.find(
+        (f) => `formation-${f.id}` === item.id,
       );
 
       if (rawForm) {
-        titleFr =
-          typeof rawForm.name === "string"
-            ? rawForm.name
-            : (rawForm.name as any)?.fr || rawForm.name;
-        titleEn =
-          typeof rawForm.name === "string"
-            ? rawForm.name
-            : (rawForm.name as any)?.en || rawForm.name;
-        descFr =
-          typeof rawForm.description === "string"
-            ? rawForm.description
-            : (rawForm.description as any)?.fr || rawForm.description;
-        descEn =
-          typeof rawForm.description === "string"
-            ? rawForm.description
-            : (rawForm.description as any)?.en || rawForm.description;
+        titleFr = rawForm.name.fr;
+        titleEn = rawForm.name.en;
+        descFr = rawForm.description.fr;
+        descEn = rawForm.description.en;
       }
     }
 

@@ -22,7 +22,7 @@ export interface SearchResult {
   school?: string;
   level?: string;
   category: "menu" | "project" | "experience" | "formation";
-  icon?: React.ComponentType<any>;
+  icon?: React.ComponentType<{ className?: string; size?: number }>;
 }
 
 export interface Education {
@@ -36,8 +36,24 @@ export interface Education {
   location: string;
 }
 
+// Type pour les données brutes du JSON (avant transformation)
+export interface EducationRaw {
+  id: number;
+  name: { fr: string; en: string };
+  school: { fr: string; en: string };
+  startDate: { fr: string; en: string };
+  endDate: { fr: string; en: string };
+  description: { fr: string; en: string };
+  level: { fr: string; en: string };
+  location: { fr: string; en: string };
+}
+
 export interface EducationData {
   educations: Education[];
+}
+
+export interface EducationDataRaw {
+  educations: EducationRaw[];
 }
 
 export interface SkillItem {
@@ -64,6 +80,22 @@ export interface Experience {
   description: string;
 }
 
+// Type pour les données brutes du JSON (avant transformation)
+export interface ExperienceRaw {
+  id: number;
+  title: { fr: string; en: string };
+  society?: { fr: string; en: string } | null;
+  date: { fr: string; en: string };
+  location: { fr: string; en: string };
+  description: { fr: string; en: string };
+}
+
 export interface ExperienceData {
   experiences: Experience[];
 }
+
+export interface ExperienceDataRaw {
+  experiences: ExperienceRaw[];
+}
+
+export type Locale = "fr" | "en";

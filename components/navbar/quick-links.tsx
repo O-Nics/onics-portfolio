@@ -9,7 +9,7 @@ interface QuickLink {
   name: string;
   href: string;
   isExternal?: boolean;
-  icon: React.ComponentType<any>;
+  icon: React.ComponentType<{ className?: string; size?: number }>;
 }
 
 interface Props {

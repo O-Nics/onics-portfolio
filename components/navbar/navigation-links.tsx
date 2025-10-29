@@ -9,7 +9,7 @@ import FadeUp from "@/components/animation/fade-up";
 interface NavigationLink {
   name: string;
   href: string;
-  icon: React.ComponentType<any>;
+  icon: React.ComponentType<{ className?: string; "aria-hidden"?: boolean }>;
 }
 
 interface Props {
@@ -44,7 +44,7 @@ export const NavigationLinks: React.FC<Props> = ({ links, shouldAnimate }) => {
                 )}
               >
                 <nav.icon
-                  aria-hidden="true"
+                  aria-hidden={true}
                   className={classNames(
                     pathname === nav.href
                       ? "text-primary"
