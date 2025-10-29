@@ -8,6 +8,9 @@ import {
   getNavigationQuickLinks,
 } from "@/config/navigation";
 import { useTranslations } from "@/hooks/useTranslations";
+import { LanguageSwitcher } from "@/components/language-switcher";
+import Fade from "@/components/animation/fade";
+import {FadeUp} from "@/components/animation";
 
 interface Props {
   shouldAnimate: boolean;
@@ -40,6 +43,12 @@ export const DesktopSidebar: React.FC<Props> = ({ shouldAnimate }) => {
               </li>
             </ul>
           </nav>
+          <FadeUp shouldAnimate={shouldAnimate} delay={navigationLinks.length * 0.05 + navigationQuickLinks.length * 0.05 + 0.1}>
+            <div className="px-2">
+              <LanguageSwitcher />
+            </div>
+           <p className="text-gray-500 text-[10px] text-center pt-3">© {new Date().getFullYear()} Nicolas Planche - All rights reserved</p>
+          </FadeUp>
         </div>
       </div>
     </div>
