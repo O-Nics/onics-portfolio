@@ -12,7 +12,7 @@ export function getAllExperiences(locale: Locale = "fr"): Experience[] {
     id: exp.id,
     title: exp.title[locale] || exp.title.fr,
     latest: exp.latest,
-    society: exp.society ? exp.society[locale] || exp.society.fr : null,
+    society: exp.society,
     date: exp.date[locale] || exp.date.fr,
     location: exp.location[locale] || exp.location.fr,
     description: exp.description[locale] || exp.description.fr,

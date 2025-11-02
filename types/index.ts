@@ -96,7 +96,7 @@ export interface Experience {
 export interface ExperienceRaw {
   id: number;
   title: Translations;
-  society?: Translations | null;
+  society?: string | null;
   date: Translations;
   latest: boolean;
   location: Translations;

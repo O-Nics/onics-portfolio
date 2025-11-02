@@ -31,12 +31,18 @@ export const VerticalTimelineExperience = ({
                   {locale === "fr" ? "Actuel" : "Current"}
                 </span>
               )}
-              <h2 className="font-extrabold ">
-                {experience.title}
-                <span className="text-sm font-semibold text-gray-400">
+
+              <div className="block">
+                <p className="text-primary/70   text-sm font-bold mb-1">
+                  {experience.society}
+                </p>
+                <h2 className="font-extrabold ">
+                  {experience.title}
+                  <span className="text-sm font-semibold text-gray-400">
                    • {experience.location}
                 </span>
-              </h2>
+                </h2>
+              </div>
               {experience.latest && (
                 <span className="md:inline-block hidden ml-2  bg-green-100 text-green-800 text-xs font-semibold px-2.5 py-0.5 rounded-full dark:bg-green-200 dark:text-green-900">
                   {locale === "fr" ? "Actuel" : "Current"}
