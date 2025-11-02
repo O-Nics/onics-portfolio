@@ -12,6 +12,7 @@ import {
   SchoolIcon,
   XpIcon,
 } from "@/components/icons";
+import {Locale} from "@/types";
 
 interface Translations {
   nav: {
@@ -50,7 +51,10 @@ export const getNavigationLinks = (t: Translations): NavigationLink[] => [
   { name: t.nav.contact, href: "/contact", icon: ContactIcon },
 ];
 
-export const getNavigationQuickLinks = (t: Translations): QuickLink[] => [
+export const getNavigationQuickLinks = (
+  t: Translations,
+  locale: Locale = "fr",
+): QuickLink[] => [
   {
     id: 1,
     name: "Github",
@@ -69,7 +73,10 @@ export const getNavigationQuickLinks = (t: Translations): QuickLink[] => [
   {
     id: 3,
     name: t.nav.cv,
-    href: "images/cv/CV_Nicolas_Planche_2025.pdf",
+    href:
+      locale === "en"
+        ? "/images/cv/CV_English_Nicolas_Planche_2025.pdf"
+        : "/images/cv/CV_Nicolas_Planche_2025.pdf",
     icon: DocIcon,
     isExternal: true,
   },

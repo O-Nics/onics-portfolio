@@ -16,9 +16,9 @@ interface Props {
 }
 
 export const DesktopSidebar: React.FC<Props> = ({ shouldAnimate }) => {
-  const { t } = useTranslations();
+  const { t, locale } = useTranslations();
   const navigationLinks = getNavigationLinks(t);
-  const navigationQuickLinks = getNavigationQuickLinks(t);
+  const navigationQuickLinks = getNavigationQuickLinks(t, locale);
 
   return (
     <div className="hidden mt-[65px] py-0 md:fixed md:inset-y-0 md:z-30 md:flex md:w-72 md:flex-col">

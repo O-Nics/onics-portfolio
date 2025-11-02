@@ -108,7 +108,7 @@ const SearchModal = () => {
   // Préparer les données de recherche avec transformation selon la locale
   const searchData: SearchResult[] = useMemo(() => {
     const navigationLinks = getNavigationLinks(t);
-    const quickLinks = getNavigationQuickLinks(t);
+    const quickLinks = getNavigationQuickLinks(t, locale);
 
     const menuItems: SearchResult[] = navigationLinks.map((item, index) => ({
       id: `menu-${index}`,

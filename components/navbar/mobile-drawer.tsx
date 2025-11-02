@@ -17,8 +17,10 @@ import {
 import FadeHorizontal from "@/components/animation/fade-horizontal";
 import ActualTime from "@/components/navbar/actual-time";
 import { ToggleIcon } from "@/components/icons";
-import { siteConfig } from "@/config/site";
-import { getNavigationLinks } from "@/config/navigation";
+import {
+  getNavigationLinks,
+  getNavigationQuickLinks,
+} from "@/config/navigation";
 import { useTranslations } from "@/hooks/useTranslations";
 
 interface Props {
@@ -26,8 +28,9 @@ interface Props {
 }
 
 export const MobileDrawer: React.FC<Props> = ({ shouldAnimate }) => {
-  const { t } = useTranslations();
+  const { t, locale } = useTranslations();
   const navigationLinks = getNavigationLinks(t);
+  const navigationQuickLinks = getNavigationQuickLinks(t, locale);
 
   return (
     <div className="h-[64px] md:hidden flex">
@@ -82,8 +85,8 @@ export const MobileDrawer: React.FC<Props> = ({ shouldAnimate }) => {
             </li>
             <li>
               <QuickLinks
-                baseDelay={siteConfig.sidebarNavigation.length * 0.05}
-                links={siteConfig.quickLinks}
+                baseDelay={navigationLinks.length * 0.05}
+                links={navigationQuickLinks}
                 shouldAnimate={shouldAnimate}
                 title={t.nav.quickLinks}
               />
