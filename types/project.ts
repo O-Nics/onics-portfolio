@@ -1,4 +1,4 @@
-import {Translations} from "@/types/index";
+import { Translations } from "@/types/index";
 
 export interface ProjectLink {
   url: string;

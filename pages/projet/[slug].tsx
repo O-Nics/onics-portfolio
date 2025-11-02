@@ -308,8 +308,6 @@ export default function ProjectPage({ project }: ProjectPageProps) {
               </div>
             </FadeUp>
 
-
-
             {/* Catégories et date */}
             <FadeUp delay={0.15}>
               <div className="flex flex-wrap gap-2 mt-3 items-center">

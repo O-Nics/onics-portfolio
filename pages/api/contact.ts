@@ -16,7 +16,7 @@ type ResponseData = {
   error?: string;
 };
 
-export default async function handler(
+export async function handler(
   req: NextApiRequest,
   res: NextApiResponse<ResponseData>,
 ) {
@@ -94,7 +94,7 @@ export default async function handler(
     return res.status(500).json({
       message: "Erreur serveur lors de l'envoi de l'email",
       // error: error instanceof Error ? error.message : "Erreur inconnue",
-      error:  "Erreur inconnue",
+      error: "Erreur : " + JSON.stringify(error),
     });
   }
 }

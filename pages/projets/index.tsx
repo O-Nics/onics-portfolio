@@ -120,8 +120,9 @@ export default function ProjetsPage({}: ProjetsPageProps) {
             ))}
         </div>
         <div>
-          <p className="mt-10 mb-6 text-2xl font-extrabold"
-          >{t.projects.otherProjects}</p>
+          <p className="mt-10 mb-6 text-2xl font-extrabold">
+            {t.projects.otherProjects}
+          </p>
           <div className=" grid grid-cols-1  lg:grid-cols-2 xl:grid-cols-3 gap-4">
             {projects
               .filter((project) => project.featured == false)

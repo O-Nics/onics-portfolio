@@ -1,11 +1,11 @@
 import skillData from "@/data/skills.json";
 import { Locale, Skill, SkillRaw, SkillsDataRaw } from "@/types";
 
-export function getAllSkills(locale : Locale = "fr"): Skill[] {
+export function getAllSkills(locale: Locale = "fr"): Skill[] {
   const data = skillData as SkillsDataRaw;
 
   return data.skills.map((skill: SkillRaw) => {
-    return ({
+    return {
       ...skill,
       title: skill.title[locale] || skill.title.fr,
       items: skill.items.map((item) => ({
@@ -15,6 +15,6 @@ export function getAllSkills(locale : Locale = "fr"): Skill[] {
             ? item.name
             : item.name[locale] || item.name.fr,
       })),
-    });
+    };
   });
 }

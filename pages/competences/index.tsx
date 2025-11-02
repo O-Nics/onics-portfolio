@@ -1,8 +1,8 @@
 import Image from "next/image";
-import { useEffect, useState } from "react";
+import { StarIcon } from "@heroicons/react/16/solid";
 
 import DefaultLayout from "@/layouts/default";
-import { LinkNavigation, Skill } from "@/types";
+import { LinkNavigation } from "@/types";
 import FadeUp from "@/components/animation/fade-up";
 import { NavigationInPage } from "@/features/navigation";
 import { getAllSkills } from "@/lib/skills";
@@ -10,8 +10,6 @@ import Fade from "@/components/animation/fade";
 import { useTranslations } from "@/hooks/useTranslations";
 import { getPageMeta } from "@/lib/meta";
 import { siteConfig } from "@/config";
-import {getAllProjects} from "@/lib";
-import {StarIcon} from "@heroicons/react/16/solid";
 
 export default function CompetencesPage({}) {
   const { t, locale } = useTranslations();
@@ -63,7 +61,6 @@ dark:border-white/5 dark:bg-black/10"
                   <div key={skill.name} className="w-fit shadow-red-50">
                     <div className="flex-row flex items-center align-middle rounded-lg dark:bg-white/3 bg-gray-100 px-3 hover:bg-gray-100 dark:hover:bg-primary/10 hover:bg-primary/10 transition py-2 ">
                       <div className="flex flex-row items-center gap-2">
-
                         {skill.imageUrl && (
                           <Image
                             alt={skill.name}
@@ -75,7 +72,7 @@ dark:border-white/5 dark:bg-black/10"
                         )}
                         <p className="text-sm">{skill.name}</p>
                         {skill.isFavorite && (
-                          <StarIcon className="w-4" color="yellow"/>
+                          <StarIcon className="w-4" color="yellow" />
                         )}
                       </div>
                     </div>
