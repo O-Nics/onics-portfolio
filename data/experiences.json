@@ -2,6 +2,28 @@
   "experiences": [
     {
       "id": 1,
+      "latest": true,
+      "title": {
+        "fr": "Développeur Backend",
+        "en": "Backend Developer"
+      },
+      "society": "Liberlo",
+      "date": {
+        "fr": "Octobre 2025 - Présent",
+        "en": "October 2025 - Present"
+      },
+      "location": {
+        "fr": "Lyon, France",
+        "en": "Lyon, France"
+      },
+      "description": {
+        "fr": "Développeur Backend Laravel au sein de l’équipe engineering de Liberlo, une alternative française à Doctolib spécialisée dans les médecines douces et holistiques. J’ai contribué à la modernisation du backend en refactorisant du code legacy vers des modules Laravel propres et maintenables, améliorant ainsi les performances et la qualité du code. J’ai développé de nouvelles fonctionnalités avec un fort accent sur les tests (unitaires et fonctionnels), suivi les workflows Git avec merge requests et collaboré étroitement avec le Lead Tech, la Product Owner et les équipes QA via Jira afin d’assurer une livraison fiable et incrémentale.",
+        "en": "Backend Laravel developer within the Liberlo engineering team, a French alternative to Doctolib specialized in holistic and alternative medicine. I contributed to modernizing the backend by refactoring legacy code into clean and maintainable Laravel modules, improving performance and code quality. I developed new features with a strong focus on testing (unit and feature tests), followed Git-based workflows with merge requests, and collaborated closely with the Lead Tech, Product Owner and QA teams using Jira to ensure reliable and incremental delivery."
+      }
+    },
+    {
+      "id": 2,
+      "latest": false,
       "title": {
         "fr": "Freelance Développeur Full Stack",
         "en": "Freelance Full Stack Developer"
@@ -21,7 +43,8 @@
       }
     },
     {
-      "id": 2,
+      "id": 3,
+      "latest": false,
       "title": {
         "fr": "Alternance Développeur Full Stack",
         "en": "Full Stack Developer Apprentice"
@@ -44,7 +67,8 @@
       }
     },
     {
-      "id": 3,
+      "id": 4,
+      "latest": false,
       "title": {
         "fr": "Stage Développeur Informatique",
         "en": "Software Development Intern"

@@ -39,13 +39,13 @@ export interface Education {
 // Type pour les données brutes du JSON (avant transformation)
 export interface EducationRaw {
   id: number;
-  name: { fr: string; en: string };
-  school: { fr: string; en: string };
-  startDate: { fr: string; en: string };
-  endDate: { fr: string; en: string };
-  description: { fr: string; en: string };
-  level: { fr: string; en: string };
-  location: { fr: string; en: string };
+  name: Translations;
+  school: Translations;
+  startDate: Translations;
+  endDate: Translations;
+  description: Translations;
+  level: Translations;
+  location: Translations;
 }
 
 export interface EducationData {
@@ -59,7 +59,13 @@ export interface EducationDataRaw {
 export interface SkillItem {
   name: string;
   isFavorite: boolean;
-  imageUrl: string;
+  imageUrl: string | null;
+}
+
+export interface SkillItemRaw {
+  name: string | Translations;
+  isFavorite: boolean;
+  imageUrl: string | null;
 }
 
 export interface Skill {
@@ -67,14 +73,20 @@ export interface Skill {
   items: SkillItem[];
 }
 
-export interface SkillsData {
-  skills: Skill[];
+export interface SkillRaw {
+  title: Translations;
+  items: SkillItemRaw[];
+}
+
+export interface SkillsDataRaw {
+  skills: SkillRaw[];
 }
 
 export interface Experience {
   id: number;
   title: string;
   society?: string | null;
+  latest: boolean;
   date: string;
   location: string;
   description: string;
@@ -83,11 +95,12 @@ export interface Experience {
 // Type pour les données brutes du JSON (avant transformation)
 export interface ExperienceRaw {
   id: number;
-  title: { fr: string; en: string };
-  society?: { fr: string; en: string } | null;
-  date: { fr: string; en: string };
-  location: { fr: string; en: string };
-  description: { fr: string; en: string };
+  title: Translations;
+  society?: Translations | null;
+  date: Translations;
+  latest: boolean;
+  location: Translations;
+  description: Translations;
 }
 
 export interface ExperienceData {
@@ -99,3 +112,8 @@ export interface ExperienceDataRaw {
 }
 
 export type Locale = "fr" | "en";
+
+export interface Translations {
+  fr: string;
+  en: string;
+}

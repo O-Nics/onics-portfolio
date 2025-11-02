@@ -1,7 +1,10 @@
 {
   "skills": [
     {
-      "title": "Front-end",
+      "title": {
+        "fr": "Front-end ",
+        "en": "Front-end"
+      },
       "items": [
         {
           "name": "Flutter",
@@ -10,7 +13,7 @@
         },
         {
           "name": "Nuxt.js",
-          "isFavorite": false,
+          "isFavorite": true,
           "imageUrl": "/images/Nuxt.js.png"
         },
         {
@@ -61,7 +64,10 @@
       ]
     },
     {
-      "title": "Back-end",
+      "title": {
+        "fr": "Back-end et bases de données",
+        "en": "Back-end and databases"
+      },
       "items": [
         {
           "name": "Laravel",
@@ -75,12 +81,12 @@
         },
         {
           "name": "PHP",
-          "isFavorite": false,
+          "isFavorite": true,
           "imageUrl": "/images/PHP.png"
         },
         {
           "name": "MySQL",
-          "isFavorite": false,
+          "isFavorite": true,
           "imageUrl": "/images/MySQL.png"
         },
         {
@@ -96,7 +102,10 @@
       ]
     },
     {
-      "title": "Outils",
+      "title": {
+        "fr": "Outils de développement",
+        "en": "Development tools"
+      },
       "items": [
         {
           "name": "Git",
@@ -107,6 +116,21 @@
           "name": "GitHub",
           "isFavorite": true,
           "imageUrl": "/images/GitHub.png"
+        },
+        {
+          "name": "GitLab",
+          "isFavorite": false,
+          "imageUrl": "/images/GitLab.png"
+        },
+        {
+          "name": "Android Studio",
+          "isFavorite": true,
+          "imageUrl": "/images/AndroidStudioIcon.png"
+        },
+        {
+          "name": "Jira",
+          "isFavorite": false,
+          "imageUrl": "/images/Jira.png"
         },
         {
           "name": "VsCode",
@@ -121,7 +145,10 @@
       ]
     },
     {
-      "title": "Notions de base en :",
+      "title": {
+        "fr": "Notions de base en",
+        "en": "Basics in"
+      },
       "items": [
         {
           "name": "Java",
@@ -154,6 +181,95 @@
           "imageUrl": "/images/Nest.js.png"
         }
       ]
+    },
+    {
+      "title": {
+        "fr": "Autre compétences",
+        "en": "Other skills"
+      },
+      "items": [
+        {
+          "name": { "fr": "Gestion de projet", "en": "Project management" },
+          "isFavorite": true,
+          "imageUrl": null
+        },
+        {
+          "name": { "fr": "Leadership d’équipe", "en": "Team leadership" },
+          "isFavorite": true,
+          "imageUrl": null
+        },
+        {
+          "name": { "fr": "Gestion de conflits", "en": "Conflict management" },
+          "isFavorite": false,
+          "imageUrl": null
+        },
+        {
+          "name": { "fr": "Communication efficace", "en": "Effective communication" },
+          "isFavorite": false,
+          "imageUrl": null
+        },
+        {
+          "name": { "fr": "Gestion du temps", "en": "Time management" },
+          "isFavorite": true,
+          "imageUrl": null
+        },
+        {
+          "name": { "fr": "Autonomie & prise d’initiative", "en": "Autonomy & initiative" },
+          "isFavorite": true,
+          "imageUrl": null
+        },
+        {
+          "name": { "fr": "Organisation & planification", "en": "Organization & planning" },
+          "isFavorite": false,
+          "imageUrl": null
+        },
+        {
+          "name": { "fr": "Coaching et accompagnement", "en": "Coaching & mentoring" },
+          "isFavorite": false,
+          "imageUrl": null
+        },
+        {
+          "name": { "fr": "Esprit analytique", "en": "Analytical mindset" },
+          "isFavorite": false,
+          "imageUrl": null
+        },
+        {
+          "name": { "fr": "Résolution de problèmes", "en": "Problem solving" },
+          "isFavorite": true,
+          "imageUrl": null
+        },
+        {
+          "name": { "fr": "Collaboration inter-équipes", "en": "Cross-team collaboration" },
+          "isFavorite": false,
+          "imageUrl": null
+        },
+        {
+          "name": { "fr": "Adaptabilité", "en": "Adaptability" },
+          "isFavorite": false,
+          "imageUrl": null
+        },
+        {
+          "name": { "fr": "Gestion du stress", "en": "Stress management" },
+          "isFavorite": false,
+          "imageUrl": null
+        },
+        {
+          "name": { "fr": "Facilitation de réunions", "en": "Meeting facilitation" },
+          "isFavorite": false,
+          "imageUrl": null
+        },
+        {
+          "name": { "fr": "Prise de décision", "en": "Decision-making" },
+          "isFavorite": false,
+          "imageUrl": null
+        },
+        {
+          "name": { "fr": "Vision produit", "en": "Product mindset" },
+          "isFavorite": false,
+          "imageUrl": null
+        }
+      ]
     }
+
   ]
 }

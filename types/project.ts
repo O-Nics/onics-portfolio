@@ -1,3 +1,5 @@
+import {Translations} from "@/types/index";
+
 export interface ProjectLink {
   url: string;
   text: string;
@@ -29,6 +31,9 @@ export interface Project {
   platform: string[];
   technologies: string[];
   status: string;
+  role: string;
+  team: string;
+  teamSize: number;
   statusNumber: number;
   type: string;
   media: ProjectMedia[];
@@ -45,20 +50,23 @@ export interface Project {
 export interface ProjectRaw {
   slug: string;
   name: string;
-  title: { fr: string; en: string };
-  shortDescription: { fr: string; en: string };
-  longDescription: { fr: string; en: string };
-  body: { fr: string; en: string };
+  title: Translations;
+  shortDescription: Translations;
+  longDescription: Translations;
+  body: Translations;
   platform: { fr: string[]; en: string[] };
   technologies: string[];
-  status: { fr: string; en: string };
+  status: Translations;
   statusNumber: number;
-  type: { fr: string; en: string };
+  role: Translations;
+  team: Translations;
+  teamSize: number;
+  type: Translations;
   media: ProjectMedia[];
   links: Array<{
     url: string;
-    text: { fr: string; en: string };
-    title: { fr: string; en: string };
+    text: Translations;
+    title: Translations;
     alt: string;
     target: "_blank" | "_self" | "_parent" | "_top";
     type: string;
@@ -70,10 +78,6 @@ export interface ProjectRaw {
   lessonLearned: { fr: string[]; en: string[] };
   featured?: boolean;
   endDate?: string;
-}
-
-export interface ProjectsData {
-  projects: Project[];
 }
 
 export interface ProjectsDataRaw {

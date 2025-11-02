@@ -55,7 +55,8 @@
     "technologies": "Technologies utilisées",
     "links": "Liens",
     "leftLink": "À propos de moi",
-    "rightLink": "Compétences"
+    "rightLink": "Compétences",
+    "otherProjects": "Autres projets"
   },
   "skills": {
     "title": "Compétences",

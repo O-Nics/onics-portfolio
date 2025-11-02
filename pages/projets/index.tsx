@@ -119,6 +119,52 @@ export default function ProjetsPage({}: ProjetsPageProps) {
               </FadeUp>
             ))}
         </div>
+        <div>
+          <p className="mt-10 mb-6 text-2xl font-extrabold"
+          >{t.projects.otherProjects}</p>
+          <div className=" grid grid-cols-1  lg:grid-cols-2 xl:grid-cols-3 gap-4">
+            {projects
+              .filter((project) => project.featured == false)
+              .map((project, index) => (
+                <FadeUp
+                  key={project.slug}
+                  className="card"
+                  delay={0.2 + index * 0.1}
+                >
+                  <div className="overflow-hidden img-card dark:bg-gray-50/5 bg-gray-100/70 h-full dark:hover:bg-gray-50/8 hover:bg-primary/10 transition duration-300 rounded-xl">
+                    <Link
+                      key={project.slug}
+                      href={`/projet/${project.slug}`}
+                      title={project.name}
+                    >
+                      <div className=" h-full flex flex-col justify-between ">
+                        <div className="overflow-hidden ">
+                          <div className=" px-3 pt-3">
+                            <FadeUp delay={0.15 * index + 0.05}>
+                              <p className=" text-sm font-extrabold uppercase dark:text-gray-50/40 text-gray-500  tracking-tight ">
+                                {project.type}
+                              </p>
+                            </FadeUp>
+                            <FadeUp delay={0.15 * index + 0.1}>
+                              <h2 className="text-lg font-extrabold dark:text-gray-50 text-black/80 mb-3 leading-6 pt-1">
+                                {project.title}
+                              </h2>
+                            </FadeUp>
+                            <FadeUp delay={0.15 * index + 0.15}>
+                              <p className="text-sm dark:text-gray-50/70 text-black/60 tracking-tight">
+                                {project.shortDescription}..{" "}
+                              </p>
+                            </FadeUp>
+                          </div>
+                        </div>
+                        <strong className=" link ">{t.projects.seeMore}</strong>
+                      </div>
+                    </Link>
+                  </div>
+                </FadeUp>
+              ))}
+          </div>
+        </div>
         <Fade delay={projects.length * 0.1 + 0.2}>
           <NavigationInPage leftLink={leftLink} rightLink={rightLink} />
         </Fade>

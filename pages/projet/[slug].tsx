@@ -287,6 +287,14 @@ export default function ProjectPage({ project }: ProjectPageProps) {
                 </span>
               </FadeUp>
             </div>
+            <FadeUp delay={0.14}>
+              <div className="flex flex-wrap gap-2 mt-3 items-center">
+                <p className="text-xs text-gray-50/50 font-bold">
+                  {project.role} | {project.team}
+                </p>
+              </div>
+            </FadeUp>
+
             <FadeUp delay={0.1}>
               <p className="text-default-600">{project.shortDescription}</p>
             </FadeUp>
@@ -299,6 +307,8 @@ export default function ProjectPage({ project }: ProjectPageProps) {
                 ))}
               </div>
             </FadeUp>
+
+
 
             {/* Catégories et date */}
             <FadeUp delay={0.15}>

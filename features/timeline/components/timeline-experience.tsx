@@ -1,6 +1,7 @@
 import { XpIcon } from "@/components/icons";
 import { Experience } from "@/types";
 import FadeUp from "@/components/animation/fade-up";
+import {useTranslations} from "@/hooks/useTranslations";
 
 export const VerticalTimelineExperience = ({
   experience,
@@ -9,6 +10,8 @@ export const VerticalTimelineExperience = ({
   experience: Experience;
   index: number;
 }) => {
+  const { locale } = useTranslations();
+
   return (
     <div id={`${experience.id}`}>
       <FadeUp delay={0.05 * index + 0.2}>
@@ -19,13 +22,23 @@ export const VerticalTimelineExperience = ({
             </span>
           </div>
           <div className="mb-0 ml-10">
-            <FadeUp delay={index * 0.05 + 0.2}>
+            <FadeUp delay={index * 0.05 + 0.2} className="md:flex items-center justify-between">
+              {experience.latest && (
+                <span className="inline-block md:hidden   bg-green-100 text-green-800 text-xs font-semibold px-2.5 py-0.5 rounded-full dark:bg-green-200 dark:text-green-900">
+                  {locale === "fr" ? "Actuel" : "Current"}
+                </span>
+              )}
               <h2 className="font-extrabold ">
                 {experience.title}
                 <span className="text-sm font-semibold text-gray-400">
                    • {experience.location}
                 </span>
               </h2>
+              {experience.latest && (
+                <span className="md:inline-block hidden ml-2  bg-green-100 text-green-800 text-xs font-semibold px-2.5 py-0.5 rounded-full dark:bg-green-200 dark:text-green-900">
+                  {locale === "fr" ? "Actuel" : "Current"}
+                </span>
+              )}
             </FadeUp>
             <FadeUp delay={index * 0.05 + 0.1 + 0.2}>
               <p className="dark:text-gray-50/50 text-gray-700/50 text-sm font-semibold mb-1">

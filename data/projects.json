@@ -194,6 +194,15 @@
           "Implementation of a consistent design system and smooth theme management on Flutter"
         ]
       },
+      "role": {
+        "fr": "Développeur full-stack",
+        "en": "Full-stack developer"
+      },
+      "team": {
+        "fr": "Équipe de 2 personnes",
+        "en": "Team of 2 people"
+      },
+      "teamSize": 2,
       "featured": true
     },
     {
@@ -355,6 +364,15 @@
           "Optimization of generation workflow and automated deployment across multiple platforms"
         ]
       },
+      "role": {
+        "fr": "Créateur & développeur principal",
+        "en": "Creator & lead developer"
+      },
+      "team": {
+        "fr": "Projet solo",
+        "en": "Solo project"
+      },
+      "teamSize": 1,
       "featured": true
     },
     {
@@ -509,6 +527,15 @@
           "Deepening of object-oriented programming and clean architectures in Flutter"
         ]
       },
+      "role": {
+        "fr": "Développeur full-stack",
+        "en": "Full-stack developer"
+      },
+      "team": {
+        "fr": "Projet solo",
+        "en": "Solo project"
+      },
+      "teamSize": 1,
       "featured": true
     },
     {
@@ -573,8 +600,16 @@
           "name": "Open Food Facts API",
           "image": "OpenFoodFact.png"
         }
-        ],
-
+      ],
+      "role": {
+        "fr": "Chef de projet & lead dev",
+        "en": "Project lead & lead developer"
+      },
+      "team": {
+        "fr": "Équipe de 7 personnes",
+        "en": "Team of 7 people"
+      },
+      "teamSize": 7,
       "categories": {
         "fr": ["Santé & Fitness", "Nutrition", "Sport"],
         "en": ["Health & Fitness", "Nutrition", "Sports"]
@@ -601,12 +636,24 @@
         "fr": [
           "Importation et gestion d'une base de données de plusieurs millions d'ingrédients",
           "Conception d'une architecture de base de données performante et évolutive",
-          "Optimisation des performances de l'application mobile avec des volumes massifs de données"
+          "Optimisation des performances de l'application mobile avec des volumes massifs de données",
+          "Pilotage de projet en mode Scrum (backlog, sprints, priorisation)",
+          "Coordination d’une équipe pluridisciplinaire (dev, UX/UI) et répartition des tâches",
+          "Communication avec les parties prenantes et gestion des attentes/dérives (scope creep)",
+          "Mise en place d’indicateurs de suivi (burndown, vélocité) et rituels (daily, review, rétro)",
+          "Gestion des risques et arbitrages tech/produit (performance vs fonctionnalités)",
+          "Encadrement et animation d'une équipe de 7 personnes (répartition des responsabilités, synchronisation, feedback)"
         ],
         "en": [
           "Import and management of a database of several million ingredients",
           "Design of a performant and scalable database architecture",
-          "Optimization of mobile application performance with massive data volumes"
+          "Optimization of mobile application performance with massive data volumes",
+          "Project leadership in Scrum mode (backlog, sprints, prioritization)",
+          "Coordination of a cross-functional team (dev, UX/UI) and task allocation",
+          "Stakeholder communication and expectation management / scope control",
+          "Set up tracking KPIs (burndown, velocity) and rituals (daily, review, retro)",
+          "Risk management and tech/product trade-offs (performance vs features)",
+          "Leading and facilitating a 7-person team (responsibility allocation, synchronization, feedback)"
         ]
       },
       "lessonLearned": {
@@ -614,16 +661,165 @@
           "Intégration avancée de l'API OpenAI pour la génération de contenu dynamique",
           "Mise en œuvre de Meilisearch pour la recherche instantanée à grande échelle",
           "Implémentation du scan de code-barres et traitement des données Open Food Facts",
-          "Gestion de la performance et de la structure des données dans un contexte mobile"
+          "Gestion de la performance et de la structure des données dans un contexte mobile",
+          "Cadrage et rédaction de spécifications claires (user stories, DoD, DoR)",
+          "Mise en place d’un workflow Git propre (branches, PR, code review) et CI/CD",
+          "Amélioration de la planification (estimations, story points) et priorisation par impact",
+          "Importance de la documentation vivante (Notion/Jira) et du partage de connaissances",
+          "Conduite de rétrospectives orientées actions pour l’amélioration continue"
         ],
         "en": [
           "Advanced integration of OpenAI API for dynamic content generation",
           "Implementation of Meilisearch for large-scale instant search",
           "Implementation of barcode scanning and Open Food Facts data processing",
-          "Management of performance and data structure in a mobile context"
+          "Management of performance and data structure in a mobile context",
+          "Scoping and writing clear specifications (user stories, DoD, DoR)",
+          "Implementing a clean Git workflow (branches, PRs, code review) and CI/CD",
+          "Improved planning (estimates, story points) and impact-based prioritization",
+          "Importance of living documentation (Notion/Jira) and knowledge sharing",
+          "Running action-oriented retros for continuous improvement"
         ]
       },
       "featured": true
+    },
+    {
+      "slug": "fc-lyon",
+      "name": "FC Lyon",
+
+      "title": {
+        "fr": "FC Lyon - Application club de football",
+        "en": "FC Lyon - Football club application"
+      },
+      "shortDescription": {
+        "fr": "Application mobile officielle du club de football FC Lyon offrant des avantages exclusifs et réductions chez les partenaires.",
+        "en": "Official mobile application of FC Lyon football club offering exclusive benefits and discounts with partner businesses."
+      },
+      "longDescription": {
+        "fr": "Application mobile officielle développée pour le club de football FC Lyon. L'application permet aux supporters et amateurs de bons plans d'accéder à une liste complète d'offres spéciales et de réductions chez les entreprises partenaires du club. Développée avec Flutter et Filament pour le back-office admin, l'application offre une expérience utilisateur intuitive avec des notifications push OneSignal pour tenir les utilisateurs informés des nouveaux bons plans en temps réel.",
+        "en": "Official mobile application developed for FC Lyon football club. The application allows supporters and deal enthusiasts to access a complete list of special offers and discounts at the club's partner businesses. Built with Flutter and Filament for the admin back-office, the app offers an intuitive user experience with OneSignal push notifications to keep users informed of new deals in real-time."
+      },
+      "body": {
+        "fr": "Application mobile officielle développée pour le club de football FC Lyon dans le cadre de mon alternance chez Sportcorico. L'application permet aux supporters et amateurs de bons plans d'accéder à une liste complète d'offres spéciales et de réductions chez les entreprises partenaires du club. Développée avec la dernière version de Flutter et Filament pour le back-office admin, l'application offre une expérience utilisateur intuitive avec des notifications push OneSignal pour tenir les utilisateurs informés des nouveaux bons plans en temps réel.",
+        "en": "Official mobile application developed for FC Lyon football club during my apprenticeship at Sportcorico. The application allows supporters and deal enthusiasts to access a complete list of special offers and discounts at the club's partner businesses. Built with the latest version of Flutter and Filament for the admin back-office, the app offers an intuitive user experience with OneSignal push notifications to keep users informed of new deals in real-time."
+      },
+      "platform": {
+        "fr": ["Mobile"],
+        "en": ["Mobile"]
+      },
+      "status": {
+        "fr": "Terminé",
+        "en": "Completed"
+      },
+      "statusNumber": 1,
+      "type": {
+        "fr": "Pro",
+        "en": "Professional"
+      },
+      "media": [],
+      "links": [
+        {
+          "url": "https://apps.apple.com/fr/app/fc-lyon/id6738989383",
+          "text": {
+            "fr": "Application iOS",
+            "en": "iOS App"
+          },
+          "title": {
+            "fr": "FC Lyon + - Application mobile iOS",
+            "en": "FC Lyon + - iOS mobile application"
+          },
+          "alt": "FC Lyon + iOS App",
+          "target": "_blank",
+          "type": "ios"
+        },
+        {
+          "url": "https://play.google.com/store/search?q=Fc%20lyon&c=apps",
+          "text": {
+            "fr": "Application Android",
+            "en": "Android App"
+          },
+          "title": {
+            "fr": "FC Lyon + - Application mobile Android",
+            "en": "FC Lyon + - Android mobile application"
+          },
+          "alt": "FC Lyon+ Android App",
+          "target": "_blank",
+          "type": "android"
+        }
+      ],
+      "stack": [
+        {
+          "name": "Flutter",
+          "image": "Flutter.png"
+        },
+        {
+          "name": "Filament"
+        },
+        {
+          "name": "OneSignal",
+          "image": "OneSignal.png"
+        }
+      ],
+      "role": {
+        "fr": "Développeur Flutter",
+        "en": "Flutter developer"
+      },
+      "team": {
+        "fr": "Projet SportCorico ",
+        "en": "SportCorico Project"
+      },
+      "teamSize": 1,
+      "categories": {
+        "fr": ["Sport", "Football", "Club"],
+        "en": ["Sports", "Football", "Club"]
+      },
+      "features": {
+        "fr": [
+          "Liste complète d'offres spéciales et réductions chez les partenaires",
+          "Navigation intuitive et interface utilisateur fluide",
+          "Notifications push en temps réel des nouveaux bons plans via OneSignal",
+          "Back-office admin développé avec Filament pour la gestion des offres",
+          "Accès aux avantages exclusifs réservés aux supporters du club",
+          "Diversité d'offres : restaurants, boutiques et services partenaires"
+        ],
+        "en": [
+          "Complete list of special offers and discounts at partner businesses",
+          "Intuitive navigation and smooth user interface",
+          "Real-time push notifications for new deals via OneSignal",
+          "Admin back-office built with Filament for offer management",
+          "Access to exclusive benefits reserved for club supporters",
+          "Diversity of offers: restaurants, shops and partner services"
+        ]
+      },
+      "challenges": {
+        "fr": [
+          "Intégration de Filament pour créer un back-office admin performant et facile d'utilisation",
+          "Développement rapide d'une application complète de A à Z",
+          "Mise en place d'un système de notifications push efficace avec OneSignal",
+          "Création d'une interface utilisateur simple et intuitive pour tous les âges"
+        ],
+        "en": [
+          "Integration of Filament to create a performant and user-friendly admin back-office",
+          "Rapid development of a complete application from A to Z",
+          "Implementation of an effective push notification system with OneSignal",
+          "Creation of a simple and intuitive user interface for all ages"
+        ]
+      },
+      "lessonLearned": {
+        "fr": [
+          "Apprentissage et mise en œuvre de Filament pour la création de back-office",
+          "Développement rapide et efficace d'une application mobile professionnelle",
+          "Intégration fluide des notifications push avec OneSignal",
+          "Gestion de projet en environnement professionnel (alternance chez Sportcorico)"
+        ],
+        "en": [
+          "Learning and implementation of Filament for back-office creation",
+          "Fast and efficient development of a professional mobile application",
+          "Smooth integration of push notifications with OneSignal",
+          "Project management in a professional environment (apprenticeship at Sportcorico)"
+        ]
+      },
+
+      "featured": false
     }
   ]
 }

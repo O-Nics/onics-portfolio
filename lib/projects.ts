@@ -18,6 +18,8 @@ export function getAllProjects(locale: Locale = "fr"): Project[] {
       project.longDescription[locale] || project.longDescription.fr,
     body: project.body[locale] || project.body.fr,
     status: project.status[locale] || project.status.fr,
+    team: project.team[locale] || project.team.fr,
+    role: project.role[locale] || project.role.fr,
     type: project.type[locale] || project.type.fr,
     platform: project.platform[locale] || project.platform.fr,
     categories: project.categories[locale] || project.categories.fr,

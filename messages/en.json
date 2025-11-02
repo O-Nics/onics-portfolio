@@ -54,7 +54,8 @@
     "technologies": "Technologies used",
     "links": "Links",
     "leftLink": "About me",
-    "rightLink": "Skills"
+    "rightLink": "Skills",
+    "otherProjects": "Other projects"
   },
   "skills": {
     "title": "Skills",
@@ -66,7 +67,7 @@
   "experiences": {
     "title": "Experience",
     "subtitle": "You need experience to get the job... but it's the job that gives experience!",
-    "description1": "Throughout my journey as a full-stack developer, I’ve had the chance to work on a bit of everything — from mobile applications built with Flutter, to robust Laravel APIs, and elegant web interfaces crafted with Nuxt, Next.js, and React. Each project has been a learning ground, balancing creativity and technical rigor — sometimes refining an animation, sometimes hunting down a bug that only appears in production at 2 a.m.",
+    "description1": "Throughout my journey as a full-stack developer, I’ve had the chance to work on a bit of everything, from mobile applications built with Flutter, to robust Laravel APIs, and elegant web interfaces crafted with Nuxt, Next.js, and React. Each project has been a learning ground, balancing creativity, technical rigor AND sometimes refining an animation, sometimes hunting down a bug that only appears in production at 2 a.m.",
     "description2": "These experiences have taught me far more than theory: how to write clean code, collaborate efficiently, and always seek to understand before fixing. What I enjoy most? Turning complex ideas into performant, useful, and enjoyable products.",
     "leftLink": "Skills",
     "rightLink": "Education"

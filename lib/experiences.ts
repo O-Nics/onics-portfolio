@@ -11,6 +11,7 @@ export function getAllExperiences(locale: Locale = "fr"): Experience[] {
   return data.experiences.map((exp) => ({
     id: exp.id,
     title: exp.title[locale] || exp.title.fr,
+    latest: exp.latest,
     society: exp.society ? exp.society[locale] || exp.society.fr : null,
     date: exp.date[locale] || exp.date.fr,
     location: exp.location[locale] || exp.location.fr,

@@ -10,10 +10,13 @@ import Fade from "@/components/animation/fade";
 import { useTranslations } from "@/hooks/useTranslations";
 import { getPageMeta } from "@/lib/meta";
 import { siteConfig } from "@/config";
+import {getAllProjects} from "@/lib";
+import {StarIcon} from "@heroicons/react/16/solid";
 
 export default function CompetencesPage({}) {
   const { t, locale } = useTranslations();
   const meta = getPageMeta("skills", locale);
+  const skills = getAllSkills(locale);
 
   const leftLink: LinkNavigation = {
     name: t.skills.leftLink,
@@ -23,12 +26,6 @@ export default function CompetencesPage({}) {
     name: t.skills.rightLink,
     href: "/xp",
   };
-
-  const [skills, setSkills] = useState<Skill[]>([]);
-
-  useEffect(() => {
-    setSkills(getAllSkills());
-  }, []);
 
   return (
     <DefaultLayout
@@ -66,14 +63,20 @@ dark:border-white/5 dark:bg-black/10"
                   <div key={skill.name} className="w-fit shadow-red-50">
                     <div className="flex-row flex items-center align-middle rounded-lg dark:bg-white/3 bg-gray-100 px-3 hover:bg-gray-100 dark:hover:bg-primary/10 hover:bg-primary/10 transition py-2 ">
                       <div className="flex flex-row items-center gap-2">
-                        <Image
-                          alt={skill.name}
-                          className={`w-6 h-6 ${skill.name == "Next.js" || skill.name === "GitHub" ? "dark:invert" : ""}`}
-                          height={64}
-                          src={skill.imageUrl}
-                          width={64}
-                        />
+
+                        {skill.imageUrl && (
+                          <Image
+                            alt={skill.name}
+                            className={`w-6 h-6 ${skill.name == "Next.js" || skill.name === "GitHub" ? "dark:invert" : ""}`}
+                            height={64}
+                            src={skill.imageUrl}
+                            width={64}
+                          />
+                        )}
                         <p className="text-sm">{skill.name}</p>
+                        {skill.isFavorite && (
+                          <StarIcon className="w-4" color="yellow"/>
+                        )}
                       </div>
                     </div>
                   </div>
