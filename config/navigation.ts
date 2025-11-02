@@ -12,7 +12,7 @@ import {
   SchoolIcon,
   XpIcon,
 } from "@/components/icons";
-import {Locale} from "@/types";
+import { Locale } from "@/types";
 
 interface Translations {
   nav: {
