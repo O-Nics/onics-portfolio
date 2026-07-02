@@ -1,55 +1,57 @@
-# Next.js & HeroUI Template
+# Portfolio — Nicolas Planche
 
-This is a template for creating applications using Next.js 14 (pages directory) and HeroUI (v2).
+Source code of my personal portfolio, [nicolasplanche.fr](https://nicolasplanche.fr): a bilingual (FR/EN) showcase of my projects, skills, work experience and education, with a working contact form.
 
-[Try it on CodeSandbox](https://githubbox.com/heroui-inc/next-pages-template)
+Built with **Next.js 15** and **HeroUI**.
 
-> Note: Since Next.js 14, the pages router is recommend migrating to the [new App Router](https://nextjs.org/docs/app) to leverage React's latest features
->
-> Read more: [Pages Router](https://nextjs.org/docs/pages)
+## ✨ Features
 
-## Technologies Used
+- Bilingual site (French/English) via `next-intl`
+- Pages: introduction, about, projects, skills, experience, education, contact
+- Dynamic project detail pages (`/projet/[slug]`)
+- Contact form sending emails via [Resend](https://resend.com)
+- SEO: sitemap generation, custom `seo` components, optimized images (AVIF/WebP)
+- Smooth animations with Framer Motion, carousels with Embla, lightbox with fslightbox
+- Dark/light theme via `next-themes`
 
-- [Next.js 14](https://nextjs.org/docs/getting-started)
-- [HeroUI](https://heroui.com)
-- [Tailwind CSS](https://tailwindcss.com)
-- [Tailwind Variants](https://tailwind-variants.org)
-- [TypeScript](https://www.typescriptlang.org)
+## 🧰 Tech Stack
+
+- [Next.js 15](https://nextjs.org/docs) (Pages Router)
+- [HeroUI](https://heroui.com) + Tailwind CSS
+- [next-intl](https://next-intl.dev) for i18n
 - [Framer Motion](https://www.framer.com/motion)
-- [next-themes](https://github.com/pacocoursey/next-themes)
+- [Resend](https://resend.com) for transactional email
+- TypeScript
 
-## How to Use
-
-To create a new project based on this template using `create-next-app`, run the following command:
-
-```bash
-npx create-next-app -e https://github.com/heroui-inc/next-pages-template
-```
-
-### Install dependencies
-
-You can use one of them `npm`, `yarn`, `pnpm`, `bun`, Example using `npm`:
+## 🚀 Getting Started
 
 ```bash
 npm install
-```
-
-### Run the development server
-
-```bash
+cp .env.example .env.local   # set RESEND_API_KEY
 npm run dev
 ```
 
-### Setup pnpm (optional)
+Open [http://localhost:3000](http://localhost:3000).
 
-If you are using `pnpm`, you need to add the following code to your `.npmrc` file:
+## 🏗️ Structure
 
-```bash
-public-hoist-pattern[]=*@heroui/*
+```
+pages/
+├── index.tsx            Home
+├── a-propos/             About
+├── projets/              Projects list
+├── projet/[slug].tsx     Project detail
+├── competences/          Skills
+├── xp/                   Experience
+├── education/            Education
+├── contact/              Contact form
+└── api/contact.ts        Contact form handler (Resend)
+
+components/    UI, navbar, animations, icons, SEO
+messages/      fr.json / en.json translations
+config/        Site configuration (nav, links, metadata)
 ```
 
-After modifying the `.npmrc` file, you need to run `pnpm install` again to ensure that the dependencies are installed correctly.
+## 📝 License
 
-## License
-
-Licensed under the [MIT license](https://github.com/heroui-inc/next-pages-template/blob/main/LICENSE).
+MIT

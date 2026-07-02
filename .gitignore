@@ -25,7 +25,7 @@ yarn-debug.log*
 yarn-error.log*
 
 # local env files
-.env*.local
+.env
 
 # vercel
 .vercel
@@ -44,3 +44,4 @@ CLAUDE.md
 ANALYSE_PROJET.md
 ARCHITECTURE_REFACTORING.md
 I18N_GUIDE.md
+!/.env

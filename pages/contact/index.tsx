@@ -1,7 +1,7 @@
 import React, { useState } from "react";
 import { Input, Textarea } from "@heroui/input";
 import { Button } from "@heroui/button";
-import { Select, SelectItem } from "@heroui/select";
+import { Select, SelectItem } from "@heroui/react";
 import { CloseIcon } from "@heroui/shared-icons";
 import Image from "next/image";
 

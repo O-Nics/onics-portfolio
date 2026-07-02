@@ -1,9 +1,8 @@
 import { GetStaticPaths, GetStaticProps } from "next";
 import { useRouter } from "next/router";
 import { Button } from "@heroui/button";
-import { Chip } from "@heroui/chip";
+import { Chip, Image } from "@heroui/react";
 import { Link } from "@heroui/link";
-import { Image } from "@heroui/image";
 import NextLink from "next/link";
 import { ReactNode, useState } from "react";
 import Autoplay from "embla-carousel-autoplay";

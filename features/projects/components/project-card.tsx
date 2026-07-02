@@ -1,6 +1,11 @@
-import { Card, CardHeader, CardBody, CardFooter } from "@heroui/card";
-import { Chip } from "@heroui/chip";
-import { Image } from "@heroui/image";
+import {
+  Image,
+  Chip,
+  Card,
+  CardHeader,
+  CardBody,
+  CardFooter,
+} from "@heroui/react";
 import NextLink from "next/link";
 
 import { Project } from "@/types/project";

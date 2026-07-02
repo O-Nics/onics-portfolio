@@ -1,5 +1,5 @@
 "use client";
-import { Chip } from "@heroui/chip";
+import { Chip } from "@heroui/react";
 import React from "react";
 
 import DotAnimated from "@/components/animation/dot-animated";
