@@ -1,4 +1,4 @@
-import { Image } from "@heroui/image";
+import { Image } from "@heroui/react";
 import Link from "next/link";
 
 import DefaultLayout from "@/layouts/default";

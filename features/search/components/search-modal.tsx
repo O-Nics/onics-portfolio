@@ -6,7 +6,7 @@ import {
   ModalHeader,
   ModalBody,
   useDraggable,
-} from "@heroui/modal";
+} from "@heroui/react";
 import { Input } from "@heroui/input";
 import { useRouter } from "next/router";
 import { Kbd } from "@heroui/kbd";
