@@ -69,32 +69,32 @@
           "type": "website"
         },
         {
-          "url": "https://apps.apple.com/fr/app/da-auto-sport/id6746983342",
+          "url": "https://github.com/O-Nics/daautosport-manager",
           "text": {
-            "fr": "Application iOs",
-            "en": "iOS App"
+            "fr": "Code Source (Backend)",
+            "en": "Source Code (Backend)"
           },
           "title": {
-            "fr": "Da Auto Sport - Application mobile IOs",
-            "en": "Da Auto Sport - iOS mobile application"
+            "fr": "Da Auto Sport - Code Source Backend",
+            "en": "Da Auto Sport - Backend Source Code"
           },
           "alt": "Da Auto Sport",
           "target": "_blank",
-          "type": "ios"
+          "type": "github"
         },
         {
-          "url": "https://play.google.com/store/apps/details?id=com.daautosport.app&pcampaignid=web_share",
+          "url": "https://github.com/O-Nics/daautosport_flutter",
           "text": {
-            "fr": "Application Android",
-            "en": "Android App"
+            "fr": "Code Source (App Flutter)",
+            "en": "Source Code (Flutter App)"
           },
           "title": {
-            "fr": "Da Auto Sport - Application mobile Android",
-            "en": "Da Auto Sport - Android mobile application"
+            "fr": "Da Auto Sport - Application mobile Android/iOS",
+            "en": "Da Auto Sport - Android/iOS mobile application"
           },
           "alt": "Da Auto Sport",
           "target": "_blank",
-          "type": "android"
+          "type": "github"
         }
       ],
       "stack": [
@@ -433,20 +433,6 @@
           "alt": "Logo Find & Watch",
           "target": "_blank",
             "type": "website"
-        },
-        {
-          "url": "https://apps.apple.com/app/find-watch/id6523432884",
-          "text": {
-            "fr": "Application iOS",
-            "en": "iOS App"
-          },
-          "title": {
-            "fr": "Find & Watch - Application mobile iOS",
-            "en": "Find & Watch - iOS mobile application"
-          },
-          "alt": "Find & Watch iOS App",
-          "target": "_blank",
-            "type": "ios"
         }
       ],
       "stack": [
@@ -562,10 +548,10 @@
         "en": ["Mobile"]
       },
       "status": {
-        "fr": "Actif",
-        "en": "Active"
+        "fr": "Terminé",
+        "en": "Completed"
       },
-      "statusNumber": 2,
+      "statusNumber": 1,
       "type": {
         "fr": "Perso",
         "en": "Personal"
@@ -582,8 +568,55 @@
           "alt": "Hinti | Image 2"
         }
       ],
-      "links": [],
+      "links": [
+        {
+          "url": "https://github.com/O-Nics/hinti-manager",
+          "text": {
+            "fr": "Code Source (Backend)",
+            "en": "Source Code (Backend)"
+          },
+          "title": {
+            "fr": "Hinti Repository - Code source Backend",
+            "en": "Hinti Repository - Backend source code"
+          },
+          "alt": "Logo Hinti",
+          "target": "_blank",
+          "type": "github"
+        },
+        {
+          "url": "https://github.com/O-Nics/kcal-app-manager",
+          "text": {
+            "fr": "Code Source Remasterisé (Backend)",
+            "en": "Source Code Remastered (Backend)"
+          },
+          "title": {
+            "fr": "Hinti Repository - Code source Backend",
+            "en": "Hinti Repository - Backend source code"
+          },
+          "alt": "Logo Hinti",
+          "target": "_blank",
+          "type": "github"
+        },
+        {
+          "url": "https://github.com/O-Nics/hinti_flutter",
+          "text": {
+            "fr": "Code Source (Frontend)",
+            "en": "Source Code (Frontend)"
+          },
+          "title": {
+            "fr": "Hinti Repository - Code source Frontend",
+            "en": "Hinti Repository - Frontend source code"
+          },
+          "alt": "Logo Hinti",
+          "target": "_blank",
+          "type": "github"
+        }
+      ],
       "stack": [
+        {
+          "name": "Laravel",
+          "image": "Laravel.png"
+        },
         {
           "name": "Flutter",
             "image": "Flutter.png"
@@ -715,7 +748,13 @@
         "fr": "Pro",
         "en": "Professional"
       },
-      "media": [],
+      "media": [
+        {
+          "type": "image",
+          "path": "/images/projects/fclyon.jpg",
+          "alt": "Find & Watch"
+        }
+      ],
       "links": [
         {
           "url": "https://apps.apple.com/fr/app/fc-lyon/id6738989383",
@@ -819,7 +858,7 @@
         ]
       },
 
-      "featured": false
+      "featured": true
     }
   ]
 }

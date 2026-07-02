@@ -4,8 +4,8 @@
       "id": 1,
       "latest": true,
       "title": {
-        "fr": "Développeur Backend",
-        "en": "Backend Developer"
+        "fr": "Développeur Full-stack",
+        "en": "Full-Stack Developer"
       },
       "society": "Liberlo",
       "date": {
@@ -17,8 +17,8 @@
         "en": "Lyon, France"
       },
       "description": {
-        "fr": "Développeur Backend Laravel au sein de l’équipe engineering de Liberlo, une alternative française à Doctolib spécialisée dans les médecines douces et holistiques. J’ai contribué à la modernisation du backend en refactorisant du code legacy vers des modules Laravel propres et maintenables, améliorant ainsi les performances et la qualité du code. J’ai développé de nouvelles fonctionnalités avec un fort accent sur les tests (unitaires et fonctionnels), suivi les workflows Git avec merge requests et collaboré étroitement avec le Lead Tech, la Product Owner et les équipes QA via Jira afin d’assurer une livraison fiable et incrémentale.",
-        "en": "Backend Laravel developer within the Liberlo engineering team, a French alternative to Doctolib specialized in holistic and alternative medicine. I contributed to modernizing the backend by refactoring legacy code into clean and maintainable Laravel modules, improving performance and code quality. I developed new features with a strong focus on testing (unit and feature tests), followed Git-based workflows with merge requests, and collaborated closely with the Lead Tech, Product Owner and QA teams using Jira to ensure reliable and incremental delivery."
+        "fr": "Développeur Full-Stack Laravel / Nuxt.js au sein de l'équipe engineering \nde Liberlo, une alternative française à Doctolib spécialisée dans les \nmédecines douces et holistiques. J'ai contribué à la modernisation du \nbackend en refactorisant du code legacy vers des modules Laravel propres \net maintenables, tout en développant de nouvelles fonctionnalités côté \nfront et back avec un fort accent sur les tests unitaires et fonctionnels. \nJ'ai intégré MangoPay pour la gestion des paiements et de la facturation \nainsi que HubSpot pour l'automatisation des flux clients, et mis en place \nun système de monitoring via table d'audit pour la traçabilité et le \ndébogage en production. J'ai suivi les workflows Git avec merge requests \net collaboré étroitement avec le Lead Tech, la Product Owner et les \néquipes QA via Jira afin d'assurer une livraison fiable et incrémentale.\n",
+        "en": "Full-Stack Laravel / Nuxt.js Developer within the engineering team at \nLiberlo, a French alternative to Doctolib specialized in soft and \nholistic medicine. I contributed to the modernization of the backend \nby refactoring legacy code into clean and maintainable Laravel modules, \nwhile developing new features on both the front and back end with a \nstrong focus on unit and functional testing. I integrated MangoPay for \npayment and billing management as well as HubSpot for client workflow \nautomation, and implemented a monitoring system via an audit table for \ntraceability and debugging in production. I followed Git workflows with \nmerge requests and collaborated closely with the Lead Tech, Product \nOwner and QA teams through Jira to ensure reliable and incremental \ndelivery.\n"
       }
     },
     {
