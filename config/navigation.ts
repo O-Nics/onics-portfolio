@@ -58,7 +58,7 @@ export const getNavigationQuickLinks = (
   {
     id: 1,
     name: "Github",
-    href: "https://github.com/O-Nicks",
+    href: "https://github.com/O-Nics",
     icon: GithubIcon,
     isExternal: true,
   },
