@@ -72,7 +72,7 @@ dark:border-white/5 dark:bg-black/10"
                         )}
                         <p className="text-sm">{skill.name}</p>
                         {skill.isFavorite && (
-                          <StarIcon className="w-4" color="yellow" />
+                          <StarIcon className="w-4" color="orange" />
                         )}
                       </div>
                     </div>
