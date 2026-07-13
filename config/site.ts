@@ -51,7 +51,7 @@ export const siteConfig = {
     {
       id: 3,
       name: "Télécharger mon CV",
-      href: "images/cv/CV_Nicolas_Planche_2025.pdf",
+      href: "images/cv/CV_Nicolas_Planche_2026.pdf",
       icon: DocIcon,
       isExternal: true,
     },
