@@ -36,7 +36,7 @@ export const siteConfig = {
     {
       id: 1,
       name: "Github",
-      href: "https://github.com/O-Nicks",
+      href: "https://github.com/O-Nics",
       icon: GithubIcon,
       isExternal: true,
     },
@@ -51,13 +51,13 @@ export const siteConfig = {
     {
       id: 3,
       name: "Télécharger mon CV",
-      href: "images/cv/CV_Nicolas_Planche_2025.pdf",
+      href: "images/cv/CV_Nicolas_Planche_2026.pdf",
       icon: DocIcon,
       isExternal: true,
     },
   ],
   links: {
-    github: "https://github.com/O-Nicks",
+    github: "https://github.com/O-Nics",
     linkedin: "https://www.linkedin.com/in/nicolas-planche/",
   },
 };

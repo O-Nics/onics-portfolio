@@ -24,7 +24,7 @@ export default function Example() {
         jobTitle={t.home.subtitle}
         name={t.home.title}
         sameAs={[
-          "https://github.com/O-Nicks",
+          "https://github.com/O-Nics",
           "https://www.linkedin.com/in/nicolas-planche/",
         ]}
         url={siteConfig.canonicalUrl}

@@ -58,7 +58,7 @@ export const getNavigationQuickLinks = (
   {
     id: 1,
     name: "Github",
-    href: "https://github.com/O-Nicks",
+    href: "https://github.com/O-Nics",
     icon: GithubIcon,
     isExternal: true,
   },
@@ -75,8 +75,8 @@ export const getNavigationQuickLinks = (
     name: t.nav.cv,
     href:
       locale === "en"
-        ? "/images/cv/CV_English_Nicolas_Planche_2025.pdf"
-        : "/images/cv/CV_Nicolas_Planche_2025.pdf",
+        ? "/images/cv/CV_Nicolas_Planche_2026.pdf"
+        : "/images/cv/CV_Nicolas_Planche_2026.pdf",
     icon: DocIcon,
     isExternal: true,
   },
