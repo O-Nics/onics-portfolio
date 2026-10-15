@@ -4,7 +4,7 @@
     "about": "À propos de moi",
     "projects": "Projets",
     "skills": "Compétences",
-    "experiences": "Éxperiences",
+    "experiences": "Expériences",
     "education": "Formations",
     "contact": "Contact",
     "cv": "Télécharger le CV",
@@ -25,33 +25,32 @@
   "home": {
     "title": "Nicolas Planche",
     "subtitle": "Développeur Full-Stack & Mobile",
-    "description1": "Amoureux de la tech, je conçois des applications mobiles et web ainsi que des back-ends solides.",
-    "description2": "J'utilise des technologies modernes tel que Flutter, Laravel, Vue/Nuxt, Next/React, Tailwind CSS et des pratiques DevOps pour livrer des solutions logicielles complètes, orientées utilisateur et de haute qualité.",
+    "description1": "Je conçois, développe et fais évoluer des applications web et mobiles en production, du back-end aux interfaces, avec une attention constante portée à la qualité du code et à la fiabilité des livraisons.",
+    "description2": "Je travaille principalement avec Laravel, Nuxt.js et Flutter, ainsi qu'avec Next.js et React. Ces technologies constituent mon socle, pas une limite : je m'adapte aux outils que demande chaque projet.",
     "rightLink": "À propos de moi"
   },
   "about": {
     "title": "À propos de moi",
-    "subtitle": "Créer, apprendre, itérer",
-    "description1": "Développeur full-stack passionné, j'aime donner vie à des produits qui allient esthétique, performance et sens.",
-    "description2": "Mon approche repose sur la rigueur technique, la curiosité et une volonté constante d'apprendre et de progresser.",
-    "description3": "Du front au back, j'accorde une attention particulière à chaque détail : concevoir une interface fluide, structurer une architecture propre, optimiser les performances ou garantir la maintenabilité du code.",
-    "description4": "Mon objectif est simple : créer des applications utiles, agréables à utiliser et faciles à faire évoluer.",
-    "description5": "J'aime collaborer avec des équipes motivées, confronter les idées et trouver les solutions les plus adaptées aux besoins réels des utilisateurs.",
-    "description6": "Chaque projet est pour moi une nouvelle opportunité d'expérimenter, d'améliorer mes pratiques et de repousser mes limites pour livrer des produits fiables et durables.",
+    "subtitle": "Des applications pensées pour la production.",
+    "description1": "Développeur full-stack et mobile, je travaille depuis 2022 sur des applications web et mobiles utilisées en production, en entreprise comme en freelance.",
+    "description2": "J'interviens sur l'ensemble du cycle de vie d'un produit : développement de nouvelles fonctionnalités, évolution d'applications existantes, intégration de services tiers (paiement, CRM, notifications), refactoring de code legacy et sécurisation des livraisons.",
+    "description3": "Je considère la maintenabilité comme une exigence, non comme une option : code lisible, architecture structurée, tests automatisés et traçabilité en production. Une application doit pouvoir évoluer sans que chaque modification devienne un risque.",
+    "description4": "J'ai participé à des choix techniques et à l'évolution d'architectures, notamment le refactoring de code legacy vers des modules inspirés du DDD et la conception d'une solution en marque blanche déployée pour des clubs partenaires.",
+    "description5": "J'ai également développé une dimension de gestion de projet et de coordination technique. En stage, j'ai mené un projet en autonomie, du recueil du besoin à la mise en ligne. Chez SportCorico, j'ai structuré l'organisation de l'équipe technique : sprints, priorisation, revues de code, CI/CD. Chez Liberlo, je participe au cadrage des fonctionnalités avec le Lead Tech et la Product Owner. En freelance, je pilote les projets de bout en bout, du cadrage à la maintenance.",
+    "description6": "Je continue d'approfondir les stacks que j'utilise au quotidien, et je reste ouvert à de nouveaux langages, frameworks et environnements dès lors qu'ils répondent mieux aux besoins d'un projet.",
     "leftLink": "Accueil",
     "rightLink": "Projets"
-
   },
   "projects": {
     "title": "Projets",
-    "subtitle": "Du concept à la mise en production.",
-    "subtitle2": "Mes projets les plus marquants.",
-    "description": "Chaque projet est une occasion de transformer une idée en solution concrète.",
+    "subtitle": "Du cadrage à la mise en production.",
+    "subtitle2": "Une sélection de projets représentatifs.",
+    "description": "Applications clients, produits personnels et outils open source : chaque projet présenté ici répond à un besoin concret et a été mené jusqu'à un résultat utilisable, avec les mêmes exigences de structure, de fiabilité et de maintenabilité.",
     "seeMore": "Voir plus",
     "backToProjects": "Revenir aux projets",
     "features": "Fonctionnalités",
-    "challenges": "Défis relevés",
-    "lessons": "Leçons apprises",
+    "challenges": "Enjeux techniques",
+    "lessons": "Retour d'expérience",
     "technologies": "Technologies utilisées",
     "links": "Liens",
     "leftLink": "À propos de moi",
@@ -60,32 +59,32 @@
   },
   "skills": {
     "title": "Compétences",
-    "subtitle": "Apprendre par la pratique, maîtriser par la rigueur.",
-    "description": "J'ai appris en codant, en testant et en déboguant, jusqu'à faire du développement bien plus qu'un métier : une manière de penser. En tant que développeur full-stack, je conçois des applications web et mobiles performantes, maintenables et scalables, en cherchant toujours à repousser mes limites et à enrichir ma stack au fil des projets.",
+    "subtitle": "Une stack maîtrisée, des choix guidés par le besoin.",
+    "description": "J'interviens sur l'ensemble de la chaîne de développement : mobile, front-end, back-end, outillage et mise en production. Je continue d'approfondir les technologies que j'utilise au quotidien, comme Laravel, Nuxt.js et Flutter, et je monte volontiers en compétence sur d'autres langages, frameworks ou environnements lorsque le projet le justifie, avec la même exigence : en comprendre les principes avant de les utiliser en production.",
     "leftLink": "Projets",
-    "rightLink": "Éxperiences"
+    "rightLink": "Expériences"
   },
   "experiences": {
-    "title": "Éxperience",
-    "subtitle": "On a besoin d'expérience pour décrocher le job… mais c'est le job qui donne l'expérience !",
-    "description1": "Au fil de mon parcours de développeur full-stack, j’ai eu l’occasion de toucher à tout : des applications mobiles construites avec Flutter, aux API Laravel robustes, en passant par des interfaces web élégantes réalisées avec Nuxt, Next.js et React. Chaque projet a été un terrain d’apprentissage, entre créativité et rigueur, parfois à peaufiner une animation, parfois à traquer un bug qui n’apparaît qu’en production à 2 h du matin.",
-    "description2": "Ces expériences m’ont appris bien plus que la théorie : écrire du code clair, collaborer efficacement et toujours chercher à comprendre avant de corriger. Ce que j’aime avant tout ? Transformer des idées complexes en produits performants, utiles et agréables à utiliser.",
+    "title": "Expériences",
+    "subtitle": "Des applications en production, en équipe comme en autonomie.",
+    "description1": "Mon parcours s'est construit sur des produits réels : une plateforme de prise de rendez-vous dans le domaine du bien-être, une application sportive web et mobile déclinée en marque blanche, et des projets menés en freelance pour différents clients.",
+    "description2": "J'y ai pris en charge le développement full-stack, l'intégration de services tiers, le refactoring d'architectures et la mise en place de tests, mais aussi des sujets de coordination technique : organisation des sprints, revue de code, mise en place de la CI/CD et collaboration étroite avec les équipes produit et QA.",
     "leftLink": "Compétences",
     "rightLink": "Formations"
   },
   "education": {
     "title": "Formations",
-    "subtitle": "Apprendre, expérimenter, évoluer.",
-    "description1": "De ma formation scientifique au lycée jusqu'à la licence Mathématiques et Informatique à l'Université Lyon 1, j'ai construit une base solide en logique et en conception logicielle.",
-    "description2" : "Mon Master Développeur Full-Stack à MyDigitalSchool Lyon a marqué une étape clé : j’y ai consolidé mes compétences en développement web et mobile, en travaillant sur des projets concrets alliant performance, design et expérience utilisateur.",
-    "leftLink": "Éxperiences",
+    "subtitle": "Des bases théoriques solides, consolidées par la pratique.",
+    "description1": "Ma licence Mathématiques et Informatique à l'Université Claude Bernard Lyon 1 m'a apporté des bases solides en algorithmique, en programmation et en raisonnement logique, sur lesquelles je m'appuie au quotidien pour concevoir des solutions structurées.",
+    "description2": "J'ai ensuite suivi le Master Développeur Full-Stack de MyDigitalSchool Lyon en alternance chez SportCorico. Ce format m'a permis de mettre directement en pratique les enseignements, du développement web et mobile à la gestion de projet, sur une application en production.",
+    "leftLink": "Expériences",
     "rightLink": "Contact"
   },
   "contact": {
     "title": "Contact",
-    "description1": "Un projet en tête ? Une opportunité à partager ?",
-    "description2": "Je serais ravi d'en discuter avec vous. Laissez-moi un message ci-dessous.",
-    "description3": "J'ai hâte de vous lire !",
+    "description1": "Un projet, une mission ou une opportunité à évoquer ?",
+    "description2": "Je suis à l'écoute des propositions de collaboration, de missions et d'opportunités professionnelles en développement web, mobile ou full-stack.",
+    "description3": "Présentez-moi votre contexte et vos besoins via le formulaire ci-dessous, je vous réponds dans les meilleurs délais.",
     "form": {
       "name": "Nom",
       "namePlaceholder": "Votre nom",
@@ -100,10 +99,9 @@
       "success": "Message envoyé avec succès !",
       "error": "Une erreur est survenue. Veuillez réessayer.",
       "errorName": "Le nom est requis.",
-        "errorEmail": "Un email valide est requis.",
-        "errorSubject": "Le sujet est requis.",
-        "errorMessage": "Le message ne peut pas être vide."
-
+      "errorEmail": "Un email valide est requis.",
+      "errorSubject": "Le sujet est requis.",
+      "errorMessage": "Le message ne peut pas être vide."
     },
     "subjects": {
       "project": "Nouveau projet",

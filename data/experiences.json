@@ -4,12 +4,12 @@
       "id": 1,
       "latest": true,
       "title": {
-        "fr": "Développeur Full-stack",
+        "fr": "Développeur Full-Stack",
         "en": "Full-Stack Developer"
       },
       "society": "Liberlo",
       "date": {
-        "fr": "Octobre 2025 - Présent",
+        "fr": "Octobre 2025 - Aujourd'hui",
         "en": "October 2025 - Present"
       },
       "location": {
@@ -17,37 +17,16 @@
         "en": "Lyon, France"
       },
       "description": {
-        "fr": "Développeur Full-Stack Laravel / Nuxt.js au sein de l'équipe engineering \nde Liberlo, une alternative française à Doctolib spécialisée dans les \nmédecines douces et holistiques. J'ai contribué à la modernisation du \nbackend en refactorisant du code legacy vers des modules Laravel propres \net maintenables, tout en développant de nouvelles fonctionnalités côté \nfront et back avec un fort accent sur les tests unitaires et fonctionnels. \nJ'ai intégré MangoPay pour la gestion des paiements et de la facturation \nainsi que HubSpot pour l'automatisation des flux clients, et mis en place \nun système de monitoring via table d'audit pour la traçabilité et le \ndébogage en production. J'ai suivi les workflows Git avec merge requests \net collaboré étroitement avec le Lead Tech, la Product Owner et les \néquipes QA via Jira afin d'assurer une livraison fiable et incrémentale.\n",
-        "en": "Full-Stack Laravel / Nuxt.js Developer within the engineering team at \nLiberlo, a French alternative to Doctolib specialized in soft and \nholistic medicine. I contributed to the modernization of the backend \nby refactoring legacy code into clean and maintainable Laravel modules, \nwhile developing new features on both the front and back end with a \nstrong focus on unit and functional testing. I integrated MangoPay for \npayment and billing management as well as HubSpot for client workflow \nautomation, and implemented a monitoring system via an audit table for \ntraceability and debugging in production. I followed Git workflows with \nmerge requests and collaborated closely with the Lead Tech, Product \nOwner and QA teams through Jira to ensure reliable and incremental \ndelivery.\n"
+        "fr": "Développeur full-stack Laravel / Nuxt.js au sein de l'équipe engineering de Liberlo, plateforme française de prise de rendez-vous spécialisée dans les médecines douces. Je contribue à la modernisation du back-end en refactorisant du code legacy vers des modules Laravel structurés, inspirés du DDD, et je développe de nouvelles fonctionnalités front et back selon une approche TDD. J'ai intégré HubSpot pour l'automatisation des flux clients, et mis en place une table d'audit pour la traçabilité et le diagnostic en production. Je participe au cadrage et au découpage des fonctionnalités avec le Lead Tech et la Product Owner, et j'assure une livraison incrémentale via merge requests, en lien avec l'équipe QA (Jira).",
+        "en": "Full-stack Laravel / Nuxt.js developer in the engineering team at Liberlo, a French booking platform specialized in alternative medicine. I contribute to modernizing the back-end by refactoring legacy code into structured, DDD-inspired Laravel modules, and I build new front-end and back-end features using a TDD approach. I integrated HubSpot for customer workflow automation, and set up an audit table for traceability and troubleshooting in production. I take part in scoping and breaking down features with the Lead Tech and the Product Owner, and deliver incrementally through merge requests, working with the QA team (Jira)."
       }
     },
     {
       "id": 2,
       "latest": false,
       "title": {
-        "fr": "Freelance Développeur Full Stack",
-        "en": "Freelance Full Stack Developer"
-      },
-      "society": null,
-      "date": {
-        "fr": "Octobre 2022 - Présent",
-        "en": "October 2022 - Present"
-      },
-      "location": {
-        "fr": "Remote, France",
-        "en": "Remote, France"
-      },
-      "description": {
-        "fr": "Développeur full-stack, j’ai participé au développement d’une application mobile et web en Flutter, Laravel et Nuxt.js, avec un fort accent sur l’optimisation des performances, la sécurité des données et la fiabilité du backend. J’y ai intégré des services tiers (HelloAsso, OneSignal), amélioré l’architecture technique et mis en place un workflow complet CI/CD pour assurer stabilité et qualité continue du produit.",
-        "en": "As a full-stack developer, I contributed to the development of a mobile and web application built with Flutter, Laravel, and Nuxt.js, with a strong focus on performance optimization, data security, and backend reliability. I integrated third-party services (HelloAsso, OneSignal), improved the technical architecture, and implemented a full CI/CD workflow to ensure product stability and continuous quality."
-      }
-    },
-    {
-      "id": 3,
-      "latest": false,
-      "title": {
-        "fr": "Alternance Développeur Full Stack",
-        "en": "Full Stack Developer Apprentice"
+        "fr": "Développeur Full-Stack (alternance)",
+        "en": "Full-Stack Developer (work-study)"
       },
       "society": "SportCorico",
       "date": {
@@ -59,8 +38,29 @@
         "en": "Neuville-sur-Saône, France"
       },
       "description": {
-        "fr": "Développeur full-stack, j’ai participé au développement d’une application mobile et web en Flutter, Laravel et Nuxt.js, avec un fort accent sur l’optimisation des performances, la sécurité des données et la fiabilité du backend. J’y ai intégré des services tiers (HelloAsso, OneSignal), amélioré l’architecture technique et mis en place un workflow complet CI/CD pour assurer stabilité et qualité continue du produit.",
-        "en": "As a full-stack developer apprentice, I contributed to the development of a mobile and web application using Flutter, Laravel, and Nuxt.js, focusing on performance optimization, data security, and backend reliability. I integrated third-party services (HelloAsso, OneSignal), enhanced the technical architecture, and implemented a complete CI/CD workflow to ensure stability and continuous quality."
+        "fr": "Développement de l'application web et mobile SportCorico (Flutter, Laravel, Nuxt.js) et conception d'une architecture en marque blanche permettant de déployer de nouvelles instances pour des clubs partenaires, dont FC Lyon+, application officielle publiée sur l'App Store. Intégration de services tiers (HelloAsso, OneSignal) et mise en place du suivi d'erreurs avec Sentry. Au-delà du développement, j'ai pris en charge l'organisation technique de l'équipe : mise en place des sprints, priorisation des tâches, revue des pull requests et pipelines CI/CD, afin de fiabiliser et de cadencer les livraisons.",
+        "en": "Development of the SportCorico web and mobile application (Flutter, Laravel, Nuxt.js) and design of a white-label architecture used to deploy new instances for partner clubs, including FC Lyon+, an official app published on the App Store. Integration of third-party services (HelloAsso, OneSignal) and error tracking with Sentry. Beyond development, I took charge of the team's technical organization: setting up sprints, prioritizing tasks, reviewing pull requests and building CI/CD pipelines to make releases more reliable and regular."
+      }
+    },
+    {
+      "id": 3,
+      "latest": false,
+      "title": {
+        "fr": "Développeur Full-Stack & Mobile Freelance",
+        "en": "Freelance Full-Stack & Mobile Developer"
+      },
+      "society": null,
+      "date": {
+        "fr": "Octobre 2022 - Aujourd'hui",
+        "en": "October 2022 - Present"
+      },
+      "location": {
+        "fr": "Remote, France",
+        "en": "Remote, France"
+      },
+      "description": {
+        "fr": "Conception et livraison de projets web et mobiles pour des clients aux besoins variés, avec une prise en charge complète du cycle de vie : cadrage du besoin, choix techniques adaptés aux contraintes métier et budgétaires, développement, mise en production et maintenance. Réalisation d'applications iOS et Android en Flutter et d'applications web reposant sur des API Laravel, avec intégration de services externes, comme la synchronisation avec le logiciel SpiderVO pour un garage automobile. Interlocuteur unique du client, j'assure le suivi du projet de son lancement jusqu'aux évolutions après livraison.",
+        "en": "Design and delivery of web and mobile projects for clients with varied needs, covering the full lifecycle: scoping, technical choices suited to business and budget constraints, development, deployment and maintenance. I build iOS and Android apps with Flutter and web applications backed by Laravel APIs, integrating external services such as synchronization with the SpiderVO software for a car dealership. As the client's single point of contact, I follow each project from kickoff through post-delivery improvements."
       }
     },
     {
@@ -80,8 +80,8 @@
         "en": "May 2022 - July 2022"
       },
       "description": {
-        "fr": "Création d’un site vitrine complet pour présenter les services de l’entreprise et améliorer sa visibilité en ligne. Mise en place d’un réseau local sécurisé, configuration du matériel et renforcement de la sécurité informatique afin d’optimiser la fiabilité et la performance de l’infrastructure interne.",
-        "en": "Developed a complete showcase website to present the company's services and improve its online visibility. Set up a secure local network, configured equipment, and strengthened IT security to optimize the reliability and performance of the internal infrastructure."
+        "fr": "Création en autonomie du site vitrine de l'entreprise, du recueil du besoin à la mise en ligne, afin de présenter ses services et d'améliorer sa visibilité. Mise en place d'un réseau local sécurisé : configuration du matériel et renforcement de la sécurité informatique.",
+        "en": "Built the company's showcase website on my own, from gathering requirements to going live, to present its services and improve its online visibility. Set up a secure local network: hardware configuration and stronger IT security."
       }
     }
   ]

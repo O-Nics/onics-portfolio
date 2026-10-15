@@ -8,7 +8,7 @@
         "en": "Da Auto Sport - BMW Garage website & mobile app"
       },
       "shortDescription": {
-        "fr": "Garage BMW - site & app mobile connectés à SpiderVO, catalogue dynamique, fiches détaillées et recommandations en temps réel.",
+        "fr": "Site web et application mobile pour un garage spécialisé BMW, connectés au logiciel SpiderVO : catalogue synchronisé, fiches détaillées et recommandations en temps réel.",
         "en": "BMW Garage - website & mobile app connected to SpiderVO, dynamic catalog, detailed listings and real-time recommendations."
       },
       "longDescription": {
@@ -383,7 +383,7 @@
         "en": "Find & Watch - Movie and TV series tracking"
       },
       "shortDescription": {
-        "fr": "App mobile & site vitrine pour suivre films/séries/animés via TMDB, avec suivi d'épisodes, favoris et notifications OneSignal.",
+        "fr": "Application mobile et site web de suivi de films, séries et animés basés sur l'API TMDB : suivi d'épisodes, favoris et notifications push.",
         "en": "Mobile app & showcase website to track movies/series/anime via TMDB, with episode tracking, favorites and OneSignal notifications."
       },
       "longDescription": {
@@ -419,22 +419,7 @@
           "alt": "Find & Watch"
         }
       ],
-      "links": [
-        {
-          "url": "https://find-and-watch.fr",
-          "text": {
-            "fr": "Site vitrine",
-            "en": "Showcase website"
-          },
-          "title": {
-            "fr": "Find & Watch - Site officiel",
-            "en": "Find & Watch - Official website"
-          },
-          "alt": "Logo Find & Watch",
-          "target": "_blank",
-            "type": "website"
-        }
-      ],
+      "links": [],
       "stack": [
         {
           "name": "Flutter",
@@ -532,7 +517,7 @@
         "en": "Hinti - Nutrition & fitness app"
       },
       "shortDescription": {
-        "fr": "App mobile nutrition & sport : programme calorique, recherche instantanée, scan code‑barres, IA et base Open Food Facts.",
+        "fr": "Application mobile de nutrition et de sport : programme calorique, scan de code-barres, recherche instantanée et fonctionnalités basées sur l'IA, adossée à Open Food Facts.",
         "en": "Mobile nutrition & fitness app: calorie program, instant search, barcode scan, AI and Open Food Facts database."
       },
       "longDescription": {
@@ -724,7 +709,7 @@
         "en": "FC Lyon - Football club application"
       },
       "shortDescription": {
-        "fr": "Application mobile officielle du club de football FC Lyon offrant des avantages exclusifs et réductions chez les partenaires.",
+        "fr": "Application mobile officielle du FC Lyon, développée dans le cadre de SportCorico : informations du club, offres et réductions chez les partenaires.",
         "en": "Official mobile application of FC Lyon football club offering exclusive benefits and discounts with partner businesses."
       },
       "longDescription": {

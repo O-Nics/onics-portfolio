@@ -7,8 +7,8 @@
       "startDate": { "fr": "Septembre 2023", "en": "September 2023" },
       "endDate": { "fr": "Août 2025", "en": "August 2025" },
       "description": {
-        "fr": "Formation axée sur le développement web et mobile, couvrant les technologies front-end et back-end, ainsi que la gestion de projets informatiques.",
-        "en": "Program focused on web and mobile development, covering front‑end and back‑end technologies as well as IT project management."
+        "fr": "Formation en alternance, centrée sur le développement web et mobile (front-end, back-end) et la gestion de projets informatiques. Les enseignements ont été mis en pratique directement sur une application en production.",
+        "en": "Work-study program, focused on web and mobile development (front-end, back-end) and IT project management. Coursework was applied directly to an application in production."
       },
       "level": { "fr": "Bac+5", "en": "Master’s degree (Bac+5)" },
       "location": { "fr": "Lyon, France", "en": "Lyon, France" }
@@ -20,8 +20,8 @@
       "startDate": { "fr": "Octobre 2018", "en": "October 2018" },
       "endDate": { "fr": "Juin 2023", "en": "June 2023" },
       "description": {
-        "fr": "Formation pluridisciplinaire combinant les mathématiques fondamentales et appliquées avec l'informatique, incluant la programmation, les algorithmes et les systèmes d'information.",
-        "en": "Interdisciplinary program combining fundamental and applied mathematics with computer science, including programming, algorithms, and information systems."
+        "fr": "Formation pluridisciplinaire alliant mathématiques fondamentales et appliquées et informatique : programmation, algorithmique et systèmes d'information. Elle m'a donné une base solide en logique et en résolution de problèmes.",
+        "en": "Interdisciplinary program combining fundamental and applied mathematics with computer science: programming, algorithms and information systems. It gave me a solid grounding in logic and problem solving."
       },
       "level": { "fr": "Bac+3", "en": "Bachelor’s degree (Bac+3)" },
       "location": { "fr": "Lyon, France", "en": "Lyon, France" }
@@ -33,8 +33,8 @@
       "startDate": { "fr": "Septembre 2015", "en": "September 2015" },
       "endDate": { "fr": "Juillet 2018", "en": "July 2018" },
       "description": {
-        "fr": "Formation générale avec une spécialisation en sciences, couvrant les mathématiques, la physique, la chimie et la biologie.",
-        "en": "General education with a science specialization, covering mathematics, physics, chemistry, and biology."
+        "fr": "Baccalauréat général, série scientifique : mathématiques, physique-chimie et sciences de la vie et de la Terre.",
+        "en": "General baccalaureate, science track: mathematics, physics, chemistry and life sciences."
       },
       "level": { "fr": "Bac", "en": "Baccalaureate (Bac)" },
       "location": { "fr": "Lyon, France", "en": "Lyon, France" }
